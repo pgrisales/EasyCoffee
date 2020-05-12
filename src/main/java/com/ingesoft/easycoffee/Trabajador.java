@@ -15,5 +15,7 @@ public class Trabajador {
         this.salario = salario;
     }
     
-    
+    public double obtenerRendimiento(){
+        return 0;
+    }
 }

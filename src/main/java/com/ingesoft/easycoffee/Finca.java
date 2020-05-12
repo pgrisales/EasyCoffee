@@ -6,7 +6,7 @@ public class Finca {
     
     private String nombreFinca;
     private ArrayList<Trabajador> trabajadores = new ArrayList<>();
-    private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private ArrayList<Usuario> auxiliares = new ArrayList<>();
     private ArrayList<Lote> lotes = new ArrayList<>();
 
     public Finca() {
@@ -19,7 +19,7 @@ public class Finca {
     public void setNombreFinca(String nombreFinca) {
         this.nombreFinca = nombreFinca;
     }
-    
+     
     
     
 }

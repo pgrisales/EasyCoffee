@@ -1,5 +1,7 @@
 package com.ingesoft.easycoffee;
 
+import java.util.ArrayList;
+
 public class Usuario {
     
     private String username;
@@ -24,5 +26,8 @@ public class Usuario {
         this.password = password;
     }
     
-    
+    public ArrayList<Lote> setEspacioDeTrabajo(){
+        ArrayList<Lote> lotes = new ArrayList<>();
+        return lotes;
+    }
 }
