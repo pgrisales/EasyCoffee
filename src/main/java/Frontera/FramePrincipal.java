@@ -12,6 +12,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private static Ingreso ingreso;
     private static RecuperarContraseña recuperar;
     private static CambiarContraseña cambiar;
+    private static InicioSistema inicio;
     private static boolean seInicio = false;
 
     public static boolean isSeInicio() {
@@ -27,7 +28,8 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.cambiar = new CambiarContraseña();
         this.ingreso = new Ingreso();
         this.registro = new Registro();
-        this.panel = "registro";
+        this.inicio = new InicioSistema();
+        this.panel = "ingreso";
         initComponents();
         
         this.setTitle("Easy Coffee");
@@ -35,6 +37,12 @@ public class FramePrincipal extends javax.swing.JFrame {
     }
     public static void state(){
         System.out.println(panel);
+        
+        /*PanelPrincipal.setVisible(false);
+        PanelPrincipal.removeAll();
+        PanelPrincipal.add(inicio);
+        PanelPrincipal.setVisible(true);
+        //panel = "ingreso";
         
         /*do{
             System.out.println(seInicio);
@@ -44,7 +52,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             PanelPrincipal.add(registro);
             PanelPrincipal.setVisible(true);
             panel = "registro";
-            if(){
+            if(Registro.datosCorrectos() == true)){
                 seInicio = true;
             }
         }while(seInicio == false);
