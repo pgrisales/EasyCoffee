@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Frontera;
 
 import java.util.ArrayList;
@@ -17,18 +12,43 @@ public class FramePrincipal extends javax.swing.JFrame {
     private static Ingreso ingreso;
     private static RecuperarContraseña recuperar;
     private static CambiarContraseña cambiar;
+    private static boolean seInicio = false;
+
+    public static boolean isSeInicio() {
+        return seInicio;
+    }
+
+    public static void setSeInicio(boolean seInicio) {
+        FramePrincipal.seInicio = seInicio;
+    }
+    
     public FramePrincipal() {
         this.recuperar = new RecuperarContraseña();
         this.cambiar = new CambiarContraseña();
         this.ingreso = new Ingreso();
         this.registro = new Registro();
-        this.panel = "ingreso";
+        this.panel = "registro";
         initComponents();
-
+        
         this.setTitle("Easy Coffee");
+        this.setLocationRelativeTo(null);
     }
     public static void state(){
         System.out.println(panel);
+        
+        /*do{
+            System.out.println(seInicio);
+           
+            PanelPrincipal.setVisible(false);
+            PanelPrincipal.removeAll();
+            PanelPrincipal.add(registro);
+            PanelPrincipal.setVisible(true);
+            panel = "registro";
+            if(){
+                seInicio = true;
+            }
+        }while(seInicio == false);
+        panel = "ingreso";*/
         switch(panel){
             case "ingreso":{
                  PanelPrincipal.setVisible(false);

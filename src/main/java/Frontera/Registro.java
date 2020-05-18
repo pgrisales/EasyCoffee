@@ -17,6 +17,10 @@ public class Registro extends javax.swing.JPanel {
     public Registro() {
         initComponents();
     }
+    
+    public boolean datosCorrectos(){
+        return true;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,7 +145,11 @@ public class Registro extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
-        // TODO add your handling code here:
+        if(datosCorrectos() == true && FramePrincipal.isSeInicio() == false){
+            FramePrincipal.setSeInicio(true);
+        }else if(datosCorrectos() == true){
+            System.out.println("Usuario Registrado");
+        }
     }//GEN-LAST:event_registrationActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

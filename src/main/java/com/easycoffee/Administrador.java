@@ -1,4 +1,4 @@
-package com.ingesoft.easycoffee;
+package com.easycoffee;
 
 public class Administrador {
     
