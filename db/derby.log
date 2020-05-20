@@ -1,7 +1,7 @@
-Tue May 19 19:12:31 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
+Tue May 19 20:24:36 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
-Tue May 19 19:12:31 COT 2020:
- Iniciando instancia a816c00e-0172-2f6c-9bf6-ffff9389dcd4 de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
+Tue May 19 20:24:37 COT 2020:
+ Iniciando instancia a816c00e-0172-2fae-9d31-ffff9389dcd4 de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
 en el directorio de base de datos C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db\easycoffedb con el cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
 Cargado desde file:/C:/Program%20Files/NetBeans%208.2/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,75 +12,3 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
-----------------------------------------------------------------
-Tue May 19 19:12:38 COT 2020:
-Cerrando la instancia a816c00e-0172-2f6c-9bf6-ffff9389dcd4 en el directorio de base de datos C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db\easycoffedb con cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
-Tue May 19 19:12:38 COT 2020 Thread[DRDAConnThread_2,5,main] (DATABASE = easycoffedb), (DRDAID = {2}), Cierre de la base de datos 'easycoffedb'.
-----------------------------------------------------------------
-Tue May 19 19:12:47 COT 2020:
- Iniciando instancia 6ede40af-0172-2f6c-9bf6-ffff9389dcd4 de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
-en el directorio de base de datos C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db\easycoffedb con el cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
-Cargado desde file:/C:/Program%20Files/NetBeans%208.2/javadb/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_181-b13
-user.dir=C:\Program Files\NetBeans 8.2\javadb
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
-derby.system.home=C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db
-Cargador de clases de base de datos iniciado - derby.database.classpath=''
-Tue May 19 19:13:44 COT 2020 Thread[DRDAConnThread_3,5,main] Cleanup action starting
-java.sql.SQLException: No se ha encontrado la base de datos 'LoginApp_JPA'.
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: ERROR XJ004: No se ha encontrado la base de datos 'LoginApp_JPA'.
-	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	... 21 more
-============= begin nested exception, level (1) ===========
-ERROR XJ004: No se ha encontrado la base de datos 'LoginApp_JPA'.
-	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-============= end nested exception, level (1) ===========
-Cleanup action completed
-Tue May 19 19:13:44 COT 2020 Thread[DRDAConnThread_3,5,main] (DATABASE = LoginApp_JPA), (DRDAID = {4}), No se ha encontrado la base de datos 'LoginApp_JPA'.
