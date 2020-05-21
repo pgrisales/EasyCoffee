@@ -35,6 +35,10 @@ public class InicioSistema extends javax.swing.JPanel {
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
 
+        setMaximumSize(new java.awt.Dimension(900, 630));
+        setMinimumSize(new java.awt.Dimension(900, 630));
+        setPreferredSize(new java.awt.Dimension(900, 630));
+
         registration.setBackground(new java.awt.Color(153, 153, 255));
         registration.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         registration.setText("Registrar");
@@ -90,12 +94,12 @@ public class InicioSistema extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(50, 50, 50)
                                 .addComponent(registration)))))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(526, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(369, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))

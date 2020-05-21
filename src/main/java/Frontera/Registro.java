@@ -54,6 +54,10 @@ public class Registro extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         answer = new javax.swing.JTextField();
 
+        setMaximumSize(new java.awt.Dimension(900, 630));
+        setMinimumSize(new java.awt.Dimension(900, 630));
+        setPreferredSize(new java.awt.Dimension(900, 630));
+
         registration.setBackground(new java.awt.Color(255, 153, 153));
         registration.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         registration.setText("Registrar");
@@ -157,7 +161,7 @@ public class Registro extends javax.swing.JPanel {
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 446, Short.MAX_VALUE)))
                 .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
@@ -166,7 +170,7 @@ public class Registro extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
                     .addComponent(inf))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))

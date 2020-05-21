@@ -36,6 +36,9 @@ public class RecuperarContraseña extends javax.swing.JPanel {
         check = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
 
+        setMaximumSize(new java.awt.Dimension(900, 630));
+        setMinimumSize(new java.awt.Dimension(900, 630));
+
         jLabel1.setText("Nombre de usuario");
 
         jLabel2.setText("Seleccione pregunta de seguridad");
@@ -85,7 +88,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
                         .addComponent(check)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(597, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +109,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(check)
                     .addComponent(cancel))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(438, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

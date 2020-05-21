@@ -38,6 +38,9 @@ public class Ingreso extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         check = new javax.swing.JCheckBox();
 
+        setMinimumSize(new java.awt.Dimension(900, 630));
+        setPreferredSize(new java.awt.Dimension(900, 630));
+
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
@@ -101,13 +104,13 @@ public class Ingreso extends javax.swing.JPanel {
                                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(login)
                                 .addComponent(registration, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 70, Short.MAX_VALUE)))
+                        .addGap(0, 332, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(417, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))

@@ -14,6 +14,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private static CambiarContraseña cambiar;
     private static InicioSistema inicio;
     private static boolean seInicio = false;
+    
 
     public static boolean isSeInicio() {
         return seInicio;
@@ -111,17 +112,20 @@ public class FramePrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login de Usuario");
 
+        PanelPrincipal.setMaximumSize(new java.awt.Dimension(900, 630));
+        PanelPrincipal.setMinimumSize(new java.awt.Dimension(900, 630));
+        PanelPrincipal.setPreferredSize(new java.awt.Dimension(900, 630));
         PanelPrincipal.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
