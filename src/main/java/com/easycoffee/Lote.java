@@ -8,6 +8,9 @@ public class Lote {
     private String fechaDesyerbado;
     private String fechaAbonado;
     private ArrayList<Usuario> usuariosPermitidos = new ArrayList<>();
+    private boolean carga;
+    private ArrayList<Arbol> arbolesVivos;
+    private ArrayList<Arbol> arbolesMuertos;
 
     public Lote() {
     }
@@ -35,6 +38,8 @@ public class Lote {
     public void setFechaAbonado(String fechaAbonado) {
         this.fechaAbonado = fechaAbonado;
     }
-    
+    public void matarArbol(int id){
+        arbolesMuertos.add(arbolesVivos.get(id));
+    }
         
 }

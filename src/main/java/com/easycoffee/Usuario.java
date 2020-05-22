@@ -6,8 +6,21 @@ public class Usuario {
     
     private String username;
     private String password;
+    private String respuesta;
 
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
+    }
     public Usuario() {
+    }
+    public Usuario(String username, String password, String respuesta) {
+        this.username = username;
+        this.password = password;
+        this.respuesta = respuesta;
     }
 
     public String getUsername() {
