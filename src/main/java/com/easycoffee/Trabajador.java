@@ -12,6 +12,14 @@ public class Trabajador {
     public void insertarJornada(Jornada jornada) {
         this.jornada.add(jornada) ;
     }
+
+    public ArrayList<Jornada> getJornada() {
+        return jornada;
+    }
+
+    public void setJornada(ArrayList<Jornada> jornada) {
+        this.jornada = jornada;
+    }
     
     public double getSalario() {
         return salario;

@@ -19,7 +19,12 @@ public class Finca {
     public void setNombreFinca(String nombreFinca) {
         this.nombreFinca = nombreFinca;
     }
-     
+    public void agregarlote(Lote lote){
+        lotes.add(lote);
+    } 
+    public void agregarAuxiliar(Usuario usuario){
+        auxiliares.add(usuario);
+    }
     
     
 }

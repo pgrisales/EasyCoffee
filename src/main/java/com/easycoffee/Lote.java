@@ -41,5 +41,8 @@ public class Lote {
     public void matarArbol(int id){
         arbolesMuertos.add(arbolesVivos.get(id));
     }
-        
+    public void addArbol(Arbol arbol){
+        arbolesVivos.add(arbol);
+    }
+     
 }
