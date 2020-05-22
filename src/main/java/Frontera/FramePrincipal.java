@@ -1,6 +1,9 @@
 package Frontera;
 
+import Frontera.image.Imagen;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -32,6 +35,8 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.inicio = new InicioSistema();
         this.panel = "ingreso";
         initComponents();
+        Imagen image = new Imagen();
+        ingreso.add(image);
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
     }
@@ -59,24 +64,28 @@ public class FramePrincipal extends javax.swing.JFrame {
         panel = "ingreso";*/
         switch(panel){
             case "ingreso":{
+                 PanelPrincipal.setVisible(false);
                  PanelPrincipal.removeAll();
                  PanelPrincipal.add(ingreso);
                  PanelPrincipal.setVisible(true);
                 break;
             }
             case "registro":{
+                PanelPrincipal.setVisible(false);
                  PanelPrincipal.removeAll();
                  PanelPrincipal.add(registro);
                  PanelPrincipal.setVisible(true);
                 break;
             }
             case "recuperar":{
+                PanelPrincipal.setVisible(false);
                  PanelPrincipal.removeAll();
                  PanelPrincipal.add(recuperar);
                  PanelPrincipal.setVisible(true);
                 break;
             }
             case "cambiar":{
+                PanelPrincipal.setVisible(false);
                  PanelPrincipal.removeAll();
                  PanelPrincipal.add(cambiar);
                  PanelPrincipal.setVisible(true);
@@ -103,7 +112,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         PanelPrincipal = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login de Usuario");
@@ -113,12 +121,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         PanelPrincipal.setMinimumSize(new java.awt.Dimension(900, 503));
         PanelPrincipal.setPreferredSize(new java.awt.Dimension(900, 503));
         PanelPrincipal.setLayout(new java.awt.BorderLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Hp\\Documents\\NetBeansProjects\\EasyCoffee\\src\\main\\java\\Frontera\\image\\coffe.jpg")); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(500, 506));
-        jLabel1.setMinimumSize(new java.awt.Dimension(500, 506));
-        jLabel1.setPreferredSize(new java.awt.Dimension(500, 506));
-        PanelPrincipal.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,6 +151,5 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel PanelPrincipal;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
