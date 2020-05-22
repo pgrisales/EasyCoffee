@@ -36,7 +36,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.panel = "ingreso";
         initComponents();
         Imagen image = new Imagen();
-        ingreso.add(image);
+        //ingreso.add(image);
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
     }

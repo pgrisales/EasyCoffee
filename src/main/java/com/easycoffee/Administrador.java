@@ -1,11 +1,14 @@
 package com.easycoffee;
 
-public class Administrador {
+public class Administrador extends Usuario{
     
     private Finca finca;
 
-    public Administrador() {
+    public Administrador(String username, String password, String respuesta) {
+        super(username, password, respuesta);
+        this.finca = new Finca();
     }
+
 
     public Finca getFinca() {
         return finca;
