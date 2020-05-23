@@ -13,7 +13,7 @@ import com.easycoffee.Usuario;
  * @author Camilo Vargas
  */
 public class ValidarLogin {
-    UsuarioDAO usuarioDAO= new UsuarioDAO();
+//    UsuarioDAO usuarioDAO= new UsuarioDAO();
 
     public ValidarLogin() {
     }
