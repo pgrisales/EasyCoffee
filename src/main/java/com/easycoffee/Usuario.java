@@ -17,8 +17,8 @@ public class Usuario extends Persona {
         this.respuesta = respuesta;
     }
 
-    public Usuario(String username, String password, String respuesta, Long idUnico, long cedula, String nombre, boolean estado) {
-        super(cedula, nombre, estado);
+    public Usuario(String username, String password, String respuesta, Long cedula, String nombre, String apellido, boolean estado) {
+        super(cedula, nombre, apellido, estado);
         this.username = username;
         this.password = password;
         this.respuesta = respuesta;

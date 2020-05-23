@@ -29,7 +29,11 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
         String username = rs.getString("USU_USERNAME");
         String password = rs.getString("USU_PASSWORD");
         String rolUsuario = rs.getString("USU_ROLUSUARIO");
-        Usuario newUsuario = new Usuario(username, password, "Falts Esto", cedulaCiudadania, , INSERT, true);
+        String nombrePersona = rs.getString("PER_NOMBRE");
+        String apellidoPersona = rs.getString("PER_APELLIDO");
+        String respuestaUsuario = rs.getString("USU_RESPUESTAUSUARIO");
+        boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
+        Usuario newUsuario = new Usuario(username, password, respuestaUsuario, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona);
         return null;
     }
     
@@ -69,8 +73,8 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
             stat.setString(1, u.getUsername());
             stat.setString(2, u.getPassword());
             stat.setInt(3, u.getIdLote());
-            stat.setLong(4, u.getCedula());
-            stat.setString(5, u.getRespuesta());
+            stat.setString(4, u.getRespuesta());
+            stat.setLong(5, u.getCedula());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya eliminado");
             }
