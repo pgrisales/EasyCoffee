@@ -15,8 +15,8 @@ import java.util.*;
  */
 public class UsuarioDAO implements DAO<Usuario, Long>{
 
-    final String INSERT = "INSERT INTO USUARIO VALUES (?, ?, ?, ?, ?, ?);"; //(PERSONA_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO)
-    final String UPDATE = "UPDATE USUARIO SET USU_USERNAME = ?, USU_PASSWORD = ?, LOTE_LOTE_IDLOTE = ? WHERE PERSONA_CEDULACIUDADANIA = ?;";
+    final String INSERT = "INSERT INTO USUARIO VALUES (?, ?, ?, ?, ?, ?, ?);"; //(PERSONA_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
+    final String UPDATE = "UPDATE USUARIO SET USU_USERNAME = ?, USU_PASSWORD = ?, LOTE_LOTE_IDLOTE = ? USU_RESPUESTAPREGUNTA= ? WHERE PERSONA_CEDULACIUDADANIA = ?;";
     final String DELETE = "DELETE FROM USUARIO WHERE PERSONA_CEDULACIUDADANIA = ?;";
     final String GETALL = "SELECT * FROM PERSONA NATURAL JOIN USUARIO";
     
@@ -29,7 +29,7 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
         String username = rs.getString("USU_USERNAME");
         String password = rs.getString("USU_PASSWORD");
         String rolUsuario = rs.getString("USU_ROLUSUARIO");
-//        Usuario newUsuario = new Usuario(username, password, "Falts Esto", cedulaCiudadania, , INSERT, true);
+        Usuario newUsuario = new Usuario(username, password, "Falts Esto", cedulaCiudadania, , INSERT, true);
         return null;
     }
     
@@ -44,6 +44,7 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
             stat.setString(4, u.getUsername());
             stat.setString(5, u.getPassword());
             stat.setString(6, "Aux");
+            stat.setString(7, u.getRespuesta());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
             }
@@ -69,6 +70,7 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
             stat.setString(2, u.getPassword());
             stat.setInt(3, u.getIdLote());
             stat.setLong(4, u.getCedula());
+            stat.setString(5, u.getRespuesta());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya eliminado");
             }
