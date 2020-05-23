@@ -30,6 +30,7 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
         String password = rs.getString("USU_PASSWORD");
         String rolUsuario = rs.getString("USU_ROLUSUARIO");
 //        Usuario newUsuario = new Usuario(username, password, "Falts Esto", cedulaCiudadania, , INSERT, true);
+        return null;
     }
     
     @Override
@@ -113,6 +114,7 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
 
     @Override
     public Usuario obtener(Long id) {
+        return null;
         
     }
 }
