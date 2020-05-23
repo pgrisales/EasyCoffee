@@ -37,7 +37,7 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
         PreparedStatement stat = null;
         try{
             stat = conn.prepareStatement(INSERT);
-            stat.setLong(1, u.getCedulaCiudadania());
+            stat.setLong(1, u.getCedula());
             stat.setInt(2, 1);
             stat.setInt(3, u.getIdLote());
             stat.setString(4, u.getUsername());
@@ -67,7 +67,7 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
             stat.setString(1, u.getUsername());
             stat.setString(2, u.getPassword());
             stat.setInt(3, u.getIdLote());
-            stat.setLong(4, u.getCedulaCiudadania());
+            stat.setLong(4, u.getCedula());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya eliminado");
             }
@@ -89,7 +89,7 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
         PreparedStatement stat = null;
         try{
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1, u.getCedulaCiudadania());
+            stat.setLong(1, u.getCedula());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya eliminado");
             }
