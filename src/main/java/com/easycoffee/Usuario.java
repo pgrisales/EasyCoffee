@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name= "USUARIO")
-public class Usuario implements Serializable{
+public class Usuario extends Persona implements Serializable{
     
     private String username;
     private String password;
@@ -15,6 +15,7 @@ public class Usuario implements Serializable{
     @Id
     private Long idUnico;
 
+
     public String getRespuesta() {
         return respuesta;
     }
@@ -22,13 +23,16 @@ public class Usuario implements Serializable{
     public void setRespuesta(String respuesta) {
         this.respuesta = respuesta;
     }
-    public Usuario() {
-    }
-    public Usuario(String username, String password, String respuesta) {
+
+    public Usuario(String username, String password, String respuesta, Long idUnico, long cedula, String nombre, boolean estado) {
+        super(cedula, nombre, estado);
         this.username = username;
         this.password = password;
         this.respuesta = respuesta;
+        this.idUnico = idUnico;
     }
+    
+    
 
     public String getUsername() {
         return username;

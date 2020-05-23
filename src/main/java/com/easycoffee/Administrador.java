@@ -4,9 +4,9 @@ public class Administrador extends Usuario{
     
     private Finca finca;
 
-    public Administrador(String username, String password, String respuesta) {
-        super(username, password, respuesta);
-        this.finca = new Finca();
+    public Administrador(Finca finca, String username, String password, String respuesta, Long idUnico, long cedula, String nombre, boolean estado) {
+        super(username, password, respuesta, idUnico, cedula, nombre, estado);
+        this.finca = finca;
     }
 
 

@@ -2,12 +2,16 @@ package com.easycoffee;
 
 import java.util.ArrayList;
 
-public class Trabajador {
+public class Trabajador extends Persona{
     
     private double salario;
     private ArrayList<Jornada> jornada =new ArrayList<>();
-    public Trabajador() {
+
+    public Trabajador(double salario, long cedula, String nombre, boolean estado) {
+        super(cedula, nombre, estado);
+        this.salario = salario;
     }
+
 
     public void insertarJornada(Jornada jornada) {
         this.jornada.add(jornada) ;

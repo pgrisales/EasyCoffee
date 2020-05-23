@@ -4,9 +4,13 @@ public class Persona {
     private long cedula;
     private String nombre;
     private boolean estado;
-    
-    public Persona() {
+
+    public Persona(long cedula, String nombre, boolean estado) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.estado = estado;
     }
+   
 
     public long getCedula() {
         return cedula;
