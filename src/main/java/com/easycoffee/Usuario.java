@@ -7,7 +7,6 @@ public class Usuario extends Persona {
     private String username;
     private String password;
     private String respuesta;
-    private long cedulaCiudadania;
     private int idLote;
 
     public String getRespuesta() {
@@ -23,7 +22,6 @@ public class Usuario extends Persona {
         this.username = username;
         this.password = password;
         this.respuesta = respuesta;
-        this.cedulaCiudadania = idUnico;
     }
 
     public String getUsername() {
@@ -45,10 +43,6 @@ public class Usuario extends Persona {
     public ArrayList<Lote> setEspacioDeTrabajo() {
         ArrayList<Lote> lotes = new ArrayList<>();
         return lotes;
-    }
-
-    public long getCedulaCiudadania() {
-        return cedulaCiudadania;
     }
 
     public int getIdLote() {

@@ -19,7 +19,7 @@ public interface DAO<T, K> {
 
     void eliminar(T a);
 
-    List<T> obtenerTodos();
+    ArrayList<T> obtenerTodos();
 
     T obtener(K id);
 }

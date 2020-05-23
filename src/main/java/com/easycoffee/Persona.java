@@ -1,8 +1,9 @@
 package com.easycoffee;
 
 public class Persona {
-    private long cedula;
+    private Long cedula;
     private String nombre;
+    private String apellido;
     private boolean estado;
 
     public Persona(long cedula, String nombre, boolean estado) {

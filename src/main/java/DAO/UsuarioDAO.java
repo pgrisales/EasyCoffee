@@ -7,8 +7,7 @@ package DAO;
 
 import com.easycoffee.Usuario;
 import java.sql.*;
-import java.util.List;
-import javax.persistence.*;
+import java.util.*;
 
 /**
  *
@@ -17,12 +16,22 @@ import javax.persistence.*;
 public class UsuarioDAO implements DAO<Usuario, Long>{
 
     final String INSERT = "INSERT INTO USUARIO VALUES (?, ?, ?, ?, ?, ?);"; //(PERSONA_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO)
-    final String UPDATE = "UPDATE USUARIO SET USU_USERNAME = ?, USU_PASSWORD = ?, LOTE_LOTE_IDLOTE = ?;";
+    final String UPDATE = "UPDATE USUARIO SET USU_USERNAME = ?, USU_PASSWORD = ?, LOTE_LOTE_IDLOTE = ? WHERE PERSONA_CEDULACIUDADANIA = ?;";
     final String DELETE = "DELETE FROM USUARIO WHERE PERSONA_CEDULACIUDADANIA = ?;";
     final String GETALL = "SELECT * FROM PERSONA NATURAL JOIN USUARIO";
     
     private Connection conn;
 
+    private Usuario convertir(ResultSet rs) throws SQLException{
+        Long cedulaCiudadania = rs.getLong("PERSONA_CEDULACIUDADANIA");
+        int idFinca = rs.getInt("FINCA_IDFINCA");
+        int idLote = rs.getInt("LOTE_LOTE_IDLOTE");
+        String username = rs.getString("USU_USERNAME");
+        String password = rs.getString("USU_PASSWORD");
+        String rolUsuario = rs.getString("USU_ROLUSUARIO");
+//        Usuario newUsuario = new Usuario(username, password, "Falts Esto", cedulaCiudadania, , INSERT, true);
+    }
+    
     @Override
     public void insertar(Usuario u) {
         PreparedStatement stat = null;
@@ -52,21 +61,58 @@ public class UsuarioDAO implements DAO<Usuario, Long>{
 
     @Override
     public void modificar(Usuario u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stat = null;
+        try{
+            stat = conn.prepareStatement(UPDATE);
+            stat.setString(1, u.getUsername());
+            stat.setString(2, u.getPassword());
+            stat.setInt(3, u.getIdLote());
+            stat.setLong(4, u.getCedulaCiudadania());
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya eliminado");
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        } finally{
+            if (stat != null) {
+                try{
+                    stat.close();
+                }catch(SQLException ef){
+                    ef.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override
     public void eliminar(Usuario u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stat = null;
+        try{
+            stat = conn.prepareStatement(DELETE);
+            stat.setLong(1, u.getCedulaCiudadania());
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya eliminado");
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        } finally{
+            if (stat != null) {
+                try{
+                    stat.close();
+                }catch(SQLException ef){
+                    ef.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override
-    public List obtenerTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Usuario> obtenerTodos() {
+        return null;
     }
 
     @Override
     public Usuario obtener(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 }
