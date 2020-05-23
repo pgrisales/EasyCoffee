@@ -1,20 +1,13 @@
 package com.easycoffee;
 
 import java.util.*;
-import java.io.Serializable;
-import javax.persistence.*;
 
-@Entity
-@Table(name= "USUARIO")
-public class Usuario extends Persona implements Serializable{
-    
+public class Usuario extends Persona{
+
     private String username;
     private String password;
     private String respuesta;
-    
-    @Id
-    private Long idUnico;
-
+    private Long cedulaCiudadania;
 
     public String getRespuesta() {
         return respuesta;
@@ -29,10 +22,8 @@ public class Usuario extends Persona implements Serializable{
         this.username = username;
         this.password = password;
         this.respuesta = respuesta;
-        this.idUnico = idUnico;
+        this.cedulaCiudadania = idUnico;
     }
-    
-    
 
     public String getUsername() {
         return username;
@@ -49,18 +40,13 @@ public class Usuario extends Persona implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public ArrayList<Lote> setEspacioDeTrabajo(){
+
+    public ArrayList<Lote> setEspacioDeTrabajo() {
         ArrayList<Lote> lotes = new ArrayList<>();
         return lotes;
     }
 
-    //Identificadores Unicos de Usuario.xml
-    public Long getIdUnico() {
-        return idUnico;
-    }
-
-    public void setIdUnico(Long idUnico) {
-        this.idUnico = idUnico;
+    public Long getCedulaCiudadania() {
+        return cedulaCiudadania;
     }
 }
