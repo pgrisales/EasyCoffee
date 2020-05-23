@@ -2,12 +2,13 @@ package com.easycoffee;
 
 import java.util.*;
 
-public class Usuario extends Persona{
+public class Usuario extends Persona {
 
     private String username;
     private String password;
     private String respuesta;
-    private Long cedulaCiudadania;
+    private long cedulaCiudadania;
+    private int idLote;
 
     public String getRespuesta() {
         return respuesta;
@@ -46,7 +47,16 @@ public class Usuario extends Persona{
         return lotes;
     }
 
-    public Long getCedulaCiudadania() {
+    public long getCedulaCiudadania() {
         return cedulaCiudadania;
     }
+
+    public int getIdLote() {
+        return idLote;
+    }
+
+    public void setIdLote(int idLote) {
+        this.idLote = idLote;
+    }
+
 }

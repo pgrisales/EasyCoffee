@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Lote {
     
+    private int IdLote;
     private int areaTotal;
     private String fechaDesyerbado;
     private String fechaAbonado;
@@ -15,6 +16,10 @@ public class Lote {
     public Lote() {
     }
 
+    public int getIdLote() {
+        return IdLote;
+    }
+    
     public int getAreaTotal() {
         return areaTotal;
     }
