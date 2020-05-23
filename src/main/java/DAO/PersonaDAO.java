@@ -5,10 +5,55 @@
  */
 package DAO;
 
+import com.easycoffee.Persona;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Camilo Vargas
  */
-public class PersonaDAO {
+public class PersonaDAO implements DAO<Persona, Long>{
+    final String INSERT = "INSERT INTO PERSONA VALUES (?, ?, ?, ?, ?, ?);"; 
+    final String UPDATE = "UPDATE PERSONA SET PER_ESTADOPERSONA = ?;";
+    final String DELETE = "DELETE FROM PERSONA WHERE PERSONA_CEDULACIUDADANIA = ?;";
+    final String GETALL = "SELECT * FROM PERSONA;";
+
+    private Connection conn;
+
+    public PersonaDAO(Connection conn) {
+        this.conn = conn;
+    }
     
+    @Override
+    public void insertar(Persona a) {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement(INSERT);
+            stat.setLong(1, a.getCedula());
+        } catch (Exception e) {
+        }
+    }
+
+    @Override
+    public void modificar(Persona a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminar(Persona a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Persona obtener(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<Persona> obtenerTodos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
