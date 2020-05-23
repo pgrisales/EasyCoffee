@@ -1,12 +1,19 @@
 package com.easycoffee;
 
-import java.util.ArrayList;
+import java.util.*;
+import java.io.Serializable;
+import javax.persistence.*;
 
-public class Usuario {
+@Entity
+@Table(name= "USUARIO")
+public class Usuario implements Serializable{
     
     private String username;
     private String password;
     private String respuesta;
+    
+    @Id
+    private Long idUnico;
 
     public String getRespuesta() {
         return respuesta;
@@ -42,5 +49,14 @@ public class Usuario {
     public ArrayList<Lote> setEspacioDeTrabajo(){
         ArrayList<Lote> lotes = new ArrayList<>();
         return lotes;
+    }
+
+    //Identificadores Unicos de Usuario.xml
+    public Long getIdUnico() {
+        return idUnico;
+    }
+
+    public void setIdUnico(Long idUnico) {
+        this.idUnico = idUnico;
     }
 }
