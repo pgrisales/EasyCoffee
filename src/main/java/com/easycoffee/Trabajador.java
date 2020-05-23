@@ -7,10 +7,10 @@ public class Trabajador extends Persona{
     private double salario;
     private ArrayList<Jornada> jornada =new ArrayList<>();
 
-    public Trabajador(double salario, long cedula, String nombre, boolean estado) {
-        super(cedula, nombre, estado);
-        this.salario = salario;
+    public Trabajador(Long cedula, String nombre, String apellido, boolean estado) {
+        super(cedula, nombre, apellido, estado);
     }
+
 
 
     public void insertarJornada(Jornada jornada) {

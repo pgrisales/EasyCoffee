@@ -1,14 +1,14 @@
-Fri May 22 21:18:36 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
+Sat May 23 13:56:47 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
-Fri May 22 21:18:36 COT 2020:
- Iniciando instancia a816c00e-0172-3f53-1efe-ffff9389dcd4 de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
-en el directorio de base de datos C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db\easycoffedb con el cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
-Cargado desde file:/C:/Program%20Files/NetBeans%208.2/javadb/lib/derby.jar
+Sat May 23 13:56:54 COT 2020:
+ Iniciando instancia a816c00e-0172-42e5-0ff5-000063adf793 de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
+en el directorio de base de datos C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee2\db\easycoffedb con el cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
+Cargado desde file:/C:/Users/Hp/Documents/NetBeansProjects/db-derby-10.14.2.0-bin/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_181-b13
-user.dir=C:\Program Files\NetBeans 8.2\javadb
+java.runtime.version=1.8.0_191-b12
+user.dir=C:\Users\Hp\Documents\NetBeansProjects\db-derby-10.14.2.0-bin
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
-derby.system.home=C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db
+derby.system.home=C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee2\db
 Cargador de clases de base de datos iniciado - derby.database.classpath=''

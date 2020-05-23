@@ -16,7 +16,7 @@ import java.util.List;
  * @author Camilo Vargas
  */
 public class PersonaDAO implements DAO<Persona, Long>{
-    final String INSERT = "INSERT INTO PERSONA VALUES (?, ?, ?, ?, ?, ?);"; 
+    final String INSERT = "INSERT INTO PERSONA VALUES (?, ?, ?, ?);"; 
     final String UPDATE = "UPDATE PERSONA SET PER_ESTADOPERSONA = ?;";
     final String DELETE = "DELETE FROM PERSONA WHERE PERSONA_CEDULACIUDADANIA = ?;";
     final String GETALL = "SELECT * FROM PERSONA;";
@@ -33,6 +33,9 @@ public class PersonaDAO implements DAO<Persona, Long>{
         try {
             stat = conn.prepareStatement(INSERT);
             stat.setLong(1, a.getCedula());
+            stat.setBoolean(2, a.isEstado());
+            stat.setString(2, a.getNombre());
+            
         } catch (Exception e) {
         }
     }
