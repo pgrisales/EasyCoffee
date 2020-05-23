@@ -7,13 +7,14 @@ package DAO;
 
 import com.easycoffee.Usuario;
 import java.sql.*;
+import java.util.List;
 import javax.persistence.*;
 
 /**
  *
  * @author Camilo Vargas
  */
-public class UsuarioDAO {
+public class UsuarioDAO implements DAO<Usuario, Long>{
 
     final String INSERT = "INSERT INTO USUARIO VALUES (?, ?, ?, ?, ?, ?);"; //(PERSONA_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO)
     final String UPDATE = "UPDATE USUARIO SET USU_USERNAME = ?, USU_PASSWORD = ?, LOTE_LOTE_IDLOTE = ?;";
@@ -21,8 +22,9 @@ public class UsuarioDAO {
     final String GETALL = "SELECT * FROM PERSONA NATURAL JOIN USUARIO";
     
     private Connection conn;
-    
-    public void insertar(Usuario u){
+
+    @Override
+    public void insertar(Usuario u) {
         PreparedStatement stat = null;
         try{
             stat = conn.prepareStatement(INSERT);
@@ -46,5 +48,25 @@ public class UsuarioDAO {
                 }
             }
         }
+    }
+
+    @Override
+    public void modificar(Usuario u) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminar(Usuario u) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List obtenerTodos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Usuario obtener(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
