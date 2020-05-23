@@ -120,10 +120,10 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
     }
 
     @Override
-    public ArrayList<Usuario> obtenerTodos() {
+    public List<Usuario> obtenerTodos() {
         PreparedStatement stat = null;
         ResultSet rs = null;
-        ArrayList<Usuario> u = new ArrayList<>();
+        List<Usuario> u = new ArrayList<>();
         
         try {
             stat = conn.prepareStatement(GETALL);
@@ -165,7 +165,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         ResultSet rs = null;
         Usuario u = null;
         try {
-            stat = conn.prepareStatement(GETALL + " WHERE PER_CEDULACIUDADANIA = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEDB.PERSONA NATURAL JOIN EASYCOFFEDB.USUARIO WHERE PER_CEDULACIUDADANIA = ?");
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {
@@ -200,10 +200,8 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         try {
             String myDb = "jdbc:derby://localhost:1527/easycoffedb";
             conn = DriverManager.getConnection(myDb, "root","admin");
-            UsuarioDAO dao = new UsuarioDAO(conn);
-            ArrayList<Usuario> users = dao.obtenerTodos();
-            Long i = new Long(1000596677);
-            //System.out.println(dao.obtener(i).toString());
+            DAO dao = new UsuarioDAO(conn);
+            List<Usuario> users = dao.obtenerTodos();
             for(Usuario a:users){
                 System.out.println(a.toString());
             }
