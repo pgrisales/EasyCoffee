@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  */
 public class Ingreso extends javax.swing.JPanel {
     
-    static String fondo = "../image/cafe.jpg";
+    static public String fondo = "../image/cafe.jpg";
 
     public Ingreso() {
         initComponents();

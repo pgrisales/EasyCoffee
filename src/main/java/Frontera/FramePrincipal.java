@@ -12,17 +12,14 @@ import javax.swing.JPanel;
  * @author Nivektakedown
  */
 public class FramePrincipal extends javax.swing.JFrame {
-    private static JPanel[] paneles;
     private static String panel;
     private static Administrador admin;
     public static String[] preguntas={"Cuál es el nombre de tu primera mascota?","Cuál es tu comida favorita?","Quíen era el héroe de tu infancia?"};
-    private Fondo fondo;
+    static private Fondo fondo;
     private Ingreso ingreso = new Ingreso();
     
     public FramePrincipal() {
-        
-        this.paneles = new JPanel[]{new RecuperarContraseña(), new CambiarContraseña(), new Ingreso(),new Registro()};
-        fondo = new Fondo(paneles[2], "../image/cafe.jpg");
+        fondo = new Fondo(ingreso, "../image/cafe.jpg");
         this.setContentPane(fondo);
         initComponents();
         this.setTitle("Easy Coffee");
@@ -31,6 +28,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     }
     
     public static void cambiarPanel(JPanel panel){
+        //fondo = new Fondo(panel, panel.fondo);
         panel.setOpaque(false);
         PanelPrincipal.setVisible(false);
         PanelPrincipal.removeAll();
