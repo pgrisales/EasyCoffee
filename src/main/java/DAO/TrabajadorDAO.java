@@ -5,10 +5,18 @@
  */
 package DAO;
 
+import java.sql.*;
+
 /**
  *
  * @author Camilo Vargas
  */
 public class TrabajadorDAO {
-    
+
+    private Connection conn;
+
+    public TrabajadorDAO(Connection conn) {
+        this.conn = conn;
+    }
+
 }

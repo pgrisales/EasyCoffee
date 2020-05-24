@@ -5,10 +5,17 @@
  */
 package DAO;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Camilo Vargas
  */
 public class LoteDAO {
-    
+    private Connection conn;
+
+    public LoteDAO(Connection conn) {
+        this.conn = conn;
+    }
+
 }

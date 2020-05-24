@@ -5,10 +5,18 @@
  */
 package DAO;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Camilo Vargas
  */
 public class ArbolDAO {
-    
+
+    private Connection conn;
+
+    public ArbolDAO(Connection conn) {
+        this.conn = conn;
+    }
+
 }

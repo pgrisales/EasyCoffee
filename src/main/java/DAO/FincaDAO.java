@@ -5,10 +5,17 @@
  */
 package DAO;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Camilo Vargas
  */
 public class FincaDAO {
-    
+    private Connection conn;
+
+    public FincaDAO(Connection conn) {
+        this.conn = conn;
+    }
+
 }
