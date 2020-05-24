@@ -120,7 +120,7 @@ public class CambiarContraseña extends javax.swing.JPanel {
     }//GEN-LAST:event_confirmActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
-        FramePrincipal.setPanel("recuperar");
+        FramePrincipal.cambiarPanel(new Ingreso());
     }//GEN-LAST:event_CancelActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed

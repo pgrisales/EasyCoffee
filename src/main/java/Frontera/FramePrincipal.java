@@ -37,15 +37,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         PanelPrincipal.add(panel);
         PanelPrincipal.setVisible(true);
     }
-
-    public static String getPanel() {
-        return panel;
-    }
-
-    public static void setPanel(String panel) {
-        FramePrincipal.panel = panel;
-    }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -107,7 +107,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
-        FramePrincipal.setPanel("cambiar");
+        FramePrincipal.cambiarPanel(new CambiarContraseña());
     }//GEN-LAST:event_checkActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
