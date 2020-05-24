@@ -4,18 +4,15 @@ import Frontera.image.Imagen;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Nivektakedown
  */
 public class FramePrincipal extends javax.swing.JFrame {
+    public static JPanel[] paneles;
     private static String panel;
-    private static Registro registro;
-    private static Ingreso ingreso;
-    private static RecuperarContraseña recuperar;
-    private static CambiarContraseña cambiar;
-    private static InicioSistema inicio;
     private static boolean seInicio = false;
     
 
@@ -28,11 +25,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     }
     
     public FramePrincipal() {
-        this.recuperar = new RecuperarContraseña();
-        this.cambiar = new CambiarContraseña();
-        this.ingreso = new Ingreso();
-        this.registro = new Registro();
-        this.inicio = new InicioSistema();
+        this.paneles = new JPanel[]{new RecuperarContraseña(), new CambiarContraseña(), new Ingreso(),new Registro()};
         this.panel = "ingreso";
         initComponents();
         Imagen image = new Imagen();
@@ -66,28 +59,28 @@ public class FramePrincipal extends javax.swing.JFrame {
             case "ingreso":{
                  PanelPrincipal.setVisible(false);
                  PanelPrincipal.removeAll();
-                 PanelPrincipal.add(ingreso);
+                 PanelPrincipal.add(paneles[2]);
                  PanelPrincipal.setVisible(true);
                 break;
             }
             case "registro":{
                 PanelPrincipal.setVisible(false);
                  PanelPrincipal.removeAll();
-                 PanelPrincipal.add(registro);
+                 PanelPrincipal.add(paneles[3]);
                  PanelPrincipal.setVisible(true);
                 break;
             }
             case "recuperar":{
                 PanelPrincipal.setVisible(false);
                  PanelPrincipal.removeAll();
-                 PanelPrincipal.add(recuperar);
+                 PanelPrincipal.add(paneles[0]);
                  PanelPrincipal.setVisible(true);
                 break;
             }
             case "cambiar":{
                 PanelPrincipal.setVisible(false);
                  PanelPrincipal.removeAll();
-                 PanelPrincipal.add(cambiar);
+                 PanelPrincipal.add(paneles[1]);
                  PanelPrincipal.setVisible(true);
                 break;
             }
