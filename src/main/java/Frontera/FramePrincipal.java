@@ -1,7 +1,7 @@
 package Frontera;
 
-import Frontera.image.Imagen;
 import com.easycoffee.Administrador;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -15,20 +15,21 @@ public class FramePrincipal extends javax.swing.JFrame {
     private static JPanel[] paneles;
     private static String panel;
     private static Administrador admin;
-    public static String[] preguntas={"Cuál es el nombre de tu primera mascota?","Cuál es tu comida favorita?","Quíen era el héroe de tu infancia?"};;
-
-
+    public static String[] preguntas={"Cuál es el nombre de tu primera mascota?","Cuál es tu comida favorita?","Quíen era el héroe de tu infancia?"};
+    //public int[] fondosP = new int[]{1, 2, 3, 4, 5};
+    Fondo fondo;
     
     public FramePrincipal() {
+        
         this.paneles = new JPanel[]{new RecuperarContraseña(), new CambiarContraseña(), new Ingreso(),new Registro()};
         this.panel = "ingreso";
+        fondo = new Fondo(paneles[2], "../image/cafe.jpg");
+        this.setContentPane(fondo);
         initComponents();
-        Imagen image = new Imagen();
-        //ingreso.add(image);
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
-        
     }
+    
     public static void state(){
         System.out.println(panel);
         
@@ -134,10 +135,28 @@ public class FramePrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FramePrincipal().setVisible(true);
+                PanelPrincipal.setOpaque(false);
                 state();
             }
         });
     }
+    
+    /*class fondoPanel extends JPanel{
+        
+            private Image img;
+
+            public void paint(Graphics g){
+                
+                PanelPrincipal.setOpaque(false);
+                img = new ImageIcon(getClass().getResource("../image/cafe.jpg")).getImage();
+
+                g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+
+                setOpaque(false);
+
+                super.paint(g);
+            }
+    }*/
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel PanelPrincipal;

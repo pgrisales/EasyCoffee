@@ -15,9 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class Registro extends javax.swing.JPanel {
     private String error="";
-    /**
-     * Creates new form Registro
-     */
+    static String fondo = "../image/cafe.jpg";
+    
     public Registro() {
         
         initComponents();

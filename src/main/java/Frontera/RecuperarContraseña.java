@@ -11,9 +11,8 @@ package Frontera;
  */
 public class RecuperarContraseña extends javax.swing.JPanel {
 
-    /**
-     * Creates new form RecuperarContraseña
-     */
+    static String fondo = "../image/cafe.jpg";
+    
     public RecuperarContraseña() {
         initComponents();
         questions.removeAllItems();

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Frontera;
 
 /**
@@ -11,9 +6,8 @@ package Frontera;
  */
 public class CambiarContraseña extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CambiarContraseña
-     */
+    static String fondo = "../image/cafe.jpg";
+    
     public CambiarContraseña() {
         initComponents();
     }

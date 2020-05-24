@@ -13,9 +13,8 @@ import javax.swing.JOptionPane;
  */
 public class bienvenido extends javax.swing.JPanel {
 
-    /**
-     * Creates new form bienvenido
-     */
+    static String fondo = "../image/cafe.jpg";
+    
     public bienvenido() {
         initComponents();
     }
