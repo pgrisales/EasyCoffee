@@ -21,7 +21,7 @@ import java.util.List;
 public class PersonaDAO implements DAO<Persona, Long>{
     final String INSERT = "INSERT INTO EASYCOFFEDB.PERSONA VALUES (?, ?, ?, ?)"; 
     final String UPDATE = "UPDATE EASYCOFFEDB.PERSONA SET PER_ESTADOPERSONA = ?";
-    final String DELETE = "DELETE FROM EASYCOFFEDB.PERSONA WHERE PERSONA_CEDULACIUDADANIA = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEDB.PERSONA WHERE PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEDB.PERSONA";
 
     private Connection conn;
@@ -104,7 +104,8 @@ public class PersonaDAO implements DAO<Persona, Long>{
                     ef.printStackTrace();
                 }
             }
-        }    }
+        }    
+    }
 
     @Override
     public Persona obtener(Long id) {
