@@ -45,5 +45,9 @@ public class Persona {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
+    
+    @Override
+    public String toString() {
+        return "Persona{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", estado=" + estado + '}';
+    }
 }
