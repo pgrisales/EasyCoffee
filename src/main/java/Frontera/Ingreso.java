@@ -145,12 +145,12 @@ public class Ingreso extends javax.swing.JPanel {
     }//GEN-LAST:event_loginActionPerformed
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
-        FramePrincipal.setPanel("registro");
+        FramePrincipal.cambiarPanel(new Registro());
         JOptionPane.showMessageDialog(null, "El usuario que va a crear a continuación es el que tiene el control del programa. procure no olvidar la contraseña.");
     }//GEN-LAST:event_registrationActionPerformed
 
     private void forgotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotActionPerformed
-        FramePrincipal.setPanel("recuperar");
+        FramePrincipal.cambiarPanel(new RecuperarContraseña());
     }//GEN-LAST:event_forgotActionPerformed
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
