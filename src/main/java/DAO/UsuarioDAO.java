@@ -15,9 +15,9 @@ import java.util.*;
  */
 public class UsuarioDAO implements DAO<Usuario, Long> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEDB.USUARIO VALUES (?, ?, ?, ?, ?, ?, ?);"; //(PERSONA_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
-    final String UPDATE = "UPDATE EASYCOFFEDB.USUARIO SET USU_USERNAME = ?, USU_PASSWORD = ?, LOTE_LOTE_IDLOTE = ? USU_RESPUESTAPREGUNTA= ? WHERE PER_CEDULACIUDADANIA = ?;";
-    final String DELETE = "DELETE FROM EASYCOFFEDB.USUARIO WHERE PER_CEDULACIUDADANIA = ?;";
+    final String INSERT = "INSERT INTO EASYCOFFEDB.USUARIO VALUES (?, ?, ?, ?, ?, ?, ?)"; //(PER_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
+    final String UPDATE = "UPDATE EASYCOFFEDB.USUARIO SET USU_USERNAME = ?, USU_PASSWORD = ?, LOTE_LOTE_IDLOTE = ? USU_RESPUESTAPREGUNTA= ? WHERE PER_CEDULACIUDADANIA = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEDB.USUARIO WHERE PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEDB.PERSONA NATURAL JOIN EASYCOFFEDB.USUARIO";
 
     private Connection conn;
@@ -28,7 +28,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
 
     private Usuario convertir(ResultSet rs) throws SQLException {
         
-        int idFinca = rs.getInt("FINCA_IDFINCA");
+//        int idFinca = rs.getInt("FINCA_IDFINCA");   //1
         int idLote = rs.getInt("LOTE_LOTE_IDLOTE");
         String username = rs.getString("USU_USERNAME");
         String password = rs.getString("USU_PASSWORD");
@@ -38,7 +38,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         String respuestaUsuario = rs.getString("USU_RESPUESTAPREGUNTA");
         boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
         Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
-        Usuario newUsuario = new Usuario(username, password, respuestaUsuario, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona);
+        Usuario newUsuario = new Usuario(username, password, respuestaUsuario, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona, idLote);
         return newUsuario;
     }
 
@@ -47,14 +47,13 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            
-            stat.setInt(2, 1);
-            stat.setInt(3, u.getIdLote());
-            stat.setString(4, u.getUsername());
-            stat.setString(5, u.getPassword());
-            stat.setString(6, "Aux");
-            stat.setString(7, u.getRespuesta());
-            stat.setLong(1, u.getCedula());
+            stat.setInt(1, 1);
+            stat.setInt(2, u.getIdLote());
+            stat.setString(3, u.getUsername());
+            stat.setString(4, u.getPassword());
+            stat.setString(5, "Aux");
+            stat.setString(6, u.getRespuesta());
+            stat.setInt(7, u.getCedula().intValue());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
             }
@@ -124,19 +123,15 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         PreparedStatement stat = null;
         ResultSet rs = null;
         List<Usuario> u = new ArrayList<>();
-        
         try {
             stat = conn.prepareStatement(GETALL);
-            rs = stat.executeQuery();
-            System.out.println(rs);
-            if (!rs.next()) {
-                System.out.println("Registro no encontrado");
-            }
-            
-            while (rs.next()) {
-                System.out.println("HOLAAA");
+            rs = stat.executeQuery();     
+            boolean r = rs.next();
+            while (r) {     //OJO!!! El rs.next(); Funciona Igual que un Scanner sc.next();
                 u.add(convertir(rs));
+                r= rs.next();
             }
+            System.out.println(u.size());
         } catch (SQLException e) {
             System.out.println("Error en SQL");
             e.printStackTrace();
@@ -201,11 +196,11 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             String myDb = "jdbc:derby://localhost:1527/easycoffedb";
             conn = DriverManager.getConnection(myDb, "root","admin");
             DAO dao = new UsuarioDAO(conn);
+//            dao.insertar(new Usuario("admin3", "134", "Gatito", new Long(195), "Camilo2", "Insert2", true, 1));
             List<Usuario> users = dao.obtenerTodos();
             for(Usuario a:users){
                 System.out.println(a.toString());
             }
-            
         } catch (SQLException e) {
             System.out.println("Error de UsuarioDao");
             e.printStackTrace();
