@@ -10,6 +10,7 @@ import java.sql.SQLException;
  */
 public class DAOManager {
 
+    //Prueba
     private Connection conn;
 
     private UsuarioDAO usuarios = null;
