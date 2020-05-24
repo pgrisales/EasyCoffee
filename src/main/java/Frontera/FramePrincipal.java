@@ -1,6 +1,7 @@
 package Frontera;
 
 import Frontera.image.Imagen;
+import com.easycoffee.Administrador;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -11,18 +12,12 @@ import javax.swing.JPanel;
  * @author Nivektakedown
  */
 public class FramePrincipal extends javax.swing.JFrame {
-    public static JPanel[] paneles;
+    private static JPanel[] paneles;
     private static String panel;
-    private static boolean seInicio = false;
-    
+    private static Administrador admin;
+    public static String[] preguntas={"Cuál es el nombre de tu primera mascota?","Cuál es tu comida favorita?","Quíen era el héroe de tu infancia?"};;
 
-    public static boolean isSeInicio() {
-        return seInicio;
-    }
 
-    public static void setSeInicio(boolean seInicio) {
-        FramePrincipal.seInicio = seInicio;
-    }
     
     public FramePrincipal() {
         this.paneles = new JPanel[]{new RecuperarContraseña(), new CambiarContraseña(), new Ingreso(),new Registro()};
@@ -32,6 +27,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         //ingreso.add(image);
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
+        
     }
     public static void state(){
         System.out.println(panel);
