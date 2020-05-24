@@ -1,8 +1,8 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import com.easycoffee.*;
+import java.sql.*;
+import java.util.List;
 
 /**
  *
@@ -73,5 +73,13 @@ public class DAOManager {
             arboles = new ArbolDAO(conn);
         }
         return arboles;
+    }
+
+    public static void main(String[] args) throws SQLException {
+        DAOManager DAO = new DAOManager("localhost:1527", "root", "admin", "easycoffedb");
+        List<Persona> personas = DAO.getPersonaDAO().obtenerTodos();
+        for (Persona p : personas) {
+            System.out.println(p.toString());
+        }
     }
 }
