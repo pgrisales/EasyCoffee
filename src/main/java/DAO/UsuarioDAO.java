@@ -195,7 +195,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             String myDb = "jdbc:derby://localhost:1527/easycoffedb";
             conn = DriverManager.getConnection(myDb, "root","admin");
             DAO dao = new UsuarioDAO(conn);
-//            dao.insertar(new Usuario("admin3", "134", "Gatito", new Long(195), "Camilo2", "Insert2", true, 1));
+            //dao.insertar(new Usuario("admin2", "1234", "Owie", new Long(1234), "dieg", "Insert2", true, 1));
             List<Usuario> users = dao.obtenerTodos();
             for(Usuario a:users){
                 System.out.println(a.toString());

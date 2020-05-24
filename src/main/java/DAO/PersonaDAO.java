@@ -182,7 +182,7 @@ public class PersonaDAO implements DAO<Persona, Long>{
             String myDb = "jdbc:derby://localhost:1527/easycoffedb";
             conn = DriverManager.getConnection(myDb, "root","admin");
             DAO dao = new PersonaDAO(conn);
-            Persona ab= new Persona(new Long(134), "Camilo", "Vargas", true);
+            //Persona ab= new Persona(new Long(1234), "Diego", "Lopez", true);
             //dao.insertar(ab);
             List<Persona> personas = dao.obtenerTodos();
             System.out.println(personas.size());

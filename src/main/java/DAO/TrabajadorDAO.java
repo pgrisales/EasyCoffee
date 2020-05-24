@@ -28,7 +28,25 @@ public class TrabajadorDAO implements DAO<Trabajador,Long>{
 
     @Override
     public void insertar(Trabajador a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement(INSERT);
+            stat.setLong(1, a.getCedula());
+            stat.setDouble(2, a.getSalario());
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya guardado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ef) {
+                    ef.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override
