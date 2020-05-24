@@ -10,31 +10,41 @@ package com.easycoffee;
  * @author Nivektakedown
  */
 public class Arbol {
+
     private int ID;
+    private int idLote;
+    private boolean estadoArbol;
     private String variedad;
     private String fechaDeSembrado;
 
-    public int getID() {
-        return ID;
+    public Arbol(int ID, String variedad, String fechaDeSembrado) {
+        this.ID = ID;
+        this.variedad = variedad;
+        this.fechaDeSembrado = fechaDeSembrado;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public int getID() {
+        return ID;
     }
 
     public String getVariedad() {
         return variedad;
     }
 
-    public void setVariedad(String variedad) {
-        this.variedad = variedad;
-    }
-
     public String getFechaDeSembrado() {
         return fechaDeSembrado;
     }
 
-    public void setFechaDeSembrado(String fechaDeSembrado) {
-        this.fechaDeSembrado = fechaDeSembrado;
+    public int getIdLote() {
+        return idLote;
     }
+
+    public boolean isEstadoArbolVivo() {
+        return estadoArbol;
+    }
+
+    public void setEstadoArbol(boolean estadoArbol) {
+        this.estadoArbol = estadoArbol;
+    }
+
 }
