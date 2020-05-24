@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class DAOManager {
 
-    //Prueba
     private Connection conn;
 
     private UsuarioDAO usuarios = null;
@@ -75,11 +74,20 @@ public class DAOManager {
         return arboles;
     }
 
+    public void cerrarConexion() throws SQLException {
+        conn.close();
+    }
+
     public static void main(String[] args) throws SQLException {
         DAOManager DAO = new DAOManager("localhost:1527", "root", "admin", "easycoffedb");
         List<Persona> personas = DAO.getPersonaDAO().obtenerTodos();
         for (Persona p : personas) {
             System.out.println(p.toString());
         }
+        List<Usuario> users = DAO.getUsuarioDAO().obtenerTodos();
+        for (Usuario u : users) {
+            System.out.println(u.toString());
+        }
+        DAO.cerrarConexion();
     }
 }

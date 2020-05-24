@@ -176,26 +176,4 @@ public class PersonaDAO implements DAO<Persona, Long>{
         }
         return p;
     }
-    public static void main(String[] args) throws SQLException {
-        Connection conn = null;
-        try {
-            String myDb = "jdbc:derby://localhost:1527/easycoffedb";
-            conn = DriverManager.getConnection(myDb, "root","admin");
-            DAO dao = new PersonaDAO(conn);
-            //Persona ab= new Persona(new Long(1234), "Diego", "Lopez", true);
-            //dao.insertar(ab);
-            List<Persona> personas = dao.obtenerTodos();
-            System.out.println(personas.size());
-            for(Persona a:personas){
-                System.out.println(a.toString());
-            }
-        } catch (SQLException e) {
-            System.out.println("Error de UsuarioDao");
-            e.printStackTrace();
-        } finally {
-            if (conn != null) {
-                conn.close();
-            }
-        }
-    }
 }

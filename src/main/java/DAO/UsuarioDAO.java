@@ -130,7 +130,6 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
                 u.add(convertir(rs));
                 r= rs.next();
             }
-            System.out.println(u.size());
         } catch (SQLException e) {
             System.out.println("Error en SQL");
             e.printStackTrace();
@@ -189,24 +188,4 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         return u;
     }
 
-    public static void main(String[] args) throws SQLException {
-        Connection conn = null;
-        try {
-            String myDb = "jdbc:derby://localhost:1527/easycoffedb";
-            conn = DriverManager.getConnection(myDb, "root","admin");
-            DAO dao = new UsuarioDAO(conn);
-            //dao.insertar(new Usuario("admin2", "1234", "Owie", new Long(1234), "dieg", "Insert2", true, 1));
-            List<Usuario> users = dao.obtenerTodos();
-            for(Usuario a:users){
-                System.out.println(a.toString());
-            }
-        } catch (SQLException e) {
-            System.out.println("Error de UsuarioDao");
-            e.printStackTrace();
-        } finally {
-            if (conn != null) {
-                conn.close();
-            }
-        }
-    }
 }
