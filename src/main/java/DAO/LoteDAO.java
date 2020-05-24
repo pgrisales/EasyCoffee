@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  *
- * @author Camilo Vargas
+ * @author Diego Lopez
  */
 public class LoteDAO implements DAO<Lote,Long>{
     final String INSERT = "INSERT INTO EASYCOFFEDB.LOTE VALUES (?, ?, ?, ?, ?)"; 
