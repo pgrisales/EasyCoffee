@@ -55,7 +55,7 @@ public class DAOManager {
 
     JornadaDAO getJornadaDAO() {
         if (jornadas == null) {
-            jornadas = new JornadaDAO();
+            jornadas = new JornadaDAO(conn);
         }
         return jornadas;
     }

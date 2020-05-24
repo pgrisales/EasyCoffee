@@ -1,7 +1,7 @@
-Sat May 23 21:37:51 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
+Sat May 23 23:33:13 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
-Sat May 23 21:37:51 COT 2020:
- Iniciando instancia a816c00e-0172-448b-2c9c-00005e0e7d4f de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
+Sat May 23 23:33:14 COT 2020:
+ Iniciando instancia a816c00e-0172-44f4-cc96-00005e0e7d4f de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
 en el directorio de base de datos C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee\db\easycoffedb con el cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
 Cargado desde file:/C:/Users/Hp/Documents/NetBeansProjects/db-derby-10.14.2.0-bin/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,5 +12,3 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee\db
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
-----------------------------------------------------------------
-Sat May 23 22:38:23 COT 2020: cerrando motor de Derby

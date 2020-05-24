@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  *
- * @author Camilo Vargas
+ * @author Diego Lopez
  */
 public class PersonaDAO implements DAO<Persona, Long>{
     final String INSERT = "INSERT INTO EASYCOFFEDB.PERSONA VALUES (?, ?, ?, ?)"; 
