@@ -28,7 +28,6 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
 
     private Usuario convertir(ResultSet rs) throws SQLException {
         
-//        int idFinca = rs.getInt("FINCA_IDFINCA");   //1
         int idLote = rs.getInt("LOTE_LOTE_IDLOTE");
         String username = rs.getString("USU_USERNAME");
         String password = rs.getString("USU_PASSWORD");
@@ -81,7 +80,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             stat.setString(4, u.getRespuesta());
             stat.setLong(5, u.getCedula());
             if (stat.executeUpdate() == 0) {
-                System.out.println("Puede que no se haya eliminado");
+                System.out.println("Puede que no se haya modificado");
             }
         } catch (SQLException e) {
             e.printStackTrace();
