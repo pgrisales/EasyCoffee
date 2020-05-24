@@ -104,11 +104,12 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login de Usuario");
-        setUndecorated(true);
 
+        PanelPrincipal.setFocusTraversalPolicyProvider(true);
         PanelPrincipal.setMaximumSize(new java.awt.Dimension(900, 503));
         PanelPrincipal.setMinimumSize(new java.awt.Dimension(900, 503));
         PanelPrincipal.setPreferredSize(new java.awt.Dimension(900, 503));
+        PanelPrincipal.setRequestFocusEnabled(false);
         PanelPrincipal.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
