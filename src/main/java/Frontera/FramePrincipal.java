@@ -14,6 +14,14 @@ import javax.swing.JPanel;
 public class FramePrincipal extends javax.swing.JFrame {
     private static String panel;
     private static Administrador admin;
+
+    public static Administrador getAdmin() {
+        return admin;
+    }
+
+    public static void setAdmin(Administrador admin) {
+        FramePrincipal.admin = admin;
+    }
     public static String[] preguntas={"Cuál es el nombre de tu primera mascota?","Cuál es tu comida favorita?","Quíen era el héroe de tu infancia?"};
     static private Fondo fondo;
     private Ingreso ingreso = new Ingreso();

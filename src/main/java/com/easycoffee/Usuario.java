@@ -6,24 +6,23 @@ public class Usuario extends Persona {
 
     private String username;
     private String password;
-    private String respuesta;
+    private String[] respuesta=new String[3];
     private int idLote;
 
-    public String getRespuesta() {
-        return respuesta;
+    public Usuario(String username, String password, Long cedula, String nombre, String apellido, boolean estado) {
+        super(cedula, nombre, apellido, estado);
+        this.username = username;
+        this.password = password;
     }
 
-    public void setRespuesta(String respuesta) {
-        this.respuesta = respuesta;
-    }
 
-    public Usuario(String username, String password, String respuesta, Long cedula, String nombre, String apellido, boolean estado, int idLote) {
+    /*public Usuario(String username, String password, String respuesta, Long cedula, String nombre, String apellido, boolean estado, int idLote) {
         super(cedula, nombre, apellido, estado);
         this.username = username;
         this.password = password;
         this.respuesta = respuesta;
         this.idLote = idLote;
-    }
+    }*/
 
     public String getUsername() {
         return username;

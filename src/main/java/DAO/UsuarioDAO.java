@@ -26,20 +26,20 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         this.conn = conn;
     }
 
-    private Usuario convertir(ResultSet rs) throws SQLException {
-        
-        int idLote = rs.getInt("LOTE_LOTE_IDLOTE");
-        String username = rs.getString("USU_USERNAME");
-        String password = rs.getString("USU_PASSWORD");
-        String rolUsuario = rs.getString("USU_ROLUSUARIO");
-        String nombrePersona = rs.getString("PER_NOMBRE");
-        String apellidoPersona = rs.getString("PER_APELLIDO");
-        String respuestaUsuario = rs.getString("USU_RESPUESTAPREGUNTA");
-        boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
-        Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
-        Usuario newUsuario = new Usuario(username, password, respuestaUsuario, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona, idLote);
-        return newUsuario;
-    }
+    /*private Usuario convertir(ResultSet rs) throws SQLException {
+    
+    int idLote = rs.getInt("LOTE_LOTE_IDLOTE");
+    String username = rs.getString("USU_USERNAME");
+    String password = rs.getString("USU_PASSWORD");
+    String rolUsuario = rs.getString("USU_ROLUSUARIO");
+    String nombrePersona = rs.getString("PER_NOMBRE");
+    String apellidoPersona = rs.getString("PER_APELLIDO");
+    String respuestaUsuario = rs.getString("USU_RESPUESTAPREGUNTA");
+    boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
+    Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
+    Usuario newUsuario = new Usuario(username, password, respuestaUsuario, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona, idLote);
+    return newUsuario;
+    }*/
 
     @Override
     public void insertar(Usuario u) {
@@ -51,7 +51,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             stat.setString(3, u.getUsername());
             stat.setString(4, u.getPassword());
             stat.setString(5, "Aux");
-            stat.setString(6, u.getRespuesta());
+            //stat.setString(6, u.getRespuesta());
             stat.setInt(7, u.getCedula().intValue());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
@@ -77,7 +77,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             stat.setString(1, u.getUsername());
             stat.setString(2, u.getPassword());
             stat.setInt(3, u.getIdLote());
-            stat.setString(4, u.getRespuesta());
+            //stat.setString(4, u.getRespuesta());
             stat.setLong(5, u.getCedula());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya modificado");
@@ -127,7 +127,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             rs = stat.executeQuery();     
             boolean r = rs.next();
             while (r) {     //OJO!!! El rs.next(); Funciona Igual que un Scanner sc.next();
-                u.add(convertir(rs));
+                //u.add(convertir(rs));
                 r= rs.next();
             }
         } catch (SQLException e) {
@@ -162,7 +162,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {
-                u = convertir(rs);
+               // u = convertir(rs);
             } else {
                 System.out.println("Registro no encontrado");
             }

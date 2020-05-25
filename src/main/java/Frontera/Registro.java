@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 public class Registro extends javax.swing.JPanel {
     private String error="";
     static String fondo = "../image/cafe.jpg";
+    private String[] answerA=new String[3];
     
     public Registro() {
         
@@ -20,6 +21,14 @@ public class Registro extends javax.swing.JPanel {
             questions.addItem(FramePrincipal.preguntas[i]);
         }
         
+    }
+    public  boolean Preguntas() {
+        boolean b=true;
+        for (int i = 0; i < 3; i++) {
+            if(answerA[i]==null)
+                b= false;
+        }
+        return b;
     }
     public static boolean isNumeric(String s){
 	try {
@@ -38,13 +47,11 @@ public class Registro extends javax.swing.JPanel {
         
         if(p.equals("")==true||pc.equals("")==true||nm.equals("")==true||ap.equals("")==true){
                 error="empty";
-                b=false;
-                
+                b=false;       
         }
         else{
             if(isNumeric(cedula.getText())==false){
                 error="cedulaIn";
-                System.out.println(p+"°°"+pc);
                 b=false;
             }
             else{
@@ -52,17 +59,13 @@ public class Registro extends javax.swing.JPanel {
                     error="passwordIn";
                     b=false;
                 }
-                else if(ap.length()<15&&ap.length()>3&&nm.length()<15&&nm.length()>3){
+                else if(Preguntas()==false){
+                    error="answer";
+                    b=false; 
+                }
+                else if((ap.length()<15&&ap.length()>3&&nm.length()<15&&nm.length()>3)==false){
                     error="nombreApellidoIn";
                     b=false;
-                }
-                else if(ap.length()<15&&ap.length()>3&&nm.length()<15&&nm.length()>3){
-                    error="nombreApellidoIn";
-                    b=false;
-                }
-                else if(Integer.parseInt(cedula.getText())>1000 ){
-                   error="cedulaIn";
-                   b=false; 
                 }
             }
         }
@@ -97,6 +100,7 @@ public class Registro extends javax.swing.JPanel {
         questions = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         answer = new javax.swing.JTextField();
+        saveAnswer = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(900, 503));
         setMinimumSize(new java.awt.Dimension(900, 503));
@@ -164,12 +168,24 @@ public class Registro extends javax.swing.JPanel {
 
         jLabel8.setText("Respuesta");
 
+        saveAnswer.setBackground(new java.awt.Color(255, 153, 153));
+        saveAnswer.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        saveAnswer.setText("guardar respuesta");
+        saveAnswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAnswerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(saveAnswer))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registration)
@@ -246,7 +262,9 @@ public class Registro extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(36, 36, 36)
+                .addGap(5, 5, 5)
+                .addComponent(saveAnswer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registration)
                     .addComponent(registration1))
@@ -256,7 +274,9 @@ public class Registro extends javax.swing.JPanel {
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
         if(datosCorrectos() == true){
-            System.out.println("Usuario Registrado");
+            JOptionPane.showMessageDialog(null, "Usuario Registrado");
+            FramePrincipal.setAdmin(new Administrador(null,nombres.getText(), password.getText(),(long)Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true));
+
         }else{
             switch(error){
                 case "passwordIn":{
@@ -273,6 +293,10 @@ public class Registro extends javax.swing.JPanel {
                 }
                 case "empty" :{
                     JOptionPane.showMessageDialog(null, "Una de las casillas está vacia, por favor asegurese de rellenar todas las casillas");
+                    break;
+                }
+                case "answer" :{
+                    JOptionPane.showMessageDialog(null, "Por favor responda todas las preguntas de seguridad");
                     break;
                 }
             }
@@ -306,6 +330,15 @@ public class Registro extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "El usuario que va a crear a continuación es el que tiene el control del programa. procure no olvidar la contraseña.");
     }//GEN-LAST:event_infActionPerformed
 
+    private void saveAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAnswerActionPerformed
+        if(answer.getText().equals(error))
+             JOptionPane.showMessageDialog(null, "La casilla de respuesta está vacia, por favor asegurese de rellenarla");
+        else{
+            System.out.println(questions.getSelectedIndex());
+            answerA[questions.getSelectedIndex()]=answer.getText();
+        }
+    }//GEN-LAST:event_saveAnswerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField answer;
@@ -327,5 +360,6 @@ public class Registro extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> questions;
     private javax.swing.JButton registration;
     private javax.swing.JButton registration1;
+    private javax.swing.JButton saveAnswer;
     // End of variables declaration//GEN-END:variables
 }
