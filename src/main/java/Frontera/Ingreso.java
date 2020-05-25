@@ -42,27 +42,32 @@ public class Ingreso extends javax.swing.JPanel {
             }
         });
 
-        login.setBackground(new java.awt.Color(255, 102, 153));
+        login.setBackground(new java.awt.Color(102, 0, 0));
         login.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Iniciar sesión");
+        login.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
             }
         });
 
-        registration.setBackground(new java.awt.Color(153, 153, 255));
+        registration.setBackground(new java.awt.Color(204, 51, 0));
         registration.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        registration.setForeground(new java.awt.Color(255, 255, 255));
         registration.setText("Registro");
+        registration.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
         registration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrationActionPerformed(evt);
             }
         });
 
-        forgot.setBackground(new java.awt.Color(51, 255, 255));
         forgot.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        forgot.setForeground(new java.awt.Color(255, 255, 255));
         forgot.setText("¿Olvidaste tu contraseña?");
+        forgot.setBorder(null);
         forgot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 forgotActionPerformed(evt);
@@ -110,7 +115,9 @@ public class Ingreso extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(check)
                                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(forgot)))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addComponent(forgot))))))
                 .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
@@ -126,13 +133,13 @@ public class Ingreso extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(check)
-                .addGap(18, 18, 18)
-                .addComponent(forgot)
-                .addGap(79, 79, 79)
-                .addComponent(login)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registration)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addComponent(forgot)
+                .addGap(61, 61, 61)
+                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(registration, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(144, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
