@@ -179,7 +179,9 @@ public class Registro extends javax.swing.JPanel {
         passwordConfirm.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         passwordConfirm.setForeground(new java.awt.Color(255, 255, 255));
 
+        check.setBackground(new java.awt.Color(0, 0, 0));
         check.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        check.setForeground(new java.awt.Color(255, 255, 255));
         check.setText("Mostrar");
         check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
