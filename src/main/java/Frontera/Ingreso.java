@@ -43,7 +43,7 @@ public class Ingreso extends javax.swing.JPanel {
         });
 
         login.setBackground(new java.awt.Color(255, 102, 153));
-        login.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        login.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         login.setText("Iniciar sesión");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +52,7 @@ public class Ingreso extends javax.swing.JPanel {
         });
 
         registration.setBackground(new java.awt.Color(153, 153, 255));
-        registration.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        registration.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         registration.setText("Registro");
         registration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +61,7 @@ public class Ingreso extends javax.swing.JPanel {
         });
 
         forgot.setBackground(new java.awt.Color(51, 255, 255));
-        forgot.setFont(new java.awt.Font("Sitka Banner", 0, 11)); // NOI18N
+        forgot.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         forgot.setText("¿Olvidaste tu contraseña?");
         forgot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,12 +92,12 @@ public class Ingreso extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(697, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(login)
-                            .addComponent(registration, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(registration, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                            .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(51, 51, 51))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -132,7 +132,7 @@ public class Ingreso extends javax.swing.JPanel {
                 .addComponent(login)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registration)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
