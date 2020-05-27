@@ -73,12 +73,13 @@ public class PermisosDAO {
         }
     }
 
-    public ArrayList<Integer> obtenerTodos() {
+    public ArrayList<Integer> obtenerTodos(Usuario u) {
         PreparedStatement stat = null;
         ResultSet rs = null;
         ArrayList<Integer> a = new ArrayList<>();
         try {
             stat = conn.prepareStatement(GETALL);
+            stat.setLong(1, u.getCedula().intValue());
             rs = stat.executeQuery();
             boolean r = rs.next();
             while (r) {     //OJO!!! El rs.next(); Funciona Igual que un Scanner sc.next();
