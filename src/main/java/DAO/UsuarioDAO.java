@@ -26,7 +26,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         this.conn = conn;
     }
 
-    /*private Usuario convertir(ResultSet rs) throws SQLException {
+    private Usuario convertir(ResultSet rs) throws SQLException {
     
     int idLote = rs.getInt("LOTE_LOTE_IDLOTE");
     String username = rs.getString("USU_USERNAME");
@@ -37,9 +37,12 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
     String respuestaUsuario = rs.getString("USU_RESPUESTAPREGUNTA");
     boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
     Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
+    
+    Usuario newUsuario = new Usuario();
+    
     return newUsuario;
     }
-*/
+
     @Override
     public void insertar(Usuario u) {
         PreparedStatement stat = null;
