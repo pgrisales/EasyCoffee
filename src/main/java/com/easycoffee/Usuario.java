@@ -16,14 +16,6 @@ public class Usuario extends Persona {
     }
 
 
-    /*public Usuario(String username, String password, String respuesta, Long cedula, String nombre, String apellido, boolean estado, int idLote) {
-        super(cedula, nombre, apellido, estado);
-        this.username = username;
-        this.password = password;
-        this.respuesta = respuesta;
-        this.idLote = idLote;
-    }*/
-
     public String getUsername() {
         return username;
     }
