@@ -17,7 +17,7 @@ import java.sql.SQLException;
  * @author Diego Lopez A
  */
 public class PermisosDAO {
-    final String INSERT = "INSERT INTO EASYCOFFEDB.PERMISOS VALUES (?, ?, ?)";
+    final String INSERT = "INSERT INTO EASYCOFFEDB.PERMISOS VALUES (default, ?, ?)";
     final String DELETE = "DELETE FROM EASYCOFFEDB.PERMISOS WHERE PER_ID = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEDB.PERMISOS";
 
@@ -29,7 +29,6 @@ public class PermisosDAO {
     
     private int convertir(ResultSet rs) throws SQLException {
     int idLote = rs.getInt("LOTE_IDLOTE");
-    
     return idLote;
     }
     
@@ -37,9 +36,8 @@ public class PermisosDAO {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setString(1, u.getUsername());
-            stat.setString(2, u.getPassword());
-            stat.setInt(3, u.getCedula().intValue());
+            stat.setInt(1, u.getCedula().intValue());
+            stat.setInt(2, idLote);
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
             }

@@ -7,7 +7,7 @@ public class Usuario extends Persona {
     private String username;
     private String password;
     private String[] respuesta=new String[3];
-    private int[][] idLotes;
+    private int[] idLotes;
     
     
     
