@@ -7,8 +7,10 @@ public class Usuario extends Persona {
     private String username;
     private String password;
     private String[] respuesta=new String[3];
-    private int[] idLotes;
-
+    private int[][] idLotes;
+    
+    
+    
     public Usuario(String username, String password, Long cedula, String nombre, String apellido, 
             boolean estado, String rta1,String rta2, String rta3 ) {
         super(cedula, nombre, apellido, estado);
