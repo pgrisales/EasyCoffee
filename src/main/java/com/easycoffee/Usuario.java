@@ -19,11 +19,13 @@ public class Usuario extends Persona {
         this.respuesta[2] = rta3;
     }
 
-    public Usuario(String username, String password, int idLote, Long cedula, String nombre, String apellido, boolean estado) {
+    public Usuario(String username, String password, Long cedula, String nombre, String apellido, boolean estado) {
         super(cedula, nombre, apellido, estado);
         this.username = username;
         this.password = password;
     }
+
+    
     
 
     public String getUsername() {
