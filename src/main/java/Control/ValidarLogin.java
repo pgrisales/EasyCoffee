@@ -25,14 +25,15 @@ public class ValidarLogin {
         return user.getPassword().equals(daoManager.getUsuarioDAO().obtener(user.getCedula()).getPassword());
     }
 
-//    public static void main(String[] args) {
-//        Usuario test = new Usuario("admin3", "134", (long) 195, "Camilo", "Vargas", true);
-//        ValidarLogin login = new ValidarLogin();
-//        boolean logear = login.verificarLogin(test);
-//        if (logear) {
-//            System.out.println("Bienvenido " + test.getNombre());
-//        } else {
-//            System.out.println("Upsss.... Algo Ha salido mal :/");
-//        }
-//    }
+    //Ejemplo Verificación Usuarios
+    public static void main(String[] args) {
+        Usuario test = new Usuario("admin3", "134", (long) 195, "Camilo", "Vargas", true);
+        ValidarLogin login = new ValidarLogin();
+        boolean logear = login.verificarLogin(test);
+        if (logear) {
+            System.out.println("Bienvenido " + test.getNombre());
+        } else {
+            System.out.println("Upsss.... Algo Ha salido mal :/");
+        }
+    }
 }
