@@ -351,7 +351,7 @@ public class Registro extends javax.swing.JPanel {
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
         if(datosCorrectos() == true){
             JOptionPane.showMessageDialog(null, "Usuario Registrado");
-            FramePrincipal.setAdmin(new Administrador(null,nombres.getText(), password.getText(),(long)Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true));
+            //FramePrincipal.setAdmin(new Administrador(null,nombres.getText(), password.getText(),(long)Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true));
 
         }else{
             switch(error){

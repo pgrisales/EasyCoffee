@@ -23,7 +23,6 @@ public class Usuario extends Persona {
         super(cedula, nombre, apellido, estado);
         this.username = username;
         this.password = password;
-        this.idLote = idLote;
     }
     
 
@@ -48,18 +47,22 @@ public class Usuario extends Persona {
         return lotes;
     }
 
-    public int getIdLote() {
-        return idLote;
+    public String[] getRespuesta() {
+        return respuesta;
     }
 
-    public void setIdLote(int idLote) {
-        this.idLote = idLote;
+    public void setRespuesta(String[] respuesta) {
+        this.respuesta = respuesta;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "username=" + username + ", password=" + password + ", respuesta=" + respuesta
-                + ", idLote= " + idLote + " Nombre = " + super.getNombre() + "Apellido = " + super.getApellido() + '}';
+    public int[] getIdLotes() {
+        return idLotes;
     }
+
+    public void setIdLotes(int[] idLotes) {
+        this.idLotes = idLotes;
+    }
+
+    
 
 }

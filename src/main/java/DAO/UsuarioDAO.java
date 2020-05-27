@@ -38,7 +38,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
     boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
     Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
     
-    Usuario newUsuario = new Usuario();
+    //Usuario newUsuario = new Usuario();
     
     return newUsuario;
     }
@@ -49,7 +49,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         try {
             stat = conn.prepareStatement(INSERT);
             stat.setInt(1, 1);
-            stat.setInt(2, u.getIdLote());
+            //stat.setInt(2, u.getIdLote());
             stat.setString(3, u.getUsername());
             stat.setString(4, u.getPassword());
             stat.setString(5, "Aux");
@@ -78,7 +78,6 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             stat = conn.prepareStatement(UPDATE);
             stat.setString(1, u.getUsername());
             stat.setString(2, u.getPassword());
-            stat.setInt(3, u.getIdLote());
             //stat.setString(4, u.getRespuesta());
             stat.setLong(5, u.getCedula());
             if (stat.executeUpdate() == 0) {
