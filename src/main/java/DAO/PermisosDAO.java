@@ -18,7 +18,7 @@ import java.sql.SQLException;
  */
 public class PermisosDAO {
     final String INSERT = "INSERT INTO EASYCOFFEDB.PERMISOS VALUES (default, ?, ?)";
-    final String DELETE = "DELETE FROM EASYCOFFEDB.PERMISOS WHERE PER_ID = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEDB.PERMISOS WHERE LOTE_IDLOTE = ? AND PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEDB.PERMISOS";
 
     private Connection conn;
