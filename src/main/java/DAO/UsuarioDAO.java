@@ -37,10 +37,9 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
     String respuestaUsuario = rs.getString("USU_RESPUESTAPREGUNTA");
     boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
     Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
-    Usuario newUsuario = new Usuario(username, password, respuestaUsuario, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona, idLote);
     return newUsuario;
-    }*/
-
+    }
+*/
     @Override
     public void insertar(Usuario u) {
         PreparedStatement stat = null;

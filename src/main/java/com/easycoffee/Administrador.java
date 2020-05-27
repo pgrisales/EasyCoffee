@@ -4,11 +4,11 @@ public class Administrador extends Usuario{
     
     private Finca finca;
 
-    public Administrador(Finca finca, String username, String password, Long cedula, String nombre, String apellido, boolean estado) {
+    /*public Administrador(Finca finca, String username, String password, Long cedula, String nombre, String apellido, boolean estado) {
         super(username, password, cedula, nombre, apellido, estado);
         this.finca = finca;
     }
-
+*/
     
 
 
