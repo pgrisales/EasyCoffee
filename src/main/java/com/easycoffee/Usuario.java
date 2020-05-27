@@ -67,6 +67,11 @@ public class Usuario extends Persona {
         this.idLotes = idLotes;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "username=" + username + ", password=" + password;
+    }
+
     
 
 }
