@@ -17,6 +17,14 @@ public class Arbol {
     private String variedad;
     private String fechaDeSembrado;
 
+    public Arbol(int ID, int idLote, boolean estadoArbol, String variedad, String fechaDeSembrado) {
+        this.ID = ID;
+        this.idLote = idLote;
+        this.estadoArbol = estadoArbol;
+        this.variedad = variedad;
+        this.fechaDeSembrado = fechaDeSembrado;
+    }
+
     public Arbol(int ID, String variedad, String fechaDeSembrado) {
         this.ID = ID;
         this.variedad = variedad;

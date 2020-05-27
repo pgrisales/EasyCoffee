@@ -120,7 +120,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             rs = stat.executeQuery();     
             boolean r = rs.next();
             while (r) {     //OJO!!! El rs.next(); Funciona Igual que un Scanner sc.next();
-                //u.add(convertir(rs));
+                u.add(convertir(rs));
                 r= rs.next();
             }
         } catch (SQLException e) {
@@ -155,7 +155,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {
-               // u = convertir(rs);
+               u = convertir(rs);
             } else {
                 System.out.println("Registro no encontrado");
             }

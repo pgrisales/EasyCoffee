@@ -27,8 +27,8 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
         String tipoArbol = rs.getString("ARB_TIPOARB");
         int idLote = rs.getInt("LOTE_IDLOTE");
         boolean estadoArbol = rs.getBoolean("ARB_ESTADO");
-        String fechaSiembra = String.valueOf(rs.getDate("ARB_FECHASEMBRADO"));
-        Arbol newArbol = new Arbol(idArbol, tipoArbol, fechaSiembra);
+        String fechaSiembra = String.valueOf(rs.getDate("ARB_FECHASIEMBRA"));
+        Arbol newArbol = new Arbol(idArbol,idLote, estadoArbol,tipoArbol, fechaSiembra);
         return newArbol;
     }
 

@@ -7,7 +7,7 @@ public class Usuario extends Persona {
     private String username;
     private String password;
     private String[] respuesta=new String[3];
-    private int[] idLotes;
+    private ArrayList<Integer> idLotes;
     
     
     
@@ -59,11 +59,11 @@ public class Usuario extends Persona {
         this.respuesta = respuesta;
     }
 
-    public int[] getIdLotes() {
+    public ArrayList<Integer> getIdLotes() {
         return idLotes;
     }
 
-    public void setIdLotes(int[] idLotes) {
+    public void setIdLotes(ArrayList<Integer> idLotes) {
         this.idLotes = idLotes;
     }
 

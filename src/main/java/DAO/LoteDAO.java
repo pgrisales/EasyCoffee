@@ -34,7 +34,7 @@ public class LoteDAO implements DAO<Lote,Long>{
         String fDesyerbado = String.valueOf(rs.getDate("LOTE_FECHADESYERBADO"));
         String fAbonado = String.valueOf(rs.getDate("LOTE_FECHAABONADO"));
         boolean carga = rs.getBoolean("LOTE_CARGA");
-        Long idLote = rs.getLong("LOTE_IDLOTE");
+        Long idLote = new Long(rs.getInt("LOTE_IDLOTE"));
         double area = rs.getDouble("LOTE_AREATOTAL");
         Lote newLote = new Lote(idLote,area,fDesyerbado,fAbonado,carga);
         return newLote;
@@ -45,7 +45,7 @@ public class LoteDAO implements DAO<Lote,Long>{
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setLong(1, a.getIdLote());
+            stat.setInt(1, a.getIdLote().intValue());
             stat.setDate(2, java.sql.Date.valueOf(a.getFechaDesyerbado()));
             stat.setDate(3, java.sql.Date.valueOf(a.getFechaAbonado()));
             stat.setDouble(4, a.getAreaTotal());
