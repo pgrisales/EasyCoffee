@@ -1,5 +1,7 @@
 package Frontera;
 
+import Control.ValidarLogin;
+import static java.lang.Long.MIN_VALUE;
 import javax.swing.JOptionPane;
 
 /**
@@ -158,7 +160,23 @@ public class Ingreso extends javax.swing.JPanel {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
+        ValidarLogin validacion = new ValidarLogin();
+        //JOptionPane.showMessageDialog(null, username.getText());
+        //System.out.println(((Object)Long.parseLong(username.getText())).getClass().getSimpleName());
+        //System.out.println(((Object)password.getText()).getClass().getSimpleName());
+        Long cedula = MIN_VALUE;
+        try {
+            cedula = Long.parseLong(username.getText());
+            if(validacion.verificarLogin(cedula, password.getText())){
+            }else{
+                JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Datos invalidos!");
+        }
+        
+   
+        
     }//GEN-LAST:event_loginActionPerformed
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
