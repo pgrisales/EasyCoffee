@@ -26,15 +26,18 @@ public class RecuperarContraseña {
     public boolean compararCedula(Long cedula) {
         try {
             this.u = daoManager.getUsuarioDAO().obtener(cedula);
+            System.out.println("comparar ced "+u);
             return true;
         } catch (Exception E) {
             E.printStackTrace();
             return false;
         }
+        
     }
 
     public boolean compararRespuestas(String r, int index) {
         String[] s = this.u.getRespuesta();
+        System.out.println("comparar res "+s[index].equals(r));
         return s[index].equals(r);
     }
 

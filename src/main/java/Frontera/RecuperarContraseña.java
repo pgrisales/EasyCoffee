@@ -1,5 +1,7 @@
 package Frontera;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nivektakedown
@@ -21,7 +23,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        userName = new javax.swing.JTextField();
+        cedula = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         questions = new javax.swing.JComboBox<>();
         answer = new javax.swing.JTextField();
@@ -80,7 +82,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(answer, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(questions, javax.swing.GroupLayout.Alignment.TRAILING, 0, 361, Short.MAX_VALUE)
-                            .addComponent(userName, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(cedula, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
@@ -89,7 +91,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
                 .addGap(236, 236, 236)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -107,7 +109,11 @@ public class RecuperarContraseña extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
-        FramePrincipal.cambiarPanel(new CambiarContraseña());
+        Control.RecuperarContraseña r=new Control.RecuperarContraseña();
+        if(r.compararCedula((long)Integer.parseInt(cedula.getText()))&&r.compararRespuestas(answer.getText(), questions.getSelectedIndex()))
+            FramePrincipal.cambiarPanel(new CambiarContraseña());
+        else
+            JOptionPane.showMessageDialog(null, "impedido");
     }//GEN-LAST:event_checkActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -118,11 +124,11 @@ public class RecuperarContraseña extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField answer;
     private javax.swing.JButton cancel;
+    private javax.swing.JTextField cedula;
     private javax.swing.JButton check;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JComboBox<String> questions;
-    private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
 }
