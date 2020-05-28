@@ -16,7 +16,7 @@ public class ValidarLogin {
         return compararUsername(cedula) && compararPassword(cedula, contraseña);
     }
 
-    private boolean compararUsername(Long cedula) {
+    public boolean compararUsername(Long cedula) {
         return daoManager.getUsuarioDAO().obtener(cedula) != null;
     }
 
