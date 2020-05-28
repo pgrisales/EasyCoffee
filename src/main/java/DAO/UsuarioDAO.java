@@ -15,8 +15,8 @@ import java.util.*;
  */
 public class UsuarioDAO implements DAO<Usuario, Long> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEDB.USUARIO VALUES (?, ?, ?)"; //(PER_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
-    final String UPDATE = "UPDATE EASYCOFFEDB.USUARIO SET USU_USERNAME = ?, USU_PASSWORD = ?, WHERE PER_CEDULACIUDADANIA = ?";
+    final String INSERT = "INSERT INTO EASYCOFFEDB.USUARIO VALUES (?, ?)"; //(PER_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
+    final String UPDATE = "UPDATE EASYCOFFEDB.USUARIO SET USU_PASSWORD = ?, WHERE PER_CEDULACIUDADANIA = ?";
     final String DELETE = "DELETE FROM EASYCOFFEDB.USUARIO WHERE PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEDB.PERSONA NATURAL JOIN EASYCOFFEDB.USUARIO";
 
@@ -28,14 +28,13 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
 
     private Usuario convertir(ResultSet rs) throws SQLException {
     
-    String username = rs.getString("USU_USERNAME");
     String password = rs.getString("USU_PASSWORD");
     String nombrePersona = rs.getString("PER_NOMBRE");
     String apellidoPersona = rs.getString("PER_APELLIDO");
     boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
     Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
     
-    Usuario newUsuario = new Usuario(username, password, cedulaCiudadania, nombrePersona, apellidoPersona,estadoPersona);
+    Usuario newUsuario = new Usuario(password, cedulaCiudadania, nombrePersona, apellidoPersona,estadoPersona);
     
     return newUsuario;
     }
@@ -45,9 +44,8 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setString(1, u.getUsername());
-            stat.setString(2, u.getPassword());
-            stat.setInt(3, u.getCedula().intValue());
+            stat.setString(1, u.getPassword());
+            stat.setInt(2, u.getCedula().intValue());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
             }
@@ -69,9 +67,8 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(UPDATE);
-            stat.setString(1, u.getUsername());
-            stat.setString(2, u.getPassword());
-            stat.setLong(3, u.getCedula());
+            stat.setString(1, u.getPassword());
+            stat.setLong(2, u.getCedula());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya modificado");
             }

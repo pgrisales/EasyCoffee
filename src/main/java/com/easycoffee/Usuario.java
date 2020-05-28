@@ -4,38 +4,22 @@ import java.util.*;
 
 public class Usuario extends Persona {
 
-    private String username;
     private String password;
     private String[] respuesta=new String[3];
     private ArrayList<Integer> idLotes;
     
-    
-    
-    public Usuario(String username, String password, Long cedula, String nombre, String apellido, 
+    public Usuario(String password, Long cedula, String nombre, String apellido, 
             boolean estado, String rta1,String rta2, String rta3 ) {
         super(cedula, nombre, apellido, estado);
-        this.username = username;
         this.password = password;
         this.respuesta[0] = rta1;
         this.respuesta[1] = rta2;
         this.respuesta[2] = rta3;
     }
 
-    public Usuario(String username, String password, Long cedula, String nombre, String apellido, boolean estado) {
+    public Usuario(String password, Long cedula, String nombre, String apellido, boolean estado) {
         super(cedula, nombre, apellido, estado);
-        this.username = username;
         this.password = password;
-    }
-
-    
-    
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
@@ -69,9 +53,10 @@ public class Usuario extends Persona {
 
     @Override
     public String toString() {
-        return "Usuario{" + "username=" + username + ", password=" + password;
+        return "Usuario{" + "password=" + password + '}';
     }
 
+    
     
 
 }
