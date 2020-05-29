@@ -1,5 +1,9 @@
 package Frontera;
+import Control.RegistrarAdmin;
 import com.easycoffee.Administrador;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.ComboBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -351,7 +355,14 @@ public class Registro extends javax.swing.JPanel {
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
         if(datosCorrectos() == true){
             JOptionPane.showMessageDialog(null, "Usuario Registrado");
-            //new Administrador(password.getText(),(long)Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true,answerA[0],answerA[1],answerA[2]));
+            Administrador a;
+            a = new Administrador(password.getText(),(long)Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true,answerA[0],answerA[1],answerA[2]);
+            RegistrarAdmin b =new RegistrarAdmin();
+            try {
+                b.registrar(a);
+            } catch (SQLException ex) {
+                Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         }else{
             switch(error){
