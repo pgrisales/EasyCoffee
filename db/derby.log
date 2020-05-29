@@ -1,8 +1,25 @@
-Thu May 28 18:45:38 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
+Thu May 28 21:00:03 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
-Thu May 28 18:45:39 COT 2020:
- Iniciando instancia a816c00e-0172-5dad-4a68-00005e0e7d4f de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
-en el directorio de base de datos C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee\db\easycoffedb con el cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
+Thu May 28 21:00:40 COT 2020:
+ Iniciando instancia a816c00e-0172-5e28-5d43-00005e0e7d4f de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
+en el directorio de base de datos C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee\db\Easycoffedb con el cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
+Cargado desde file:/C:/Users/Hp/Documents/NetBeansProjects/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_191-b12
+user.dir=C:\Users\Hp\Documents\NetBeansProjects\db-derby-10.14.2.0-bin
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee\db
+Cargador de clases de base de datos iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Thu May 28 21:00:52 COT 2020:
+Cerrando la instancia a816c00e-0172-5e28-5d43-00005e0e7d4f en el directorio de base de datos C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee\db\Easycoffedb con cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
+Thu May 28 21:00:52 COT 2020 Thread[DRDAConnThread_3,5,main] (DATABASE = Easycoffedb), (DRDAID = {2}), Cierre de la base de datos 'Easycoffedb'.
+----------------------------------------------------------------
+Thu May 28 21:01:04 COT 2020:
+ Iniciando instancia 6ede40af-0172-5e28-5d43-00005e0e7d4f de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
+en el directorio de base de datos C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee\db\Easycoffedb con el cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
 Cargado desde file:/C:/Users/Hp/Documents/NetBeansProjects/db-derby-10.14.2.0-bin/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_191-b12
