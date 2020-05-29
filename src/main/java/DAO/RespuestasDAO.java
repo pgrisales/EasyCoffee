@@ -95,11 +95,11 @@ public class RespuestasDAO {
             }
         }
     }
-    
-    public String [] obtener(Integer cedulaCiudadania) {
+
+    public String[] obtener(Integer cedulaCiudadania) {
         PreparedStatement stat = null;
         ResultSet rs = null;
-        String [] preguntas = null;
+        String[] preguntas = null;
         try {
             stat = conn.prepareStatement("SELECT * FROM EASYCOFFEDB.RESPUESTAS WHERE PER_CEDULACIUDADANIA = ?");
             stat.setLong(1, cedulaCiudadania);

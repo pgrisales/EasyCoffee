@@ -1,8 +1,6 @@
 package Control;
 
 import DAO.DAOManager;
-import com.easycoffee.Usuario;
-import java.sql.SQLException;
 
 public class ValidarLogin {
 
@@ -22,17 +20,5 @@ public class ValidarLogin {
 
     private boolean compararPassword(Long cedula, String contraseña) {
         return contraseña.equals(daoManager.getUsuarioDAO().obtener(cedula).getPassword());
-    }
-
-    //Ejemplo Verificación Usuarios
-    public static void main(String[] args) {
-        Usuario test = new Usuario("134", (long) 195, "Camilo", "Vargas", true);
-        ValidarLogin login = new ValidarLogin();
-        boolean logear = login.verificarLogin(test.getCedula(),test.getPassword());
-        if (logear) {
-            System.out.println("Bienvenido " + test.getNombre());
-        } else {
-            System.out.println("Upsss.... Algo Ha salido mal :/");
-        }
     }
 }

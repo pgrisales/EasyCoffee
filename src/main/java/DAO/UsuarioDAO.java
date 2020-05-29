@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import com.easycoffee.Usuario;
@@ -27,16 +22,16 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
     }
 
     private Usuario convertir(ResultSet rs) throws SQLException {
-    
-    String password = rs.getString("USU_PASSWORD");
-    String nombrePersona = rs.getString("PER_NOMBRE");
-    String apellidoPersona = rs.getString("PER_APELLIDO");
-    boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
-    Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
-    
-    Usuario newUsuario = new Usuario(password, cedulaCiudadania, nombrePersona, apellidoPersona,estadoPersona);
-    
-    return newUsuario;
+
+        String password = rs.getString("USU_PASSWORD");
+        String nombrePersona = rs.getString("PER_NOMBRE");
+        String apellidoPersona = rs.getString("PER_APELLIDO");
+        boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
+        Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
+
+        Usuario newUsuario = new Usuario(password, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona);
+
+        return newUsuario;
     }
 
     @Override
@@ -114,11 +109,11 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         List<Usuario> u = new ArrayList<>();
         try {
             stat = conn.prepareStatement(GETALL);
-            rs = stat.executeQuery();     
+            rs = stat.executeQuery();
             boolean r = rs.next();
             while (r) {     //OJO!!! El rs.next(); Funciona Igual que un Scanner sc.next();
                 u.add(convertir(rs));
-                r= rs.next();
+                r = rs.next();
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL");
@@ -152,7 +147,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {
-               u = convertir(rs);
+                u = convertir(rs);
             } else {
                 System.out.println("Registro no encontrado");
             }

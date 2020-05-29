@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import com.easycoffee.Trabajador;
@@ -14,30 +9,31 @@ import java.util.List;
  *
  * @author Camilo Vargas
  */
-public class TrabajadorDAO implements DAO<Trabajador,Long>{
+public class TrabajadorDAO implements DAO<Trabajador, Long> {
 
     final String INSERT = "INSERT INTO EASYCOFFEDB.TRABAJADOR VALUES (?, ?)"; //(PER_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
     final String UPDATE = "UPDATE EASYCOFFEDB.TRABAJADOR SET TRAB_SALARIO = ? WHERE PER_CEDULACIUDADANIA = ?";
     final String DELETE = "DELETE FROM EASYCOFFEDB.TRABAJADOR WHERE PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEDB.PERSONA NATURAL JOIN EASYCOFFEDB.TRABAJADOR";
-    
+
     private Connection conn;
 
     public TrabajadorDAO(Connection conn) {
         this.conn = conn;
     }
+
     private Trabajador convertir(ResultSet rs) throws SQLException {
-      
+
         String nombrePersona = rs.getString("PER_NOMBRE");
         String apellidoPersona = rs.getString("PER_APELLIDO");
         boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
         Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
         double salario = rs.getDouble("TRAB_SALARIO");
-        
-        Trabajador newTrabajador = new Trabajador( salario, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona);
+
+        Trabajador newTrabajador = new Trabajador(salario, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona);
         return newTrabajador;
     }
-    
+
     @Override
     public void insertar(Trabajador a) {
         PreparedStatement stat = null;
@@ -102,7 +98,7 @@ public class TrabajadorDAO implements DAO<Trabajador,Long>{
                     ef.printStackTrace();
                 }
             }
-        }    
+        }
     }
 
     @Override
@@ -112,11 +108,11 @@ public class TrabajadorDAO implements DAO<Trabajador,Long>{
         List<Trabajador> t = new ArrayList<>();
         try {
             stat = conn.prepareStatement(GETALL);
-            rs = stat.executeQuery();     
+            rs = stat.executeQuery();
             boolean r = rs.next();
             while (r) {     //OJO!!! El rs.next(); Funciona Igual que un Scanner sc.next();
                 t.add(convertir(rs));
-                r= rs.next();
+                r = rs.next();
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL");
@@ -173,7 +169,7 @@ public class TrabajadorDAO implements DAO<Trabajador,Long>{
                 }
             }
         }
-        return t;    
+        return t;
     }
 
 }

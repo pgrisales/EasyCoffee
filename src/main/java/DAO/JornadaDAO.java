@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import com.easycoffee.Jornada;
-import com.easycoffee.Persona;
-import com.easycoffee.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,28 +12,28 @@ import java.util.List;
  *
  * @author Camilo Vargas
  */
-public class JornadaDAO implements DAO<Jornada,Long> {
+public class JornadaDAO implements DAO<Jornada, Long> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEDB.JORNADA VALUES (default, ?, ?, ?, ?, ?)"; 
+    final String INSERT = "INSERT INTO EASYCOFFEDB.JORNADA VALUES (default, ?, ?, ?, ?, ?)";
     final String DELETE = "DELETE FROM EASYCOFFEDB.JORNADA WHERE ID = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEDB.JORNADA";
     private Connection conn;
-    
+
     public JornadaDAO(Connection conn) {
         this.conn = conn;
     }
-    
+
     private Jornada convertir(ResultSet rs) throws SQLException {
-        
+
         int ID = rs.getInt("ID");
         int idLote = rs.getInt(DELETE);
         float arrobas = rs.getFloat("JOR_ARROBASRECOGIDAS");
         String fecha = String.valueOf(rs.getDate("JOR_FECHA"));
         String horaregistro = rs.getString("JOR_HORAREGISTRO");
-        Jornada newJornada = new Jornada(arrobas,horaregistro,fecha,new Long(idLote),ID);
+        Jornada newJornada = new Jornada(arrobas, horaregistro, fecha, new Long(idLote), ID);
         return newJornada;
     }
-    
+
     @Override
     public void insertar(Jornada a) {
         PreparedStatement stat = null;
@@ -55,7 +48,7 @@ public class JornadaDAO implements DAO<Jornada,Long> {
                 System.out.println("Puede que no se haya guardado");
             }
         } catch (Exception e) {
-           e.printStackTrace();
+            e.printStackTrace();
         } finally {
             if (stat != null) {
                 try {
@@ -101,11 +94,11 @@ public class JornadaDAO implements DAO<Jornada,Long> {
         List<Jornada> j = new ArrayList<>();
         try {
             stat = conn.prepareStatement(GETALL);
-            rs = stat.executeQuery();     
+            rs = stat.executeQuery();
             boolean r = rs.next();
             while (r) {     //OJO!!! El rs.next(); Funciona Igual que un Scanner sc.next();
                 j.add(convertir(rs));
-                r= rs.next();
+                r = rs.next();
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL");
@@ -162,7 +155,7 @@ public class JornadaDAO implements DAO<Jornada,Long> {
                 }
             }
         }
-        return p;    
+        return p;
     }
-    
+
 }

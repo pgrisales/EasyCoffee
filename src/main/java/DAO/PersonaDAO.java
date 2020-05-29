@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import com.easycoffee.Persona;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,8 +12,9 @@ import java.util.List;
  *
  * @author Diego Lopez
  */
-public class PersonaDAO implements DAO<Persona, Long>{
-    final String INSERT = "INSERT INTO EASYCOFFEDB.PERSONA VALUES (?, ?, ?, ?)"; 
+public class PersonaDAO implements DAO<Persona, Long> {
+
+    final String INSERT = "INSERT INTO EASYCOFFEDB.PERSONA VALUES (?, ?, ?, ?)";
     final String UPDATE = "UPDATE EASYCOFFEDB.PERSONA SET PER_ESTADOPERSONA = ?";
     final String DELETE = "DELETE FROM EASYCOFFEDB.PERSONA WHERE PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEDB.PERSONA";
@@ -29,15 +24,17 @@ public class PersonaDAO implements DAO<Persona, Long>{
     public PersonaDAO(Connection conn) {
         this.conn = conn;
     }
+
     private Persona convertir(ResultSet rs) throws SQLException {
-        
+
         String nombrePersona = rs.getString("PER_NOMBRE");
         String apellidoPersona = rs.getString("PER_APELLIDO");
         boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
         Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
-        Persona newPersona = new Persona(cedulaCiudadania,nombrePersona,apellidoPersona,estadoPersona);
+        Persona newPersona = new Persona(cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona);
         return newPersona;
     }
+
     @Override
     public void insertar(Persona a) {
         PreparedStatement stat = null;
@@ -51,7 +48,7 @@ public class PersonaDAO implements DAO<Persona, Long>{
                 System.out.println("Puede que no se haya guardado");
             }
         } catch (Exception e) {
-           e.printStackTrace();
+            e.printStackTrace();
         } finally {
             if (stat != null) {
                 try {
@@ -104,12 +101,12 @@ public class PersonaDAO implements DAO<Persona, Long>{
                     ef.printStackTrace();
                 }
             }
-        }    
+        }
     }
 
     @Override
     public Persona obtener(Long id) {
-       PreparedStatement stat = null;
+        PreparedStatement stat = null;
         ResultSet rs = null;
         Persona p = null;
         try {
@@ -150,11 +147,11 @@ public class PersonaDAO implements DAO<Persona, Long>{
         List<Persona> p = new ArrayList<>();
         try {
             stat = conn.prepareStatement(GETALL);
-            rs = stat.executeQuery();     
+            rs = stat.executeQuery();
             boolean r = rs.next();
             while (r) {     //OJO!!! El rs.next(); Funciona Igual que un Scanner sc.next();
                 p.add(convertir(rs));
-                r= rs.next();
+                r = rs.next();
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL");
