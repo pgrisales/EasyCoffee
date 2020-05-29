@@ -5,10 +5,10 @@ import java.sql.*;
 
 public class RespuestasDAO {
 
-    final String INSERT = "INSERT INTO EASYCOFFEDB.RESPUESTAS VALUES (?, ?, ?, ?)";
-    final String UPDATE = "UPDATE EASYCOFFEDB.RESPUESTAS SET RES_NUMERO1 = ?, RES_NUMERO2 = ? RES_NUMERO3 = ? WHERE PER_CEDULACIUDADANIA = ?";
-    final String DELETE = "DELETE FROM EASYCOFFEDB.RESPUESTAS WHERE PER_CEDULACIUDADANIA = ?";
-    final String GETALL = "SELECT * FROM EASYCOFFEDB.RESPUESTAS";
+    final String INSERT = "INSERT INTO EASYCOFFEBD.RESPUESTAS VALUES (?, ?, ?, ?)";
+    final String UPDATE = "UPDATE EASYCOFFEBD.RESPUESTAS SET RES_NUMERO1 = ?, RES_NUMERO2 = ? RES_NUMERO3 = ? WHERE PER_CEDULACIUDADANIA = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEBD.RESPUESTAS WHERE PER_CEDULACIUDADANIA = ?";
+    final String GETALL = "SELECT * FROM EASYCOFFEBD.RESPUESTAS";
 
     private Connection conn;
 
@@ -101,7 +101,7 @@ public class RespuestasDAO {
         ResultSet rs = null;
         String[] preguntas = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEDB.RESPUESTAS WHERE PER_CEDULACIUDADANIA = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.RESPUESTAS WHERE PER_CEDULACIUDADANIA = ?");
             stat.setLong(1, cedulaCiudadania);
             rs = stat.executeQuery();
             if (rs.next()) {

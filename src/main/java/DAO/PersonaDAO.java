@@ -14,10 +14,10 @@ import java.util.List;
  */
 public class PersonaDAO implements DAO<Persona, Long> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEDB.PERSONA VALUES (?, ?, ?, ?)";
-    final String UPDATE = "UPDATE EASYCOFFEDB.PERSONA SET PER_ESTADOPERSONA = ?";
-    final String DELETE = "DELETE FROM EASYCOFFEDB.PERSONA WHERE PER_CEDULACIUDADANIA = ?";
-    final String GETALL = "SELECT * FROM EASYCOFFEDB.PERSONA";
+    final String INSERT = "INSERT INTO EASYCOFFEBD.PERSONA VALUES (?, ?, ?, ?)";
+    final String UPDATE = "UPDATE EASYCOFFEBD.PERSONA SET PER_ESTADOPERSONA = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEBD.PERSONA WHERE PER_CEDULACIUDADANIA = ?";
+    final String GETALL = "SELECT * FROM EASYCOFFEBD.PERSONA";
 
     private Connection conn;
 
@@ -110,7 +110,7 @@ public class PersonaDAO implements DAO<Persona, Long> {
         ResultSet rs = null;
         Persona p = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEDB.PERSONA WHERE PER_CEDULACIUDADANIA = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.PERSONA WHERE PER_CEDULACIUDADANIA = ?");
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {
