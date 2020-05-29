@@ -21,9 +21,9 @@ public class InicializarSistema {
         this.daoManager = new DAOManager("localhost:1527", "root", "admin", "easycoffedb");
 
         ArrayList<Usuario> users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
-
-        this.admin = (Administrador) users.remove(0);
-
+        Usuario u=users.remove(0);
+        this.admin =new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0],  u.getRespuesta()[1],  u.getRespuesta()[2]);
+        System.gc();
         if (admin != null) {
             this.admin.setFinca(daoManager.getFincaDAO().obtener(1));
             if (this.admin.getFinca() != null) {

@@ -1,5 +1,6 @@
 package Frontera;
 
+import Control.InicializarSistema;
 import com.easycoffee.Administrador;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -13,15 +14,7 @@ import javax.swing.JPanel;
  */
 public class FramePrincipal extends javax.swing.JFrame {
     private static String panel;
-    private static Administrador admin;
-
-    public static Administrador getAdmin() {
-        return admin;
-    }
-
-    public static void setAdmin(Administrador admin) {
-        FramePrincipal.admin = admin;
-    }
+    private static InicializarSistema sistem= new InicializarSistema();
     public static String[] preguntas={"Cuál es el nombre de tu primera mascota?","Cuál es tu comida favorita?","Quíen era el héroe de tu infancia?"};
     static private Fondo fondo;
     private Ingreso ingreso = new Ingreso();
@@ -33,8 +26,17 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
         cambiarPanel(ingreso);
+        
     }
-    
+
+    public static InicializarSistema getSistem() {
+        return sistem;
+    }
+
+    public static void setSistem(InicializarSistema sistem) {
+        FramePrincipal.sistem = sistem;
+    }
+   
     public static void cambiarPanel(JPanel panel){
         //fondo = new Fondo(panel, panel.fondo);
         panel.setOpaque(false);
