@@ -14,7 +14,7 @@ public class RecuperarContraseña {
     DAO.DAOManager daoManager;
 
     public RecuperarContraseña() {
-        this.daoManager = new DAOManager("localhost:1527", "root", "admin", "easycoffedb");
+        this.daoManager = new DAOManager("localhost:1527", "root", "admin", "easycoffebd");
     }
 
     public boolean compararCedula(Long cedula) {

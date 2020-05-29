@@ -18,7 +18,7 @@ public class InicializarSistema {
 
     public InicializarSistema() {
 
-        this.daoManager = new DAOManager("localhost:1527", "root", "admin", "easycoffedb");
+        this.daoManager = new DAOManager("localhost:1527", "root", "admin", "easycoffebd");
 
         ArrayList<Usuario> users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
         Usuario u=users.remove(0);

@@ -14,10 +14,10 @@ import java.util.List;
  */
 public class LoteDAO implements DAO<Lote, Long> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEDB.LOTE VALUES (?, ?, ?, ?, ?)";
-    final String UPDATE = "UPDATE EASYCOFFEDB.LOTE SET LOTE_FECHADESYERBADO = ?, LOTE_FECHAABONADO = ?, LOTE_CARGA = ?";
-    final String DELETE = "DELETE FROM EASYCOFFEDB.LOTE WHERE LOTE_IDLOTE = ?";
-    final String GETALL = "SELECT * FROM EASYCOFFEDB.LOTE";
+    final String INSERT = "INSERT INTO EASYCOFFEBD.LOTE VALUES (?, ?, ?, ?, ?)";
+    final String UPDATE = "UPDATE EASYCOFFEBD.LOTE SET LOTE_FECHADESYERBADO = ?, LOTE_FECHAABONADO = ?, LOTE_CARGA = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEBD.LOTE WHERE LOTE_IDLOTE = ?";
+    final String GETALL = "SELECT * FROM EASYCOFFEBD.LOTE";
     private Connection conn;
 
     public LoteDAO(Connection conn) {
@@ -147,7 +147,7 @@ public class LoteDAO implements DAO<Lote, Long> {
         ResultSet rs = null;
         Lote l = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEDB.LOTE = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.LOTE = ?");
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {

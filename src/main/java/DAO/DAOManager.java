@@ -20,7 +20,7 @@ public class DAOManager {
     private FincaDAO fincas = null;
     private ArbolDAO arboles = null;
 
-//    database :  "jdbc:derby://localhost:1527/easycoffedb" Username: "root" Password: "admin"
+//    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
     public DAOManager(String host, String username, String password, String database) {
         try {
             conn = DriverManager.getConnection("jdbc:derby://" + host + "/" + database, username, password);

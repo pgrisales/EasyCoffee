@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class FincaDAO implements DAO<Finca, Integer> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEDB.FINCA VALUES (?, ?)";
-    final String UPDATE = "UPDATE EASYCOFFEDB.FINCA SET FIN_NOMBREFINCA = ? WHERE FIN_IDFINCA = ?";
-    final String DELETE = "DELETE FROM EASYCOFFEDB.USUARIO WHERE FIN_NOMBREFINCA = ?";
-    final String GETALL = "SELECT * FROM EASYCOFFEDB.FINCA";
+    final String INSERT = "INSERT INTO EASYCOFFEBD.FINCA VALUES (?, ?)";
+    final String UPDATE = "UPDATE EASYCOFFEBD.FINCA SET FIN_NOMBREFINCA = ? WHERE FIN_IDFINCA = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEBD.USUARIO WHERE FIN_NOMBREFINCA = ?";
+    final String GETALL = "SELECT * FROM EASYCOFFEBD.FINCA";
 
     private Connection conn;
 
@@ -137,7 +137,7 @@ public class FincaDAO implements DAO<Finca, Integer> {
         ResultSet rs = null;
         Finca f = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEDB.PERSONA NATURAL JOIN EASYCOFFEDB.USUARIO WHERE PER_CEDULACIUDADANIA = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.PERSONA NATURAL JOIN EASYCOFFEBD.USUARIO WHERE PER_CEDULACIUDADANIA = ?");
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {

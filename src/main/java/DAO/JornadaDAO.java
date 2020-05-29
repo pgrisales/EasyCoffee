@@ -14,9 +14,9 @@ import java.util.List;
  */
 public class JornadaDAO implements DAO<Jornada, Long> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEDB.JORNADA VALUES (default, ?, ?, ?, ?, ?)";
-    final String DELETE = "DELETE FROM EASYCOFFEDB.JORNADA WHERE ID = ?";
-    final String GETALL = "SELECT * FROM EASYCOFFEDB.JORNADA";
+    final String INSERT = "INSERT INTO EASYCOFFEBD.JORNADA VALUES (default, ?, ?, ?, ?, ?)";
+    final String DELETE = "DELETE FROM EASYCOFFEBD.JORNADA WHERE ID = ?";
+    final String GETALL = "SELECT * FROM EASYCOFFEBD.JORNADA";
     private Connection conn;
 
     public JornadaDAO(Connection conn) {
@@ -128,7 +128,7 @@ public class JornadaDAO implements DAO<Jornada, Long> {
         ResultSet rs = null;
         Jornada p = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEDB.JORNADA WHERE ID = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.JORNADA WHERE ID = ?");
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {

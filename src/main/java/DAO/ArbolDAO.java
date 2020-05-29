@@ -10,10 +10,10 @@ import java.util.*;
  */
 public class ArbolDAO implements DAO<Arbol, Integer> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEDB.ARBOL VALUES (?, ?, ?, ?, ?)";
-    final String UPDATE = "UPDATE EASYCOFFEDB.ARBOL SET ARB_TIPOARB = ?, LOTE_IDLOTE = ? ARB_ESTADO = ? ARB_FECHASEMBRADO = ? WHERE ARB_ID = ?";
-    final String DELETE = "DELETE FROM EASYCOFFEDB.ARBOL WHERE ARB_ID = ?";
-    final String GETALL = "SELECT * FROM EASYCOFFEDB.ARBOL";
+    final String INSERT = "INSERT INTO EASYCOFFEBD.ARBOL VALUES (?, ?, ?, ?, ?)";
+    final String UPDATE = "UPDATE EASYCOFFEBD.ARBOL SET ARB_TIPOARB = ?, LOTE_IDLOTE = ? ARB_ESTADO = ? ARB_FECHASEMBRADO = ? WHERE ARB_ID = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEBD.ARBOL WHERE ARB_ID = ?";
+    final String GETALL = "SELECT * FROM EASYCOFFEBD.ARBOL";
 
     private Connection conn;
 
@@ -147,7 +147,7 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
         ResultSet rs = null;
         Arbol a = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEDB.ARBOL WHERE ARB_ID = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.ARBOL WHERE ARB_ID = ?");
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {
