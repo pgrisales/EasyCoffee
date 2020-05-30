@@ -35,7 +35,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(900, 503));
         setPreferredSize(new java.awt.Dimension(900, 503));
 
-        jLabel1.setText("Nombre de usuario");
+        jLabel1.setText("Cedula");
 
         jLabel2.setText("Seleccione pregunta de seguridad");
 
