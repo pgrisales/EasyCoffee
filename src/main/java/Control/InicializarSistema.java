@@ -14,23 +14,24 @@ import java.util.ArrayList;
 public class InicializarSistema {
 
     private Administrador admin = null;   //ADMIN MAESTRO
-    DAO.DAOManager daoManager;
+    private DAO.DAOManager daoManager;
+    private ArrayList<Usuario> users = null;
+    private ArrayList<Trabajador> trabajadores = null;
+    private ArrayList<Lote> lotes = null;
 
     public InicializarSistema() {
-
         this.daoManager = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
-
-        ArrayList<Usuario> users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
-        if(!users.isEmpty()){
-            Usuario u=users.remove(0);
-            this.admin =new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0],  u.getRespuesta()[1],  u.getRespuesta()[2]);
+        this.users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
+        if (!users.isEmpty()) {
+            Usuario u = users.remove(0);
+            this.admin = new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0], u.getRespuesta()[1], u.getRespuesta()[2]);
             System.gc();
             if (admin != null) {
                 this.admin.setFinca(daoManager.getFincaDAO().obtener(1));
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
-                    ArrayList<Trabajador> trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
-                    ArrayList<Lote> lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
+                    this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
+                    this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
                     this.admin.getFinca().setTrabajadores(trabajadores);
                     this.admin.getFinca().setLotes(lotes);
                 }
@@ -42,8 +43,16 @@ public class InicializarSistema {
         return admin;
     }
 
-    public void setAdmin(Administrador admin) {
-        this.admin = admin;
+    public ArrayList<Usuario> getUsers() {
+        return users;
+    }
+
+    public ArrayList<Trabajador> getTrabajadores() {
+        return trabajadores;
+    }
+
+    public ArrayList<Lote> getLotes() {
+        return lotes;
     }
 
 }
