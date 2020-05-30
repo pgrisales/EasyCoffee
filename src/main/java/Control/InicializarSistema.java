@@ -34,6 +34,9 @@ public class InicializarSistema {
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
                     this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
+                    for(Trabajador t: trabajadores){
+                        t.setJornada(daoManager.getJornadaDAO().obtener(t.getCedula()));
+                    }
                     this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
                     this.admin.getFinca().setTrabajadores(trabajadores);
                     this.admin.getFinca().setLotes(lotes);
