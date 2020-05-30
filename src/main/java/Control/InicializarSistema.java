@@ -22,7 +22,7 @@ public class InicializarSistema {
     public InicializarSistema() {
         this.daoManager = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
         this.users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
-        for(Usuario u: users){
+        for (Usuario u : users) {
             u.setRespuesta(daoManager.getRespuestasDAO().obtener(u.getCedula().intValue()));
         }
         if (!users.isEmpty()) {
@@ -34,7 +34,7 @@ public class InicializarSistema {
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
                     this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
-                    for(Trabajador t: trabajadores){
+                    for (Trabajador t : trabajadores) {
                         t.setJornada(daoManager.getJornadaDAO().obtener(t.getCedula()));
                     }
                     this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
@@ -49,6 +49,10 @@ public class InicializarSistema {
         return admin;
     }
 
+    public void setAdmin(Administrador admin) {
+        this.admin = admin;
+    }
+
     public ArrayList<Usuario> getUsers() {
         return users;
     }
@@ -60,5 +64,5 @@ public class InicializarSistema {
     public ArrayList<Lote> getLotes() {
         return lotes;
     }
-    
+
 }

@@ -13,12 +13,13 @@ import javax.swing.JPanel;
  * @author Nivektakedown
  */
 public class FramePrincipal extends javax.swing.JFrame {
+
     private static String panel;
-    private static InicializarSistema sistem= new InicializarSistema();
-    public static String[] preguntas={"Cuál es el nombre de tu primera mascota?","Cuál es tu comida favorita?","Quíen era el héroe de tu infancia?"};
+    public static InicializarSistema sistem = new InicializarSistema();
+    public static String[] preguntas = {"Cuál es el nombre de tu primera mascota?", "Cuál es tu comida favorita?", "Quíen era el héroe de tu infancia?"};
     static private Fondo fondo;
     private Ingreso ingreso = new Ingreso();
-    
+
     public FramePrincipal() {
         fondo = new Fondo(ingreso, "../image/318763,xcitefun-cocora-valley-7.jpg");
         this.setContentPane(fondo);
@@ -26,18 +27,14 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
         cambiarPanel(ingreso);
-        
+
     }
 
     public static InicializarSistema getSistem() {
         return sistem;
     }
 
-    public static void setSistem(InicializarSistema sistem) {
-        FramePrincipal.sistem = sistem;
-    }
-   
-    public static void cambiarPanel(JPanel panel){
+    public static void cambiarPanel(JPanel panel) {
         //fondo = new Fondo(panel, panel.fondo);
         panel.setOpaque(false);
         PanelPrincipal.setVisible(false);
@@ -45,7 +42,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         PanelPrincipal.add(panel);
         PanelPrincipal.setVisible(true);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -80,7 +77,7 @@ public class FramePrincipal extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FramePrincipal().setVisible(true);
@@ -88,7 +85,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel PanelPrincipal;
     // End of variables declaration//GEN-END:variables
