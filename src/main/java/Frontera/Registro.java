@@ -1,6 +1,7 @@
 package Frontera;
+
 import Control.InicializarSistema;
-import Control.RegistrarAdmin;
+import Control.ControlUsuarios;
 import com.easycoffee.Administrador;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -14,63 +15,64 @@ import javax.swing.JOptionPane;
  * @author Nivektakedown
  */
 public class Registro extends javax.swing.JPanel {
-    private String error="";
+
+    private String error = "";
     static String fondo = "../image/cafe.jpg";
-    private String[] answerA=new String[3];
-    
+    private String[] answerA = new String[3];
+
     public Registro() {
-        
+
         initComponents();
         questions.removeAllItems();
-        for(int i=0;i<FramePrincipal.preguntas.length;i++){
+        for (int i = 0; i < FramePrincipal.preguntas.length; i++) {
             questions.addItem(FramePrincipal.preguntas[i]);
         }
-        
+
     }
-    public  boolean Preguntas() {
-        boolean b=true;
+
+    public boolean Preguntas() {
+        boolean b = true;
         for (int i = 0; i < 3; i++) {
-            if(answerA[i]==null)
-                b= false;
+            if (answerA[i] == null) {
+                b = false;
+            }
         }
         return b;
     }
-    public static boolean isNumeric(String s){
-	try {
-		Integer.parseInt(s);
-		return true;
-	} catch (NumberFormatException nfe){
-		return false;
-	}
-}
-    public boolean datosCorrectos(){
-        boolean b=true;
-        String p=password.getText();
-        String pc=passwordConfirm.getText();
-        String nm=nombres.getText();
-        String ap=apellidos.getText();
-        
-        if(p.equals("")==true||pc.equals("")==true||nm.equals("")==true||ap.equals("")==true){
-                error="empty";
-                b=false;       
+
+    public static boolean isNumeric(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
         }
-        else{
-            if(isNumeric(cedula.getText())==false){
-                error="cedulaIn";
-                b=false;
-            }
-            else{
-                if((p.equals(pc)==false)){
-                    error="passwordIn";
-                    b=false;
-                }
-                else if(Preguntas()==false){
-                    error="answer";
-                    b=false; 
-                }
-                else if((ap.length()<15&&ap.length()>3&&nm.length()<15&&nm.length()>3)==false){
-                    error="nombreApellidoIn";
-                    b=false;
+    }
+
+    public boolean datosCorrectos() {
+        boolean b = true;
+        String p = password.getText();
+        String pc = passwordConfirm.getText();
+        String nm = nombres.getText();
+        String ap = apellidos.getText();
+
+        if (p.equals("") == true || pc.equals("") == true || nm.equals("") == true || ap.equals("") == true) {
+            error = "empty";
+            b = false;
+        } else {
+            if (isNumeric(cedula.getText()) == false) {
+                error = "cedulaIn";
+                b = false;
+            } else {
+                if ((p.equals(pc) == false)) {
+                    error = "passwordIn";
+                    b = false;
+                } else if (Preguntas() == false) {
+                    error = "answer";
+                    b = false;
+                } else if ((ap.length() < 15 && ap.length() > 3 && nm.length() < 15 && nm.length() > 3) == false) {
+                    error = "nombreApellidoIn";
+                    b = false;
                 }
             }
         }
@@ -350,37 +352,37 @@ public class Registro extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
-        if(datosCorrectos() == true){
+        if (datosCorrectos() == true) {
             JOptionPane.showMessageDialog(null, "Usuario Registrado");
             Administrador a;
-            a = new Administrador(password.getText(),(long)Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true,answerA[0],answerA[1],answerA[2]);
-            RegistrarAdmin b =new RegistrarAdmin();
+            a = new Administrador(password.getText(), (long) Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true, answerA[0], answerA[1], answerA[2]);
+            ControlUsuarios b = new ControlUsuarios();
             try {
-                b.registrar(a);
+                b.registrarAdministrador(a);
             } catch (SQLException ex) {
                 Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
             }
-            FramePrincipal.setSistem(new InicializarSistema()); 
+            FramePrincipal.sistem.setAdmin(a);
             FramePrincipal.cambiarPanel(new Ingreso());
-        }else{
-            switch(error){
-                case "passwordIn":{
+        } else {
+            switch (error) {
+                case "passwordIn": {
                     JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intentelo.");
                     break;
                 }
-                case "NombreApellidoIn":{
+                case "NombreApellidoIn": {
                     JOptionPane.showMessageDialog(null, "Los nombres o apellidos no se han digitado de manera correcta, por favor intentelo de nuevo.");
                     break;
                 }
-                case "cedulaIn":{
+                case "cedulaIn": {
                     JOptionPane.showMessageDialog(null, "la cedula no se ha digitado de manera correcta, por favor intentelo de nuevo.");
                     break;
                 }
-                case "empty" :{
+                case "empty": {
                     JOptionPane.showMessageDialog(null, "Una de las casillas está vacia, por favor asegurese de rellenar todas las casillas");
                     break;
                 }
-                case "answer" :{
+                case "answer": {
                     JOptionPane.showMessageDialog(null, "Por favor responda todas las preguntas de seguridad");
                     break;
                 }
@@ -401,11 +403,10 @@ public class Registro extends javax.swing.JPanel {
     }//GEN-LAST:event_nombresActionPerformed
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
-        if(check.isSelected()==true){
-            password.setEchoChar((char)0);
-            passwordConfirm.setEchoChar((char)0);
-        }
-        else{
+        if (check.isSelected() == true) {
+            password.setEchoChar((char) 0);
+            passwordConfirm.setEchoChar((char) 0);
+        } else {
             password.setEchoChar('•');
             passwordConfirm.setEchoChar('•');
         }
@@ -416,13 +417,14 @@ public class Registro extends javax.swing.JPanel {
     }//GEN-LAST:event_infActionPerformed
 
     private void saveAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAnswerActionPerformed
-        if(answer.getText().equals(error))
-             JOptionPane.showMessageDialog(null, "La casilla de respuesta está vacia, por favor asegurese de rellenarla");
-        else{
+        if (answer.getText().equals(error)) {
+            JOptionPane.showMessageDialog(null, "La casilla de respuesta está vacia, por favor asegurese de rellenarla");
+        } else {
             System.out.println(questions.getSelectedIndex());
-            answerA[questions.getSelectedIndex()]=answer.getText();
-            if(questions.getSelectedIndex()<2)
-                questions.setSelectedIndex(questions.getSelectedIndex()+1);
+            answerA[questions.getSelectedIndex()] = answer.getText();
+            if (questions.getSelectedIndex() < 2) {
+                questions.setSelectedIndex(questions.getSelectedIndex() + 1);
+            }
         }
     }//GEN-LAST:event_saveAnswerActionPerformed
 

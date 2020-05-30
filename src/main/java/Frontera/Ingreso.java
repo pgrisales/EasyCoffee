@@ -1,6 +1,6 @@
 package Frontera;
 
-import Control.ValidarLogin;
+import Control.ControlUsuarios;
 import static java.lang.Long.MIN_VALUE;
 import javax.swing.JOptionPane;
 
@@ -9,14 +9,15 @@ import javax.swing.JOptionPane;
  * @author Nivektakedown
  */
 public class Ingreso extends javax.swing.JPanel {
-    
+
     static public String fondo = "../image/cafe.jpg";
 
     public Ingreso() {
         initComponents();
         System.out.println(FramePrincipal.getSistem());
-        if(FramePrincipal.getSistem().getAdmin()!=null)
+        if (FramePrincipal.getSistem().getAdmin() != null) {
             registration.setVisible(false);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -140,7 +141,6 @@ public class Ingreso extends javax.swing.JPanel {
                 .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
                         .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -165,25 +165,24 @@ public class Ingreso extends javax.swing.JPanel {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        ValidarLogin validacion = new ValidarLogin();
+        ControlUsuarios validacion = new ControlUsuarios();
         //JOptionPane.showMessageDialog(null, username.getText());
         //System.out.println(((Object)Long.parseLong(username.getText())).getClass().getSimpleName());
         //System.out.println(((Object)password.getText()).getClass().getSimpleName());
         Long cedula = MIN_VALUE;
         try {
             cedula = Long.parseLong(username.getText());
-            if(validacion.verificarLogin(cedula, password.getText())){
-                JOptionPane.showMessageDialog(null, "hola perro catrejijueputa :v");   
-                    
-            }else{
+            if (validacion.verificarLogin(cedula, password.getText())) {
+                JOptionPane.showMessageDialog(null, "hola perro catrejijueputa :v");
+
+            } else {
                 JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Datos invalidos!");
         }
-        
-   
-        
+
+
     }//GEN-LAST:event_loginActionPerformed
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
@@ -196,10 +195,11 @@ public class Ingreso extends javax.swing.JPanel {
     }//GEN-LAST:event_forgotActionPerformed
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
-       if(check.isSelected()==true)
-           password.setEchoChar((char)0);
-       else
-           password.setEchoChar('•');
+        if (check.isSelected() == true) {
+            password.setEchoChar((char) 0);
+        } else {
+            password.setEchoChar('•');
+        }
     }//GEN-LAST:event_checkActionPerformed
 
 
