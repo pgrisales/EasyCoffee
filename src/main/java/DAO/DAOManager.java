@@ -19,6 +19,7 @@ public class DAOManager {
     private JornadaDAO jornadas = null;
     private FincaDAO fincas = null;
     private ArbolDAO arboles = null;
+    private RespuestasDAO respuestas = null;
 
 //    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
     public DAOManager(String host, String username, String password, String database) {
@@ -76,6 +77,12 @@ public class DAOManager {
             arboles = new ArbolDAO(conn);
         }
         return arboles;
+    }
+    public RespuestasDAO getRespuestasDAO() {
+        if (respuestas == null) {
+            respuestas = new RespuestasDAO(conn);
+        }
+        return respuestas;
     }
 
     public void cerrarConexion() throws SQLException {

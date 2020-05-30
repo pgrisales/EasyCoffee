@@ -28,6 +28,7 @@ public class RegistrarAdmin {
         daoManager.getPersonaDAO().insertar(p);
         Usuario u = new Usuario(admin.getPassword(), admin.getCedula(), admin.getNombre(), admin.getApellido(), true, admin.getRespuesta()[0], admin.getRespuesta()[0], admin.getRespuesta()[0]);
         daoManager.getUsuarioDAO().insertar(u);
+        daoManager.getRespuestasDAO().insertar(u);
         daoManager.cerrarConexion();
     }
 }
