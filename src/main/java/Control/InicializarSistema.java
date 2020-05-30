@@ -22,6 +22,9 @@ public class InicializarSistema {
     public InicializarSistema() {
         this.daoManager = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
         this.users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
+        for(Usuario u: users){
+            u.setRespuesta(daoManager.getRespuestasDAO().obtener(u.getCedula().intValue()));
+        }
         if (!users.isEmpty()) {
             Usuario u = users.remove(0);
             this.admin = new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0], u.getRespuesta()[1], u.getRespuesta()[2]);
@@ -54,5 +57,5 @@ public class InicializarSistema {
     public ArrayList<Lote> getLotes() {
         return lotes;
     }
-
+    
 }

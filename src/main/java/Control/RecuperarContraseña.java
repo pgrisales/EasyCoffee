@@ -20,6 +20,7 @@ public class RecuperarContraseña {
     public boolean compararCedula(Long cedula) {
         try {
             this.u = daoManager.getUsuarioDAO().obtener(cedula);
+            u.setRespuesta(daoManager.getRespuestasDAO().obtener(cedula.intValue()));
             System.out.println("comparar ced " + u);
             return true;
         } catch (Exception E) {
