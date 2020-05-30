@@ -366,7 +366,7 @@ public class Registro extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
             }
-            FramePrincipal.sistem.setAdmin(a);
+            FramePrincipal.setSistem(new InicializarSistema());
             FramePrincipal.cambiarPanel(new Ingreso());
         } else {
             switch (error) {
