@@ -1,4 +1,5 @@
 package Frontera;
+import Control.InicializarSistema;
 import Control.RegistrarAdmin;
 import com.easycoffee.Administrador;
 import java.sql.SQLException;
@@ -363,7 +364,8 @@ public class Registro extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            FramePrincipal.setSistem(new InicializarSistema()); 
+            FramePrincipal.cambiarPanel(new Ingreso());
         }else{
             switch(error){
                 case "passwordIn":{
@@ -423,6 +425,8 @@ public class Registro extends javax.swing.JPanel {
         else{
             System.out.println(questions.getSelectedIndex());
             answerA[questions.getSelectedIndex()]=answer.getText();
+            if(questions.getSelectedIndex()<2)
+                questions.setSelectedIndex(questions.getSelectedIndex()+1);
         }
     }//GEN-LAST:event_saveAnswerActionPerformed
 
