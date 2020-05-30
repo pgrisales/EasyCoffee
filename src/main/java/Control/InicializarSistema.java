@@ -18,7 +18,7 @@ public class InicializarSistema {
 
     public InicializarSistema() {
 
-        this.daoManager = new DAOManager("localhost:1527", "root", "admin", "easycoffebd");
+        this.daoManager = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
 
         ArrayList<Usuario> users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
         if(!users.isEmpty()){
