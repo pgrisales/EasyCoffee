@@ -7,7 +7,7 @@ public class ValidarLogin {
     DAO.DAOManager daoManager;
     
     public ValidarLogin() {
-        this.daoManager = new DAOManager("localhost:1527", "root", "admin", "easycoffebd");
+        this.daoManager = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
     }
     
     public boolean verificarLogin(Long cedula, String contraseña) {

@@ -19,7 +19,7 @@ public class Produccion {
     DAO.DAOManager daoManager;
 
     public Produccion() {
-        this.daoManager = new DAOManager("localhost:1527", "root", "admin", "easycoffebd");
+        this.daoManager = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
     }
     public boolean RegistrarProduccionBD(Jornada produccion){
         daoManager.getJornadaDAO().insertar(produccion);
