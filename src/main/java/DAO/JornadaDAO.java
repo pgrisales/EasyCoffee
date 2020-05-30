@@ -25,7 +25,7 @@ public class JornadaDAO implements DAO<Jornada, Long> {
 
     private Jornada convertir(ResultSet rs) throws SQLException {
 
-        int ID = rs.getInt("ID");
+        int ID = rs.getInt("JOR_ID");
         int idLote = rs.getInt(DELETE);
         float arrobas = rs.getFloat("JOR_ARROBASRECOGIDAS");
         String fecha = String.valueOf(rs.getDate("JOR_FECHA"));

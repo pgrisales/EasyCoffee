@@ -21,8 +21,8 @@ public class Trabajador extends Persona {
         return jornada;
     }
 
-    public void setJornada(ArrayList<Jornada> jornada) {
-        this.jornada = jornada;
+    public void setJornada(Jornada jornada) {
+        this.jornada.add(jornada);
     }
 
     public double getSalario() {
