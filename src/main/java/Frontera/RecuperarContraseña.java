@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class RecuperarContraseña extends javax.swing.JPanel {
 
     static String fondo = "../image/cafe.jpg";
-
+    
     public RecuperarContraseña() {
         initComponents();
         questions.removeAllItems();
@@ -111,7 +111,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
         Control.ControlUsuarios r = new Control.ControlUsuarios();
         if (r.inicializarCedula((long) Integer.parseInt(cedula.getText())) && r.compararRespuestas(answer.getText(), questions.getSelectedIndex())) {
-            FramePrincipal.cambiarPanel(new CambiarContraseña());
+            FramePrincipal.cambiarPanel(new CambiarContraseña(Integer.parseInt(cedula.getText())));
         } else {
             JOptionPane.showMessageDialog(null, "impedido");
         }

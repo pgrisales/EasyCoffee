@@ -1,5 +1,9 @@
 package Frontera;
 
+import Control.ControlUsuarios;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nivektakedown
@@ -7,11 +11,30 @@ package Frontera;
 public class CambiarContraseña extends javax.swing.JPanel {
 
     static String fondo = "../image/cafe.jpg";
+    private String error = "";
+    private int id;
     
+    public CambiarContraseña(int id) {
+        initComponents();
+        this.id = id;
+    }
     public CambiarContraseña() {
         initComponents();
     }
+    public boolean datosCorrectos() {
+        boolean b = true;
+        String p = password.getText();
+        String pc = passwordConfirm.getText();
 
+        if (p.equals("") == true || pc.equals("") == true) {
+            error = "empty";
+            b = false;
+        } else if(!p.equals(pc)){
+            error = "not equal";
+            b = false;
+        } 
+        return b;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,8 +56,9 @@ public class CambiarContraseña extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(900, 503));
         setPreferredSize(new java.awt.Dimension(900, 503));
 
-        confirm.setBackground(new java.awt.Color(153, 153, 255));
-        confirm.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        confirm.setBackground(new java.awt.Color(204, 102, 0));
+        confirm.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        confirm.setForeground(new java.awt.Color(255, 255, 255));
         confirm.setText("Confirmar");
         confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -42,8 +66,9 @@ public class CambiarContraseña extends javax.swing.JPanel {
             }
         });
 
-        Cancel.setBackground(new java.awt.Color(153, 153, 255));
-        Cancel.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        Cancel.setBackground(new java.awt.Color(153, 0, 0));
+        Cancel.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        Cancel.setForeground(new java.awt.Color(255, 255, 255));
         Cancel.setText("Cancelar");
         Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,13 +76,24 @@ public class CambiarContraseña extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Contraseña");
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel5.setText("Confirmar contraseña");
 
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
+            }
+        });
+
+        passwordConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordConfirmActionPerformed(evt);
             }
         });
 
@@ -73,50 +109,71 @@ public class CambiarContraseña extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(538, Short.MAX_VALUE)
+                .addContainerGap(478, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(password)
-                        .addComponent(passwordConfirm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(confirm)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(check)))
-                .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(password, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(passwordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(check))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(confirm)
+                        .addGap(18, 18, 18)
+                        .addComponent(Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(55, 55, 55))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel4)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
-                        .addComponent(passwordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                .addContainerGap(191, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(check)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirm)
                     .addComponent(Cancel))
-                .addGap(229, 229, 229))
+                .addGap(182, 182, 182))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-        // TODO add your handling code here:
+        if(!datosCorrectos()){
+            switch (error) {
+                case "not equal": {
+                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intentelo nuevamente.");
+                    break;
+                }
+                case "empty": {
+                    JOptionPane.showMessageDialog(null, "Una de las casillas está vacia, por favor asegurese de rellenar todas las casillas");
+                    break;
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Contraseña cambiada");
+            
+            try {
+                ControlUsuarios r = new ControlUsuarios();
+                r.setU(id);
+                r.changePassword(password.getText());
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            FramePrincipal.cambiarPanel(new Ingreso());
+        }
     }//GEN-LAST:event_confirmActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
@@ -136,7 +193,12 @@ public class CambiarContraseña extends javax.swing.JPanel {
             password.setEchoChar('•');
             passwordConfirm.setEchoChar('•');
         }
+        
     }//GEN-LAST:event_checkActionPerformed
+
+    private void passwordConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordConfirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordConfirmActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

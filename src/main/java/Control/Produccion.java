@@ -23,4 +23,5 @@ public class Produccion {
         daoManager.getLoteDAO().insertar(lote);
         return true;
     }
+    
 }

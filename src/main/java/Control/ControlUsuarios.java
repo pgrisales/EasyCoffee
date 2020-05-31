@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 public class ControlUsuarios {
 
-    Usuario u = null;
+    private Usuario u = null;
     private DAOManager DAO;
 
     public ControlUsuarios() {
@@ -67,4 +67,8 @@ public class ControlUsuarios {
         DAO.cerrarConexion();
     }
 
+    public void setU(int cedula) {
+        this.u = DAO.getUsuarioDAO().obtener(new Long(cedula));
+    }
+    
 }
