@@ -6,19 +6,19 @@
 package Frontera;
 
 import Frontera.*;
+import com.easycoffee.Arbol;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Nivektakedown
- */
 public class RegistrarLote extends javax.swing.JPanel {
 
-    /**
-     * Creates new form registrarLote
-     */
+    
+    ArrayList<Arbol> arboles;
+    
     public RegistrarLote() {
+        arboles=new ArrayList();
         initComponents();
+        
     }
 
     /**
@@ -40,7 +40,7 @@ public class RegistrarLote extends javax.swing.JPanel {
         idLote = new javax.swing.JTextField();
         addArboles = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        numArboles = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         save = new javax.swing.JButton();
@@ -68,16 +68,16 @@ public class RegistrarLote extends javax.swing.JPanel {
 
         jLabel5.setText("Arboles en el lote");
 
-        jLabel1.setText("jLabel1");
+        numArboles.setText("0");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Típica", null},
-                {"Borbón", null},
-                {"Maragogipe", null},
-                {"Tabi", null},
-                {"Caturra", null},
-                {"Variedad Colombia", null}
+                {"Típica", "0"},
+                {"Borbón", "0"},
+                {"Maragogipe", "0"},
+                {"Tabi", "0"},
+                {"Caturra", "0"},
+                {"Variedad Colombia", "0"}
             },
             new String [] {
                 "Variedad", "Cantidad de Arboles"
@@ -137,7 +137,7 @@ public class RegistrarLote extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(31, 31, 31)
-                                .addComponent(jLabel1)
+                                .addComponent(numArboles)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -152,7 +152,7 @@ public class RegistrarLote extends javax.swing.JPanel {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel1))
+                    .addComponent(numArboles))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -174,16 +174,60 @@ public class RegistrarLote extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addArboles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(save)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public ArrayList<Arbol> getArboles() {
+        return arboles;
+    }
+
+    public void setArboles(ArrayList<Arbol> arboles) {
+        this.arboles = arboles;
+    }
+    public void numeroArboles(){
+        int[] numero=new int[6];
+        for (int i = 0; i <this.arboles.size(); i++) {
+            switch(this.arboles.get(i).getVariedad()){
+                case "Típica":{
+                    numero[0]++;
+                    break;
+                }
+                case "Borbón":{
+                    numero[1]++;
+                    break;
+                }
+                case "Maragogipe":{
+                    numero[2]++;
+                    break;
+                }
+                case "Tabi":{
+                    numero[3]++;
+                    break;
+                }
+                case "Caturra":{
+                    numero[4]++;
+                    break;
+                }
+                case "Variedad Colombia":{
+                    numero[5]++;
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < 6; i++) {
+            this.jTable1.setValueAt(numero[i], i, 1);
+        }
+    }
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
-        JOptionPane.showMessageDialog(this, new AgregarArboles());
+        AgregarArboles loTe =new AgregarArboles(arboles);
+        JOptionPane.showMessageDialog(this, loTe);
+        this.arboles=loTe.getLote();
+        numArboles.setText(arboles.size()+"");
+        numeroArboles();
     }//GEN-LAST:event_addArbolesActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
@@ -196,7 +240,6 @@ public class RegistrarLote extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser fechaAbonado;
     private com.toedter.calendar.JDateChooser fechaDesyerbado;
     private javax.swing.JTextField idLote;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -205,6 +248,7 @@ public class RegistrarLote extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel numArboles;
     private javax.swing.JButton save;
     // End of variables declaration//GEN-END:variables
 }
