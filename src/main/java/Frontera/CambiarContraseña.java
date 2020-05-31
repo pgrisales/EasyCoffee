@@ -1,6 +1,7 @@
 package Frontera;
 
 import Control.ControlUsuarios;
+import Control.InicializarSistema;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -163,15 +164,16 @@ public class CambiarContraseña extends javax.swing.JPanel {
                 }
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Contraseña cambiada");
             
             try {
                 ControlUsuarios r = new ControlUsuarios();
                 r.setU(id);
+                JOptionPane.showMessageDialog(null, "Contraseña cambiada");
                 r.changePassword(password.getText());
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
+            FramePrincipal.setSistem(new InicializarSistema());
             FramePrincipal.cambiarPanel(new Ingreso());
         }
     }//GEN-LAST:event_confirmActionPerformed

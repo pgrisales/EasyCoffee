@@ -11,7 +11,7 @@ import java.util.*;
 public class UsuarioDAO implements DAO<Usuario, Long> {
 
     final String INSERT = "INSERT INTO EASYCOFFEBD.USUARIO VALUES (?, ?)"; //(PER_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
-    final String UPDATE = "UPDATE EASYCOFFEBD.USUARIO SET USU_PASSWORD = ?, WHERE PER_CEDULACIUDADANIA = ?";
+    final String UPDATE = "UPDATE EASYCOFFEBD.USUARIO SET USU_PASSWORD = ? WHERE PER_CEDULACIUDADANIA = ?";
     final String DELETE = "DELETE FROM EASYCOFFEBD.USUARIO WHERE PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.PERSONA NATURAL JOIN EASYCOFFEBD.USUARIO";
 
@@ -63,7 +63,9 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         try {
             stat = conn.prepareStatement(UPDATE);
             stat.setString(1, u.getPassword());
+            System.out.println("CONTRA: "+u.getPassword());
             stat.setLong(2, u.getCedula());
+            System.out.println("user: "+u.getCedula());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya modificado");
             }
