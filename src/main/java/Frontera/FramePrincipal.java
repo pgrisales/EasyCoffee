@@ -203,7 +203,8 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         FramePrincipal.menuPanelPrincipal(false);
-        FramePrincipal.cambiarPanel376(new AgregarTrabajador());
+        javax.swing.JPanel panelj=new javax.swing.JPanel();
+        FramePrincipal.cambiarPanel376(panelj);
         FramePrincipal.menuDoublePanel(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 

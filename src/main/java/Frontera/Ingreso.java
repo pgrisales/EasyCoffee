@@ -176,7 +176,8 @@ public class Ingreso extends javax.swing.JPanel {
                 FramePrincipal.menuVisible(true);
                 FramePrincipal.menuPanelPrincipal(false);
                 FramePrincipal.cambiarPanel127(new RegistroFinca());
-                FramePrincipal.cambiarPanel376(new AgregarTrabajador());
+                javax.swing.JPanel panelj=new javax.swing.JPanel();
+                FramePrincipal.cambiarPanel376(panelj);
                 FramePrincipal.menuDoublePanel(true);
                 
                 
