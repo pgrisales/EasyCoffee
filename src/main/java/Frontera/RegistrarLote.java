@@ -296,7 +296,6 @@ public class RegistrarLote extends javax.swing.JPanel {
     }
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
         AgregarArboles loTe =new AgregarArboles(arboles);
-        loTe.setBackground(new Color(0,0,0,0));
         JOptionPane.showMessageDialog(this, loTe);
         
         this.arboles=loTe.getLote();
