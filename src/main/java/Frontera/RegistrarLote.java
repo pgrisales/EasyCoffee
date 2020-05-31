@@ -8,6 +8,7 @@ package Frontera;
 import Frontera.*;
 import com.easycoffee.Arbol;
 import com.easycoffee.Lote;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -56,20 +57,39 @@ public class RegistrarLote extends javax.swing.JPanel {
         save = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
 
-        setMaximumSize(new java.awt.Dimension(900, 376));
-        setMinimumSize(new java.awt.Dimension(900, 376));
+        setMaximumSize(new java.awt.Dimension(900, 366));
+        setMinimumSize(new java.awt.Dimension(900, 366));
         setPreferredSize(new java.awt.Dimension(900, 376));
 
-        jLabel3.setText("¿cuando fue la última vez que abonó el lote?");
+        jLabel3.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("¿Cuando fue la última vez que abonó el lote?");
 
-        jLabel4.setText("¿cuando fue la última vez que desyerbo el lote?");
+        jLabel4.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("¿Cuando fue la última vez que desyerbo el lote?");
 
+        loteID.setFont(new java.awt.Font("Sitka Banner", 0, 36)); // NOI18N
+        loteID.setForeground(new java.awt.Color(255, 255, 255));
         loteID.setText("0");
 
-        jLabel9.setText("ingrese el tamaño del lote");
+        fechaAbonado.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
-        jLabel2.setText("Lote");
+        jLabel9.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Ingrese el tamaño del lote");
 
+        jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Lote #");
+
+        fechaDesyerbado.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+
+        areaLote.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+
+        addArboles.setBackground(new java.awt.Color(0, 102, 0));
+        addArboles.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        addArboles.setForeground(new java.awt.Color(255, 255, 255));
         addArboles.setText("Agregar árboles");
         addArboles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,10 +97,20 @@ public class RegistrarLote extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setText("Arboles en el lote");
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Árboles en el lote:");
 
+        numArboles.setFont(new java.awt.Font("Sitka Banner", 0, 24)); // NOI18N
+        numArboles.setForeground(new java.awt.Color(255, 255, 255));
         numArboles.setText("0");
 
+        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jTable1.setBackground(new java.awt.Color(102, 102, 102));
+        jTable1.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Típica", "0"},
@@ -108,6 +138,9 @@ public class RegistrarLote extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        save.setBackground(new java.awt.Color(102, 0, 0));
+        save.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        save.setForeground(new java.awt.Color(255, 255, 255));
         save.setText("Guardar");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +148,9 @@ public class RegistrarLote extends javax.swing.JPanel {
             }
         });
 
+        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -122,12 +158,21 @@ public class RegistrarLote extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(numArboles)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
+                                .addComponent(addArboles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(483, 483, 483)
+                                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -140,27 +185,18 @@ public class RegistrarLote extends javax.swing.JPanel {
                                             .addComponent(fechaDesyerbado, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                                             .addComponent(fechaAbonado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(areaLote, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(loteID)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(31, 31, 31)
-                                .addComponent(numArboles)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(addArboles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(save, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(areaLote, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(loteID)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
@@ -175,7 +211,7 @@ public class RegistrarLote extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(loteID))
+                            .addComponent(loteID, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
@@ -192,10 +228,11 @@ public class RegistrarLote extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
-                .addComponent(addArboles)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(save)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addArboles, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -259,6 +296,7 @@ public class RegistrarLote extends javax.swing.JPanel {
     }
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
         AgregarArboles loTe =new AgregarArboles(arboles);
+        loTe.setBackground(new Color(0,0,0,0));
         JOptionPane.showMessageDialog(this, loTe);
         this.arboles=loTe.getLote();
         numArboles.setText(arboles.size()+"");

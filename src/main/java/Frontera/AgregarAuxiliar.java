@@ -58,9 +58,9 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(900, 376));
         setPreferredSize(new java.awt.Dimension(900, 376));
 
-        password.setBackground(new java.awt.Color(0, 0, 0));
+        password.setBackground(new java.awt.Color(255, 255, 255));
         password.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        password.setForeground(new java.awt.Color(255, 255, 255));
+        password.setForeground(new java.awt.Color(0, 0, 0));
 
         registration.setBackground(new java.awt.Color(102, 0, 0));
         registration.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
@@ -74,13 +74,13 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
             }
         });
 
-        passwordConfirm.setBackground(new java.awt.Color(0, 0, 0));
+        passwordConfirm.setBackground(new java.awt.Color(255, 255, 255));
         passwordConfirm.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        passwordConfirm.setForeground(new java.awt.Color(255, 255, 255));
+        passwordConfirm.setForeground(new java.awt.Color(0, 0, 0));
 
-        apellidos.setBackground(new java.awt.Color(0, 0, 0));
+        apellidos.setBackground(new java.awt.Color(255, 255, 255));
         apellidos.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        apellidos.setForeground(new java.awt.Color(255, 255, 255));
+        apellidos.setForeground(new java.awt.Color(0, 0, 0));
         apellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 apellidosActionPerformed(evt);
@@ -97,9 +97,9 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
             }
         });
 
-        nombres.setBackground(new java.awt.Color(0, 0, 0));
+        nombres.setBackground(new java.awt.Color(255, 255, 255));
         nombres.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        nombres.setForeground(new java.awt.Color(255, 255, 255));
+        nombres.setForeground(new java.awt.Color(0, 0, 0));
         nombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombresActionPerformed(evt);
@@ -111,9 +111,9 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Crear usuario auxiliar");
 
-        cedula.setBackground(new java.awt.Color(0, 0, 0));
+        cedula.setBackground(new java.awt.Color(255, 255, 255));
         cedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        cedula.setForeground(new java.awt.Color(255, 255, 255));
+        cedula.setForeground(new java.awt.Color(0, 0, 0));
 
         inf.setBackground(new java.awt.Color(0, 153, 153));
         inf.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
@@ -145,9 +145,9 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombres");
 
-        questions.setBackground(new java.awt.Color(0, 0, 0));
+        questions.setBackground(new java.awt.Color(255, 255, 255));
         questions.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
-        questions.setForeground(new java.awt.Color(255, 255, 255));
+        questions.setForeground(new java.awt.Color(0, 0, 0));
         questions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         questions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,9 +167,9 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cedula");
 
-        answer.setBackground(new java.awt.Color(0, 0, 0));
+        answer.setBackground(new java.awt.Color(255, 255, 255));
         answer.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        answer.setForeground(new java.awt.Color(255, 255, 255));
+        answer.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
