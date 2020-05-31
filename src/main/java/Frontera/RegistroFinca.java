@@ -104,6 +104,11 @@ public class RegistroFinca extends javax.swing.JPanel {
         editLote.setFocusable(false);
         editLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         editLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        editLote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editLoteActionPerformed(evt);
+            }
+        });
         jToolBar1.add(editLote);
 
         AddTrabajador.setText("Agregar trabajador");
@@ -178,7 +183,6 @@ public class RegistroFinca extends javax.swing.JPanel {
                         .addComponent(jLabel8)
                         .addGap(7, 7, 7))
                     .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -206,6 +210,10 @@ public class RegistroFinca extends javax.swing.JPanel {
     private void addAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuxActionPerformed
         FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
     }//GEN-LAST:event_addAuxActionPerformed
+
+    private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
+        FramePrincipal.cambiarPanel376(new EditFinca());
+    }//GEN-LAST:event_editLoteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

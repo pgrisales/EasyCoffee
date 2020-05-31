@@ -145,7 +145,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         menu.add(jMenu2);
 
-        jMenu3.setText("jMenu3");
+        jMenu3.setText("Produccion");
         menu.add(jMenu3);
 
         setJMenuBar(menu);
