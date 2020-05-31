@@ -5,8 +5,10 @@
  */
 package Frontera;
 
+import com.easycoffee.Lote;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -15,8 +17,8 @@ import javax.swing.JOptionPane;
  * @author Nivektakedown
  */
 public class RegistroFinca extends javax.swing.JPanel {
-
     
+    private ArrayList<Lote> lotesA;
     private String[] lotes=new String[]{};
      
     public RegistroFinca() {
@@ -26,6 +28,7 @@ public class RegistroFinca extends javax.swing.JPanel {
             lotesC.addItem(lotes[i]);
         }
         editLote.setEnabled(false);
+        lotesA= new ArrayList<>();
     }
 
     /**
@@ -207,7 +210,9 @@ public class RegistroFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_lotesCActionPerformed
 
     private void agregarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarLoteActionPerformed
-        FramePrincipal.cambiarPanel376(new RegistrarLote());
+        RegistrarLote lote=new RegistrarLote(lotesA);
+        lotesA=lote.getLotes();
+        FramePrincipal.cambiarPanel376(lote);
     }//GEN-LAST:event_agregarLoteActionPerformed
 
     private void AddTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrabajadorActionPerformed

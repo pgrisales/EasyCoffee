@@ -7,20 +7,22 @@ package Frontera;
 
 import Frontera.*;
 import com.easycoffee.Arbol;
+import com.easycoffee.Lote;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 public class RegistrarLote extends javax.swing.JPanel {
+    private ArrayList<Lote> lotes;
+    private Lote lote;
 
-    
-    ArrayList<Arbol> arboles;
-    
-    public RegistrarLote() {
+    public RegistrarLote(ArrayList<Lote> lotes) {
         arboles=new ArrayList();
         initComponents();
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
+        lote=null;
+        lotes=lotes;
     }
 
     /**
@@ -190,10 +192,27 @@ public class RegistrarLote extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public ArrayList<Lote> getLotes() {
+        return lotes;
+    }
+
+    public void setLotes(ArrayList<Lote> lotes) {
+        this.lotes = lotes;
+    }
+
     public ArrayList<Arbol> getArboles() {
         return arboles;
     }
 
+    public Lote getLote() {
+        return lote;
+    }
+
+    public void setLote(Lote lote) {
+        this.lote = lote;
+    }
+    ArrayList<Arbol> arboles;
+    
     public void setArboles(ArrayList<Arbol> arboles) {
         this.arboles = arboles;
     }
@@ -240,7 +259,20 @@ public class RegistrarLote extends javax.swing.JPanel {
     }//GEN-LAST:event_addArbolesActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        // TODO add your handling code here:
+        if(this.areaLote.getText().equals(""))
+            JOptionPane.showMessageDialog(this, "Las casilla de tamaño está vacia, por favor asegurese de rellenarla");
+        else{
+            if(Registro.isNumeric(areaLote.getText())){
+                String fechabonado=fechaAbonado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaAbonado.getCalendar().get(Calendar.MINUTE)+"/"+fechaAbonado.getCalendar().get(Calendar.SECOND);
+                String fechadesyerbado=fechaDesyerbado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaDesyerbado.getCalendar().get(Calendar.MINUTE)+"/"+fechaDesyerbado.getCalendar().get(Calendar.SECOND);
+                lote=new Lote((long)lotes.size(),Integer.parseInt( areaLote.getText()), fechadesyerbado, fechabonado, true);
+                lotes.add(lote);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "El tamaño del lote no se ha de manera correcta, por favor intentelo de nuevo.");
+            }
+        }
+       
     }//GEN-LAST:event_saveActionPerformed
 
 
