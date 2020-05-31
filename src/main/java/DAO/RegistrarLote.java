@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frontera;
+package DAO;
+
+import Frontera.*;
 
 /**
  *
  * @author Nivektakedown
  */
-public class registrarLote extends javax.swing.JPanel {
+public class RegistrarLote extends javax.swing.JPanel {
 
     /**
      * Creates new form registrarLote
      */
-    public registrarLote() {
+    public RegistrarLote() {
         initComponents();
     }
 
