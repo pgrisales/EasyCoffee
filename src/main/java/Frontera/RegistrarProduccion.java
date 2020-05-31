@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Frontera;
 
-import com.easycoffee.Jornada;
 import com.easycoffee.Lote;
 import com.easycoffee.Trabajador;
 import javax.swing.JOptionPane;
@@ -19,17 +13,17 @@ public class RegistrarProduccion extends javax.swing.JPanel {
     /**
      * Creates new form RegistrarProduccion
      */
-    private String[] unidades= {"Kg","Lb","Arrobas"}; 
+    private String[] unidades = {"Kg", "Lb", "Arrobas"};
     private String error = "";
-    
+
     public RegistrarProduccion() {
         initComponents();
-        
+
         trabajadores.removeAllItems();
         trabajadores.addItem("-Seleccione el trabajador-");
         for (int i = 0; i < FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().size(); i++) {
             Trabajador x = FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().get(i);
-            trabajadores.addItem(x.getCedula().intValue()+" - "+x.getNombre()+" "+x.getApellido());
+            trabajadores.addItem(x.getCedula().intValue() + " - " + x.getNombre() + " " + x.getApellido());
         }
         lotes.removeAllItems();
         trabajadores.addItem("-Seleccione el lote-");
@@ -43,23 +37,25 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             unidad.addItem(unidades[i]);
         }
     }
-    private boolean validarDatos(){
+
+    private boolean validarDatos() {
         boolean b = true;
-        if(trabajadores.getSelectedItem().toString().equals("-Seleccione el trabajador-")){
+        if (trabajadores.getSelectedItem().toString().equals("-Seleccione el trabajador-")) {
             error = "1";
             b = false;
-        }else if(lotes.getSelectedItem().toString().equals("-Seleccione el lote-")){
+        } else if (lotes.getSelectedItem().toString().equals("-Seleccione el lote-")) {
             error = "2";
             b = false;
-        }else if(unidad.getSelectedItem().toString().equals("-")){
+        } else if (unidad.getSelectedItem().toString().equals("-")) {
             error = "3";
             b = false;
-        }else if(cantidad.getText().equals("")){
+        } else if (cantidad.getText().equals("")) {
             error = "4";
             b = false;
         }
         return b;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -201,7 +197,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aniadirActionPerformed
-        if(!validarDatos()){
+        if (!validarDatos()) {
             switch (error) {
                 case "1": {
                     JOptionPane.showMessageDialog(null, "No ha seleccionado un trabajador.");
@@ -220,27 +216,26 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                     break;
                 }
             }
-        }else{
+        } else {
             float arrobas = 0;
-            switch(unidad.getSelectedItem().toString()){
-                
+            switch (unidad.getSelectedItem().toString()) {
+
                 case "Kg": {
-                    arrobas = (float) (Float.parseFloat(cantidad.getText())/11.339);
+                    arrobas = (float) (Float.parseFloat(cantidad.getText()) / 11.339);
                     break;
                 }
                 case "Lb": {
-                    arrobas =(float) ((Float.parseFloat(cantidad.getText())/11.339)*0.436);
+                    arrobas = (float) ((Float.parseFloat(cantidad.getText()) / 11.339) * 0.436);
                     break;
                 }
                 case "Arrobas": {
-                    arrobas =(Float.parseFloat(cantidad.getText()));
+                    arrobas = (Float.parseFloat(cantidad.getText()));
                     break;
                 }
             }
-            
-            
+
         }
-        
+
     }//GEN-LAST:event_aniadirActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
@@ -252,10 +247,8 @@ public class RegistrarProduccion extends javax.swing.JPanel {
     }//GEN-LAST:event_cantidadActionPerformed
 
     private void trabajadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trabajadoresActionPerformed
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_trabajadoresActionPerformed
 
     private void unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadActionPerformed
