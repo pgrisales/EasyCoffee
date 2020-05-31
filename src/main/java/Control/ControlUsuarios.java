@@ -55,7 +55,6 @@ public class ControlUsuarios {
     public boolean compararRespuestas(String r, int index) {
         if (this.u != null) {
             String[] s = this.u.getRespuesta();
-//            System.out.println("comparar res " + s[index] + " " + index);
             return s[index].equals(r);
         }
         return false;
@@ -70,5 +69,9 @@ public class ControlUsuarios {
     public void setU(int cedula) {
         this.u = DAO.getUsuarioDAO().obtener(new Long(cedula));
     }
-    
+
+    public Usuario getU() {
+        return u;
+    }
+
 }
