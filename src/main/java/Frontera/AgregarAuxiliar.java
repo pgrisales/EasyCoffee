@@ -5,6 +5,8 @@
  */
 package Frontera;
 
+import Control.ControlUsuarios;
+import com.easycoffee.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -336,17 +338,17 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
     }
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
         if (datosCorrectos() == true) {
-            /*            JOptionPane.showMessageDialog(null, "Usuario Registrado");
-            Administrador a;
-            a = new Administrador(password.getText(), (long) Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true, answerA[0], answerA[1], answerA[2]);
+            JOptionPane.showMessageDialog(null, "Usuario Registrado");
+            Usuario a;
+            a = new Usuario(password.getText(), (long) Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true, answerA[0], answerA[1], answerA[2]);
             ControlUsuarios b = new ControlUsuarios();
-            try {
+            /*try {
             b.registrarAdministrador(a);
             } catch (SQLException ex) {
             Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
             }
-            FramePrincipal.sistem.setAdmin(a);
-            */
+            FramePrincipal.sistem.setAdmin(a);*/
+
             FramePrincipal.cambiarPanel(new Ingreso());
         } else {
             switch (error) {
