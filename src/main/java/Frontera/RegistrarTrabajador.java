@@ -56,15 +56,15 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nombres");
+        jLabel1.setText("Nombres:");
 
         jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Apellidos");
+        jLabel2.setText("Apellidos:");
 
         jLabel3.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Cedula");
+        jLabel3.setText("Cedula:");
 
         apellidos.setBackground(new java.awt.Color(0, 0, 0));
         apellidos.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -135,7 +135,7 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
                                 .addComponent(inf, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(340, Short.MAX_VALUE))
+                .addContainerGap(335, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

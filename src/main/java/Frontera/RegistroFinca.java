@@ -67,8 +67,9 @@ public class RegistroFinca extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(900, 127));
 
         jLabel1.setBackground(new java.awt.Color(222, 222, 222));
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel1.setText("ingrese el nombre de la finca");
+        jLabel1.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Ingrese el nombre de la finca:");
 
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +77,7 @@ public class RegistroFinca extends javax.swing.JPanel {
             }
         });
 
+        registrar.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         registrar.setText("Registrar");
         registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,16 +85,21 @@ public class RegistroFinca extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setText("tamaño de la finca");
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Tamaño de la finca:");
 
         jLabel6.setText("cargar suma de areas de lotes");
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel8.setText("lotes registrados");
+        jLabel8.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Lotes registrados:");
 
         jToolBar1.setRollover(true);
 
+        agregarLote.setBackground(new java.awt.Color(102, 0, 0));
+        agregarLote.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        agregarLote.setForeground(new java.awt.Color(255, 255, 255));
         agregarLote.setText("Agregar lote");
         agregarLote.setFocusable(false);
         agregarLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -104,12 +111,18 @@ public class RegistroFinca extends javax.swing.JPanel {
         });
         jToolBar1.add(agregarLote);
 
+        editLote.setBackground(new java.awt.Color(102, 0, 0));
+        editLote.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        editLote.setForeground(new java.awt.Color(255, 255, 255));
         editLote.setText("Editar lote");
         editLote.setFocusable(false);
         editLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         editLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(editLote);
 
+        AddTrabajador.setBackground(new java.awt.Color(102, 0, 0));
+        AddTrabajador.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        AddTrabajador.setForeground(new java.awt.Color(255, 255, 255));
         AddTrabajador.setText("Agregar trabajador");
         AddTrabajador.setFocusable(false);
         AddTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -121,6 +134,9 @@ public class RegistroFinca extends javax.swing.JPanel {
         });
         jToolBar1.add(AddTrabajador);
 
+        addAux.setBackground(new java.awt.Color(102, 0, 0));
+        addAux.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        addAux.setForeground(new java.awt.Color(255, 255, 255));
         addAux.setText("Agregar auxiliar");
         addAux.setFocusable(false);
         addAux.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -132,6 +148,7 @@ public class RegistroFinca extends javax.swing.JPanel {
         });
         jToolBar1.add(addAux);
 
+        lotesC.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         lotesC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         lotesC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,25 +160,28 @@ public class RegistroFinca extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registrar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jLabel1))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                            .addComponent(lotesC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(479, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(434, Short.MAX_VALUE))
+            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,14 +195,13 @@ public class RegistroFinca extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
                     .addComponent(registrar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 6, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
-                        .addGap(7, 7, 7))
-                    .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

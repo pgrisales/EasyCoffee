@@ -237,7 +237,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             Produccion p = new Produccion();
             p.RegistrarProduccionBD(arrobas, FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotes.getSelectedIndex()).getIdLote().intValue()
                     , FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().get(trabajadores.getSelectedIndex()).getCedula().intValue());
-            
+            JOptionPane.showMessageDialog(null, "Jornada añadida.");
             
         }
 
