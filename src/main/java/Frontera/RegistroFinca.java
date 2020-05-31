@@ -41,7 +41,7 @@ public class RegistroFinca extends javax.swing.JPanel {
         jMenu2 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         name = new javax.swing.JTextField();
-        saveName = new javax.swing.JToggleButton();
+        registrar = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -72,10 +72,10 @@ public class RegistroFinca extends javax.swing.JPanel {
             }
         });
 
-        saveName.setText("Guardar");
-        saveName.addActionListener(new java.awt.event.ActionListener() {
+        registrar.setText("Registrar");
+        registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveNameActionPerformed(evt);
+                registrarActionPerformed(evt);
             }
         });
 
@@ -104,11 +104,6 @@ public class RegistroFinca extends javax.swing.JPanel {
         editLote.setFocusable(false);
         editLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         editLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        editLote.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editLoteActionPerformed(evt);
-            }
-        });
         jToolBar1.add(editLote);
 
         AddTrabajador.setText("Agregar trabajador");
@@ -152,8 +147,8 @@ public class RegistroFinca extends javax.swing.JPanel {
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                        .addComponent(saveName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                        .addComponent(registrar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
@@ -162,7 +157,7 @@ public class RegistroFinca extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                             .addComponent(lotesC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(479, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +170,7 @@ public class RegistroFinca extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(saveName))
+                    .addComponent(registrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -191,9 +186,12 @@ public class RegistroFinca extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed
 
-    private void saveNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveNameActionPerformed
-        lotesC.addItem("ickkck");
-    }//GEN-LAST:event_saveNameActionPerformed
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+        JOptionPane.showMessageDialog(jMenu1, "Puedes modificar los datos registrados accediendo a editar finca en la barra de tareas.");
+        FramePrincipal.menuDoublePanel(false);  
+        FramePrincipal.cambiarPanel(new RegistrarProduccion());
+        FramePrincipal.menuPanelPrincipal(true);
+    }//GEN-LAST:event_registrarActionPerformed
 
     private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
         editLote.setEnabled(true);
@@ -211,10 +209,6 @@ public class RegistroFinca extends javax.swing.JPanel {
         FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
     }//GEN-LAST:event_addAuxActionPerformed
 
-    private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
-        FramePrincipal.cambiarPanel376(new EditFinca());
-    }//GEN-LAST:event_editLoteActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddTrabajador;
@@ -231,6 +225,6 @@ public class RegistroFinca extends javax.swing.JPanel {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JComboBox<String> lotesC;
     private javax.swing.JTextField name;
-    private javax.swing.JToggleButton saveName;
+    private javax.swing.JToggleButton registrar;
     // End of variables declaration//GEN-END:variables
 }

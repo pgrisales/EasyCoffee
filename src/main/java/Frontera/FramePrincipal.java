@@ -100,6 +100,8 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login de Usuario");
@@ -138,6 +140,13 @@ public class FramePrincipal extends javax.swing.JFrame {
         menu.add(jMenu1);
 
         jMenu2.setText("Edit");
+
+        jMenuItem3.setText("Editar finca");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("jMenuItem4");
@@ -147,6 +156,18 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Produccion");
         menu.add(jMenu3);
+
+        jMenu4.setText("Perfil");
+
+        jMenuItem5.setText("Cerrar sesión");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem5);
+
+        menu.add(jMenu4);
 
         setJMenuBar(menu);
 
@@ -181,6 +202,20 @@ public class FramePrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        FramePrincipal.menuPanelPrincipal(false);
+        FramePrincipal.cambiarPanel376(new RegistrarLote());
+        FramePrincipal.menuDoublePanel(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        FramePrincipal.menuDoublePanel(false);
+        FramePrincipal.cambiarPanel(new Ingreso());
+        FramePrincipal.menuPanelPrincipal(true);
+        FramePrincipal.menuVisible(false);
+                
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -203,10 +238,12 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private static javax.swing.JPanel jPanel127;
     private static javax.swing.JPanel jPanel376;
     private javax.swing.JSeparator jSeparator1;
