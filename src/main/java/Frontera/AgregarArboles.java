@@ -26,6 +26,7 @@ public class AgregarArboles extends javax.swing.JPanel {
         for (int i = 0; i < this.variedad.length; i++) {
             variedadC.addItem(this.variedad[i]);
         }
+        fechaSembrado.setCalendar(Calendar.getInstance());
     }
 
     /**
