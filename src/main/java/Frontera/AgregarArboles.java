@@ -5,6 +5,9 @@
  */
 package Frontera;
 
+import com.easycoffee.Arbol;
+import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -106,6 +109,14 @@ public class AgregarArboles extends javax.swing.JPanel {
         }else{
             if(Registro.isNumeric(numArboles.getText()) ==false)
                 JOptionPane.showMessageDialog(null,"El número de árboles no se ha digitado de manera correcta, por favor intentelo de nuevo.");
+            else{
+                ArrayList<Arbol> arboles =new ArrayList<Arbol>();
+                String fechas=fechaSembrado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaSembrado.getCalendar().get(Calendar.MINUTE)+"/"+fechaSembrado.getCalendar().get(Calendar.SECOND);
+                for (int i = 0; i <Integer.parseInt(numArboles.getText()) ; i++) {
+                    arboles.add(new Arbol(arboles.size(),RegistroFinca.getLotesC().getSelectedIndex(), true, this.variedad[this.variedadC.getSelectedIndex()], fechas));  
+                }
+                
+            }
         }
     }//GEN-LAST:event_agregarActionPerformed
 

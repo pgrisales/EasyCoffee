@@ -7,6 +7,7 @@ package Frontera;
 
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -193,6 +194,14 @@ public class RegistroFinca extends javax.swing.JPanel {
         FramePrincipal.menuPanelPrincipal(true);
     }//GEN-LAST:event_registrarActionPerformed
 
+    public static JComboBox<String> getLotesC() {
+        return lotesC;
+    }
+
+    public void setLotesC(JComboBox<String> lotesC) {
+        this.lotesC = lotesC;
+    }
+
     private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
         editLote.setEnabled(true);
     }//GEN-LAST:event_lotesCActionPerformed
@@ -223,7 +232,7 @@ public class RegistroFinca extends javax.swing.JPanel {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JComboBox<String> lotesC;
+    private static javax.swing.JComboBox<String> lotesC;
     private javax.swing.JTextField name;
     private javax.swing.JToggleButton registrar;
     // End of variables declaration//GEN-END:variables
