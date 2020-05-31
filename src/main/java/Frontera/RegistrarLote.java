@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 public class RegistrarLote extends javax.swing.JPanel {
     private ArrayList<Lote> lotes;
     private Lote lote;
+    private String[] unidades = {"km^2", "m^2", "hec"};
 
     public RegistrarLote(ArrayList<Lote> lotes) {
         arboles=new ArrayList();
@@ -23,6 +24,10 @@ public class RegistrarLote extends javax.swing.JPanel {
         fechaDesyerbado.setCalendar(Calendar.getInstance());
         lote=null;
         lotes=lotes;
+        this.jComboBox1.removeAllItems();
+        for (int i = 0; i < unidades.length; i++) {
+            jComboBox1.addItem(unidades[i]);
+        }
     }
 
     /**
@@ -263,9 +268,14 @@ public class RegistrarLote extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Las casilla de tamaño está vacia, por favor asegurese de rellenarla");
         else{
             if(Registro.isNumeric(areaLote.getText())){
+                int area =Integer.parseInt( areaLote.getText());//swe guarda en metros
+                if(jComboBox1.getSelectedIndex()==0)
+                    area=area*1000000;
+                if(jComboBox1.getSelectedIndex()==2)
+                    area=area*10000;
                 String fechabonado=fechaAbonado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaAbonado.getCalendar().get(Calendar.MINUTE)+"/"+fechaAbonado.getCalendar().get(Calendar.SECOND);
                 String fechadesyerbado=fechaDesyerbado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaDesyerbado.getCalendar().get(Calendar.MINUTE)+"/"+fechaDesyerbado.getCalendar().get(Calendar.SECOND);
-                lote=new Lote((long)lotes.size(),Integer.parseInt( areaLote.getText()), fechadesyerbado, fechabonado, true);
+                lote=new Lote((long)lotes.size(),area, fechadesyerbado, fechabonado, true);
                 lotes.add(lote);
             }
             else{
