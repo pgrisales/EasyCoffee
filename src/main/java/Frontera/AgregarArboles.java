@@ -19,9 +19,12 @@ public class AgregarArboles extends javax.swing.JPanel {
 
     private String[] variedad;
     private ArrayList<Arbol> lote;
+    private Fondo fondo;
     public AgregarArboles(ArrayList<Arbol> lote) {
+        
         this.lote=lote;
         this.variedad = new String[]{"Típica","Borbón","Maragogipe","Tabi","Caturra","Variedad Colombia"};
+        
         initComponents();
         variedadC.removeAllItems();
         for (int i = 0; i < this.variedad.length; i++) {
@@ -47,33 +50,36 @@ public class AgregarArboles extends javax.swing.JPanel {
         fechaSembrado = new com.toedter.calendar.JDateChooser();
         agregar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(500, 200));
         setMinimumSize(new java.awt.Dimension(500, 200));
         setPreferredSize(new java.awt.Dimension(500, 200));
 
-        variedadC.setBackground(new java.awt.Color(102, 102, 102));
-        variedadC.setForeground(new java.awt.Color(255, 255, 255));
+        variedadC.setBackground(new java.awt.Color(255, 255, 255));
+        variedadC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        variedadC.setForeground(new java.awt.Color(0, 0, 0));
         variedadC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Seleccione la variedad de los árboles");
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("¿Cuántos árboles desea agregar?");
 
-        numArboles.setBackground(new java.awt.Color(102, 102, 102));
-        numArboles.setForeground(new java.awt.Color(255, 255, 255));
+        numArboles.setBackground(new java.awt.Color(255, 255, 255));
+        numArboles.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        numArboles.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("¿Cuando se sembraron?");
 
-        fechaSembrado.setBackground(new java.awt.Color(102, 102, 102));
+        fechaSembrado.setBackground(new java.awt.Color(51, 51, 51));
         fechaSembrado.setForeground(new java.awt.Color(255, 255, 255));
 
         agregar.setBackground(new java.awt.Color(102, 0, 0));
@@ -121,7 +127,7 @@ public class AgregarArboles extends javax.swing.JPanel {
                     .addComponent(fechaSembrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
