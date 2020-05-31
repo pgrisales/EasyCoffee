@@ -19,18 +19,18 @@ import org.jsoup.select.Elements;
  * @author GAR
  */
 public class PrecioCafe {
-    
+
     private static PrecioCafe single = null;
     private static Document doc;
-    private static String precioInternoRef;
-    private static String precioPasillaFinca;
-    private static String bolsaNY;
-    private static String tasaCambio;
+    private static String precioInternoRef;             //Precio de una Carga (1 Carga= 125Kg)
+    private static String precioPasillaFinca;           //Precio Arroba Pasilla (Pasilla Cafe no tan puro - Sello Rojo)
+    private static String bolsaNY;                      //Precio Centavos de Dolar por cada Libra de Cafe Básico
+    private static String tasaCambio;                   //Precio (bolsaNY) en Pesos colombianos 
     //private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-    private final ScheduledExecutorService scheduler =
-     Executors.newScheduledThreadPool(1);
-    
-    private PrecioCafe() throws IOException{  
+    private final ScheduledExecutorService scheduler
+            = Executors.newScheduledThreadPool(1);
+
+    private PrecioCafe() throws IOException {
         update();
         /*System.out.println(doc.select("ul.lista > li[tabindex=1] > span").first().text() + precioInternoRef);
         System.out.println(doc.select("ul.lista > li[tabindex=4] > span").first().text() + precioPasillaFinca);
@@ -42,9 +42,8 @@ public class PrecioCafe {
         Elements links = doc.getElementsByTag("strong");
         //Elements links = doc.getElementsByClass("Precio interno de referencia:");
         System.out.println(links);*/
-        
-        //html/body/header/div/div/div/div/div[2]/div/div[1]/ul/li[3]/strong
 
+        //html/body/header/div/div/div/div/div[2]/div/div[1]/ul/li[3]/strong
         //"html>body>header>div>div>div>div>div[2]>div>div[1]>ul>li[3]>strong"
         /*Element content = doc.getElementById("div.col-12 lista-container"); 
         //Elements content = doc.getElementsByClass("span");
@@ -56,21 +55,20 @@ public class PrecioCafe {
             //System.out.println(link.attr("strong"));
             System.out.println(link.text());
         }*/
-        
-    }  
-    
-    public static PrecioCafe getInstance() throws IOException{
-        if(single == null){
+    }
+
+    public static PrecioCafe getInstance() throws IOException {
+        if (single == null) {
             single = new PrecioCafe();
         }
         return single;
     }
-    
-    public void updateInfo(){
+
+    public void updateInfo() {
         try {
             doc = Jsoup.connect("https://federaciondecafeteros.org/").get();
             String title = doc.title();
-            System.out.println("Tittle === "+ title);
+            System.out.println("Tittle === " + title);
             //XPath path = new XPath();
 
             precioInternoRef = doc.select("ul.lista > li[tabindex=1] > strong").first().text();
@@ -82,7 +80,7 @@ public class PrecioCafe {
             e.printStackTrace();
         }
     }
-                
+
     public void update() {
         Runnable task = new Runnable() {
             public void run() {
@@ -118,5 +116,5 @@ public class PrecioCafe {
     public String getTasaCambio() {
         return tasaCambio;
     }
-    
+
 }
