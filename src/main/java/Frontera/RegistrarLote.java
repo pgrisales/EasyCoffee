@@ -23,7 +23,7 @@ public class RegistrarLote extends javax.swing.JPanel {
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
         lote=null;
-        lotes=lotes;
+        this.lotes=lotes;
         this.jComboBox1.removeAllItems();
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
