@@ -1,6 +1,7 @@
 package Frontera;
 
 import com.easycoffee.Lote;
+import Control.*;
 import com.easycoffee.Trabajador;
 import javax.swing.JOptionPane;
 
@@ -233,7 +234,11 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                     break;
                 }
             }
-
+            Produccion p = new Produccion();
+            p.RegistrarProduccionBD(arrobas, FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotes.getSelectedIndex()).getIdLote().intValue()
+                    , FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().get(trabajadores.getSelectedIndex()).getCedula().intValue());
+            
+            
         }
 
     }//GEN-LAST:event_aniadirActionPerformed
