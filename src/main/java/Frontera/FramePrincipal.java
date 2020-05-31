@@ -25,10 +25,8 @@ public class FramePrincipal extends javax.swing.JFrame {
     public static String[] preguntas = {"¿Cuál es el nombre de tu primera mascota?", "¿Cuál es tu comida favorita?", "¿Quíen era el héroe de tu infancia?"};
     static private Fondo fondo;
     private Ingreso ingreso = new Ingreso();
-    PrecioCafe precioCafe;
 
-    public FramePrincipal() throws IOException {
-        this.precioCafe = WebS.PrecioCafe.getInstance();
+    public FramePrincipal() {
         fondo = new Fondo(ingreso, "../image/318763,xcitefun-cocora-valley-7.jpg");
         this.setContentPane(fondo);
         initComponents();
@@ -218,15 +216,11 @@ public class FramePrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-
+    public static void main(String args[]) throws IOException {
+        PrecioCafe precioCafe = WebS.PrecioCafe.getInstance();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new FramePrincipal().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(FramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new FramePrincipal().setVisible(true);
                 PanelPrincipal.setOpaque(false);
             }
         });

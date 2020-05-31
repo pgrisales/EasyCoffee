@@ -27,8 +27,8 @@ public class PrecioCafe {
     private static String bolsaNY;                      //Precio Centavos de Dolar por cada Libra de Cafe Básico
     private static String tasaCambio;                   //Precio (bolsaNY) en Pesos colombianos 
     //private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-    private final ScheduledExecutorService scheduler
-            = Executors.newScheduledThreadPool(1);
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    private static int count = 1;
 
     private PrecioCafe() throws IOException {
         update();
@@ -68,7 +68,9 @@ public class PrecioCafe {
         try {
             doc = Jsoup.connect("https://federaciondecafeteros.org/").get();
             String title = doc.title();
-            System.out.println("Tittle === " + title);
+            System.out.println(title);
+            System.out.println("ACTUALIZACION PRECIO DEL CAFE #"+count);
+            count++;
             //XPath path = new XPath();
 
             precioInternoRef = doc.select("ul.lista > li[tabindex=1] > strong").first().text();
@@ -85,14 +87,13 @@ public class PrecioCafe {
         Runnable task = new Runnable() {
             public void run() {
                 updateInfo();
-                System.out.println("ES EL BUCLE RUN");
                 /*System.out.println(doc.select("ul.lista > li[tabindex=1] > span").first().text() + precioInternoRef);
                 System.out.println(doc.select("ul.lista > li[tabindex=4] > span").first().text() + precioPasillaFinca);
                 System.out.println(doc.select("ul.lista > li[tabindex=2] > span").first().text() + bolsaNY);
                 System.out.println(doc.select("ul.lista > li[tabindex=3] > span").first().text() + tasaCambio);*/
             }
         };
-        int initialDelay = 1;
+        int initialDelay = 0;
         int periodicDelay = 2;
         scheduler.scheduleAtFixedRate(task, initialDelay, periodicDelay, TimeUnit.HOURS);
     }
