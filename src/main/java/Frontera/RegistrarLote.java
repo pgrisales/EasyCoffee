@@ -12,24 +12,20 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
+import sun.misc.GC;
 
 public class RegistrarLote extends javax.swing.JPanel {
-    private ArrayList<Lote> lotes;
-    private Lote lote;
     private String[] unidades = {"km^2", "m^2", "hec"};
 
-    public RegistrarLote(ArrayList<Lote> lotes) {
+    public RegistrarLote() {
         arboles=new ArrayList();
         initComponents();
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
-        lote=null;
-        this.lotes=lotes;
         this.jComboBox1.removeAllItems();
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
         }
-        loteID.setText(lotes.size()+"");
     }
 
     /**
@@ -207,7 +203,7 @@ public class RegistrarLote extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(numArboles))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -226,35 +222,21 @@ public class RegistrarLote extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(fechaDesyerbado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)))
-                .addGap(18, 18, 18)
+                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addArboles, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public ArrayList<Lote> getLotes() {
-        return lotes;
-    }
-
-    public void setLotes(ArrayList<Lote> lotes) {
-        this.lotes = lotes;
-    }
 
     public ArrayList<Arbol> getArboles() {
         return arboles;
     }
 
-    public Lote getLote() {
-        return lote;
-    }
-
-    public void setLote(Lote lote) {
-        this.lote = lote;
-    }
     ArrayList<Arbol> arboles;
     
     public void setArboles(ArrayList<Arbol> arboles) {
@@ -297,7 +279,6 @@ public class RegistrarLote extends javax.swing.JPanel {
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
         AgregarArboles loTe =new AgregarArboles(arboles);
         JOptionPane.showMessageDialog(this, loTe);
-        
         this.arboles=loTe.getLote();
         numArboles.setText(arboles.size()+"");
         numeroArboles();
@@ -315,8 +296,14 @@ public class RegistrarLote extends javax.swing.JPanel {
                     area=area*10000;
                 String fechabonado=fechaAbonado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaAbonado.getCalendar().get(Calendar.MINUTE)+"/"+fechaAbonado.getCalendar().get(Calendar.SECOND);
                 String fechadesyerbado=fechaDesyerbado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaDesyerbado.getCalendar().get(Calendar.MINUTE)+"/"+fechaDesyerbado.getCalendar().get(Calendar.SECOND);
-                lote=new Lote((long)lotes.size(),area, fechadesyerbado, fechabonado, true);
-                lotes.add(lote);
+                Lote lote=new Lote((long)FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(),area, fechadesyerbado, fechabonado, true);
+                FramePrincipal.getSistem().getAdmin().getFinca().getLotes().add(lote);
+                FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size();
+                 System.out.println("lotes "+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size());
+                 JOptionPane.showMessageDialog(this, "Se ha añadido un nuevo lote.");
+                 System.out.println("fsfgsjhsl  ");
+                 javax.swing.JPanel panelj=new javax.swing.JPanel();
+                 FramePrincipal.cambiarPanel376(panelj);
             }
             else{
                 JOptionPane.showMessageDialog(this, "El tamaño del lote no se ha de manera correcta, por favor intentelo de nuevo.");

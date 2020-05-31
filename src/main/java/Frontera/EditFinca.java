@@ -5,6 +5,7 @@
  */
 package Frontera;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +18,7 @@ public class EditFinca extends javax.swing.JPanel {
      * Creates new form EditFinca
      */
     public EditFinca() {
+        name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
         initComponents();
     }
 
@@ -34,12 +36,13 @@ public class EditFinca extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
-        AddTrabajador = new javax.swing.JButton();
-        addAux = new javax.swing.JButton();
         agregarLote = new javax.swing.JButton();
         editLote = new javax.swing.JButton();
+        AddTrabajador = new javax.swing.JButton();
+        addAux = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lotesC = new javax.swing.JComboBox<>();
+        name = new javax.swing.JLabel();
 
         setDoubleBuffered(false);
         setMaximumSize(new java.awt.Dimension(900, 127));
@@ -47,6 +50,9 @@ public class EditFinca extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(900, 127));
         setRequestFocusEnabled(false);
 
+        changeName.setBackground(new java.awt.Color(102, 0, 0));
+        changeName.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        changeName.setForeground(new java.awt.Color(255, 255, 255));
         changeName.setText("Cambiar nombre");
         changeName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,38 +60,23 @@ public class EditFinca extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setText("tamaño de la finca");
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Tamaño de la finca:");
 
         jLabel6.setText("cargar suma de areas de lotes");
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel8.setText("Lotes registrados");
+        jLabel8.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Lotes registrados:");
 
+        jToolBar1.setBackground(new java.awt.Color(0, 0, 0));
+        jToolBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar1.setRollover(true);
 
-        AddTrabajador.setText("Agregar trabajador");
-        AddTrabajador.setFocusable(false);
-        AddTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        AddTrabajador.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        AddTrabajador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddTrabajadorActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(AddTrabajador);
-
-        addAux.setText("Agregar auxiliar");
-        addAux.setFocusable(false);
-        addAux.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addAux.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        addAux.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addAuxActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(addAux);
-
+        agregarLote.setBackground(new java.awt.Color(102, 0, 0));
+        agregarLote.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        agregarLote.setForeground(new java.awt.Color(255, 255, 255));
         agregarLote.setText("Agregar lote");
         agregarLote.setFocusable(false);
         agregarLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -97,16 +88,54 @@ public class EditFinca extends javax.swing.JPanel {
         });
         jToolBar1.add(agregarLote);
 
+        editLote.setBackground(new java.awt.Color(102, 0, 0));
+        editLote.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        editLote.setForeground(new java.awt.Color(255, 255, 255));
         editLote.setText("Editar lote");
         editLote.setFocusable(false);
         editLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         editLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        editLote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editLoteActionPerformed(evt);
+            }
+        });
         jToolBar1.add(editLote);
 
-        jLabel1.setBackground(new java.awt.Color(222, 222, 222));
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel1.setText("Nombre de la finca");
+        AddTrabajador.setBackground(new java.awt.Color(102, 0, 0));
+        AddTrabajador.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        AddTrabajador.setForeground(new java.awt.Color(255, 255, 255));
+        AddTrabajador.setText("Agregar trabajador");
+        AddTrabajador.setFocusable(false);
+        AddTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        AddTrabajador.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        AddTrabajador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddTrabajadorActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(AddTrabajador);
 
+        addAux.setBackground(new java.awt.Color(102, 0, 0));
+        addAux.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        addAux.setForeground(new java.awt.Color(255, 255, 255));
+        addAux.setText("Agregar auxiliar");
+        addAux.setFocusable(false);
+        addAux.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addAux.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addAux.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAuxActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(addAux);
+
+        jLabel1.setBackground(new java.awt.Color(222, 222, 222));
+        jLabel1.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Finca:");
+
+        lotesC.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         lotesC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         lotesC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,64 +143,93 @@ public class EditFinca extends javax.swing.JPanel {
             }
         });
 
+        name.setBackground(new java.awt.Color(222, 222, 222));
+        name.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setText("               ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel8))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(changeName))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(557, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addGap(43, 43, 43)
+                        .addComponent(name)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(changeName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(157, Short.MAX_VALUE))
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(changeName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(name))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(changeName, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(1, 1, 1)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(29, 29, 29)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void changeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeNameActionPerformed
-        FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(JOptionPane.showInputDialog("Ingrese el nuevo nombre"));
+        
+        FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(JOptionPane.showInputDialog("Ingrese el nombre de la finca "));
+        name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
     }//GEN-LAST:event_changeNameActionPerformed
 
     private void agregarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarLoteActionPerformed
- //       FramePrincipal.cambiarPanel376(new RegistrarLote());
+        RegistrarLote lote=new RegistrarLote();
+        agregarLote.setBackground(new Color(152,51,0));
+        AddTrabajador.setBackground(new Color(102,0,0));
+        addAux.setBackground(new Color(102,0,0));
+        FramePrincipal.cambiarPanel376(lote);
+        this.lotesC.removeAll();
+        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            this.lotesC.addItem(i+"");
+        }
+
     }//GEN-LAST:event_agregarLoteActionPerformed
 
+    private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editLoteActionPerformed
+
     private void AddTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrabajadorActionPerformed
+        AddTrabajador.setBackground(new Color(152,51,0));
+        agregarLote.setBackground(new Color(102,0,0));
+        addAux.setBackground(new Color(102,0,0));
         FramePrincipal.cambiarPanel376(new RegistrarTrabajador());
+
     }//GEN-LAST:event_AddTrabajadorActionPerformed
 
     private void addAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuxActionPerformed
+        addAux.setBackground(new Color(152,51,0));
+        AddTrabajador.setBackground(new Color(102,0,0));
+        agregarLote.setBackground(new Color(102,0,0));
         FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
     }//GEN-LAST:event_addAuxActionPerformed
 
@@ -191,6 +249,7 @@ public class EditFinca extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JComboBox<String> lotesC;
+    private static javax.swing.JComboBox<String> lotesC;
+    private javax.swing.JLabel name;
     // End of variables declaration//GEN-END:variables
 }

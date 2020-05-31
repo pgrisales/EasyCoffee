@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
  */
 public class RegistroFinca extends javax.swing.JPanel {
     
-    private ArrayList<Lote> lotesA;
     private String[] lotes=new String[]{};
      
     public RegistroFinca() {
@@ -29,7 +28,6 @@ public class RegistroFinca extends javax.swing.JPanel {
             lotesC.addItem(lotes[i]);
         }
         editLote.setEnabled(false);
-        lotesA= new ArrayList<>();
     }
 
     /**
@@ -219,8 +217,9 @@ public class RegistroFinca extends javax.swing.JPanel {
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         JOptionPane.showMessageDialog(jMenu1, "Puedes modificar los datos registrados accediendo a editar finca en la barra de tareas.");
+        FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(name.getText());
         FramePrincipal.menuDoublePanel(false);  
-        FramePrincipal.cambiarPanel(new RegistrarProduccion());
+        FramePrincipal.cambiarPanel(new EditFinca());
         FramePrincipal.menuPanelPrincipal(true);
     }//GEN-LAST:event_registrarActionPerformed
 
@@ -237,12 +236,16 @@ public class RegistroFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_lotesCActionPerformed
 
     private void agregarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarLoteActionPerformed
-        RegistrarLote lote=new RegistrarLote(lotesA);
+        RegistrarLote lote=new RegistrarLote();
         agregarLote.setBackground(new Color(152,51,0));
         AddTrabajador.setBackground(new Color(102,0,0));
         addAux.setBackground(new Color(102,0,0));
-        lotesA=lote.getLotes();
         FramePrincipal.cambiarPanel376(lote);
+        this.lotesC.removeAll();
+        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            this.lotesC.addItem(i+"");
+        }
+        
     }//GEN-LAST:event_agregarLoteActionPerformed
 
     private void AddTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrabajadorActionPerformed

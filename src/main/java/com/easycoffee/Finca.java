@@ -9,10 +9,18 @@ public class Finca {
     private ArrayList<Usuario> auxiliares = new ArrayList<>();
     private ArrayList<Lote> lotes = new ArrayList<>();
 
-    public Finca(String nombreFinca) {
-        this.nombreFinca = nombreFinca;
+    public Finca() {
+        this.auxiliares=null;
+        this.lotes=null;
+        this.nombreFinca=null;
+        this.trabajadores=null;
     }
-
+    public Finca(String name) {
+        this.auxiliares=null;
+        this.lotes=null;
+        this.nombreFinca=name;
+        this.trabajadores=null;
+    }
     public String getNombreFinca() {
         return nombreFinca;
     }

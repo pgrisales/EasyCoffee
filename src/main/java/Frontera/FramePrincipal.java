@@ -23,7 +23,15 @@ public class FramePrincipal extends javax.swing.JFrame {
     private static String panel;
     public static InicializarSistema sistem = new InicializarSistema();
     public static String[] preguntas = {"¿Cuál es el nombre de tu primera mascota?", "¿Cuál es tu comida favorita?", "¿Quíen era el héroe de tu infancia?"};
-    static private Fondo fondo;
+
+    public static Fondo getFondo() {
+        return fondo;
+    }
+
+    public static void setFondo(Fondo fondo) {
+        FramePrincipal.fondo = fondo;
+    }
+    private static Fondo fondo;
     private Ingreso ingreso = new Ingreso();
 
     public FramePrincipal() {
