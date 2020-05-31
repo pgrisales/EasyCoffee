@@ -5,26 +5,19 @@
  */
 package Frontera;
 
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Nivektakedown
  */
-public class RegistroFinca extends javax.swing.JPanel {
+public class EditFinca extends javax.swing.JPanel {
 
-    
-    private String[] lotes=new String[]{};
-     
-    public RegistroFinca() {
+    /**
+     * Creates new form EditFinca
+     */
+    public EditFinca() {
         initComponents();
-        lotesC.removeAllItems();
-        for (int i = 0; i < lotes.length; i++) {
-            lotesC.addItem(lotes[i]);
-        }
-        editLote.setEnabled(false);
     }
 
     /**
@@ -36,46 +29,28 @@ public class RegistroFinca extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jLabel1 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
-        saveName = new javax.swing.JToggleButton();
+        changeName = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
-        agregarLote = new javax.swing.JButton();
-        editLote = new javax.swing.JButton();
         AddTrabajador = new javax.swing.JButton();
         addAux = new javax.swing.JButton();
+        agregarLote = new javax.swing.JButton();
+        editLote = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         lotesC = new javax.swing.JComboBox<>();
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
+        setDoubleBuffered(false);
         setMaximumSize(new java.awt.Dimension(900, 127));
         setMinimumSize(new java.awt.Dimension(900, 127));
         setPreferredSize(new java.awt.Dimension(900, 127));
+        setRequestFocusEnabled(false);
 
-        jLabel1.setBackground(new java.awt.Color(222, 222, 222));
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel1.setText("ingrese el nombre de la finca");
-
-        name.addActionListener(new java.awt.event.ActionListener() {
+        changeName.setText("Cambiar nombre");
+        changeName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
-            }
-        });
-
-        saveName.setText("Guardar");
-        saveName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveNameActionPerformed(evt);
+                changeNameActionPerformed(evt);
             }
         });
 
@@ -88,23 +63,6 @@ public class RegistroFinca extends javax.swing.JPanel {
         jLabel8.setText("lotes registrados");
 
         jToolBar1.setRollover(true);
-
-        agregarLote.setText("Agregar lote");
-        agregarLote.setFocusable(false);
-        agregarLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        agregarLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        agregarLote.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarLoteActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(agregarLote);
-
-        editLote.setText("Editar lote");
-        editLote.setFocusable(false);
-        editLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        editLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(editLote);
 
         AddTrabajador.setText("Agregar trabajador");
         AddTrabajador.setFocusable(false);
@@ -128,6 +86,27 @@ public class RegistroFinca extends javax.swing.JPanel {
         });
         jToolBar1.add(addAux);
 
+        agregarLote.setText("Agregar lote");
+        agregarLote.setFocusable(false);
+        agregarLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        agregarLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        agregarLote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarLoteActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(agregarLote);
+
+        editLote.setText("Editar lote");
+        editLote.setFocusable(false);
+        editLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        editLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(editLote);
+
+        jLabel1.setBackground(new java.awt.Color(222, 222, 222));
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setText("Nombre de la finca");
+
         lotesC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         lotesC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,58 +121,47 @@ public class RegistroFinca extends javax.swing.JPanel {
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                        .addComponent(saveName))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel1))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                            .addComponent(lotesC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel8))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(changeName)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(changeName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(saveName))
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 6, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
-                        .addGap(7, 7, 7))
-                    .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(29, 29, 29)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
-
-    private void saveNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveNameActionPerformed
-        lotesC.addItem("ickkck");
-    }//GEN-LAST:event_saveNameActionPerformed
-
-    private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
-        editLote.setEnabled(true);
-    }//GEN-LAST:event_lotesCActionPerformed
+    private void changeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeNameActionPerformed
+        FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(JOptionPane.showInputDialog("Ingrese el nuevo nombre"));
+    }//GEN-LAST:event_changeNameActionPerformed
 
     private void agregarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarLoteActionPerformed
         FramePrincipal.cambiarPanel376(new RegistrarLote());
@@ -207,22 +175,22 @@ public class RegistroFinca extends javax.swing.JPanel {
         FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
     }//GEN-LAST:event_addAuxActionPerformed
 
+    private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
+        editLote.setEnabled(true);
+    }//GEN-LAST:event_lotesCActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddTrabajador;
     private javax.swing.JButton addAux;
     private javax.swing.JButton agregarLote;
+    private javax.swing.JToggleButton changeName;
     private javax.swing.JButton editLote;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JComboBox<String> lotesC;
-    private javax.swing.JTextField name;
-    private javax.swing.JToggleButton saveName;
     // End of variables declaration//GEN-END:variables
 }

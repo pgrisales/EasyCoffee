@@ -173,8 +173,13 @@ public class Ingreso extends javax.swing.JPanel {
         try {
             cedula = Long.parseLong(username.getText());
             if (validacion.verificarLogin(cedula, password.getText())) {
-                JOptionPane.showMessageDialog(null, "hola perro catrejijueputa :v");
-                FramePrincipal.cambiarPanel(new DoblePanel());
+                FramePrincipal.menuVisible(true);
+                FramePrincipal.menuPanelPrincipal(false);
+                FramePrincipal.cambiarPanel127(new RegistroFinca());
+                FramePrincipal.cambiarPanel376(new RegistrarLote());
+                FramePrincipal.menuDoublePanel(true);
+                
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
             }
