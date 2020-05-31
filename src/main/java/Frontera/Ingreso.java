@@ -132,7 +132,7 @@ public class Ingreso extends javax.swing.JPanel {
                                     .addGap(69, 69, 69)
                                     .addComponent(forgot, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(registration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,7 +174,7 @@ public class Ingreso extends javax.swing.JPanel {
             cedula = Long.parseLong(username.getText());
             if (validacion.verificarLogin(cedula, password.getText())) {
                 JOptionPane.showMessageDialog(null, "hola perro catrejijueputa :v");
-
+                FramePrincipal.cambiarPanel(new DoblePanel());
             } else {
                 JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
             }
