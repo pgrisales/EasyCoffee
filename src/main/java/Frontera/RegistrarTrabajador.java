@@ -5,6 +5,7 @@
  */
 package Frontera;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,7 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
      */
     public RegistrarTrabajador() {
         initComponents();
+        this.setBackground(new Color (0,0,0,10));
     }
 
     /**

@@ -54,6 +54,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel127.removeAll();
         jPanel127.add(panel);
         jPanel127.setVisible(true);
+        jPanel127.setBackground(new Color(0,0,0,0));
     }
     public static void cambiarPanel376(JPanel panel) {
         //fondo = new Fondo(panel, panel.fondo);
@@ -62,6 +63,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel376.removeAll();
         jPanel376.add(panel);
         jPanel376.setVisible(true);
+        jPanel376.setBackground(new Color(0,0,0,0));
     }
     public static InicializarSistema getSistem() {
         return sistem;
