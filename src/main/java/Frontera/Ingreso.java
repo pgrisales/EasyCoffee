@@ -1,7 +1,7 @@
 package Frontera;
 
 import Control.ControlUsuarios;
-import static java.lang.Long.MIN_VALUE;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -169,26 +169,23 @@ public class Ingreso extends javax.swing.JPanel {
         //JOptionPane.showMessageDialog(null, username.getText());
         //System.out.println(((Object)Long.parseLong(username.getText())).getClass().getSimpleName());
         //System.out.println(((Object)password.getText()).getClass().getSimpleName());
-        Long cedula = MIN_VALUE;
+        long cedula = 0;
         try {
             cedula = Long.parseLong(username.getText());
-            if (validacion.verificarLogin(cedula, password.getText())||true) {
+            if (validacion.verificarLogin(cedula, password.getText()) || true) {
                 FramePrincipal.menuVisible(true);
                 FramePrincipal.menuPanelPrincipal(false);
                 FramePrincipal.cambiarPanel127(new RegistroFinca());
-                javax.swing.JPanel panelj=new javax.swing.JPanel();
+                javax.swing.JPanel panelj = new javax.swing.JPanel();
                 FramePrincipal.cambiarPanel376(panelj);
                 FramePrincipal.menuDoublePanel(true);
-                
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
             }
-        } catch (Exception e) {
+        } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Datos invalidos!");
         }
-
-
     }//GEN-LAST:event_loginActionPerformed
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed

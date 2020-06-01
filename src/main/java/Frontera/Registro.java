@@ -350,7 +350,6 @@ public class Registro extends javax.swing.JPanel {
                 .addContainerGap(116, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
         if (datosCorrectos() == true) {
             JOptionPane.showMessageDialog(null, "Usuario Registrado");
