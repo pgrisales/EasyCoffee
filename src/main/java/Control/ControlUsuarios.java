@@ -18,7 +18,7 @@ public class ControlUsuarios {
     }
 
     public void registrarAdministrador(Administrador admin) throws SQLException {
-        Persona p = new Persona(admin.getCedula(), admin.getNombre(), admin.getPassword(), true);
+        Persona p = new Persona(admin.getCedula(), admin.getNombre(), admin.getApellido(), true);
         DAO.getPersonaDAO().insertar(p);
         Usuario u = new Usuario(admin.getPassword(), admin.getCedula(), admin.getNombre(), admin.getApellido(), true, admin.getRespuesta()[0], admin.getRespuesta()[0], admin.getRespuesta()[0]);
         DAO.getUsuarioDAO().insertar(u);
@@ -27,7 +27,7 @@ public class ControlUsuarios {
     }
     
     public void registrarAuxiliar(Usuario user) throws SQLException {
-        Persona p = new Persona(user.getCedula(), user.getNombre(), user.getPassword(), true);
+        Persona p = new Persona(user.getCedula(), user.getNombre(), user.getApellido(), true);
         DAO.getPersonaDAO().insertar(p);
         Usuario u = new Usuario(user.getPassword(), user.getCedula(), user.getNombre(), user.getApellido(), true, user.getRespuesta()[0], user.getRespuesta()[0], user.getRespuesta()[0]);
         DAO.getUsuarioDAO().insertar(u);
