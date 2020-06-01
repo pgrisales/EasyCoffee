@@ -24,15 +24,20 @@ public class EditarLote extends javax.swing.JPanel {
     private String[] unidades = {"km^2", "m^2", "hec"};
     private AgregarArboles loTe =new AgregarArboles(); 
     
+    public void loteSelec(){
+        System.out.println("sfdsdfsf"+(this.lotesC.getSelectedIndex()!=-1));
+        if(this.lotesC.getSelectedIndex()!=-1){
+           lote=FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex());
+           arboles=lote.getArbolesVivos();
+        numeroArboles();}
+    }
     public EditarLote(ArrayList<Lote> lotes) {
         initComponents();
-        ArrayList<Arbol>arboles=new ArrayList<Arbol>();
-        fechaAbonado.setCalendar(Calendar.getInstance());
-        fechaDesyerbado.setCalendar(Calendar.getInstance());
-        lote=null;
         
-        this.lotes=lotes;
+        fechaAbonado.setCalendar(Calendar.getInstance());
+        fechaDesyerbado.setCalendar(Calendar.getInstance());  
         this.jComboBox1.removeAllItems();
+        
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
         }
@@ -44,6 +49,8 @@ public class EditarLote extends javax.swing.JPanel {
             lotesC.addItem(i+"");
             tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
+        lotesC.setSelectedIndex(0);
+        loteSelec();
     }
 
     /**
@@ -369,7 +376,7 @@ public class EditarLote extends javax.swing.JPanel {
     }//GEN-LAST:event_addArbolesActionPerformed
 
     private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
-
+        loteSelec();
     }//GEN-LAST:event_lotesCActionPerformed
 
 
