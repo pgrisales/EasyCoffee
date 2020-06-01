@@ -18,6 +18,13 @@ public class EditFinca extends javax.swing.JPanel {
         
         initComponents();
         name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
+        initComponents();
+        lotesC.removeAllItems();
+        double tamaño=0;
+        for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
+        }
+        editLote.setEnabled(false);
     }
 
     /**
