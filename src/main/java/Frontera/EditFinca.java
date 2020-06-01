@@ -10,20 +10,26 @@ import javax.swing.JOptionPane;
  * @author Nivektakedown
  */
 public class EditFinca extends javax.swing.JPanel {
+    private String[] unidades = {"km^2", "m^2", "hec"};
 
-    /**
-     * Creates new form EditFinca
-     */
     public EditFinca() {
         
         initComponents();
         name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
-        initComponents();
         lotesC.removeAllItems();
         double tamaño=0;
         for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            lotesC.addItem(i+"");
             tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
+        this.jComboBox1.removeAllItems();
+        for (int i = 0; i < unidades.length; i++) {
+            jComboBox1.addItem(unidades[i]);
+        }
+        if(this.jComboBox1.getSelectedIndex()==0)
+            tam.setText((long)tamaño/1000000+"");
+        if(this.jComboBox1.getSelectedIndex()==2)
+            tam.setText((long)tamaño/10000+"");
         editLote.setEnabled(false);
     }
 
@@ -38,7 +44,6 @@ public class EditFinca extends javax.swing.JPanel {
 
         changeName = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         agregarLote = new javax.swing.JButton();
@@ -48,6 +53,8 @@ public class EditFinca extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         lotesC = new javax.swing.JComboBox<>();
         name = new javax.swing.JLabel();
+        tam = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDoubleBuffered(false);
         setMaximumSize(new java.awt.Dimension(900, 127));
@@ -68,8 +75,6 @@ public class EditFinca extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Tamaño de la finca:");
-
-        jLabel6.setText("cargar suma de areas de lotes");
 
         jLabel8.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,7 +156,20 @@ public class EditFinca extends javax.swing.JPanel {
         name.setBackground(new java.awt.Color(222, 222, 222));
         name.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         name.setForeground(new java.awt.Color(255, 255, 255));
-        name.setText("               ");
+        name.setText("0");
+
+        tam.setForeground(new java.awt.Color(255, 255, 255));
+        tam.setText("0");
+
+        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -160,21 +178,25 @@ public class EditFinca extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(43, 43, 43)
                         .addComponent(name)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(changeName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(changeName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(tam, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(167, Short.MAX_VALUE))
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -193,7 +215,9 @@ public class EditFinca extends javax.swing.JPanel {
                         .addGap(1, 1, 1)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tam)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -204,6 +228,7 @@ public class EditFinca extends javax.swing.JPanel {
 
         FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(JOptionPane.showInputDialog("Ingrese el nombre de la finca "));
         name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
+        FramePrincipal.cambiarPanel127(new EditFinca());
     }//GEN-LAST:event_changeNameActionPerformed
 
     private void agregarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarLoteActionPerformed
@@ -242,6 +267,20 @@ public class EditFinca extends javax.swing.JPanel {
         editLote.setEnabled(true);
     }//GEN-LAST:event_lotesCActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        double tamaño=0;
+        for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
+        }
+        if(this.jComboBox1.getSelectedIndex()==0)
+        tam.setText((long)tamaño/1000000+"");
+        if(this.jComboBox1.getSelectedIndex()==1)
+        tam.setText((long)tamaño+"");
+        if(this.jComboBox1.getSelectedIndex()==2)
+        tam.setText((long)tamaño/10000+"");
+        editLote.setEnabled(false);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddTrabajador;
@@ -249,12 +288,13 @@ public class EditFinca extends javax.swing.JPanel {
     private javax.swing.JButton agregarLote;
     private javax.swing.JToggleButton changeName;
     private javax.swing.JButton editLote;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JToolBar jToolBar1;
     private static javax.swing.JComboBox<String> lotesC;
     private javax.swing.JLabel name;
+    private javax.swing.JLabel tam;
     // End of variables declaration//GEN-END:variables
 }

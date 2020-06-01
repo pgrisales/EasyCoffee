@@ -96,6 +96,7 @@ public class RegistroFinca extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Tamaño de la finca:");
 
+        tam.setForeground(new java.awt.Color(255, 255, 255));
         tam.setText("0");
 
         jLabel8.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
@@ -184,6 +185,11 @@ public class RegistroFinca extends javax.swing.JPanel {
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -291,7 +297,7 @@ public class RegistroFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_addAuxActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void terminarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarRegistroActionPerformed
@@ -299,6 +305,20 @@ public class RegistroFinca extends javax.swing.JPanel {
         javax.swing.JPanel panelj = new javax.swing.JPanel();
         FramePrincipal.cambiarPanel376(panelj);
     }//GEN-LAST:event_terminarRegistroActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        double tamaño=0;
+        for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
+        }
+        if(this.jComboBox1.getSelectedIndex()==0)
+            tam.setText((long)tamaño/1000000+"");
+        if(this.jComboBox1.getSelectedIndex()==1)
+            tam.setText((long)tamaño+"");
+        if(this.jComboBox1.getSelectedIndex()==2)
+            tam.setText((long)tamaño/10000+"");
+        editLote.setEnabled(false);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
