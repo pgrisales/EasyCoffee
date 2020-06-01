@@ -15,8 +15,8 @@ import java.util.logging.Logger;
  */
 public class ArbolDAO implements DAO<Arbol, Integer> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEBD.ARBOL VALUES (?, ?, ?, ?, ?)";
-    final String UPDATE = "UPDATE EASYCOFFEBD.ARBOL SET ARB_TIPOARB = ?, LOTE_IDLOTE = ?, ARB_ESTADO = ?, ARB_FECHASEMBRADO = ? WHERE ARB_ID = ?";
+    final String INSERT = "INSERT INTO EASYCOFFEBD.ARBOL VALUES (default, ?, ?, ?, ?)";
+    final String UPDATE = "UPDATE EASYCOFFEBD.ARBOL SET ARB_TIPOARB = ?, LOTE_IDLOTE = ?, ARB_ESTADO = ?, ARB_FECHASEMBRADO = ? ";
     final String DELETE = "DELETE FROM EASYCOFFEBD.ARBOL WHERE ARB_ID = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.ARBOL WHERE LOTE_IDLOTE = ?";
 
@@ -28,12 +28,11 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
 
     private Arbol convertir(ResultSet rs) throws SQLException {
 
-        int idArbol = rs.getInt("ARB_ID");
         String tipoArbol = rs.getString("ARB_TIPOARB");
         int idLote = rs.getInt("LOTE_IDLOTE");
         boolean estadoArbol = rs.getBoolean("ARB_ESTADO");
         String fechaSiembra = String.valueOf(rs.getDate("ARB_FECHASIEMBRA"));
-        Arbol newArbol = new Arbol(idArbol,idLote, estadoArbol,tipoArbol, fechaSiembra);
+        Arbol newArbol = new Arbol(idLote, estadoArbol,tipoArbol, fechaSiembra);
         return newArbol;
     }
 
@@ -43,11 +42,10 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
         try {
             SimpleDateFormat date1=new SimpleDateFormat("dd/MM/yyyy");
             stat = conn.prepareStatement(INSERT);
-            stat.setInt(1, a.getID());
-            stat.setString(2, a.getVariedad());
-            stat.setInt(3, a.getIdLote());
-            stat.setBoolean(4, a.isEstadoArbolVivo());
-            stat.setDate(5, new java.sql.Date(date1.parse(a.getFechaDeSembrado()).getTime()));
+            stat.setString(1, a.getVariedad());
+            stat.setInt(2, a.getIdLote());
+            stat.setBoolean(3, a.isEstadoArbolVivo());
+            stat.setDate(4, new java.sql.Date(date1.parse(a.getFechaDeSembrado()).getTime()));
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
             }
@@ -75,7 +73,6 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
             stat.setInt(2, a.getIdLote());
             stat.setBoolean(3, a.isEstadoArbolVivo());
             stat.setDate(4, java.sql.Date.valueOf(a.getFechaDeSembrado()));
-            stat.setInt(5, a.getID());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya modificado");
             }
@@ -92,12 +89,11 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
         }
     }
 
-    @Override
-    public void eliminar(Arbol a) {
+    public void eliminar(int a, Lote lote) {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(DELETE);
-            stat.setLong(1, a.getID());
+            stat.setInt(1, a);
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya eliminado");
             }
@@ -187,6 +183,11 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
 
     @Override
     public List<Arbol> obtenerTodos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminar(Arbol a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

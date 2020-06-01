@@ -11,29 +11,25 @@ package com.easycoffee;
  */
 public class Arbol {
 
-    private int ID;
     private int idLote;
     private boolean estadoArbol;
     private String variedad;
     private String fechaDeSembrado;
 
-    public Arbol(int ID, int idLote, boolean estadoArbol, String variedad, String fechaDeSembrado) {
-        this.ID = ID;
+    public Arbol(int idLote, boolean estadoArbol, String variedad, String fechaDeSembrado) {
+  
         this.idLote = idLote;
         this.estadoArbol = estadoArbol;
         this.variedad = variedad;
         this.fechaDeSembrado = fechaDeSembrado;
     }
 
-    public Arbol(int ID, String variedad, String fechaDeSembrado) {
-        this.ID = ID;
+    public Arbol(String variedad, String fechaDeSembrado) {
         this.variedad = variedad;
         this.fechaDeSembrado = fechaDeSembrado;
     }
 
-    public int getID() {
-        return ID;
-    }
+   
 
     public String getVariedad() {
         return variedad;

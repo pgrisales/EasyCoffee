@@ -1,6 +1,7 @@
 package Control;
 import DAO.DAOManager;
 import com.easycoffee.Administrador;
+import com.easycoffee.Arbol;
 import com.easycoffee.Finca;
 import com.easycoffee.Lote;
 import com.easycoffee.Trabajador;
@@ -47,6 +48,9 @@ public class InicializarSistema {
                     this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
                     this.admin.getFinca().setTrabajadores(trabajadores);
                     this.admin.getFinca().setLotes(lotes);
+                    for (Lote l : this.admin.getFinca().getLotes()) {
+                        l.setArbolesVivos((ArrayList<Arbol>) daoManager.getArbolDAO().obtenerTodos(l));
+                    }
                 }
             }
         }

@@ -152,7 +152,7 @@ public class AgregarArboles extends javax.swing.JPanel {
                 ArrayList<Arbol> arboles =lote;
                 String fechas=fechaSembrado.getCalendar().get(Calendar.DATE)+"/"+fechaSembrado.getCalendar().get(Calendar.MONTH)+"/"+fechaSembrado.getCalendar().get(Calendar.YEAR);
                 for (int i = 0; i <Integer.parseInt(numArboles.getText()) ; i++) {
-                    arboles.add(new Arbol(arboles.size(),FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(), true, this.variedad[this.variedadC.getSelectedIndex()], fechas));  
+                    arboles.add(new Arbol(FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(), true, this.variedad[this.variedadC.getSelectedIndex()], fechas));  
                 }
                 
             }
