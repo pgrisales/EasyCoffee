@@ -53,7 +53,7 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" pref="84" max="-2" attributes="0"/>
+                      <Component id="tam" min="-2" pref="84" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="registrar" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -94,7 +94,7 @@
               </Group>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tam" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="registrar" alignment="3" pref="24" max="32767" attributes="0"/>
                   <Component id="terminarRegistro" alignment="3" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -153,9 +153,9 @@
         <Property name="text" type="java.lang.String" value="Tama&#xf1;o de la finca:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="tam">
       <Properties>
-        <Property name="text" type="java.lang.String" value="cargar suma de areas de lotes"/>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">

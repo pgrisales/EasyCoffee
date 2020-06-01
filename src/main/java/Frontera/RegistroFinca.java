@@ -18,9 +18,12 @@ public class RegistroFinca extends javax.swing.JPanel {
     public RegistroFinca() {
         initComponents();
         lotesC.removeAllItems();
-        for (int i = 0; i < lotes.length; i++) {
+        double tamaño=0;
+        for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
             lotesC.addItem(lotes[i]);
+            tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
+        tam.setText(tamaño+"m");
         editLote.setEnabled(false);
     }
 
@@ -40,7 +43,7 @@ public class RegistroFinca extends javax.swing.JPanel {
         name = new javax.swing.JTextField();
         registrar = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        tam = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         agregarLote = new javax.swing.JButton();
@@ -85,7 +88,7 @@ public class RegistroFinca extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Tamaño de la finca:");
 
-        jLabel6.setText("cargar suma de areas de lotes");
+        tam.setText("0");
 
         jLabel8.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,7 +182,7 @@ public class RegistroFinca extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tam, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registrar))
                     .addGroup(layout.createSequentialGroup()
@@ -210,7 +213,7 @@ public class RegistroFinca extends javax.swing.JPanel {
                         .addGap(1, 1, 1)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
+                    .addComponent(tam)
                     .addComponent(registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
                     .addComponent(terminarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -289,7 +292,6 @@ public class RegistroFinca extends javax.swing.JPanel {
     private javax.swing.JButton editLote;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -298,6 +300,7 @@ public class RegistroFinca extends javax.swing.JPanel {
     private static javax.swing.JComboBox<String> lotesC;
     private javax.swing.JTextField name;
     private javax.swing.JToggleButton registrar;
+    private javax.swing.JLabel tam;
     private javax.swing.JToggleButton terminarRegistro;
     // End of variables declaration//GEN-END:variables
 }
