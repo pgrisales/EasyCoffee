@@ -172,7 +172,7 @@ public class Ingreso extends javax.swing.JPanel {
         long cedula = 0;
         try {
             cedula = Long.parseLong(username.getText());
-            if (validacion.verificarLogin(cedula, password.getText()) || true) {
+            if (validacion.verificarLogin(cedula, password.getText())) {
                 FramePrincipal.menuVisible(true);
                 FramePrincipal.menuPanelPrincipal(false);
                 FramePrincipal.cambiarPanel127(new RegistroFinca());

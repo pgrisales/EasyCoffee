@@ -22,6 +22,7 @@ public class RegistrarLote extends javax.swing.JPanel {
     private Lote lote;
     private String[] unidades = {"km^2", "m^2", "hec"};
     private AgregarArboles loTe =new AgregarArboles(); 
+    ArrayList<Arbol> arboles;
     
     public RegistrarLote(ArrayList<Lote> lotes) {
         initComponents();
@@ -275,7 +276,7 @@ public class RegistrarLote extends javax.swing.JPanel {
     public void setLote(Lote lote) {
         this.lote = lote;
     }
-    ArrayList<Arbol> arboles;
+    
     
     public void setArboles(ArrayList<Arbol> arboles) {
         this.arboles = arboles;

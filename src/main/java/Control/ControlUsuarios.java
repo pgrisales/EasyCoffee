@@ -25,9 +25,17 @@ public class ControlUsuarios {
         DAO.getRespuestasDAO().insertar(u);
         DAO.cerrarConexion();
     }
+    
+    public void registrarAuxiliar(Usuario user) throws SQLException {
+        Persona p = new Persona(user.getCedula(), user.getNombre(), user.getPassword(), true);
+        DAO.getPersonaDAO().insertar(p);
+        Usuario u = new Usuario(user.getPassword(), user.getCedula(), user.getNombre(), user.getApellido(), true, user.getRespuesta()[0], user.getRespuesta()[0], user.getRespuesta()[0]);
+        DAO.getUsuarioDAO().insertar(u);
+        DAO.getRespuestasDAO().insertar(u);
+        DAO.cerrarConexion();
+    }
 
     public boolean verificarExistenciaCedula(Long cedula) {
-        System.out.println(DAO.getUsuarioDAO().obtener(cedula).toString());
         return DAO.getUsuarioDAO().obtener(cedula) != null;
     }
 
