@@ -48,6 +48,7 @@ public class InicializarSistema {
                         t.setJornada((ArrayList<Jornada>) daoManager.getJornadaDAO().obtenerTodos(t.getCedula()));
                     }
                     this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
+//                    System.out.println(trabajadores.get(0).getJornada().get(0).toString());
 
                     //Asignando de BD los lotes y los trabajadores
                     this.admin.getFinca().setTrabajadores(trabajadores);

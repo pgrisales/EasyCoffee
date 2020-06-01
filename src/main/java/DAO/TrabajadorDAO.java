@@ -148,7 +148,7 @@ public class TrabajadorDAO implements DAO<Trabajador, Long> {
             if (rs.next()) {
                 t = convertir(rs);
             } else {
-                System.out.println("Registro no encontrado");
+                System.out.println("Registro Trabajador no encontrado");
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL2");

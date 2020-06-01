@@ -116,7 +116,7 @@ public class PersonaDAO implements DAO<Persona, Long> {
             if (rs.next()) {
                 p = convertir(rs);
             } else {
-                System.out.println("Registro no encontrado");
+                System.out.println("Registro Persona no encontrado");
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL2");

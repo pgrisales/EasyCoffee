@@ -32,7 +32,7 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
         int idLote = rs.getInt("LOTE_IDLOTE");
         boolean estadoArbol = rs.getBoolean("ARB_ESTADO");
         String fechaSiembra = String.valueOf(rs.getDate("ARB_FECHASIEMBRA"));
-        Arbol newArbol = new Arbol(idLote, estadoArbol,tipoArbol, fechaSiembra);
+        Arbol newArbol = new Arbol(idLote, estadoArbol, tipoArbol, fechaSiembra);
         return newArbol;
     }
 
@@ -40,7 +40,7 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
     public void insertar(Arbol a) {
         PreparedStatement stat = null;
         try {
-            SimpleDateFormat date1=new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat date1 = new SimpleDateFormat("dd/MM/yyyy");
             stat = conn.prepareStatement(INSERT);
             stat.setString(1, a.getVariedad());
             stat.setInt(2, a.getIdLote());
@@ -157,7 +157,7 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
             if (rs.next()) {
                 a = convertir(rs);
             } else {
-                System.out.println("Registro no encontrado");
+                System.out.println("Registro Arbol no encontrado");
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL2");

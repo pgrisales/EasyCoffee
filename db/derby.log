@@ -1,14 +1,20 @@
-Mon Jun 01 00:41:05 COT 2020 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+Mon Jun 01 00:46:01 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
-Mon Jun 01 00:43:04 COT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-6e65-cfdf-00006865404b 
-on database directory C:\Users\GAR\Documents\netbeansProjects82\EasyCoffee\db\EASYCOFFEBD with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
-Loaded from file:/C:/Users/GAR/Documents/DB/db-derby-10.14.2.0-bin/lib/derby.jar
+Mon Jun 01 00:46:01 COT 2020:
+ Iniciando instancia a816c00e-0172-6e6a-2e2d-ffff9389dcd4 de Derby, versión The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): 
+en el directorio de base de datos C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db\EASYCOFFEBD con el cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
+Cargado desde file:/C:/Program%20Files/NetBeans%208.2/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_111-b14
-user.dir=C:\Users\GAR\Documents\DB\db-derby-10.14.2.0-bin
+java.runtime.version=1.8.0_181-b13
+user.dir=C:\Program Files\NetBeans 8.2\javadb
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
-derby.system.home=C:\Users\GAR\Documents\netbeansProjects82\EasyCoffee\db
-Database Class Loader started - derby.database.classpath=''
+derby.system.home=C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db
+Cargador de clases de base de datos iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jun 01 00:46:50 COT 2020: cerrando motor de Derby
+----------------------------------------------------------------
+Mon Jun 01 00:46:50 COT 2020:
+Cerrando la instancia a816c00e-0172-6e6a-2e2d-ffff9389dcd4 en el directorio de base de datos C:\Users\Camilo Vargas\Documents\NetBeansProjects\EasyCoffee\db\EASYCOFFEBD con cargador de clases sun.misc.Launcher$AppClassLoader@1d44bcfa
+----------------------------------------------------------------

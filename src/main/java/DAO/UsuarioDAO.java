@@ -151,7 +151,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
             if (rs.next()) {
                 u = convertir(rs);
             } else {
-                System.out.println("Registro no encontrado");
+                System.out.println("Registro Usuario Obtener no encontrado");
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL2");

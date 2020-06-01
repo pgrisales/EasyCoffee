@@ -156,7 +156,7 @@ public class LoteDAO implements DAO<Lote, Long> {
             if (rs.next()) {
                 l = convertir(rs);
             } else {
-                System.out.println("Registro no encontrado");
+                System.out.println("Registro Lote no encontrado");
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL2");

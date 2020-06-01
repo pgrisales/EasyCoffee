@@ -143,7 +143,7 @@ public class FincaDAO implements DAO<Finca, Integer> {
             if (rs.next()) {
                 f = convertir(rs);
             } else {
-                System.out.println("Registro no encontrado");
+                System.out.println("Registro Finca no encontrado");
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL");

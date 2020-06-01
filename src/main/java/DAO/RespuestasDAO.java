@@ -107,7 +107,7 @@ public class RespuestasDAO {
             if (rs.next()) {
                 preguntas = convertir(rs);
             } else {
-                System.out.println("Registro no encontrado");
+                System.out.println("Registro Respuestas no encontrado");
             }
         } catch (SQLException e) {
             System.out.println("Error en SQL2");
