@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public class JornadaDAO implements DAO<Jornada, Long> {
 
     final String INSERT = "INSERT INTO EASYCOFFEBD.JORNADA VALUES (default, ?, ?, ?, ?, ?)";
-    final String DELETE = "DELETE FROM EASYCOFFEBD.JORNADA WHERE ID = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEBD.JORNADA WHERE JOR_ID = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.JORNADA WHERE PER_CEDULACIUDADANIA = ?";
     private Connection conn;
 
@@ -38,9 +39,10 @@ public class JornadaDAO implements DAO<Jornada, Long> {
     public void insertar(Jornada a) {
         PreparedStatement stat = null;
         try {
+            SimpleDateFormat date1 = new SimpleDateFormat("dd/MM/yyyy");
             stat = conn.prepareStatement(INSERT);
             stat.setFloat(1, a.getArrobasRecogidas());
-            stat.setString(2, a.getFechaJornada());
+            stat.setDate(2, new java.sql.Date(date1.parse(a.getFechaJornada()).getTime())); //
             stat.setString(3, a.getHoraDeRegistro());
             stat.setLong(4, a.getLoteTrabajado());
             stat.setLong(5, a.getIdTrabajador());
@@ -121,7 +123,7 @@ public class JornadaDAO implements DAO<Jornada, Long> {
         }
         return j;
     }
-    
+
     public List<Jornada> obtenerTodosSegunLote(Long idLote) {
         PreparedStatement stat = null;
         ResultSet rs = null;
@@ -156,13 +158,14 @@ public class JornadaDAO implements DAO<Jornada, Long> {
         }
         return j;
     }
+
     @Override
     public Jornada obtener(Long id) {
         PreparedStatement stat = null;
         ResultSet rs = null;
         Jornada p = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.JORNADA WHERE ID = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.JORNADA WHERE PER_CEDULACIUDADANIA = ?");
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {

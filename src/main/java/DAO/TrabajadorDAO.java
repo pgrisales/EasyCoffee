@@ -12,7 +12,7 @@ import java.util.List;
 public class TrabajadorDAO implements DAO<Trabajador, Long> {
 
     final String INSERT = "INSERT INTO EASYCOFFEBD.TRABAJADOR VALUES (?, ?)"; //(PER_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
-    final String UPDATE = "UPDATE EASYCOFFEBD.TRABAJADOR SET TRAB_SALARIO = ? WHERE PER_CEDULACIUDADANIA = ?";
+    final String UPDATE = "UPDATE EASYCOFFEBD.TRABAJADOR SET TRA_SALARIO = ? WHERE PER_CEDULACIUDADANIA = ?";
     final String DELETE = "DELETE FROM EASYCOFFEBD.TRABAJADOR WHERE PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.PERSONA NATURAL JOIN EASYCOFFEBD.TRABAJADOR";
 
@@ -28,7 +28,7 @@ public class TrabajadorDAO implements DAO<Trabajador, Long> {
         String apellidoPersona = rs.getString("PER_APELLIDO");
         boolean estadoPersona = rs.getBoolean("PER_ESTADOPERSONA");
         Long cedulaCiudadania = rs.getLong("PER_CEDULACIUDADANIA");
-        double salario = rs.getDouble("TRAB_SALARIO");
+        double salario = rs.getDouble("TRA_SALARIO");
 
         Trabajador newTrabajador = new Trabajador(salario, cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona);
         return newTrabajador;

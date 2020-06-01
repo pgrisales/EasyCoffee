@@ -42,7 +42,7 @@ public class LoteDAO implements DAO<Lote, Long> {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            SimpleDateFormat date1=new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat date1 = new SimpleDateFormat("dd/MM/yyyy");
             stat.setDate(1, new java.sql.Date(date1.parse(a.getFechaDesyerbado()).getTime()));
             stat.setDate(2, new java.sql.Date(date1.parse(a.getFechaAbonado()).getTime()));
             stat.setDouble(3, a.getAreaTotal());
@@ -150,7 +150,7 @@ public class LoteDAO implements DAO<Lote, Long> {
         ResultSet rs = null;
         Lote l = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.LOTE = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.LOTE WHERE LOTE_IDLOTE = ?");
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {

@@ -4,6 +4,7 @@ import com.easycoffee.Lote;
 import Control.*;
 import com.easycoffee.Trabajador;
 import javax.swing.JOptionPane;
+import javax.swing.colorchooser.AbstractColorChooserPanel;
 
 /**
  *
@@ -27,13 +28,13 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             trabajadores.addItem(x.getCedula().intValue() + " - " + x.getNombre() + " " + x.getApellido());
         }
         lotes.removeAllItems();
-        trabajadores.addItem("-Seleccione el lote-");
+        lotes.addItem("-Seleccione el lote-");
         for (int i = 0; i < FramePrincipal.sistem.getAdmin().getFinca().getLotes().size(); i++) {
             Lote y = FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(i);
             lotes.addItem(y.getIdLote().toString());
         }
         unidad.removeAllItems();
-        trabajadores.addItem("-");
+        unidad.addItem("-");
         for (int i = 0; i < unidades.length; i++) {
             unidad.addItem(unidades[i]);
         }
@@ -77,6 +78,10 @@ public class RegistrarProduccion extends javax.swing.JPanel {
         unidad = new javax.swing.JComboBox<>();
         aniadir = new javax.swing.JButton();
         volver = new javax.swing.JButton();
+
+        setMaximumSize(new java.awt.Dimension(900, 376));
+        setMinimumSize(new java.awt.Dimension(900, 376));
+        setPreferredSize(new java.awt.Dimension(900, 376));
 
         jLabel1.setFont(new java.awt.Font("Sitka Banner", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,32 +155,34 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                         .addContainerGap(431, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3))
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lotes, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(trabajadores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(unidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(aniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(lotes, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(trabajadores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(unidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(39, 39, 39))))
+                                .addGap(34, 34, 34)
+                                .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(88, 88, 88))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(70, 70, 70)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(trabajadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,15 +196,16 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(unidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(aniadir)
                     .addComponent(volver))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void aniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aniadirActionPerformed
+        boolean ingresados = false;
         if (!validarDatos()) {
             switch (error) {
                 case "1": {
@@ -235,16 +243,18 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                 }
             }
             Produccion p = new Produccion();
-            p.RegistrarProduccionBD(arrobas, FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotes.getSelectedIndex()).getIdLote().intValue()
-                    , FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().get(trabajadores.getSelectedIndex()).getCedula().intValue());
+            p.RegistrarProduccionBD(arrobas, FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotes.getSelectedIndex() - 1).getIdLote().intValue(),
+                    FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().get(trabajadores.getSelectedIndex() - 1).getCedula().intValue());
             JOptionPane.showMessageDialog(null, "Jornada añadida.");
-            
+            ingresados = true;
         }
-
+        if (ingresados) {
+            FramePrincipal.cambiarPanel376(new RegistrarProduccion());
+        }
     }//GEN-LAST:event_aniadirActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        // TODO add your handling code here:
+        FramePrincipal.cambiarPanel376(new MenuProduccion());
     }//GEN-LAST:event_volverActionPerformed
 
     private void cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadActionPerformed
@@ -252,7 +262,6 @@ public class RegistrarProduccion extends javax.swing.JPanel {
     }//GEN-LAST:event_cantidadActionPerformed
 
     private void trabajadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trabajadoresActionPerformed
-
 
     }//GEN-LAST:event_trabajadoresActionPerformed
 

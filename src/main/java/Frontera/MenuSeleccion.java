@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Frontera;
 
 import javax.swing.ImageIcon;
@@ -12,7 +7,7 @@ import javax.swing.ImageIcon;
  * @author Camilo Vargas
  */
 public class MenuSeleccion extends javax.swing.JPanel {
-
+    
     static String fondo = "../image/cafe.jpg";
 
     /**
@@ -45,6 +40,9 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JToolBar.Separator();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         estadisticas = new javax.swing.JButton();
+        jSeparator7 = new javax.swing.JToolBar.Separator();
+        jSeparator8 = new javax.swing.JToolBar.Separator();
+        estadisticas1 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(900, 127));
         setMinimumSize(new java.awt.Dimension(900, 127));
@@ -101,6 +99,20 @@ public class MenuSeleccion extends javax.swing.JPanel {
             }
         });
         jToolBar1.add(estadisticas);
+        jToolBar1.add(jSeparator7);
+        jToolBar1.add(jSeparator8);
+
+        estadisticas1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        estadisticas1.setText("Gestion Finca");
+        estadisticas1.setFocusable(false);
+        estadisticas1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        estadisticas1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        estadisticas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estadisticas1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(estadisticas1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -148,8 +160,13 @@ public class MenuSeleccion extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_estadisticasActionPerformed
 
+    private void estadisticas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticas1ActionPerformed
+        FramePrincipal.cambiarPanel376(new RegistroFinca());
+    }//GEN-LAST:event_estadisticas1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton estadisticas;
+    private javax.swing.JButton estadisticas1;
     private javax.swing.JButton finanzas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -159,6 +176,8 @@ public class MenuSeleccion extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
+    private javax.swing.JToolBar.Separator jSeparator7;
+    private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton produccion;
     private javax.swing.JButton usuarios;

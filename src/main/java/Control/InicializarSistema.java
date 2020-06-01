@@ -1,8 +1,10 @@
 package Control;
+
 import DAO.DAOManager;
 import com.easycoffee.Administrador;
 import com.easycoffee.Arbol;
 import com.easycoffee.Finca;
+import com.easycoffee.Jornada;
 import com.easycoffee.Lote;
 import com.easycoffee.Trabajador;
 import com.easycoffee.Usuario;
@@ -31,24 +33,22 @@ public class InicializarSistema {
             this.admin = new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0], u.getRespuesta()[1], u.getRespuesta()[2]);
             System.gc();
             if (admin != null) {
-                
+
                 this.admin.setFinca(daoManager.getFincaDAO().obtener(1));
-                if(this.admin.getFinca()==null){
+                if (this.admin.getFinca() == null) {
                     this.admin.setFinca(new Finca());
                 }
-                
-                
+
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
                     this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
-                    
+
                     //TRABAJADORES Y JORNADAS
                     for (Trabajador t : trabajadores) {
-                        t.setJornada(daoManager.getJornadaDAO().obtener(t.getCedula()));
+                        t.setJornada((ArrayList<Jornada>) daoManager.getJornadaDAO().obtenerTodos(t.getCedula()));
                     }
-                    
                     this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
-                    
+
                     //Asignando de BD los lotes y los trabajadores
                     this.admin.getFinca().setTrabajadores(trabajadores);
                     this.admin.getFinca().setLotes(lotes);
