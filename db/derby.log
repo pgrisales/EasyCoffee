@@ -12,5 +12,3 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\Hp\Documents\NetBeansProjects\EasyCoffee\db
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
-----------------------------------------------------------------
-Sun May 31 23:28:26 COT 2020: cerrando motor de Derby
