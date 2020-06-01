@@ -2,9 +2,11 @@ package DAO;
 
 import com.easycoffee.Lote;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,7 @@ import java.util.List;
  */
 public class LoteDAO implements DAO<Lote, Long> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEBD.LOTE VALUES (?, ?, ?, ?, ?)";
+    final String INSERT = "INSERT INTO EASYCOFFEBD.LOTE VALUES (default, ?, ?, ?, ?)";
     final String UPDATE = "UPDATE EASYCOFFEBD.LOTE SET LOTE_FECHADESYERBADO = ?, LOTE_FECHAABONADO = ?, LOTE_CARGA = ?";
     final String DELETE = "DELETE FROM EASYCOFFEBD.LOTE WHERE LOTE_IDLOTE = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.LOTE";
@@ -40,10 +42,11 @@ public class LoteDAO implements DAO<Lote, Long> {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setInt(1, a.getIdLote().intValue());
-            stat.setDate(2, java.sql.Date.valueOf(a.getFechaDesyerbado()));
-            stat.setDate(3, java.sql.Date.valueOf(a.getFechaAbonado()));
-            stat.setDouble(4, a.getAreaTotal());
+            SimpleDateFormat date1=new SimpleDateFormat("dd/MM/yyyy");
+            stat.setDate(1, new java.sql.Date(date1.parse(a.getFechaDesyerbado()).getTime()));
+            stat.setDate(2, new java.sql.Date(date1.parse(a.getFechaAbonado()).getTime()));
+            stat.setDouble(3, a.getAreaTotal());
+            stat.setBoolean(4, a.isCarga());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
             }

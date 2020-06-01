@@ -334,13 +334,19 @@ public class RegistrarLote extends javax.swing.JPanel {
                     area=area*1000000;
                 if(jComboBox1.getSelectedIndex()==2)
                     area=area*10000;
-                String fechabonado=fechaAbonado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaAbonado.getCalendar().get(Calendar.MINUTE)+"/"+fechaAbonado.getCalendar().get(Calendar.SECOND);
-                String fechadesyerbado=fechaDesyerbado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaDesyerbado.getCalendar().get(Calendar.MINUTE)+"/"+fechaDesyerbado.getCalendar().get(Calendar.SECOND);
+                String fechabonado=fechaAbonado.getCalendar().get(Calendar.DATE)+"/"+fechaAbonado.getCalendar().get(Calendar.MONTH)+"/"+fechaAbonado.getCalendar().get(Calendar.YEAR);
+                System.out.println(fechabonado);
+                
+                String fechadesyerbado=fechaDesyerbado.getCalendar().get(Calendar.DATE)+"/"+fechaDesyerbado.getCalendar().get(Calendar.MONTH)+"/"+fechaDesyerbado.getCalendar().get(Calendar.YEAR);
+                System.out.println("ABONADO"+fechadesyerbado);
                 lote=new Lote((long)lotes.size(),area, fechadesyerbado, fechabonado, true);
                 lote.setArbolesVivos(loTe.getLote());
                 FramePrincipal.getSistem().getAdmin().getFinca().getLotes().add(lote);
                 Produccion p = new Produccion();
                 p.RegistrarLoteBD(lote);
+                System.out.println(lote.getIdLote().intValue()+"LOTEEEEEEEEEEEE");
+                System.out.println(lote.getArbolesVivos().get(0).getIdLote()+"ARBOLEEEEEEEEEEES");
+                        
                 p.RegistrarArbolesVivos(lote);
             }
             else{

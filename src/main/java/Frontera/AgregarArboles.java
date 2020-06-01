@@ -144,14 +144,15 @@ public class AgregarArboles extends javax.swing.JPanel {
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         if(numArboles.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Por favor ingrese cuantos árboles desea agregar");
+        
         }else{
             if(Registro.isNumeric(numArboles.getText()) ==false)
                 JOptionPane.showMessageDialog(null,"El número de árboles no se ha digitado de manera correcta, por favor intentelo de nuevo.");
             else{
                 ArrayList<Arbol> arboles =lote;
-                String fechas=fechaSembrado.getCalendar().get(Calendar.HOUR_OF_DAY)+"/"+fechaSembrado.getCalendar().get(Calendar.MINUTE)+"/"+fechaSembrado.getCalendar().get(Calendar.SECOND);
+                String fechas=fechaSembrado.getCalendar().get(Calendar.DATE)+"/"+fechaSembrado.getCalendar().get(Calendar.MONTH)+"/"+fechaSembrado.getCalendar().get(Calendar.YEAR);
                 for (int i = 0; i <Integer.parseInt(numArboles.getText()) ; i++) {
-                    arboles.add(new Arbol(arboles.size(),RegistroFinca.getLotesC().getSelectedIndex(), true, this.variedad[this.variedadC.getSelectedIndex()], fechas));  
+                    arboles.add(new Arbol(arboles.size(),FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(), true, this.variedad[this.variedadC.getSelectedIndex()], fechas));  
                 }
                 
             }

@@ -3,7 +3,11 @@ package DAO;
 import com.easycoffee.Arbol;
 import com.easycoffee.Lote;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,17 +41,20 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
     public void insertar(Arbol a) {
         PreparedStatement stat = null;
         try {
+            SimpleDateFormat date1=new SimpleDateFormat("dd/MM/yyyy");
             stat = conn.prepareStatement(INSERT);
             stat.setInt(1, a.getID());
             stat.setString(2, a.getVariedad());
             stat.setInt(3, a.getIdLote());
             stat.setBoolean(4, a.isEstadoArbolVivo());
-            stat.setDate(5, java.sql.Date.valueOf(a.getFechaDeSembrado()));
+            stat.setDate(5, new java.sql.Date(date1.parse(a.getFechaDeSembrado()).getTime()));
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ParseException ex) {
+            Logger.getLogger(ArbolDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (stat != null) {
                 try {
