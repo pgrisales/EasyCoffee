@@ -16,10 +16,8 @@ public class EditFinca extends javax.swing.JPanel {
         
         initComponents();
         name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
-        lotesC.removeAllItems();
         double tamaño=0;
         for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
-            lotesC.addItem(i+"");
             tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
         this.jComboBox1.removeAllItems();
@@ -44,14 +42,12 @@ public class EditFinca extends javax.swing.JPanel {
 
         changeName = new javax.swing.JToggleButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         agregarLote = new javax.swing.JButton();
         editLote = new javax.swing.JButton();
         AddTrabajador = new javax.swing.JButton();
         addAux = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        lotesC = new javax.swing.JComboBox<>();
         name = new javax.swing.JLabel();
         tam = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -75,10 +71,6 @@ public class EditFinca extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Tamaño de la finca:");
-
-        jLabel8.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Lotes registrados:");
 
         jToolBar1.setBackground(new java.awt.Color(0, 0, 0));
         jToolBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -145,14 +137,6 @@ public class EditFinca extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Finca:");
 
-        lotesC.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
-        lotesC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        lotesC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lotesCActionPerformed(evt);
-            }
-        });
-
         name.setBackground(new java.awt.Color(222, 222, 222));
         name.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         name.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,17 +170,13 @@ public class EditFinca extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(changeName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(changeName))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(tam, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addContainerGap(526, Short.MAX_VALUE))
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -208,16 +188,13 @@ public class EditFinca extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addComponent(name))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(changeName, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(changeName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE)
                         .addGap(1, 1, 1)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tam)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -237,11 +214,6 @@ public class EditFinca extends javax.swing.JPanel {
         AddTrabajador.setBackground(new Color(102, 0, 0));
         addAux.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(lote);
-        this.lotesC.removeAll();
-        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
-            this.lotesC.addItem(i + "");
-        }
-
     }//GEN-LAST:event_agregarLoteActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
@@ -262,10 +234,6 @@ public class EditFinca extends javax.swing.JPanel {
         agregarLote.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
     }//GEN-LAST:event_addAuxActionPerformed
-
-    private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
-        editLote.setEnabled(true);
-    }//GEN-LAST:event_lotesCActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         double tamaño=0;
@@ -291,9 +259,7 @@ public class EditFinca extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JToolBar jToolBar1;
-    private static javax.swing.JComboBox<String> lotesC;
     private javax.swing.JLabel name;
     private javax.swing.JLabel tam;
     // End of variables declaration//GEN-END:variables
