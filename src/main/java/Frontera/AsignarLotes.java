@@ -52,6 +52,7 @@ public class AsignarLotes extends javax.swing.JPanel {
     
     public void darPermisos(Usuario usuario, int loteId){
         permisos.getPermisosDAO().insertar(usuario, loteId);
+        usuario.getIdLotes().add(loteId);
         
     }
 

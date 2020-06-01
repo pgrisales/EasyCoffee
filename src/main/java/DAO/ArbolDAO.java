@@ -43,6 +43,7 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
             SimpleDateFormat date1 = new SimpleDateFormat("dd/MM/yyyy");
             stat = conn.prepareStatement(INSERT);
             stat.setString(1, a.getVariedad());
+            System.out.println(a.getIdLote());
             stat.setInt(2, a.getIdLote());
             stat.setBoolean(3, a.isEstadoArbolVivo());
             stat.setDate(4, new java.sql.Date(date1.parse(a.getFechaDeSembrado()).getTime()));

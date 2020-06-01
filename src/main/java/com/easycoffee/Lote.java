@@ -8,7 +8,6 @@ public class Lote {
     private double areaTotal;
     private String fechaDesyerbado;
     private String fechaAbonado;
-    private ArrayList<Usuario> usuariosPermitidos = new ArrayList<>();
     private boolean carga;
     private ArrayList<Arbol> arbolesVivos;
     private ArrayList<Arbol> arbolesMuertos;
@@ -58,14 +57,6 @@ public class Lote {
     }
     public void addArbol(Arbol arbol){
         arbolesVivos.add(arbol);
-    }
-
-    public ArrayList<Usuario> getUsuariosPermitidos() {
-        return usuariosPermitidos;
-    }
-
-    public void setUsuariosPermitidos(ArrayList<Usuario> usuariosPermitidos) {
-        this.usuariosPermitidos = usuariosPermitidos;
     }
 
     public boolean isCarga() {
