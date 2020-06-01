@@ -14,7 +14,7 @@ public class Ingreso extends javax.swing.JPanel {
 
     public Ingreso() {
         initComponents();
-        System.out.println(FramePrincipal.getSistem());
+//        System.out.println(FramePrincipal.getSistem());
         if (FramePrincipal.getSistem().getAdmin() != null) {
             registration.setVisible(false);
         }
