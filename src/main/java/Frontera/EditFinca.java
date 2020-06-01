@@ -15,8 +15,9 @@ public class EditFinca extends javax.swing.JPanel {
      * Creates new form EditFinca
      */
     public EditFinca() {
-        name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
+        
         initComponents();
+        name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
     }
 
     /**

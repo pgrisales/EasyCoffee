@@ -9,7 +9,6 @@ import com.easycoffee.Lote;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -218,9 +217,9 @@ public class RegistroFinca extends javax.swing.JPanel {
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         JOptionPane.showMessageDialog(jMenu1, "Puedes modificar los datos registrados accediendo a editar finca en la barra de tareas.");
         FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(name.getText());
-        FramePrincipal.menuDoublePanel(false);  
-        FramePrincipal.cambiarPanel(new EditFinca());
-        FramePrincipal.menuPanelPrincipal(true);
+        FramePrincipal.menuDoublePanel(true);  
+        FramePrincipal.cambiarPanel127(new EditFinca());
+        FramePrincipal.menuPanelPrincipal(false);
     }//GEN-LAST:event_registrarActionPerformed
 
     public static JComboBox<String> getLotesC() {
