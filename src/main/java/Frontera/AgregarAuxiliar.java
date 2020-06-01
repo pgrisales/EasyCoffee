@@ -344,7 +344,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
         return b;
     }
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
-        if (datosCorrectos() == true) {
+          if (datosCorrectos() == true) {
             JOptionPane.showMessageDialog(null, "Usuario Registrado");
             Usuario a;
             a = new Usuario(password.getText(), (long) Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true, answerA[0], answerA[1], answerA[2]);
@@ -362,12 +362,12 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intentelo.");
                     break;
                 }
-                case "NombreApellidoIn": {
+                case "nombreApellidoIn": {
                     JOptionPane.showMessageDialog(null, "Los nombres o apellidos no se han digitado de manera correcta, por favor intentelo de nuevo.");
                     break;
                 }
                 case "cedulaIn": {
-                    JOptionPane.showMessageDialog(null, "la cedula no se ha digitado de manera correcta, por favor intentelo de nuevo.");
+                    JOptionPane.showMessageDialog(null, "La cédula no se ha digitado de manera correcta, por favor intentelo de nuevo.");
                     break;
                 }
                 case "empty": {
