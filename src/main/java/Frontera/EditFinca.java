@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Frontera;
 
+import com.easycoffee.Lote;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -196,20 +193,20 @@ public class EditFinca extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void changeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeNameActionPerformed
-        
+
         FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(JOptionPane.showInputDialog("Ingrese el nombre de la finca "));
         name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
     }//GEN-LAST:event_changeNameActionPerformed
 
     private void agregarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarLoteActionPerformed
-        RegistrarLote lote=new RegistrarLote();
-        agregarLote.setBackground(new Color(152,51,0));
-        AddTrabajador.setBackground(new Color(102,0,0));
-        addAux.setBackground(new Color(102,0,0));
+        RegistrarLote lote = new RegistrarLote(new ArrayList<Lote>());
+        agregarLote.setBackground(new Color(152, 51, 0));
+        AddTrabajador.setBackground(new Color(102, 0, 0));
+        addAux.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(lote);
         this.lotesC.removeAll();
         for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
-            this.lotesC.addItem(i+"");
+            this.lotesC.addItem(i + "");
         }
 
     }//GEN-LAST:event_agregarLoteActionPerformed
@@ -219,17 +216,17 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void AddTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrabajadorActionPerformed
-        AddTrabajador.setBackground(new Color(152,51,0));
-        agregarLote.setBackground(new Color(102,0,0));
-        addAux.setBackground(new Color(102,0,0));
+        AddTrabajador.setBackground(new Color(152, 51, 0));
+        agregarLote.setBackground(new Color(102, 0, 0));
+        addAux.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(new RegistrarTrabajador());
 
     }//GEN-LAST:event_AddTrabajadorActionPerformed
 
     private void addAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuxActionPerformed
-        addAux.setBackground(new Color(152,51,0));
-        AddTrabajador.setBackground(new Color(102,0,0));
-        agregarLote.setBackground(new Color(102,0,0));
+        addAux.setBackground(new Color(152, 51, 0));
+        AddTrabajador.setBackground(new Color(102, 0, 0));
+        agregarLote.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
     }//GEN-LAST:event_addAuxActionPerformed
 
