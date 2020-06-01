@@ -13,7 +13,6 @@ public class EditFinca extends javax.swing.JPanel {
     private String[] unidades = {"km^2", "m^2", "hec"};
 
     public EditFinca() {
-        
         initComponents();
         name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
         double tamaño=0;
@@ -26,9 +25,10 @@ public class EditFinca extends javax.swing.JPanel {
         }
         if(this.jComboBox1.getSelectedIndex()==0)
             tam.setText((long)tamaño/1000000+"");
+        if(this.jComboBox1.getSelectedIndex()==1)
+            tam.setText((long)tamaño+"");
         if(this.jComboBox1.getSelectedIndex()==2)
             tam.setText((long)tamaño/10000+"");
-        editLote.setEnabled(false);
     }
 
     /**
@@ -217,7 +217,7 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_agregarLoteActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
-        // TODO add your handling code here:
+        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes()));
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void AddTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrabajadorActionPerformed
@@ -241,12 +241,11 @@ public class EditFinca extends javax.swing.JPanel {
             tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
         if(this.jComboBox1.getSelectedIndex()==0)
-        tam.setText((long)tamaño/1000000+"");
+            tam.setText((long)tamaño/1000000+"");
         if(this.jComboBox1.getSelectedIndex()==1)
-        tam.setText((long)tamaño+"");
+            tam.setText((long)tamaño+"");
         if(this.jComboBox1.getSelectedIndex()==2)
-        tam.setText((long)tamaño/10000+"");
-        editLote.setEnabled(false);
+            tam.setText((long)tamaño/10000+"");
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
