@@ -20,6 +20,7 @@ public class DAOManager {
     private FincaDAO fincas = null;
     private ArbolDAO arboles = null;
     private RespuestasDAO respuestas = null;
+    private PermisosDAO permisos = null;
 
 //    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
     public DAOManager(String host, String username, String password, String database) {
@@ -28,6 +29,13 @@ public class DAOManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public PermisosDAO getPermisosDAO(){
+        if (permisos == null) {
+            permisos = new PermisosDAO(conn);
+        }
+        return permisos;
     }
 
     public UsuarioDAO getUsuarioDAO() {

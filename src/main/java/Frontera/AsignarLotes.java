@@ -1,5 +1,6 @@
 package Frontera;
 
+import DAO.DAOManager;
 import DAO.LoteDAO;
 import DAO.PermisosDAO;
 import DAO.UsuarioDAO;
@@ -7,6 +8,7 @@ import com.easycoffee.Lote;
 import com.easycoffee.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 
 /**
@@ -17,29 +19,40 @@ public class AsignarLotes extends javax.swing.JPanel {
     
     private UsuarioDAO usuariodao;
     private LoteDAO lotedao;
-    private PermisosDAO permisos;
+    private DAOManager permisos = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
     private String error = "";
     static String fondo = "../image/cafe.jpg";
     private String[] answerA = new String[3];
-    private ArrayList<Usuario> usuarios;
+    private ArrayList<Usuario> usuarios = new ArrayList<>();
     
-    DefaultListModel mod = new DefaultListModel();
+    DefaultListModel modL = new DefaultListModel();
+    //DefaultListModel modU = new DefaultListModel();
 
     public AsignarLotes() {
-        
-        for(Usuario u: FramePrincipal.getSistem().getUsers()){
-            cUsuarios.addItem(u.getNombre()+" "+u.getApellido());
-            usuarios.add(u);
-            
-        }
-        for(Lote l: FramePrincipal.getSistem().getLotes()){
-            mod.addElement(Long.toString(l.getIdLote()));
-        }
         initComponents();
+        usuariosC.removeAllItems();
+        if(FramePrincipal.getSistem().getUsers() != null){
+            for(Usuario u: FramePrincipal.getSistem().getUsers()){
+                usuariosC.addItem(u.getNombre()+" "+u.getApellido());
+                usuarios.add(u);
+             }
+        }
+        lotesC.removeAll();
+        if(FramePrincipal.getSistem().getLotes() != null){
+            for(Lote l: FramePrincipal.getSistem().getLotes()){
+                System.out.println(l.getIdLote());
+                modL.addElement(Long.toString(l.getIdLote()));
+            }
+            lotesC.setModel(modL);
+        }
+        System.out.println(usuariosC.getSelectedIndex());
+        System.out.println(usuarios.get(usuariosC.getSelectedIndex()).getCedula());
+        //System.out.println(usuariodao.obtener();
     }
     
     public void darPermisos(Usuario usuario, int loteId){
-        permisos.insertar(usuario, loteId);
+        permisos.getPermisosDAO().insertar(usuario, loteId);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -47,9 +60,9 @@ public class AsignarLotes extends javax.swing.JPanel {
     private void initComponents() {
 
         asignar = new javax.swing.JButton();
-        cUsuarios = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        cLotes = new javax.swing.JList<>();
+        usuariosC = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lotesC = new javax.swing.JList<>();
 
         setPreferredSize(new java.awt.Dimension(900, 376));
 
@@ -61,15 +74,22 @@ public class AsignarLotes extends javax.swing.JPanel {
             }
         });
 
-        cUsuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        usuariosC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        usuariosC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cUsuariosActionPerformed(evt);
+                usuariosCActionPerformed(evt);
             }
         });
 
-        cLotes.setModel(mod);
-        jScrollPane1.setViewportView(cLotes);
+        lotesC.setBackground(new java.awt.Color(0, 0, 0));
+        lotesC.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lotesC.setForeground(new java.awt.Color(255, 255, 255));
+        lotesC.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(lotesC);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -78,46 +98,47 @@ public class AsignarLotes extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(361, 361, 361)
-                        .addComponent(cUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(338, 338, 338)
+                        .addComponent(usuariosC, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(410, 410, 410)
-                        .addComponent(asignar))
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addGap(400, 400, 400)
+                        .addComponent(asignar)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(cUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(37, 37, 37)
+                .addComponent(usuariosC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(asignar)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarActionPerformed
 
-        for(String s: cLotes.getSelectedValuesList()){
-            darPermisos(usuariodao.obtener(usuarios.get(cUsuarios.getSelectedIndex()).getCedula()) , Integer.valueOf(s));
+        for(String s: lotesC.getSelectedValuesList()){
+            darPermisos(usuarios.get(usuariosC.getSelectedIndex()), Integer.valueOf(s));
+            System.out.println("SELECT VALUES OF LOTE "+s);
         }
         
     }//GEN-LAST:event_asignarActionPerformed
 
-    private void cUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cUsuariosActionPerformed
-        
-    }//GEN-LAST:event_cUsuariosActionPerformed
+    private void usuariosCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuariosCActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton asignar;
-    private javax.swing.JList<String> cLotes;
-    private javax.swing.JComboBox<String> cUsuarios;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> lotesC;
+    private javax.swing.JComboBox<String> usuariosC;
     // End of variables declaration//GEN-END:variables
 }
