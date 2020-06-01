@@ -34,6 +34,13 @@ public class ControlUsuarios {
         DAO.getRespuestasDAO().insertar(u);
         DAO.cerrarConexion();
     }
+    
+    public void registrarTrabajador(Trabajador trabajador) throws SQLException {
+        Persona p = new Persona(trabajador.getCedula(), trabajador.getNombre(), trabajador.getApellido(), true);
+        DAO.getPersonaDAO().insertar(p);
+        DAO.getTrabajadorDAO().insertar(trabajador);
+        DAO.cerrarConexion();
+    }
 
     public boolean verificarExistenciaCedula(Long cedula) {
         return DAO.getUsuarioDAO().obtener(cedula) != null;

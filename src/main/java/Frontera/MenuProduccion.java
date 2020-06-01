@@ -11,11 +11,11 @@ package Frontera;
  */
 public class MenuProduccion extends javax.swing.JPanel {
 
-    /**
-     * Creates new form MenuProduccion
-     */
-    public MenuProduccion() {
+    
+     int cedula;
+    public MenuProduccion(int cedula) {
         initComponents();
+        this.cedula = cedula;
     }
 
     /**
@@ -33,7 +33,14 @@ public class MenuProduccion extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(900, 376));
         setPreferredSize(new java.awt.Dimension(900, 376));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Sitka Banner", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/coffee-2025461_1280.png"))); // NOI18N
         jButton1.setText("Ingresar Nuevo Registro");
+        jButton1.setMaximumSize(new java.awt.Dimension(232, 300));
+        jButton1.setMinimumSize(new java.awt.Dimension(232, 300));
+        jButton1.setPreferredSize(new java.awt.Dimension(232, 300));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -44,22 +51,16 @@ public class MenuProduccion extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(612, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(137, 137, 137))
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jButton1)
-                .addContainerGap(252, Short.MAX_VALUE))
+            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FramePrincipal.cambiarPanel376(new RegistrarProduccion());
+        FramePrincipal.cambiarPanel376(new RegistrarProduccion(cedula));
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

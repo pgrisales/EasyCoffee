@@ -17,10 +17,11 @@ public class RegistrarProduccion extends javax.swing.JPanel {
      */
     private String[] unidades = {"Kg", "Lb", "Arrobas"};
     private String error = "";
+    private int cedula;
 
-    public RegistrarProduccion() {
+    public RegistrarProduccion(int cedula) {
         initComponents();
-
+        this.cedula = cedula;
         trabajadores.removeAllItems();
         trabajadores.addItem("-Seleccione el trabajador-");
         for (int i = 0; i < FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().size(); i++) {
@@ -104,7 +105,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
         jLabel5.setText("Unidades:");
 
         trabajadores.setBackground(new java.awt.Color(255, 255, 255));
-        trabajadores.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        trabajadores.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         trabajadores.setForeground(new java.awt.Color(0, 0, 0));
         trabajadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         trabajadores.addActionListener(new java.awt.event.ActionListener() {
@@ -114,9 +115,14 @@ public class RegistrarProduccion extends javax.swing.JPanel {
         });
 
         lotes.setBackground(new java.awt.Color(255, 255, 255));
-        lotes.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lotes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lotes.setForeground(new java.awt.Color(0, 0, 0));
         lotes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        lotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lotesActionPerformed(evt);
+            }
+        });
 
         cantidad.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         cantidad.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +143,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
 
         aniadir.setBackground(new java.awt.Color(153, 51, 0));
         aniadir.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        aniadir.setForeground(new java.awt.Color(255, 255, 255));
         aniadir.setText("Añadir");
         aniadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +153,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
 
         volver.setBackground(new java.awt.Color(102, 0, 0));
         volver.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        volver.setForeground(new java.awt.Color(255, 255, 255));
         volver.setText("Volver");
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,7 +218,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(aniadir)
                     .addComponent(volver))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -259,12 +267,17 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             ingresados = true;
         }
         if (ingresados) {
-            FramePrincipal.cambiarPanel376(new RegistrarProduccion());
+            FramePrincipal.cambiarPanel376(new RegistrarProduccion(cedula));
         }
     }//GEN-LAST:event_aniadirActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        FramePrincipal.cambiarPanel376(new MenuProduccion());
+        if(cedula == FramePrincipal.getSistem().getAdmin().getCedula().intValue()){
+            FramePrincipal.cambiarPanel376(new MenuProduccion(cedula));
+        }else{
+            FramePrincipal.cambiarPanel(new Ingreso());
+        }
+        
     }//GEN-LAST:event_volverActionPerformed
 
     private void cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadActionPerformed
@@ -278,6 +291,10 @@ public class RegistrarProduccion extends javax.swing.JPanel {
     private void unidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_unidadActionPerformed
+
+    private void lotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lotesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

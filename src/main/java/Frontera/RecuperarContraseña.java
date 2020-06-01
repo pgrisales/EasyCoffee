@@ -30,21 +30,40 @@ public class RecuperarContraseña extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         check = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(900, 503));
         setMinimumSize(new java.awt.Dimension(900, 503));
         setPreferredSize(new java.awt.Dimension(900, 503));
 
+        jLabel1.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cedula");
 
+        cedula.setBackground(new java.awt.Color(255, 255, 255));
+        cedula.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        cedula.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel2.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Seleccione pregunta de seguridad");
 
+        questions.setBackground(new java.awt.Color(255, 255, 255));
+        questions.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        questions.setForeground(new java.awt.Color(0, 0, 0));
         questions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        answer.setBackground(new java.awt.Color(255, 255, 255));
+        answer.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        answer.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel3.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Respuesta");
 
-        check.setBackground(new java.awt.Color(153, 153, 255));
-        check.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        check.setBackground(new java.awt.Color(153, 51, 0));
+        check.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        check.setForeground(new java.awt.Color(255, 255, 255));
         check.setText("Verificar");
         check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,8 +71,9 @@ public class RecuperarContraseña extends javax.swing.JPanel {
             }
         });
 
-        cancel.setBackground(new java.awt.Color(153, 153, 255));
-        cancel.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        cancel.setBackground(new java.awt.Color(102, 0, 0));
+        cancel.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        cancel.setForeground(new java.awt.Color(255, 255, 255));
         cancel.setText("Cancelar");
         cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,50 +81,61 @@ public class RecuperarContraseña extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Sitka Banner", 1, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Recuperación de contraseña");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(248, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(check)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(answer, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(questions, javax.swing.GroupLayout.Alignment.TRAILING, 0, 361, Short.MAX_VALUE)
-                            .addComponent(cedula, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(71, 71, 71))
+                        .addGap(134, 134, 134)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(check, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(questions, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(236, 236, 236)
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(115, 115, 115)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(questions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(questions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(28, 28, 28)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(check)
                     .addComponent(cancel))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,7 +144,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
         if (r.inicializarCedula((long) Integer.parseInt(cedula.getText())) && r.compararRespuestas(answer.getText(), questions.getSelectedIndex())) {
             FramePrincipal.cambiarPanel(new CambiarContraseña(Integer.parseInt(cedula.getText())));
         } else {
-            JOptionPane.showMessageDialog(null, "impedido");
+            JOptionPane.showMessageDialog(null, "No ha ingresado la respuesta correcta.");
         }
     }//GEN-LAST:event_checkActionPerformed
 
@@ -130,6 +161,7 @@ public class RecuperarContraseña extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JComboBox<String> questions;
     // End of variables declaration//GEN-END:variables
 }

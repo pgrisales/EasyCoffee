@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 public class Ingreso extends javax.swing.JPanel {
 
     static public String fondo = "../image/cafe.jpg";
+    
 
     public Ingreso() {
         initComponents();
@@ -134,7 +135,7 @@ public class Ingreso extends javax.swing.JPanel {
                                     .addGap(69, 69, 69)
                                     .addComponent(forgot, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(registration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,18 +176,24 @@ public class Ingreso extends javax.swing.JPanel {
         try {
             cedula = Long.parseLong(username.getText());
             if (validacion.verificarLogin(cedula, password.getText())) {
+                if(cedula == FramePrincipal.getSistem().getAdmin().getCedula()){
                 FramePrincipal.menuVisible(true);
                 FramePrincipal.menuPanelPrincipal(false);
-                FramePrincipal.cambiarPanel127(new RegistroFinca());
+                FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
                 javax.swing.JPanel panelj = new javax.swing.JPanel();
                 FramePrincipal.cambiarPanel376(panelj);
                 FramePrincipal.menuDoublePanel(true);
+                }else{
+                    FramePrincipal.menuVisible(true);
+                    FramePrincipal.menuPanelPrincipal(false);
+                    FramePrincipal.cambiarPanel(new RegistrarProduccion((int) cedula));
+                }
 
             } else {
                 JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
             }
         } catch (HeadlessException | NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Datos invalidos!");
+            JOptionPane.showMessageDialog(null, "¡Datos inválidos!");
         }
     }//GEN-LAST:event_loginActionPerformed
 

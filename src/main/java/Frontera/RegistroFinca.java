@@ -15,8 +15,10 @@ public class RegistroFinca extends javax.swing.JPanel {
 
     private String[] lotes = new String[]{};
     private String[] unidades = {"km^2", "m^2", "hec"};
-    public RegistroFinca() {
+    private int cedula;
+    public RegistroFinca(int cedula) {
         initComponents();
+        this.cedula = cedula;
         double tamaño=0;
         this.jComboBox1.removeAllItems();
         for (int i = 0; i < unidades.length; i++) {
@@ -285,7 +287,7 @@ public class RegistroFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void terminarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarRegistroActionPerformed
-        FramePrincipal.cambiarPanel127(new MenuSeleccion());
+        FramePrincipal.cambiarPanel127(new MenuSeleccion(cedula));
         javax.swing.JPanel panelj = new javax.swing.JPanel();
         FramePrincipal.cambiarPanel376(panelj);
     }//GEN-LAST:event_terminarRegistroActionPerformed

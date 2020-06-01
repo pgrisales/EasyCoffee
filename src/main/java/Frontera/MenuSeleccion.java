@@ -10,11 +10,10 @@ public class MenuSeleccion extends javax.swing.JPanel {
     
     static String fondo = "../image/cafe.jpg";
 
-    /**
-     * Creates new form MenuSeleccion
-     */
-    public MenuSeleccion() {
+    private int cedula;
+    public MenuSeleccion(int cedula) {
         initComponents();
+        this.cedula = cedula;
 //        usuarios.setIcon(new ImageIcon("../image/Imagen1.png"));
     }
 
@@ -161,7 +160,7 @@ public class MenuSeleccion extends javax.swing.JPanel {
     }//GEN-LAST:event_usuariosActionPerformed
 
     private void produccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produccionActionPerformed
-        FramePrincipal.cambiarPanel376(new MenuProduccion());
+        FramePrincipal.cambiarPanel376(new MenuProduccion(cedula));
     }//GEN-LAST:event_produccionActionPerformed
 
     private void finanzasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finanzasActionPerformed
@@ -173,7 +172,7 @@ public class MenuSeleccion extends javax.swing.JPanel {
     }//GEN-LAST:event_estadisticasActionPerformed
 
     private void estadisticas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticas1ActionPerformed
-        FramePrincipal.cambiarPanel376(new RegistroFinca());
+        FramePrincipal.cambiarPanel376(new RegistroFinca(cedula));
     }//GEN-LAST:event_estadisticas1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
