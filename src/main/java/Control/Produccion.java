@@ -1,3 +1,4 @@
+package Control;
 import DAO.DAOManager;
 import Frontera.FramePrincipal;
 import com.easycoffee.Arbol;

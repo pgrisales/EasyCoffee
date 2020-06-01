@@ -1,3 +1,4 @@
+package Control;
 import DAO.DAOManager;
 import com.easycoffee.Administrador;
 import com.easycoffee.Finca;
