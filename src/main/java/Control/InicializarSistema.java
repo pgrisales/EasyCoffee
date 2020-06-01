@@ -36,16 +36,20 @@ public class InicializarSistema {
                 if(this.admin.getFinca()==null){
                     this.admin.setFinca(new Finca());
                 }
-                this.admin.getFinca().setLotes(new ArrayList<Lote>());
                 
                 
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
                     this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
+                    
+                    //TRABAJADORES Y JORNADAS
                     for (Trabajador t : trabajadores) {
                         t.setJornada(daoManager.getJornadaDAO().obtener(t.getCedula()));
                     }
+                    
                     this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
+                    
+                    //Asignando de BD los lotes y los trabajadores
                     this.admin.getFinca().setTrabajadores(trabajadores);
                     this.admin.getFinca().setLotes(lotes);
                     for (Lote l : this.admin.getFinca().getLotes()) {

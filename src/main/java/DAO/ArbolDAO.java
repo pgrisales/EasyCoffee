@@ -113,7 +113,7 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
     public List<Arbol> obtenerTodos(Lote lote) {
         PreparedStatement stat = null;
         ResultSet rs = null;
-        List<Arbol> a = new ArrayList<>();
+        List<Arbol> a = new ArrayList<Arbol>();
         try {
             stat = conn.prepareStatement(GETALL);
             stat.setInt(1, lote.getIdLote().intValue());

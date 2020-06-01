@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public class Finca {
 
     private String nombreFinca;
-    private ArrayList<Trabajador> trabajadores = new ArrayList<>();
-    private ArrayList<Usuario> auxiliares = new ArrayList<>();
-    private ArrayList<Lote> lotes = new ArrayList<>();
+    private ArrayList<Trabajador> trabajadores = new ArrayList<Trabajador>();
+    private ArrayList<Usuario> auxiliares = new ArrayList<Usuario>();
+    private ArrayList<Lote> lotes = new ArrayList<Lote>();
 
     public Finca() {
-        this.auxiliares=null;
-        this.lotes=null;
-        this.nombreFinca=null;
-        this.trabajadores=null;
+        this.auxiliares=new ArrayList<Usuario>();;
+        this.lotes=new ArrayList<Lote>();
+        this.nombreFinca="";
+        this.trabajadores=new ArrayList<Trabajador>();;
     }
     public Finca(String name) {
         this.auxiliares=null;

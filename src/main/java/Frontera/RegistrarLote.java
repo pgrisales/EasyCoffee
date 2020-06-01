@@ -29,7 +29,6 @@ public class RegistrarLote extends javax.swing.JPanel {
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
         lote=null;
-        
         this.lotes=lotes;
         this.jComboBox1.removeAllItems();
         for (int i = 0; i < unidades.length; i++) {
@@ -344,16 +343,15 @@ public class RegistrarLote extends javax.swing.JPanel {
                 FramePrincipal.getSistem().getAdmin().getFinca().getLotes().add(lote);
                 Produccion p = new Produccion();
                 p.RegistrarLoteBD(lote);
-                System.out.println(lote.getIdLote().intValue()+"LOTEEEEEEEEEEEE");
-                System.out.println(lote.getArbolesVivos().get(0).getIdLote()+"ARBOLEEEEEEEEEEES");
                         
                 p.RegistrarArbolesVivos(lote);
+                FramePrincipal.cambiarPanel376(new RegistrarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes()));
             }
             else{
                 JOptionPane.showMessageDialog(this, "El tamaño del lote no se ha de manera correcta, por favor intentelo de nuevo.");
             }
+            
         }
-       
     }//GEN-LAST:event_saveActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -19,6 +19,8 @@ public class Lote {
         this.fechaDesyerbado = fechaDesyerbado;
         this.fechaAbonado = fechaAbonado;
         this.carga = carga;
+        this.arbolesMuertos = new ArrayList<Arbol>();
+        this.arbolesVivos = new ArrayList<Arbol>();
     }
 
     public Lote() {
