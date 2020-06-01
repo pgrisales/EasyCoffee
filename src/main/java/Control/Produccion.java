@@ -1,7 +1,6 @@
-package Control;
-
 import DAO.DAOManager;
 import Frontera.FramePrincipal;
+import com.easycoffee.Arbol;
 import com.easycoffee.Jornada;
 import com.easycoffee.Lote;
 import com.easycoffee.Trabajador;
@@ -31,6 +30,12 @@ public class Produccion {
     }
     public boolean RegistrarLoteBD(Lote lote){
         daoManager.getLoteDAO().insertar(lote);
+        return true;
+    }
+    public boolean RegistrarArbolesVivos(Lote lote){
+        for(Arbol a: lote.getArbolesVivos()){
+            daoManager.getArbolDAO().insertar(a);
+        }
         return true;
     }
     

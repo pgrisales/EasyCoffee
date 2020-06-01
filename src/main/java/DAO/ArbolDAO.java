@@ -1,6 +1,7 @@
 package DAO;
 
 import com.easycoffee.Arbol;
+import com.easycoffee.Lote;
 import java.sql.*;
 import java.util.*;
 
@@ -11,9 +12,9 @@ import java.util.*;
 public class ArbolDAO implements DAO<Arbol, Integer> {
 
     final String INSERT = "INSERT INTO EASYCOFFEBD.ARBOL VALUES (?, ?, ?, ?, ?)";
-    final String UPDATE = "UPDATE EASYCOFFEBD.ARBOL SET ARB_TIPOARB = ?, LOTE_IDLOTE = ? ARB_ESTADO = ? ARB_FECHASEMBRADO = ? WHERE ARB_ID = ?";
+    final String UPDATE = "UPDATE EASYCOFFEBD.ARBOL SET ARB_TIPOARB = ?, LOTE_IDLOTE = ?, ARB_ESTADO = ?, ARB_FECHASEMBRADO = ? WHERE ARB_ID = ?";
     final String DELETE = "DELETE FROM EASYCOFFEBD.ARBOL WHERE ARB_ID = ?";
-    final String GETALL = "SELECT * FROM EASYCOFFEBD.ARBOL";
+    final String GETALL = "SELECT * FROM EASYCOFFEBD.ARBOL WHERE LOTE_IDLOTE = ?";
 
     private Connection conn;
 
@@ -106,13 +107,13 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
         }
     }
 
-    @Override
-    public List<Arbol> obtenerTodos() {
+    public List<Arbol> obtenerTodos(Lote lote) {
         PreparedStatement stat = null;
         ResultSet rs = null;
         List<Arbol> a = new ArrayList<>();
         try {
             stat = conn.prepareStatement(GETALL);
+            stat.setInt(1, lote.getIdLote().intValue());
             rs = stat.executeQuery();
             boolean r = rs.next();
             while (r) {     //OJO!!! El rs.next(); Funciona Igual que un Scanner sc.next();
@@ -175,6 +176,11 @@ public class ArbolDAO implements DAO<Arbol, Integer> {
             }
         }
         return a;
+    }
+
+    @Override
+    public List<Arbol> obtenerTodos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

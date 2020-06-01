@@ -1,7 +1,6 @@
-package Control;
-
 import DAO.DAOManager;
 import com.easycoffee.Administrador;
+import com.easycoffee.Finca;
 import com.easycoffee.Lote;
 import com.easycoffee.Trabajador;
 import com.easycoffee.Usuario;
@@ -30,7 +29,14 @@ public class InicializarSistema {
             this.admin = new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0], u.getRespuesta()[1], u.getRespuesta()[2]);
             System.gc();
             if (admin != null) {
+                
                 this.admin.setFinca(daoManager.getFincaDAO().obtener(1));
+                if(this.admin.getFinca()==null){
+                    this.admin.setFinca(new Finca());
+                }
+                this.admin.getFinca().setLotes(new ArrayList<Lote>());
+                
+                
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
                     this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
