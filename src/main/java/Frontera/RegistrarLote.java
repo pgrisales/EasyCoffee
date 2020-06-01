@@ -15,6 +15,7 @@ import java.util.Calendar;
 import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import Control.Produccion;
 
 public class RegistrarLote extends javax.swing.JPanel {
     private ArrayList<Lote> lotes;
@@ -338,7 +339,9 @@ public class RegistrarLote extends javax.swing.JPanel {
                 lote=new Lote((long)lotes.size(),area, fechadesyerbado, fechabonado, true);
                 lote.setArbolesVivos(loTe.getLote());
                 FramePrincipal.getSistem().getAdmin().getFinca().getLotes().add(lote);
-                
+                Produccion p = new Produccion();
+                p.RegistrarLoteBD(lote);
+                p.RegistrarArbolesVivos(lote);
             }
             else{
                 JOptionPane.showMessageDialog(this, "El tamaño del lote no se ha de manera correcta, por favor intentelo de nuevo.");
