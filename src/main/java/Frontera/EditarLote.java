@@ -50,6 +50,7 @@ public class EditarLote extends javax.swing.JPanel {
             tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
         lotesC.setSelectedIndex(0);
+        loteID.setText(lotesC.getSelectedItem().toString());
         loteSelec();
     }
 
@@ -163,6 +164,11 @@ public class EditarLote extends javax.swing.JPanel {
         fechaDesyerbado.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         areaLote.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        areaLote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                areaLoteActionPerformed(evt);
+            }
+        });
 
         addArboles.setBackground(new java.awt.Color(0, 102, 0));
         addArboles.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
@@ -311,8 +317,6 @@ public class EditarLote extends javax.swing.JPanel {
                 FramePrincipal.getSistem().getAdmin().getFinca().getLotes().add(lote);
                 Produccion p = new Produccion();
                 p.RegistrarLoteBD(lote);
-                System.out.println(lote.getIdLote().intValue()+"LOTEEEEEEEEEEEE");
-                System.out.println(lote.getArbolesVivos().get(0).getIdLote()+"ARBOLEEEEEEEEEEES");
 
                 p.RegistrarArbolesVivos(lote);
             }
@@ -376,8 +380,14 @@ public class EditarLote extends javax.swing.JPanel {
     }//GEN-LAST:event_addArbolesActionPerformed
 
     private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
+        
         loteSelec();
+        
     }//GEN-LAST:event_lotesCActionPerformed
+
+    private void areaLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaLoteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_areaLoteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

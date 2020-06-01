@@ -74,7 +74,9 @@ public class Ingreso extends javax.swing.JPanel {
             }
         });
 
+        forgot.setBackground(new java.awt.Color(0, 0, 0));
         forgot.setFont(new java.awt.Font("Sitka Banner", 0, 12)); // NOI18N
+        forgot.setForeground(new java.awt.Color(255, 255, 255));
         forgot.setText("¿Olvidaste tu contraseña?");
         forgot.setBorder(new javax.swing.border.MatteBorder(null));
         forgot.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +104,7 @@ public class Ingreso extends javax.swing.JPanel {
         });
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 1, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Ingreso al sistema");
 
@@ -132,7 +134,7 @@ public class Ingreso extends javax.swing.JPanel {
                                     .addGap(69, 69, 69)
                                     .addComponent(forgot, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(registration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

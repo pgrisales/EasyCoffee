@@ -56,9 +56,13 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Por favor seleccione la Acción que desea realizar");
 
+        jToolBar1.setBackground(new java.awt.Color(0, 0, 0));
+        jToolBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jToolBar1.setRollover(true);
 
-        usuarios.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        usuarios.setBackground(new java.awt.Color(102, 0, 0));
+        usuarios.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        usuarios.setForeground(new java.awt.Color(255, 255, 255));
         usuarios.setText("Gestión Usuarios");
         usuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +73,9 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jToolBar1.add(jSeparator1);
         jToolBar1.add(jSeparator6);
 
-        produccion.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        produccion.setBackground(new java.awt.Color(102, 0, 0));
+        produccion.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        produccion.setForeground(new java.awt.Color(255, 255, 255));
         produccion.setText("Producción");
         produccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +86,9 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jToolBar1.add(jSeparator2);
         jToolBar1.add(jSeparator5);
 
-        finanzas.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        finanzas.setBackground(new java.awt.Color(102, 0, 0));
+        finanzas.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        finanzas.setForeground(new java.awt.Color(255, 255, 255));
         finanzas.setText("Administracion Contable");
         finanzas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +99,9 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jToolBar1.add(jSeparator3);
         jToolBar1.add(jSeparator4);
 
-        estadisticas.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        estadisticas.setBackground(new java.awt.Color(102, 0, 0));
+        estadisticas.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        estadisticas.setForeground(new java.awt.Color(255, 255, 255));
         estadisticas.setText("Reportes y Estadísticas");
         estadisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +112,9 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jToolBar1.add(jSeparator7);
         jToolBar1.add(jSeparator8);
 
-        estadisticas1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        estadisticas1.setBackground(new java.awt.Color(102, 0, 0));
+        estadisticas1.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        estadisticas1.setForeground(new java.awt.Color(255, 255, 255));
         estadisticas1.setText("Gestion Finca");
         estadisticas1.setFocusable(false);
         estadisticas1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

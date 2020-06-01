@@ -83,23 +83,29 @@ public class RegistrarProduccion extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(900, 376));
         setPreferredSize(new java.awt.Dimension(900, 376));
 
-        jLabel1.setFont(new java.awt.Font("Sitka Banner", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sitka Banner", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Registrar producción a trabajador");
 
-        jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Seleccionar trabajador:");
 
-        jLabel3.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Seleccionar lote:");
 
-        jLabel4.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Ingresar cantidad:");
 
-        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Unidades:");
 
-        trabajadores.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        trabajadores.setBackground(new java.awt.Color(255, 255, 255));
+        trabajadores.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        trabajadores.setForeground(new java.awt.Color(0, 0, 0));
         trabajadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         trabajadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +113,9 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             }
         });
 
-        lotes.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        lotes.setBackground(new java.awt.Color(255, 255, 255));
+        lotes.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lotes.setForeground(new java.awt.Color(0, 0, 0));
         lotes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         cantidad.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
@@ -117,7 +125,9 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             }
         });
 
-        unidad.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        unidad.setBackground(new java.awt.Color(255, 255, 255));
+        unidad.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        unidad.setForeground(new java.awt.Color(0, 0, 0));
         unidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         unidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +136,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
         });
 
         aniadir.setBackground(new java.awt.Color(153, 51, 0));
-        aniadir.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        aniadir.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         aniadir.setText("Añadir");
         aniadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +145,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
         });
 
         volver.setBackground(new java.awt.Color(102, 0, 0));
-        volver.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        volver.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         volver.setText("Volver");
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +162,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addContainerGap(431, Short.MAX_VALUE))
+                        .addContainerGap(386, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -185,10 +195,10 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(trabajadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(trabajadores, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lotes, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -200,7 +210,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(aniadir)
                     .addComponent(volver))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

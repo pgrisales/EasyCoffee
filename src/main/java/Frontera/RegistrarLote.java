@@ -87,13 +87,18 @@ public class RegistrarLote extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Ingrese el tamaño del lote");
 
-        jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sitka Banner", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Lote #");
 
         fechaDesyerbado.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         areaLote.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        areaLote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                areaLoteActionPerformed(evt);
+            }
+        });
 
         addArboles.setBackground(new java.awt.Color(0, 102, 0));
         addArboles.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
@@ -105,7 +110,7 @@ public class RegistrarLote extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Árboles en el lote:");
 
@@ -361,6 +366,10 @@ public class RegistrarLote extends javax.swing.JPanel {
         numArboles.setText(arboles.size()+"");
         numeroArboles();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void areaLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaLoteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_areaLoteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
