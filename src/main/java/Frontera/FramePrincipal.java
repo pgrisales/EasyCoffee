@@ -19,7 +19,15 @@ import javax.swing.JPanel;
  * @author Nivektakedown
  */
 public class FramePrincipal extends javax.swing.JFrame {
+    private static int cedula;
 
+    public static int getCedula() {
+        return cedula;
+    }
+
+    public static void setCedula(int cedula) {
+        FramePrincipal.cedula = cedula;
+    }
     private static String panel;
     public static InicializarSistema sistem = new InicializarSistema();
     public static String[] preguntas = {"¿Cuál es el nombre de tu primera mascota?", "¿Cuál es tu comida favorita?", "¿Quíen era el héroe de tu infancia?"};
@@ -104,7 +112,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -154,9 +161,6 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem3);
-
-        jMenuItem4.setText("jMenuItem4");
-        jMenu2.add(jMenuItem4);
 
         menu.add(jMenu2);
 
@@ -212,6 +216,10 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         FramePrincipal.menuPanelPrincipal(false);
         javax.swing.JPanel panelj=new javax.swing.JPanel();
+        if(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca().equals("")==false)
+            FramePrincipal.cambiarPanel127(new EditFinca((int)FramePrincipal.getCedula()));
+        else
+            FramePrincipal.cambiarPanel127(new RegistroFinca((int)FramePrincipal.getCedula()));
         FramePrincipal.cambiarPanel376(panelj);
         FramePrincipal.menuDoublePanel(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -246,7 +254,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private static javax.swing.JPanel jPanel127;
     private static javax.swing.JPanel jPanel376;

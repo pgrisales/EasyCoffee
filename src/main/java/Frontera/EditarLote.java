@@ -23,17 +23,11 @@ public class EditarLote extends javax.swing.JPanel {
     private Lote lote;
     private String[] unidades = {"km^2", "m^2", "hec"};
     private AgregarArboles loTe =new AgregarArboles(); 
-    
-    public void loteSelec(){
-        System.out.println("sfdsdfsf"+(this.lotesC.getSelectedIndex()!=-1));
-        if(this.lotesC.getSelectedIndex()!=-1){
-           lote=FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex());
-           arboles=lote.getArbolesVivos();
-        numeroArboles();}
-    }
-    public EditarLote(ArrayList<Lote> lotes) {
+    private int cedula;
+
+    public EditarLote(ArrayList<Lote> lotes, int cedula) {
         initComponents();
-        
+        this.cedula=cedula;
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());  
         this.jComboBox1.removeAllItems();
@@ -42,7 +36,6 @@ public class EditarLote extends javax.swing.JPanel {
             jComboBox1.addItem(unidades[i]);
         }
         loteID.setText(lotes.size()+"");
-        loTe.setArboles(arboles);
         lotesC.removeAllItems();
         double tamaño=0;
         for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
@@ -71,7 +64,6 @@ public class EditarLote extends javax.swing.JPanel {
         fechaAbonado = new com.toedter.calendar.JDateChooser();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         fechaDesyerbado = new com.toedter.calendar.JDateChooser();
         areaLote = new javax.swing.JTextField();
@@ -147,16 +139,6 @@ public class EditarLote extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Ingrese el tamaño del lote");
 
-        jButton1.setBackground(new java.awt.Color(153, 51, 0));
-        jButton1.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Actualizar tabla");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Lote #");
@@ -213,9 +195,7 @@ public class EditarLote extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addArboles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(61, 61, 61)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(281, 281, 281)
+                        .addGap(483, 483, 483)
                         .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,8 +271,7 @@ public class EditarLote extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addArboles, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addArboles, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -304,9 +283,9 @@ public class EditarLote extends javax.swing.JPanel {
             if(Registro.isNumeric(areaLote.getText())){
                 int area =Integer.parseInt( areaLote.getText());//swe guarda en metros
                 if(jComboBox1.getSelectedIndex()==0)
-                area=area*1000000;
+                    area=area*1000000;
                 if(jComboBox1.getSelectedIndex()==2)
-                area=area*10000;
+                    area=area*10000;
                 String fechabonado=fechaAbonado.getCalendar().get(Calendar.DATE)+"/"+fechaAbonado.getCalendar().get(Calendar.MONTH)+"/"+fechaAbonado.getCalendar().get(Calendar.YEAR);
                 System.out.println(fechabonado);
 
@@ -326,13 +305,6 @@ public class EditarLote extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_saveActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FramePrincipal.cambiarPanel376(this);
-        this.arboles=loTe.getLote();
-        numArboles.setText(arboles.size()+"");
-        numeroArboles();
-    }//GEN-LAST:event_jButton1ActionPerformed
     public void setArboles(ArrayList<Arbol> arboles) {
         this.arboles = arboles;
     }
@@ -370,13 +342,27 @@ public class EditarLote extends javax.swing.JPanel {
             this.jTable1.setValueAt(numero[i], i, 1);
         }
     }
+        public void loteSelec(){
+        System.out.println("sfdsdfsf"+(this.lotesC.getSelectedIndex()!=-1));
+        if(this.lotesC.getSelectedIndex()!=-1){
+           loTe.setIDlote(this.lotesC.getSelectedIndex());
+           lote=FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex());
+           arboles=lote.getArbolesVivos();
+           numArboles.setText(arboles.size()+"");
+           numeroArboles();
+        }
+    }
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
-
-        JFrame frame = new JFrame();
-        frame.setSize(500, 250); // Set the size of the window
-        frame.add(loTe);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        JOptionPane.showMessageDialog(this, loTe);
+        this.arboles=loTe.getLote();
+        System.out.println(arboles);
+        for (int i = 0; i < arboles.size(); i++) {
+            FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex()).addArbol(arboles.get(i));
+        }    
+        this.lotes=FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
+        numArboles.setText(arboles.size()+"");
+        numeroArboles();
+        FramePrincipal.cambiarPanel376(this);      
     }//GEN-LAST:event_addArbolesActionPerformed
 
     private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
@@ -395,7 +381,6 @@ public class EditarLote extends javax.swing.JPanel {
     private javax.swing.JTextField areaLote;
     private com.toedter.calendar.JDateChooser fechaAbonado;
     private com.toedter.calendar.JDateChooser fechaDesyerbado;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

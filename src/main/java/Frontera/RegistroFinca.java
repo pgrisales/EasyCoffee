@@ -253,7 +253,7 @@ public class RegistroFinca extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(jMenu1, "Puedes modificar los datos registrados accediendo a editar finca en la barra de tareas.");
         FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(name.getText());
         FramePrincipal.menuDoublePanel(true);
-        FramePrincipal.cambiarPanel127(new EditFinca());
+        FramePrincipal.cambiarPanel127(new EditFinca(cedula));
         FramePrincipal.menuPanelPrincipal(false);
     }//GEN-LAST:event_registrarActionPerformed
 
@@ -283,7 +283,7 @@ public class RegistroFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_addAuxActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
-        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes()));
+        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),cedula));
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void terminarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarRegistroActionPerformed

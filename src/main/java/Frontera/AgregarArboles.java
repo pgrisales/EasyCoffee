@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Nivektakedown
  */
 public class AgregarArboles extends javax.swing.JPanel {
-
+    private int IDlote;
     private String[] variedad;
     private ArrayList<Arbol> lote;
     
@@ -23,15 +23,16 @@ public class AgregarArboles extends javax.swing.JPanel {
     }
     
     public AgregarArboles() {
+        lote=new ArrayList<Arbol>();
+        this.IDlote = -1;
         initComponents();
         this.variedad = new String[]{"Típica","Borbón","Maragogipe","Tabi","Caturra","Variedad Colombia"};
-        
-        
         variedadC.removeAllItems();
         for (int i = 0; i < this.variedad.length; i++) {
             variedadC.addItem(this.variedad[i]);
         }
         fechaSembrado.setCalendar(Calendar.getInstance());
+        lote=new ArrayList<Arbol>();
     }
 
     /**
@@ -131,7 +132,14 @@ public class AgregarArboles extends javax.swing.JPanel {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+    
+    public int getIDlote() {
+        return IDlote;
+    }
 
+    public void setIDlote(int IDlote) {
+        this.IDlote = IDlote;
+    }
     public ArrayList<Arbol> getLote() {
         return lote;
     }
@@ -144,12 +152,14 @@ public class AgregarArboles extends javax.swing.JPanel {
             if(Registro.isNumeric(numArboles.getText()) ==false)
                 JOptionPane.showMessageDialog(null,"El número de árboles no se ha digitado de manera correcta, por favor intentelo de nuevo.");
             else{
-                ArrayList<Arbol> arboles =lote;
+                if(IDlote==-1)
+                    IDlote=FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size();
                 String fechas=fechaSembrado.getCalendar().get(Calendar.DATE)+"/"+fechaSembrado.getCalendar().get(Calendar.MONTH)+"/"+fechaSembrado.getCalendar().get(Calendar.YEAR);
-                for (int i = 0; i <Integer.parseInt(numArboles.getText()) ; i++) {
-                    arboles.add(new Arbol(FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(), true, this.variedad[this.variedadC.getSelectedIndex()], fechas));  
-                }
                 
+                for (int i = 0; i <Integer.parseInt(numArboles.getText()) ; i++) {
+                    System.out.println(lote);
+                    lote.add(new Arbol(IDlote, true, this.variedad[this.variedadC.getSelectedIndex()], fechas));  
+                }                
             }
         }
     }//GEN-LAST:event_agregarActionPerformed

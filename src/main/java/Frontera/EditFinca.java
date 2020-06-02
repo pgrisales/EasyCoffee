@@ -11,9 +11,10 @@ import javax.swing.JOptionPane;
  */
 public class EditFinca extends javax.swing.JPanel {
     private String[] unidades = {"km^2", "m^2", "hec"};
-
-    public EditFinca() {
+    private int cedula;
+    public EditFinca(int cedula) {
         initComponents();
+        this.cedula=cedula;
         name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
         double tamaño=0;
         for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
@@ -220,7 +221,7 @@ public class EditFinca extends javax.swing.JPanel {
 
         FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(JOptionPane.showInputDialog("Ingrese el nombre de la finca "));
         name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
-        FramePrincipal.cambiarPanel127(new EditFinca());
+        FramePrincipal.cambiarPanel127(new EditFinca(cedula));
     }//GEN-LAST:event_changeNameActionPerformed
 
     private void agregarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarLoteActionPerformed
@@ -232,7 +233,7 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_agregarLoteActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
-        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes()));
+        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),cedula));
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void AddTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrabajadorActionPerformed
