@@ -229,7 +229,8 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
     }//GEN-LAST:event_nombresActionPerformed
 
     private void registration1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registration1ActionPerformed
-        FramePrincipal.cambiarPanel(new Ingreso());
+        this.removeAll();
+        FramePrincipal.cambiarPanel376(this);
     }//GEN-LAST:event_registration1ActionPerformed
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed

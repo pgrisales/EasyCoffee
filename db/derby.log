@@ -1,7 +1,7 @@
-Wed Jun 03 10:27:44 COT 2020 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+Wed Jun 03 10:28:50 COT 2020 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Wed Jun 03 10:27:50 COT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-7acb-a000-00006865404b 
+Wed Jun 03 10:29:52 COT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-7acc-9f3d-00006865404b 
 on database directory C:\Users\GAR\Documents\netbeansProjects82\EasyCoffee\db\EASYCOFFEBD with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
 Loaded from file:/C:/Users/GAR/Documents/DB/db-derby-10.14.2.0-bin/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,9 +12,3 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\GAR\Documents\netbeansProjects82\EasyCoffee\db
 Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Wed Jun 03 10:28:11 COT 2020: Shutting down Derby engine
-----------------------------------------------------------------
-Wed Jun 03 10:28:11 COT 2020:
-Shutting down instance a816c00e-0172-7acb-a000-00006865404b on database directory C:\Users\GAR\Documents\netbeansProjects82\EasyCoffee\db\EASYCOFFEBD with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
-----------------------------------------------------------------

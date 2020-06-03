@@ -235,7 +235,8 @@ public class AgregarTrabajador extends javax.swing.JPanel {
     }//GEN-LAST:event_registrationActionPerformed
 
     private void registration1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registration1ActionPerformed
-        FramePrincipal.cambiarPanel(new Ingreso());
+        this.removeAll();
+        //FramePrincipal.cambiarPanel376(this);
     }//GEN-LAST:event_registration1ActionPerformed
 
 

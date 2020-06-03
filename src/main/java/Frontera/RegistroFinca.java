@@ -58,6 +58,7 @@ public class RegistroFinca extends javax.swing.JPanel {
         addAux = new javax.swing.JButton();
         AddTrabajador = new javax.swing.JButton();
         editLote = new javax.swing.JButton();
+        asignarLotesB = new javax.swing.JButton();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -181,6 +182,20 @@ public class RegistroFinca extends javax.swing.JPanel {
         });
         jToolBar1.add(editLote);
 
+        asignarLotesB.setBackground(new java.awt.Color(102, 0, 0));
+        asignarLotesB.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        asignarLotesB.setForeground(new java.awt.Color(255, 255, 255));
+        asignarLotesB.setText("Asignar lotes");
+        asignarLotesB.setFocusable(false);
+        asignarLotesB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        asignarLotesB.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        asignarLotesB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asignarLotesBActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(asignarLotesB);
+
         jLayeredPane1.setLayer(jToolBar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -236,7 +251,7 @@ public class RegistroFinca extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(tam)
-                    .addComponent(registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(terminarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -305,11 +320,19 @@ public class RegistroFinca extends javax.swing.JPanel {
             tam.setText((long)tamaño/10000+"");
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void asignarLotesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarLotesBActionPerformed
+        agregarLote.setBackground(new Color(152, 51, 0));
+        AddTrabajador.setBackground(new Color(102, 0, 0));
+        addAux.setBackground(new Color(102, 0, 0));
+        FramePrincipal.cambiarPanel376(new AsignarLotes());
+    }//GEN-LAST:event_asignarLotesBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddTrabajador;
     private javax.swing.JButton addAux;
     private javax.swing.JButton agregarLote;
+    private javax.swing.JButton asignarLotesB;
     private javax.swing.JButton editLote;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
