@@ -266,8 +266,10 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Jornada añadida.");
             ingresados = true;
         }
-        if (ingresados) {
+        if (cedula == FramePrincipal.getSistem().getAdmin().getCedula().intValue()) {
             FramePrincipal.cambiarPanel376(new RegistrarProduccion(cedula));
+        }else{
+            FramePrincipal.cambiarPanel(new RegistrarProduccion(cedula));
         }
     }//GEN-LAST:event_aniadirActionPerformed
 
