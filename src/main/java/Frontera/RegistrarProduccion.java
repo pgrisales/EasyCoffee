@@ -276,6 +276,8 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             FramePrincipal.cambiarPanel376(new MenuProduccion(cedula));
         }else{
             FramePrincipal.cambiarPanel(new Ingreso());
+            FramePrincipal.menuPanelPrincipal(true);
+            FramePrincipal.menuVisible(false);
         }
         
     }//GEN-LAST:event_volverActionPerformed

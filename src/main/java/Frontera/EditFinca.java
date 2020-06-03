@@ -45,9 +45,13 @@ public class EditFinca extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         agregarLote = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
         editLote = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
         AddTrabajador = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
         addAux = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
         asignarLotesB = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
@@ -91,6 +95,7 @@ public class EditFinca extends javax.swing.JPanel {
             }
         });
         jToolBar1.add(agregarLote);
+        jToolBar1.add(jSeparator1);
 
         editLote.setBackground(new java.awt.Color(102, 0, 0));
         editLote.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
@@ -105,6 +110,7 @@ public class EditFinca extends javax.swing.JPanel {
             }
         });
         jToolBar1.add(editLote);
+        jToolBar1.add(jSeparator2);
 
         AddTrabajador.setBackground(new java.awt.Color(102, 0, 0));
         AddTrabajador.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
@@ -119,6 +125,7 @@ public class EditFinca extends javax.swing.JPanel {
             }
         });
         jToolBar1.add(AddTrabajador);
+        jToolBar1.add(jSeparator3);
 
         addAux.setBackground(new java.awt.Color(102, 0, 0));
         addAux.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
@@ -133,6 +140,7 @@ public class EditFinca extends javax.swing.JPanel {
             }
         });
         jToolBar1.add(addAux);
+        jToolBar1.add(jSeparator4);
 
         asignarLotesB.setBackground(new java.awt.Color(102, 0, 0));
         asignarLotesB.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
@@ -282,6 +290,10 @@ public class EditFinca extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel name;
     private javax.swing.JLabel tam;

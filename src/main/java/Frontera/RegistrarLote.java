@@ -63,7 +63,6 @@ public class RegistrarLote extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         save = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(900, 366));
         setMinimumSize(new java.awt.Dimension(900, 366));
@@ -169,16 +168,6 @@ public class RegistrarLote extends javax.swing.JPanel {
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton1.setBackground(new java.awt.Color(153, 51, 0));
-        jButton1.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Actualizar tabla");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,9 +177,7 @@ public class RegistrarLote extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addArboles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(61, 61, 61)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(281, 281, 281)
+                        .addGap(483, 483, 483)
                         .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,8 +243,7 @@ public class RegistrarLote extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addArboles, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addArboles, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -322,11 +308,11 @@ public class RegistrarLote extends javax.swing.JPanel {
     }
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
         
-        JFrame frame = new JFrame();
-        frame.setSize(500, 250); // Set the size of the window
-        frame.add(loTe);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        JOptionPane.showMessageDialog(this, loTe);
+        this.arboles=loTe.getLote();
+        numArboles.setText(arboles.size()+"");
+        numeroArboles();
+        FramePrincipal.cambiarPanel376(this);
     }//GEN-LAST:event_addArbolesActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
@@ -360,13 +346,6 @@ public class RegistrarLote extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_saveActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FramePrincipal.cambiarPanel376(this);
-        this.arboles=loTe.getLote();
-        numArboles.setText(arboles.size()+"");
-        numeroArboles();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void areaLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaLoteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_areaLoteActionPerformed
@@ -377,7 +356,6 @@ public class RegistrarLote extends javax.swing.JPanel {
     private javax.swing.JTextField areaLote;
     private com.toedter.calendar.JDateChooser fechaAbonado;
     private com.toedter.calendar.JDateChooser fechaDesyerbado;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

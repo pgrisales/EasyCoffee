@@ -185,8 +185,6 @@ public class Ingreso extends javax.swing.JPanel {
                 FramePrincipal.cambiarPanel376(panelj);
                 FramePrincipal.menuDoublePanel(true);
                 }else{
-                    FramePrincipal.menuVisible(true);
-                    FramePrincipal.menuPanelPrincipal(false);
                     FramePrincipal.cambiarPanel(new RegistrarProduccion((int) cedula));
                 }
 
