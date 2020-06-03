@@ -143,7 +143,7 @@ public class AgregarArboles extends javax.swing.JPanel {
     public ArrayList<Arbol> getLote() {
         return lote;
     }
-
+             
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         if(numArboles.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Por favor ingrese cuantos árboles desea agregar");

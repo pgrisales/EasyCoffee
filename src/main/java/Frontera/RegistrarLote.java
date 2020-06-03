@@ -330,6 +330,7 @@ public class RegistrarLote extends javax.swing.JPanel {
                 
                 String fechadesyerbado=fechaDesyerbado.getCalendar().get(Calendar.DATE)+"/"+fechaDesyerbado.getCalendar().get(Calendar.MONTH)+"/"+fechaDesyerbado.getCalendar().get(Calendar.YEAR);
                 System.out.println("ABONADO"+fechadesyerbado);
+                
                 lote=new Lote((long)lotes.size(),area, fechadesyerbado, fechabonado, true);
                 lote.setArbolesVivos(loTe.getLote());
                 FramePrincipal.getSistem().getAdmin().getFinca().getLotes().add(lote);
