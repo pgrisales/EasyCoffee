@@ -63,9 +63,9 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         try {
             stat = conn.prepareStatement(UPDATE);
             stat.setString(1, u.getPassword());
-            System.out.println("CONTRA: "+u.getPassword());
+            System.out.println("CONTRA: " + u.getPassword());
             stat.setLong(2, u.getCedula());
-            System.out.println("user: "+u.getCedula());
+            System.out.println("user: " + u.getCedula());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya modificado");
             }
@@ -88,6 +88,27 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         try {
             stat = conn.prepareStatement(DELETE);
             stat.setLong(1, u.getCedula());
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya eliminado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ef) {
+                    ef.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void eliminar(Long u) {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement(DELETE);
+            stat.setLong(1, u.intValue());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya eliminado");
             }

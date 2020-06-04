@@ -104,6 +104,27 @@ public class PersonaDAO implements DAO<Persona, Long> {
         }
     }
 
+    public void eliminar(Long a) {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement(DELETE);
+            stat.setLong(1, a.intValue());
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya eliminado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ef) {
+                    ef.printStackTrace();
+                }
+            }
+        }
+    }
+
     @Override
     public Persona obtener(Long id) {
         PreparedStatement stat = null;

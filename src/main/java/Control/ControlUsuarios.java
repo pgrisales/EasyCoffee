@@ -25,7 +25,7 @@ public class ControlUsuarios {
         DAO.getRespuestasDAO().insertar(u);
         DAO.cerrarConexion();
     }
-    
+
     public void registrarAuxiliar(Usuario user) throws SQLException {
         Persona p = new Persona(user.getCedula(), user.getNombre(), user.getApellido(), true);
         DAO.getPersonaDAO().insertar(p);
@@ -34,7 +34,7 @@ public class ControlUsuarios {
         DAO.getRespuestasDAO().insertar(u);
         DAO.cerrarConexion();
     }
-    
+
     public void registrarTrabajador(Trabajador trabajador) throws SQLException {
         Persona p = new Persona(trabajador.getCedula(), trabajador.getNombre(), trabajador.getApellido(), true);
         DAO.getPersonaDAO().insertar(p);
@@ -89,4 +89,11 @@ public class ControlUsuarios {
         return u;
     }
 
+    public void eliminarTrabajador(Long idTrabajador) {
+        this.DAO.getTrabajadorDAO().eliminar(idTrabajador);
+    }
+
+    public void eliminarUsuarioAuxiliar(Long idUsuarioAuxiliar) {
+        this.DAO.getUsuarioDAO().eliminar(idUsuarioAuxiliar);
+    }
 }
