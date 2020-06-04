@@ -89,6 +89,68 @@ public class JornadaDAO implements DAO<Jornada, Long> {
         }
     }
 
+    public void eliminar(Long idTrabajador) {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement("DELETE FROM EASYCOFFEBD.JORNADA WHERE PER_CEDULACIUDADANIA = ?");
+            stat.setLong(1, idTrabajador.intValue());
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya eliminado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ef) {
+                    ef.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override
+    public Jornada obtener(Long id) {
+        PreparedStatement stat = null;
+        ResultSet rs = null;
+        Jornada p = null;
+        try {
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.JORNADA WHERE PER_CEDULACIUDADANIA = ?");
+            stat.setLong(1, id);
+            rs = stat.executeQuery();
+            if (rs.next()) {
+                p = convertir(rs);
+            } else {
+                System.out.println("Registro Jornada no encontrado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en SQL2");
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                }
+            }
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                }
+            }
+        }
+        return p;
+    }
+
+    @Override
+    public List<Jornada> obtenerTodos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public List<Jornada> obtenerTodos(Long cedula) {
         PreparedStatement stat = null;
         ResultSet rs = null;
@@ -157,47 +219,6 @@ public class JornadaDAO implements DAO<Jornada, Long> {
             }
         }
         return j;
-    }
-
-    @Override
-    public Jornada obtener(Long id) {
-        PreparedStatement stat = null;
-        ResultSet rs = null;
-        Jornada p = null;
-        try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.JORNADA WHERE PER_CEDULACIUDADANIA = ?");
-            stat.setLong(1, id);
-            rs = stat.executeQuery();
-            if (rs.next()) {
-                p = convertir(rs);
-            } else {
-                System.out.println("Registro Jornada no encontrado");
-            }
-        } catch (SQLException e) {
-            System.out.println("Error en SQL2");
-            e.printStackTrace();
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
-                }
-            }
-            if (stat != null) {
-                try {
-                    stat.close();
-                } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
-                }
-            }
-        }
-        return p;
-    }
-
-    @Override
-    public List<Jornada> obtenerTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

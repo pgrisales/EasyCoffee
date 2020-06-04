@@ -90,10 +90,14 @@ public class ControlUsuarios {
     }
 
     public void eliminarTrabajador(Long idTrabajador) {
+        this.DAO.getJornadaDAO().eliminar(idTrabajador);
         this.DAO.getTrabajadorDAO().eliminar(idTrabajador);
+        this.DAO.getPersonaDAO().eliminar(idTrabajador);
     }
 
     public void eliminarUsuarioAuxiliar(Long idUsuarioAuxiliar) {
+        this.DAO.getPermisosDAO().eliminar(idUsuarioAuxiliar);
         this.DAO.getUsuarioDAO().eliminar(idUsuarioAuxiliar);
+        this.DAO.getPersonaDAO().eliminar(idUsuarioAuxiliar);
     }
 }

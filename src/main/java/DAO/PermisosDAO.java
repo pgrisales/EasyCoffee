@@ -73,6 +73,27 @@ public class PermisosDAO {
         }
     }
 
+    public void eliminar(Long idUsuario) {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement("DELETE FROM EASYCOFFEBD.PERMISOS WHERE PER_CEDULACIUDADANIA = ?");
+            stat.setInt(1, idUsuario.intValue());
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya eliminado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ef) {
+                    ef.printStackTrace();
+                }
+            }
+        }
+    }
+
     public ArrayList<Integer> obtenerTodos(Usuario u) {
         PreparedStatement stat = null;
         ResultSet rs = null;
