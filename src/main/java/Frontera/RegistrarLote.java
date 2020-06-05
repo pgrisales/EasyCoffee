@@ -18,24 +18,26 @@ import javax.swing.JOptionPane;
 import Control.Produccion;
 
 public class RegistrarLote extends javax.swing.JPanel {
+
     private ArrayList<Lote> lotes;
     private Lote lote;
     private String[] unidades = {"km^2", "m^2", "hec"};
-    private AgregarArboles loTe =new AgregarArboles(); 
+    private AgregarArboles loTe;
     ArrayList<Arbol> arboles;
-    
+
     public RegistrarLote(ArrayList<Lote> lotes) {
         initComponents();
-        arboles=new ArrayList<Arbol>();
+        this.loTe = new AgregarArboles(1);
+        arboles = new ArrayList<Arbol>();
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
-        lote=null;
-        this.lotes=lotes;
+        lote = null;
+        this.lotes = lotes;
         this.jComboBox1.removeAllItems();
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
         }
-        loteID.setText(lotes.size()+"");
+        loteID.setText(lotes.size() + "");
         loTe.setArboles(arboles);
     }
 
@@ -267,36 +269,36 @@ public class RegistrarLote extends javax.swing.JPanel {
     public void setLote(Lote lote) {
         this.lote = lote;
     }
-    
-    
+
     public void setArboles(ArrayList<Arbol> arboles) {
         this.arboles = arboles;
     }
-    public void numeroArboles(){
-        int[] numero=new int[6];
-        for (int i = 0; i <this.arboles.size(); i++) {
-            switch(this.arboles.get(i).getVariedad()){
-                case "Típica":{
+
+    public void numeroArboles() {
+        int[] numero = new int[6];
+        for (int i = 0; i < this.arboles.size(); i++) {
+            switch (this.arboles.get(i).getVariedad()) {
+                case "Típica": {
                     numero[0]++;
                     break;
                 }
-                case "Borbón":{
+                case "Borbón": {
                     numero[1]++;
                     break;
                 }
-                case "Maragogipe":{
+                case "Maragogipe": {
                     numero[2]++;
                     break;
                 }
-                case "Tabi":{
+                case "Tabi": {
                     numero[3]++;
                     break;
                 }
-                case "Caturra":{
+                case "Caturra": {
                     numero[4]++;
                     break;
                 }
-                case "Variedad Colombia":{
+                case "Variedad Colombia": {
                     numero[5]++;
                     break;
                 }
@@ -307,43 +309,43 @@ public class RegistrarLote extends javax.swing.JPanel {
         }
     }
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
-        
         JOptionPane.showMessageDialog(this, loTe);
-        this.arboles=loTe.getLote();
-        numArboles.setText(arboles.size()+"");
+        this.arboles = loTe.getArbolesLote();
+        numArboles.setText(arboles.size() + "");
         numeroArboles();
         FramePrincipal.cambiarPanel376(this);
     }//GEN-LAST:event_addArbolesActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        if(this.areaLote.getText().equals(""))
+        if (this.areaLote.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Las casilla de tamaño está vacia, por favor asegurese de rellenarla");
-        else{
-            if(Registro.isNumeric(areaLote.getText())){
-                int area =Integer.parseInt( areaLote.getText());//swe guarda en metros
-                if(jComboBox1.getSelectedIndex()==0)
-                    area=area*1000000;
-                if(jComboBox1.getSelectedIndex()==2)
-                    area=area*10000;
-                String fechabonado=fechaAbonado.getCalendar().get(Calendar.DATE)+"/"+fechaAbonado.getCalendar().get(Calendar.MONTH)+"/"+fechaAbonado.getCalendar().get(Calendar.YEAR);
+        } else {
+            if (Registro.isNumeric(areaLote.getText())) {
+                int area = Integer.parseInt(areaLote.getText());//swe guarda en metros
+                if (jComboBox1.getSelectedIndex() == 0) {
+                    area = area * 1000000;
+                }
+                if (jComboBox1.getSelectedIndex() == 2) {
+                    area = area * 10000;
+                }
+                String fechabonado = fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
                 System.out.println(fechabonado);
-                
-                String fechadesyerbado=fechaDesyerbado.getCalendar().get(Calendar.DATE)+"/"+fechaDesyerbado.getCalendar().get(Calendar.MONTH)+"/"+fechaDesyerbado.getCalendar().get(Calendar.YEAR);
-                System.out.println("ABONADO"+fechadesyerbado);
-                
-                lote=new Lote((long)lotes.size(),area, fechadesyerbado, fechabonado, true);
-                lote.setArbolesVivos(loTe.getLote());
+
+                String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
+                System.out.println("ABONADO" + fechadesyerbado);
+
+                lote = new Lote((long) lotes.size(), area, fechadesyerbado, fechabonado, true);
+                lote.setArbolesVivos(loTe.getArbolesLote());
                 FramePrincipal.getSistem().getAdmin().getFinca().getLotes().add(lote);
                 Produccion p = new Produccion();
                 p.RegistrarLoteBD(lote);
-                        
+
                 p.RegistrarArbolesVivos(lote);
                 FramePrincipal.cambiarPanel376(new RegistrarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes()));
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(this, "El tamaño del lote no se ha de manera correcta, por favor intentelo de nuevo.");
             }
-            
+
         }
     }//GEN-LAST:event_saveActionPerformed
 

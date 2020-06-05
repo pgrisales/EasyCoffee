@@ -1,6 +1,8 @@
 package Frontera;
 
+import Control.Produccion;
 import com.easycoffee.Arbol;
+import com.easycoffee.Lote;
 import java.awt.Color;
 import java.awt.LayoutManager;
 import java.util.ArrayList;
@@ -12,27 +14,26 @@ import javax.swing.JOptionPane;
  * @author Nivektakedown
  */
 public class AgregarArboles extends javax.swing.JPanel {
+
     private int IDlote;
     private String[] variedad;
-    private ArrayList<Arbol> lote;
-    
-    
-    
-    public void setArboles(ArrayList<Arbol> lote){
-        this.lote = lote;
-    }
-    
-    public AgregarArboles() {
-        lote=new ArrayList<Arbol>();
-        this.IDlote = -1;
+    private ArrayList<Arbol> arbolesLote;
+    private int idOrigen;   //Si es {1-viene de Registrar Lote ; 2-viene de Editar Lote}
+    Produccion p;
+
+    public AgregarArboles(int idOrigen) {
         initComponents();
-        this.variedad = new String[]{"Típica","Borbón","Maragogipe","Tabi","Caturra","Variedad Colombia"};
+        arbolesLote = new ArrayList<Arbol>();
+        this.IDlote = -1;
+        this.variedad = new String[]{"Típica", "Borbón", "Maragogipe", "Tabi", "Caturra", "Variedad Colombia"};
         variedadC.removeAllItems();
         for (int i = 0; i < this.variedad.length; i++) {
             variedadC.addItem(this.variedad[i]);
         }
         fechaSembrado.setCalendar(Calendar.getInstance());
-        lote=new ArrayList<Arbol>();
+        arbolesLote = new ArrayList<Arbol>();
+        this.idOrigen = idOrigen;
+        this.p = new Produccion();
     }
 
     /**
@@ -132,7 +133,28 @@ public class AgregarArboles extends javax.swing.JPanel {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
+
+
+    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
+        if (numArboles.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese cuantos árboles desea agregar");
+
+        } else {
+            if (Registro.isNumeric(numArboles.getText()) == false) {
+                JOptionPane.showMessageDialog(null, "El número de árboles no se ha digitado de manera correcta, por favor intentelo de nuevo.");
+            } else {
+                if (IDlote == -1) {
+                    IDlote = FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size();
+                }
+                String fechas = fechaSembrado.getCalendar().get(Calendar.DATE) + "/" + fechaSembrado.getCalendar().get(Calendar.MONTH) + "/" + fechaSembrado.getCalendar().get(Calendar.YEAR);
+
+                for (int i = 0; i < Integer.parseInt(numArboles.getText()); i++) {
+                    arbolesLote.add(new Arbol(IDlote, true, this.variedad[this.variedadC.getSelectedIndex()], fechas));
+                }
+            }
+        }
+    }//GEN-LAST:event_agregarActionPerformed
+
     public int getIDlote() {
         return IDlote;
     }
@@ -140,28 +162,14 @@ public class AgregarArboles extends javax.swing.JPanel {
     public void setIDlote(int IDlote) {
         this.IDlote = IDlote;
     }
-    public ArrayList<Arbol> getLote() {
-        return lote;
+
+    public ArrayList<Arbol> getArbolesLote() {
+        return arbolesLote;
     }
-             
-    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-        if(numArboles.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Por favor ingrese cuantos árboles desea agregar");
-        
-        }else{
-            if(Registro.isNumeric(numArboles.getText()) ==false)
-                JOptionPane.showMessageDialog(null,"El número de árboles no se ha digitado de manera correcta, por favor intentelo de nuevo.");
-            else{
-                if(IDlote==-1)
-                    IDlote=FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size();
-                String fechas=fechaSembrado.getCalendar().get(Calendar.DATE)+"/"+fechaSembrado.getCalendar().get(Calendar.MONTH)+"/"+fechaSembrado.getCalendar().get(Calendar.YEAR);
-                
-                for (int i = 0; i <Integer.parseInt(numArboles.getText()) ; i++) {
-                    lote.add(new Arbol(IDlote, true, this.variedad[this.variedadC.getSelectedIndex()], fechas));  
-                }                
-            }
-        }
-    }//GEN-LAST:event_agregarActionPerformed
+
+    public void setArboles(ArrayList<Arbol> lote) {
+        this.arbolesLote = lote;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

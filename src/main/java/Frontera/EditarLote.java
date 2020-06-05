@@ -8,6 +8,8 @@ package Frontera;
 import Control.Produccion;
 import com.easycoffee.Arbol;
 import com.easycoffee.Lote;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JFrame;
@@ -18,33 +20,46 @@ import javax.swing.JOptionPane;
  * @author Nivektakedown
  */
 public class EditarLote extends javax.swing.JPanel {
+
     private ArrayList<Arbol> arboles;
     private ArrayList<Lote> lotes;
     private Lote lote;
     private String[] unidades = {"km^2", "m^2", "hec"};
-    private AgregarArboles loTe =new AgregarArboles(); 
-    private int cedula;
+    private AgregarArboles ventanaArboles;
+    private Produccion p;
 
-    public EditarLote(ArrayList<Lote> lotes, int cedula) {
+    public EditarLote(ArrayList<Lote> lotes, int idLote) {
         initComponents();
-        this.cedula=cedula;
+//        lotesC.addItemListener(new ItemListener() {
+//            @Override
+//            public void itemStateChanged(ItemEvent e) {
+//                Object item = lotesC.getSelectedItem();
+////                System.out.println(item.toString());
+////                int i = Integer.parseInt(item.toString());
+////                areaLote.setText(Double.toString(FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(i).getAreaTotal()));
+//            }
+//        });
+
+        p = new Produccion();
+        this.ventanaArboles = new AgregarArboles(2);
         fechaAbonado.setCalendar(Calendar.getInstance());
-        fechaDesyerbado.setCalendar(Calendar.getInstance());  
+        fechaDesyerbado.setCalendar(Calendar.getInstance());
         this.jComboBox1.removeAllItems();
-        
+
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
         }
-        loteID.setText(lotes.size()+"");
+        loteID.setText(lotes.size() + ""); //es aca siks
         lotesC.removeAllItems();
-        double tamaño=0;
-        for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
-            lotesC.addItem(i+"");
-            tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
+        double tamaño = 0;
+        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            lotesC.addItem(i + "");
+            tamaño = tamaño + FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
-        lotesC.setSelectedIndex(0);
-        loteID.setText(lotesC.getSelectedItem().toString());
+        lotesC.setSelectedIndex(idLote);
+//        loteID.setText(lotesC.getSelectedItem().toString
         loteSelec();
+        areaLote.setText(Double.toString(FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(Integer.parseInt(lotesC.getSelectedItem().toString())).getAreaTotal()));
     }
 
     /**
@@ -277,62 +292,61 @@ public class EditarLote extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        if(this.areaLote.getText().equals(""))
-        JOptionPane.showMessageDialog(this, "Las casilla de tamaño está vacia, por favor asegurese de rellenarla");
-        else{
-            if(Registro.isNumeric(areaLote.getText())){
-                int area =Integer.parseInt( areaLote.getText());//swe guarda en metros
-                if(jComboBox1.getSelectedIndex()==0)
-                    area=area*1000000;
-                if(jComboBox1.getSelectedIndex()==2)
-                    area=area*10000;
-                String fechabonado=fechaAbonado.getCalendar().get(Calendar.DATE)+"/"+fechaAbonado.getCalendar().get(Calendar.MONTH)+"/"+fechaAbonado.getCalendar().get(Calendar.YEAR);
+        if (this.areaLote.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Las casilla de tamaño está vacia, por favor asegurese de rellenarla");
+        } else {
+            if (Registro.isNumeric(areaLote.getText())) {
+                int area = Integer.parseInt(areaLote.getText());//swe guarda en metros
+                if (jComboBox1.getSelectedIndex() == 0) {
+                    area = area * 1000000;
+                }
+                if (jComboBox1.getSelectedIndex() == 2) {
+                    area = area * 10000;
+                }
+                String fechabonado = fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
                 System.out.println(fechabonado);
 
-                String fechadesyerbado=fechaDesyerbado.getCalendar().get(Calendar.DATE)+"/"+fechaDesyerbado.getCalendar().get(Calendar.MONTH)+"/"+fechaDesyerbado.getCalendar().get(Calendar.YEAR);
-                System.out.println("ABONADO"+fechadesyerbado);
-                lote=new Lote((long)lotes.size(),area, fechadesyerbado, fechabonado, true);
-                lote.setArbolesVivos(loTe.getLote());
-                FramePrincipal.getSistem().getAdmin().getFinca().getLotes().add(lote);
-                Produccion p = new Produccion();
-                p.RegistrarLoteBD(lote);
-
-                p.RegistrarArbolesVivos(lote);
-            }
-            else{
+                String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
+                System.out.println("ABONADO" + fechadesyerbado);
+                lote = new Lote((long) lotes.size(), area, fechadesyerbado, fechabonado, true);
+                lote.setArbolesVivos(ventanaArboles.getArbolesLote());
+                p.RegistrarArbolesVivos(lote.getArbolesVivos());
+            } else {
                 JOptionPane.showMessageDialog(this, "El tamaño del lote no se ha de manera correcta, por favor intentelo de nuevo.");
             }
         }
 
     }//GEN-LAST:event_saveActionPerformed
+
     public void setArboles(ArrayList<Arbol> arboles) {
         this.arboles = arboles;
     }
-    public void numeroArboles(){
-        int[] numero=new int[6];
-        for (int i = 0; i <this.arboles.size(); i++) {
-            switch(this.arboles.get(i).getVariedad()){
-                case "Típica":{
+
+    public void numeroArboles() {
+        int[] numero = new int[6];
+        for (int i = 0; i < this.arboles.size(); i++) {
+            switch (this.arboles.get(i).getVariedad()) {
+                case "Típica": {
                     numero[0]++;
                     break;
                 }
-                case "Borbón":{
+                case "Borbón": {
                     numero[1]++;
                     break;
                 }
-                case "Maragogipe":{
+                case "Maragogipe": {
                     numero[2]++;
                     break;
                 }
-                case "Tabi":{
+                case "Tabi": {
                     numero[3]++;
                     break;
                 }
-                case "Caturra":{
+                case "Caturra": {
                     numero[4]++;
                     break;
                 }
-                case "Variedad Colombia":{
+                case "Variedad Colombia": {
                     numero[5]++;
                     break;
                 }
@@ -342,33 +356,35 @@ public class EditarLote extends javax.swing.JPanel {
             this.jTable1.setValueAt(numero[i], i, 1);
         }
     }
-        public void loteSelec(){
-        System.out.println("sfdsdfsf"+(this.lotesC.getSelectedIndex()!=-1));
-        if(this.lotesC.getSelectedIndex()!=-1){
-           loTe.setIDlote(this.lotesC.getSelectedIndex());
-           lote=FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex());
-           arboles=lote.getArbolesVivos();
-           numArboles.setText(arboles.size()+"");
-           numeroArboles();
+
+    public void loteSelec() {
+        System.out.println("sfdsdfsf" + (this.lotesC.getSelectedIndex() != -1));
+        if (this.lotesC.getSelectedIndex() != -1) {
+            ventanaArboles.setIDlote(this.lotesC.getSelectedIndex());
+            loteID.setText(this.lotesC.getSelectedItem().toString());
+            lote = FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex());
+            arboles = lote.getArbolesVivos();
+            numArboles.setText(arboles.size() + "");
+            numeroArboles();
         }
     }
+
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
-        JOptionPane.showMessageDialog(this, loTe);
-        this.arboles=loTe.getLote();
+        JOptionPane.showMessageDialog(this, ventanaArboles);
+        this.arboles = ventanaArboles.getArbolesLote();
         System.out.println(arboles);
         for (int i = 0; i < arboles.size(); i++) {
             FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex()).addArbol(arboles.get(i));
-        }    
-        this.lotes=FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
-        numArboles.setText(arboles.size()+"");
+        }
+        this.lotes = FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
+        numArboles.setText(arboles.size() + "");
         numeroArboles();
-        FramePrincipal.cambiarPanel376(this);      
+        FramePrincipal.cambiarPanel376(this);
     }//GEN-LAST:event_addArbolesActionPerformed
 
     private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
-        
         loteSelec();
-        
+
     }//GEN-LAST:event_lotesCActionPerformed
 
     private void areaLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaLoteActionPerformed

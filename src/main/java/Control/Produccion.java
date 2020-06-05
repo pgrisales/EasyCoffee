@@ -6,6 +6,7 @@ import com.easycoffee.Arbol;
 import com.easycoffee.Jornada;
 import com.easycoffee.Lote;
 import com.easycoffee.Trabajador;
+import java.util.ArrayList;
 
 /**
  *
@@ -37,11 +38,16 @@ public class Produccion {
         return true;
     }
 
-    public boolean RegistrarArbolesVivos(Lote lote) {
+    public void RegistrarArbolesVivos(Lote lote) {
         for (Arbol a : lote.getArbolesVivos()) {
             daoManager.getArbolDAO().insertar(a);
         }
-        return true;
+    }
+
+    public void RegistrarArbolesVivos(ArrayList<Arbol> arboles) {
+        for (Arbol a : arboles) {
+            daoManager.getArbolDAO().insertar(a);
+        }//No estariamos volviendo a insertar todos de nuevo??? heyy
     }
 
 }
