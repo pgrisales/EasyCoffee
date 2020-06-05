@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class InicializarSistema {
 
-    private Administrador admin = null;   //ADMIN MAESTRO
+    private Administrador admin = null;
     private DAO.DAOManager daoManager;
     private ArrayList<Usuario> users = null;
     private ArrayList<Trabajador> trabajadores = null;
@@ -30,7 +30,6 @@ public class InicializarSistema {
             if (daoManager.getPermisosDAO().obtenerTodos(u).size() > 0) {
                 u.setIdLotes(daoManager.getPermisosDAO().obtenerTodos(u));
             }
-
         }
         if (!users.isEmpty()) {
             Usuario u = users.remove(0);
@@ -41,7 +40,7 @@ public class InicializarSistema {
                 if (this.admin.getFinca() == null) {
                     this.admin.setFinca(new Finca());
                 }
-                System.out.println("Nombre Finca:" + "'" + this.admin.getFinca().getNombreFinca() + "'");
+//                System.out.println("Nombre Finca:" + "'" + this.admin.getFinca().getNombreFinca() + "'");
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
                     this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
@@ -51,7 +50,7 @@ public class InicializarSistema {
                         t.setJornada((ArrayList<Jornada>) daoManager.getJornadaDAO().obtenerTodos(t.getCedula()));
                     }
                     this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
-                    System.out.println(this.lotes.size());
+//                    System.out.println(this.lotes.size());
 //                    System.out.println(trabajadores.get(0).getJornada().get(0).toString());
 
                     //Asignando de BD los lotes y los trabajadores
@@ -60,7 +59,7 @@ public class InicializarSistema {
                     for (Lote l : this.admin.getFinca().getLotes()) {
                         l.setArbolesVivos((ArrayList<Arbol>) daoManager.getArbolDAO().obtenerTodos(l));
                         if (daoManager.getArbolDAO().obtenerTodos(l).size() > 0) {
-                            System.out.println();
+//                            System.out.println();
                         }
                     }
                 }

@@ -35,7 +35,7 @@ public class AsignarLotes extends javax.swing.JPanel {
             for(Usuario u: FramePrincipal.getSistem().getUsers()){
                 usuariosC.addItem(u.getNombre()+" "+u.getApellido());
                 usuarios.add(u);
-             }
+             } 
         }
         lotesC.removeAll();
         if(FramePrincipal.getSistem().getLotes() != null){

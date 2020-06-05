@@ -7,10 +7,11 @@ import javax.swing.ImageIcon;
  * @author Camilo Vargas
  */
 public class MenuSeleccion extends javax.swing.JPanel {
-    
+
     static String fondo = "../image/cafe.jpg";
 
     private int cedula;
+
     public MenuSeleccion(int cedula) {
         initComponents();
         this.cedula = cedula;
@@ -172,7 +173,7 @@ public class MenuSeleccion extends javax.swing.JPanel {
     }//GEN-LAST:event_estadisticasActionPerformed
 
     private void estadisticas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticas1ActionPerformed
-        FramePrincipal.cambiarPanel376(new RegistroFinca(cedula));
+        FramePrincipal.cambiarPanel127(new EditFinca(cedula));
     }//GEN-LAST:event_estadisticas1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
