@@ -141,10 +141,14 @@ public class RecuperarContraseña extends javax.swing.JPanel {
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
         Control.ControlUsuarios r = new Control.ControlUsuarios();
-        if (r.inicializarCedula((long) Integer.parseInt(cedula.getText())) && r.compararRespuestas(answer.getText(), questions.getSelectedIndex())) {
+        try {
+            if (r.inicializarCedula((long) Integer.parseInt(cedula.getText())) && r.compararRespuestas(answer.getText(), questions.getSelectedIndex())) {
             FramePrincipal.cambiarPanel(new CambiarContraseña(Integer.parseInt(cedula.getText())));
         } else {
             JOptionPane.showMessageDialog(null, "No ha ingresado la respuesta correcta.");
+        }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ingrese datos validos");
         }
     }//GEN-LAST:event_checkActionPerformed
 

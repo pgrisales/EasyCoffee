@@ -12,3 +12,9 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\GAR\Documents\netbeansProjects82\EasyCoffee\db
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Jun 05 17:04:36 COT 2020: Shutting down Derby engine
+----------------------------------------------------------------
+Fri Jun 05 17:04:36 COT 2020:
+Shutting down instance a816c00e-0172-8660-474a-00006865404b on database directory C:\Users\GAR\Documents\netbeansProjects82\EasyCoffee\db\EASYCOFFEBD with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+----------------------------------------------------------------

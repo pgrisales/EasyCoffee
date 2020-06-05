@@ -68,9 +68,12 @@ public class ControlUsuarios {
 
     public boolean inicializarCedula(Long cedula) {
         try {
-            this.u = DAO.getUsuarioDAO().obtener(cedula);
-            this.u.setRespuesta(DAO.getRespuestasDAO().obtener(cedula.intValue()));
-//            System.out.println("comparar ced " + this.u);
+            if(DAO.getUsuarioDAO().obtener(cedula) != null){
+                this.u = DAO.getUsuarioDAO().obtener(cedula);
+                this.u.setRespuesta(DAO.getRespuestasDAO().obtener(cedula.intValue()));
+                //            System.out.println("comparar ced " + this.u);
+            }
+            
             return true;
         } catch (Exception E) {
             E.printStackTrace();
