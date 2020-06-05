@@ -100,4 +100,8 @@ public class ControlUsuarios {
         this.DAO.getUsuarioDAO().eliminar(idUsuarioAuxiliar);
         this.DAO.getPersonaDAO().eliminar(idUsuarioAuxiliar);
     }
+
+    public void almacenarFinca(Finca f) {
+        this.DAO.getFincaDAO().insertar(f);
+    }
 }

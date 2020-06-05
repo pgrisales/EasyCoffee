@@ -1,5 +1,6 @@
 package Frontera;
 
+import Control.ControlUsuarios;
 import com.easycoffee.Lote;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
@@ -16,21 +17,26 @@ public class RegistroFinca extends javax.swing.JPanel {
     private String[] lotes = new String[]{};
     private String[] unidades = {"km^2", "m^2", "hec"};
     private int cedula;
+    private ControlUsuarios c;
+
     public RegistroFinca(int cedula) {
         initComponents();
         this.cedula = cedula;
-        double tamaño=0;
+        double tamaño = 0;
         this.jComboBox1.removeAllItems();
+        this.c = new ControlUsuarios();
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
         }
-        for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
-            tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
+        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            tamaño = tamaño + FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
-        if(this.jComboBox1.getSelectedIndex()==0)
-            tam.setText((long)tamaño/1000000+"");
-        if(this.jComboBox1.getSelectedIndex()==2)
-            tam.setText((long)tamaño/10000+"");
+        if (this.jComboBox1.getSelectedIndex() == 0) {
+            tam.setText((long) tamaño / 1000000 + "");
+        }
+        if (this.jComboBox1.getSelectedIndex() == 2) {
+            tam.setText((long) tamaño / 10000 + "");
+        }
     }
 
     /**
@@ -266,12 +272,16 @@ public class RegistroFinca extends javax.swing.JPanel {
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         JOptionPane.showMessageDialog(jMenu1, "Puedes modificar los datos registrados accediendo a editar finca en la barra de tareas.");
-        FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(name.getText());
-        FramePrincipal.menuDoublePanel(true);
-        FramePrincipal.cambiarPanel127(new EditFinca(cedula));
-        FramePrincipal.menuPanelPrincipal(false);
+        if (name.getText().equals("")) {
+            JOptionPane.showMessageDialog(jMenu1, "Por favor ingresa un Nombre para la Finca.");
+        } else {
+            FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(name.getText());
+            c.almacenarFinca(FramePrincipal.getSistem().getAdmin().getFinca());
+            FramePrincipal.menuDoublePanel(true);
+            FramePrincipal.cambiarPanel127(new EditFinca(cedula));
+            FramePrincipal.menuPanelPrincipal(false);
+        }
     }//GEN-LAST:event_registrarActionPerformed
-
 
     private void agregarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarLoteActionPerformed
         RegistrarLote lote = new RegistrarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes());
@@ -298,26 +308,33 @@ public class RegistroFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_addAuxActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
-        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),cedula));
+        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(), cedula));
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void terminarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarRegistroActionPerformed
-        FramePrincipal.cambiarPanel127(new MenuSeleccion(cedula));
-        javax.swing.JPanel panelj = new javax.swing.JPanel();
-        FramePrincipal.cambiarPanel376(panelj);
+        if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
+            JOptionPane.showMessageDialog(jMenu1, "La Finca NO tiene un Nombre Registrado, por favor ingresa uno.");
+        } else {
+            FramePrincipal.cambiarPanel127(new MenuSeleccion(cedula));
+            javax.swing.JPanel panelj = new javax.swing.JPanel();
+            FramePrincipal.cambiarPanel376(panelj);
+        }
     }//GEN-LAST:event_terminarRegistroActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        double tamaño=0;
-        for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
-            tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
+        double tamaño = 0;
+        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            tamaño = tamaño + FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
-        if(this.jComboBox1.getSelectedIndex()==0)
-            tam.setText((long)tamaño/1000000+"");
-        if(this.jComboBox1.getSelectedIndex()==1)
-            tam.setText((long)tamaño+"");
-        if(this.jComboBox1.getSelectedIndex()==2)
-            tam.setText((long)tamaño/10000+"");
+        if (this.jComboBox1.getSelectedIndex() == 0) {
+            tam.setText((long) tamaño / 1000000 + "");
+        }
+        if (this.jComboBox1.getSelectedIndex() == 1) {
+            tam.setText((long) tamaño + "");
+        }
+        if (this.jComboBox1.getSelectedIndex() == 2) {
+            tam.setText((long) tamaño / 10000 + "");
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void asignarLotesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarLotesBActionPerformed

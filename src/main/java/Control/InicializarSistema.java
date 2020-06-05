@@ -27,22 +27,21 @@ public class InicializarSistema {
         this.users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
         for (Usuario u : users) {
             u.setRespuesta(daoManager.getRespuestasDAO().obtener(u.getCedula().intValue()));
-            if(daoManager.getPermisosDAO().obtenerTodos(u).size() > 0){
+            if (daoManager.getPermisosDAO().obtenerTodos(u).size() > 0) {
                 u.setIdLotes(daoManager.getPermisosDAO().obtenerTodos(u));
             }
-            
+
         }
         if (!users.isEmpty()) {
             Usuario u = users.remove(0);
             this.admin = new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0], u.getRespuesta()[1], u.getRespuesta()[2]);
             System.gc();
             if (admin != null) {
-
                 this.admin.setFinca(daoManager.getFincaDAO().obtener(1));
                 if (this.admin.getFinca() == null) {
                     this.admin.setFinca(new Finca());
                 }
-
+                System.out.println("Nombre Finca:" + "'" + this.admin.getFinca().getNombreFinca() + "'");
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
                     this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
@@ -60,7 +59,7 @@ public class InicializarSistema {
                     this.admin.getFinca().setLotes(lotes);
                     for (Lote l : this.admin.getFinca().getLotes()) {
                         l.setArbolesVivos((ArrayList<Arbol>) daoManager.getArbolDAO().obtenerTodos(l));
-                        if(daoManager.getArbolDAO().obtenerTodos(l).size() > 0){
+                        if (daoManager.getArbolDAO().obtenerTodos(l).size() > 0) {
                             System.out.println();
                         }
                     }

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class FincaDAO implements DAO<Finca, Integer> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEBD.FINCA VALUES (?, ?)";
+    final String INSERT = "INSERT INTO EASYCOFFEBD.FINCA VALUES (DEFAULT, ?)";
     final String UPDATE = "UPDATE EASYCOFFEBD.FINCA SET FIN_NOMBREFINCA = ? WHERE FIN_IDFINCA = ?";
     final String DELETE = "DELETE FROM EASYCOFFEBD.USUARIO WHERE FIN_NOMBREFINCA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.FINCA";
@@ -33,8 +33,7 @@ public class FincaDAO implements DAO<Finca, Integer> {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setInt(1, 1);
-            stat.setString(2, f.getNombreFinca());
+            stat.setString(1, f.getNombreFinca());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
             }
@@ -137,8 +136,7 @@ public class FincaDAO implements DAO<Finca, Integer> {
         ResultSet rs = null;
         Finca f = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.PERSONA NATURAL JOIN EASYCOFFEBD.USUARIO WHERE PER_CEDULACIUDADANIA = ?");
-            stat.setLong(1, id);
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.FINCA FETCH FIRST 1 ROWS ONLY");
             rs = stat.executeQuery();
             if (rs.next()) {
                 f = convertir(rs);

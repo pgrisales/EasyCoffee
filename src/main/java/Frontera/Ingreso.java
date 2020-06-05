@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 public class Ingreso extends javax.swing.JPanel {
 
     static public String fondo = "../image/cafe.jpg";
-    
 
     public Ingreso() {
         initComponents();
@@ -43,9 +42,9 @@ public class Ingreso extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 0, 0));
         setToolTipText("");
-        setMaximumSize(new java.awt.Dimension(400, 503));
-        setMinimumSize(new java.awt.Dimension(400, 503));
-        setPreferredSize(new java.awt.Dimension(400, 503));
+        setMaximumSize(new java.awt.Dimension(900, 503));
+        setMinimumSize(new java.awt.Dimension(900, 503));
+        setPreferredSize(new java.awt.Dimension(900, 503));
 
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +134,7 @@ public class Ingreso extends javax.swing.JPanel {
                                     .addGap(69, 69, 69)
                                     .addComponent(forgot, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(registration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,18 +175,29 @@ public class Ingreso extends javax.swing.JPanel {
         try {
             cedula = Long.parseLong(username.getText());
             if (validacion.verificarLogin(cedula, password.getText())) {
-                FramePrincipal.setCedula((int)cedula);
-                if(cedula == FramePrincipal.getSistem().getAdmin().getCedula()){
-                FramePrincipal.menuVisible(true);
-                FramePrincipal.menuPanelPrincipal(false);
-                FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
-                javax.swing.JPanel panelj = new javax.swing.JPanel();
-                FramePrincipal.cambiarPanel376(panelj);
-                FramePrincipal.menuDoublePanel(true);
-                }else{
+                FramePrincipal.setCedula((int) cedula);
+                if (cedula == FramePrincipal.getSistem().getAdmin().getCedula()) {
+                    System.out.println(FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca());
+                    if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
+                        FramePrincipal.menuVisible(true);
+                        FramePrincipal.menuPanelPrincipal(false);
+                        FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
+                        javax.swing.JPanel panelj = new javax.swing.JPanel();
+                        FramePrincipal.cambiarPanel376(panelj);
+                        FramePrincipal.menuDoublePanel(true);
+                    } else {
+                        FramePrincipal.menuVisible(true);
+                        FramePrincipal.menuPanelPrincipal(false);
+                        FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
+                        javax.swing.JPanel panelj = new javax.swing.JPanel();
+                        FramePrincipal.cambiarPanel376(panelj);
+                        FramePrincipal.menuDoublePanel(true);
+                    }
+                } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
+                    JOptionPane.showMessageDialog(null, "No existe Finca");
+                } else {
                     FramePrincipal.cambiarPanel(new RegistrarProduccion((int) cedula));
                 }
-
             } else {
                 JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
             }
