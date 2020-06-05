@@ -1,5 +1,7 @@
 package Frontera;
 
+import Control.ControlUsuarios;
+import DAO.PersonaDAO;
 import com.easycoffee.Usuario;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 public class EditarAuxiliar extends javax.swing.JPanel {
 
     private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private ControlUsuarios cambios = new ControlUsuarios();
     
     public EditarAuxiliar() {
         initComponents();
@@ -177,6 +180,7 @@ public class EditarAuxiliar extends javax.swing.JPanel {
             usuarios.get(usuariosC.getSelectedIndex()).setEstado(true);
         }
         System.out.println(usuarios.get(usuariosC.getSelectedIndex()).isEstado());
+        cambios.setEstadoPersona(usuarios.get(usuariosC.getSelectedIndex()).getCedula());
         showEstado();
         
     }//GEN-LAST:event_activarBActionPerformed

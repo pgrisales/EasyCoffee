@@ -18,7 +18,7 @@ public class PersonaDAO implements DAO<Persona, Long> {
     final String UPDATE = "UPDATE EASYCOFFEBD.PERSONA SET PER_ESTADOPERSONA = ?";
     final String DELETE = "DELETE FROM EASYCOFFEBD.PERSONA WHERE PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.PERSONA";
-
+    
     private Connection conn;
 
     public PersonaDAO(Connection conn) {
@@ -34,6 +34,7 @@ public class PersonaDAO implements DAO<Persona, Long> {
         Persona newPersona = new Persona(cedulaCiudadania, nombrePersona, apellidoPersona, estadoPersona);
         return newPersona;
     }
+    
 
     @Override
     public void insertar(Persona a) {
