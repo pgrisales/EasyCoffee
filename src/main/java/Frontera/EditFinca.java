@@ -51,8 +51,6 @@ public class EditFinca extends javax.swing.JPanel {
         AddTrabajador = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         addAux = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
-        addAux1 = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JToolBar.Separator();
         editAuxB = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
@@ -144,21 +142,6 @@ public class EditFinca extends javax.swing.JPanel {
             }
         });
         jToolBar1.add(addAux);
-        jToolBar1.add(jSeparator4);
-
-        addAux1.setBackground(new java.awt.Color(102, 0, 0));
-        addAux1.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
-        addAux1.setForeground(new java.awt.Color(255, 255, 255));
-        addAux1.setText("Agregar auxiliar");
-        addAux1.setFocusable(false);
-        addAux1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        addAux1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        addAux1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addAux1ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(addAux1);
         jToolBar1.add(jSeparator5);
 
         editAuxB.setBackground(new java.awt.Color(102, 0, 0));
@@ -313,10 +296,6 @@ public class EditFinca extends javax.swing.JPanel {
         FramePrincipal.cambiarPanel376(new EditarAuxiliar());
     }//GEN-LAST:event_editAuxBActionPerformed
 
-    private void addAux1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAux1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addAux1ActionPerformed
-
     private void asignarLoteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarLoteBActionPerformed
         addAux.setBackground(new Color(152, 51, 0));
         AddTrabajador.setBackground(new Color(102, 0, 0));
@@ -328,7 +307,6 @@ public class EditFinca extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddTrabajador;
     private javax.swing.JButton addAux;
-    private javax.swing.JButton addAux1;
     private javax.swing.JButton agregarLote;
     private javax.swing.JButton asignarLoteB;
     private javax.swing.JToggleButton changeName;
@@ -340,7 +318,6 @@ public class EditFinca extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar jToolBar1;
