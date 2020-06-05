@@ -51,15 +51,15 @@ public class ControlUsuarios {
     }
     
     public boolean verificarEstado(Long cedula){
-        System.out.println(DAO.getUsuarioDAO().obtener(cedula).isEstado());
+        
         if(DAO.getUsuarioDAO().obtener(cedula).isEstado()){
             return true;
         }
         return false;
     }
     
-    public void setEstadoPersona(Long cedula){
-        DAO.getPersonaDAO().modificar(DAO.getPersonaDAO().obtener(cedula));
+    public void setEstadoPersona(Long cedula, boolean est){
+        DAO.getUsuarioDAO().updateEstado(DAO.getUsuarioDAO().obtener(cedula), est);
     }
 
     public boolean verificarLogin(Long cedula, String contraseña) {

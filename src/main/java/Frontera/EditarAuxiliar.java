@@ -15,15 +15,18 @@ public class EditarAuxiliar extends javax.swing.JPanel {
     private ArrayList<Usuario> usuarios = new ArrayList<>();
     private ControlUsuarios cambios = new ControlUsuarios();
     
+    private static int count = 1;
+    
     public EditarAuxiliar() {
         initComponents();
         usuariosC.removeAllItems();
         if(FramePrincipal.getSistem().getUsers() != null){
             for(Usuario u: FramePrincipal.getSistem().getUsers()){
-                usuariosC.addItem(u.getNombre()+" "+u.getApellido());
                 usuarios.add(u);
+                usuariosC.addItem(u.getNombre()+" "+u.getApellido());
              }
         }
+        //updateUsuarios(usuarios);
     }
 
     @SuppressWarnings("unchecked")
@@ -174,23 +177,26 @@ public class EditarAuxiliar extends javax.swing.JPanel {
     }//GEN-LAST:event_usuariosCActionPerformed
 
     private void activarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activarBActionPerformed
+        updateUsuarios(usuarios);
         if(usuarios.get(usuariosC.getSelectedIndex()).isEstado()){
             usuarios.get(usuariosC.getSelectedIndex()).setEstado(false);
+            cambios.setEstadoPersona(usuarios.get(usuariosC.getSelectedIndex()).getCedula(), false);
         }else{
             usuarios.get(usuariosC.getSelectedIndex()).setEstado(true);
+            cambios.setEstadoPersona(usuarios.get(usuariosC.getSelectedIndex()).getCedula(), true);
         }
-        System.out.println(usuarios.get(usuariosC.getSelectedIndex()).isEstado());
-        cambios.setEstadoPersona(usuarios.get(usuariosC.getSelectedIndex()).getCedula());
         showEstado();
         
     }//GEN-LAST:event_activarBActionPerformed
-        
+     
+    private void updateUsuarios(ArrayList<Usuario> usuarios){
+        usuarios = FramePrincipal.getSistem().getUsers();
+    }
     private void showEstado(){
         String estado = "";
         if(usuarios.get(usuariosC.getSelectedIndex()).isEstado()){
             estado = "Activo";
             activarB.setText("Desactivar");
-            System.out.println("NO SE ESTA CAMBIANDO PUTO TEXTO");
         }else{
             estado = "Inactivo";
             activarB.setText("Activar");

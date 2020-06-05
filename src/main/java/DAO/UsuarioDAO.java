@@ -1,5 +1,6 @@
 package DAO;
 
+import com.easycoffee.Persona;
 import com.easycoffee.Usuario;
 import java.sql.*;
 import java.util.*;
@@ -195,5 +196,27 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         }
         return u;
     }
-
+    
+    public void updateEstado(Persona a, boolean est) {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement("UPDATE EASYCOFFEBD.PERSONA SET PER_ESTADOPERSONA = ? WHERE PER_CEDULACIUDADANIA = ?");
+            stat.setBoolean(1, est);
+            stat.setLong(2, a.getCedula());
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya modificado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ef) {
+                    ef.printStackTrace();
+                }
+            }
+        }
+    }
+        
 }

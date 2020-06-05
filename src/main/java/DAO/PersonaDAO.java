@@ -1,6 +1,7 @@
 package DAO;
 
 import com.easycoffee.Persona;
+import com.easycoffee.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +19,8 @@ public class PersonaDAO implements DAO<Persona, Long> {
     final String UPDATE = "UPDATE EASYCOFFEBD.PERSONA SET PER_ESTADOPERSONA = ?";
     final String DELETE = "DELETE FROM EASYCOFFEBD.PERSONA WHERE PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.PERSONA";
+    
+    private int c = 1;
     
     private Connection conn;
 
@@ -81,6 +84,11 @@ public class PersonaDAO implements DAO<Persona, Long> {
                 }
             }
         }
+        
+        System.out.println("VEZ # "+c + " MODIFICAR SQL...");
+        c++;
+        Persona p = obtener(a.getCedula());
+        System.out.println("EN SQL SHIT "+p.isEstado());
     }
 
     @Override
