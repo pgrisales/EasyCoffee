@@ -52,7 +52,11 @@ public class EditFinca extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JToolBar.Separator();
         addAux = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
-        asignarLotesB = new javax.swing.JButton();
+        addAux1 = new javax.swing.JButton();
+        jSeparator5 = new javax.swing.JToolBar.Separator();
+        editAuxB = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JToolBar.Separator();
+        asignarLoteB = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         tam = new javax.swing.JLabel();
@@ -142,19 +146,49 @@ public class EditFinca extends javax.swing.JPanel {
         jToolBar1.add(addAux);
         jToolBar1.add(jSeparator4);
 
-        asignarLotesB.setBackground(new java.awt.Color(102, 0, 0));
-        asignarLotesB.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
-        asignarLotesB.setForeground(new java.awt.Color(255, 255, 255));
-        asignarLotesB.setText("Asignar lotes");
-        asignarLotesB.setFocusable(false);
-        asignarLotesB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        asignarLotesB.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        asignarLotesB.addActionListener(new java.awt.event.ActionListener() {
+        addAux1.setBackground(new java.awt.Color(102, 0, 0));
+        addAux1.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        addAux1.setForeground(new java.awt.Color(255, 255, 255));
+        addAux1.setText("Agregar auxiliar");
+        addAux1.setFocusable(false);
+        addAux1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addAux1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addAux1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                asignarLotesBActionPerformed(evt);
+                addAux1ActionPerformed(evt);
             }
         });
-        jToolBar1.add(asignarLotesB);
+        jToolBar1.add(addAux1);
+        jToolBar1.add(jSeparator5);
+
+        editAuxB.setBackground(new java.awt.Color(102, 0, 0));
+        editAuxB.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        editAuxB.setForeground(new java.awt.Color(255, 255, 255));
+        editAuxB.setText("Editar Auxiliar");
+        editAuxB.setFocusable(false);
+        editAuxB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        editAuxB.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        editAuxB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editAuxBActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(editAuxB);
+        jToolBar1.add(jSeparator6);
+
+        asignarLoteB.setBackground(new java.awt.Color(102, 0, 0));
+        asignarLoteB.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        asignarLoteB.setForeground(new java.awt.Color(255, 255, 255));
+        asignarLoteB.setText("Asignar lote");
+        asignarLoteB.setFocusable(false);
+        asignarLoteB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        asignarLoteB.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        asignarLoteB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asignarLoteBActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(asignarLoteB);
 
         jLabel1.setBackground(new java.awt.Color(222, 222, 222));
         jLabel1.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
@@ -272,20 +306,33 @@ public class EditFinca extends javax.swing.JPanel {
             tam.setText((long)tamaño/10000+"");
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void asignarLotesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarLotesBActionPerformed
+    private void editAuxBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAuxBActionPerformed
         agregarLote.setBackground(new Color(152, 51, 0));
         AddTrabajador.setBackground(new Color(102, 0, 0));
         addAux.setBackground(new Color(102, 0, 0));
+        FramePrincipal.cambiarPanel376(new EditarAuxiliar());
+    }//GEN-LAST:event_editAuxBActionPerformed
+
+    private void addAux1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAux1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addAux1ActionPerformed
+
+    private void asignarLoteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarLoteBActionPerformed
+        addAux.setBackground(new Color(152, 51, 0));
+        AddTrabajador.setBackground(new Color(102, 0, 0));
+        agregarLote.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(new AsignarLotes());
-    }//GEN-LAST:event_asignarLotesBActionPerformed
+    }//GEN-LAST:event_asignarLoteBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddTrabajador;
     private javax.swing.JButton addAux;
+    private javax.swing.JButton addAux1;
     private javax.swing.JButton agregarLote;
-    private javax.swing.JButton asignarLotesB;
+    private javax.swing.JButton asignarLoteB;
     private javax.swing.JToggleButton changeName;
+    private javax.swing.JButton editAuxB;
     private javax.swing.JButton editLote;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -294,6 +341,8 @@ public class EditFinca extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
+    private javax.swing.JToolBar.Separator jSeparator5;
+    private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel name;
     private javax.swing.JLabel tam;

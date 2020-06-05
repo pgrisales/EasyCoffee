@@ -72,6 +72,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(900, 376));
         setMinimumSize(new java.awt.Dimension(900, 376));
+        setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(900, 376));
 
         password.setBackground(new java.awt.Color(255, 255, 255));

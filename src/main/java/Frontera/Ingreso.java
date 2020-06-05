@@ -174,32 +174,36 @@ public class Ingreso extends javax.swing.JPanel {
         long cedula = 0;
         try {
             cedula = Long.parseLong(username.getText());
-            if (validacion.verificarLogin(cedula, password.getText())) {
+            if(validacion.verificarEstado(cedula)){
+                if (validacion.verificarLogin(cedula, password.getText())) {
                 FramePrincipal.setCedula((int) cedula);
-                if (cedula == FramePrincipal.getSistem().getAdmin().getCedula()) {
-                    System.out.println(FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca());
-                    if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
-                        FramePrincipal.menuVisible(true);
-                        FramePrincipal.menuPanelPrincipal(false);
-                        FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
-                        javax.swing.JPanel panelj = new javax.swing.JPanel();
-                        FramePrincipal.cambiarPanel376(panelj);
-                        FramePrincipal.menuDoublePanel(true);
+                    if (cedula == FramePrincipal.getSistem().getAdmin().getCedula()) {
+                        System.out.println(FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca());
+                        if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
+                            FramePrincipal.menuVisible(true);
+                            FramePrincipal.menuPanelPrincipal(false);
+                            FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
+                            javax.swing.JPanel panelj = new javax.swing.JPanel();
+                            FramePrincipal.cambiarPanel376(panelj);
+                            FramePrincipal.menuDoublePanel(true);
+                        } else {
+                            FramePrincipal.menuVisible(true);
+                            FramePrincipal.menuPanelPrincipal(false);
+                            FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
+                            javax.swing.JPanel panelj = new javax.swing.JPanel();
+                            FramePrincipal.cambiarPanel376(panelj);
+                            FramePrincipal.menuDoublePanel(true);
+                        }
+                    } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
+                        JOptionPane.showMessageDialog(null, "No existe Finca");
                     } else {
-                        FramePrincipal.menuVisible(true);
-                        FramePrincipal.menuPanelPrincipal(false);
-                        FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
-                        javax.swing.JPanel panelj = new javax.swing.JPanel();
-                        FramePrincipal.cambiarPanel376(panelj);
-                        FramePrincipal.menuDoublePanel(true);
+                        FramePrincipal.cambiarPanel(new RegistrarProduccion((int) cedula));
                     }
-                } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
-                    JOptionPane.showMessageDialog(null, "No existe Finca");
                 } else {
-                    FramePrincipal.cambiarPanel(new RegistrarProduccion((int) cedula));
+                    JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
+            }else{
+                JOptionPane.showMessageDialog(null, "EL USUARIO ESTA DESACTIVADO");
             }
         } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "¡Datos inválidos!");

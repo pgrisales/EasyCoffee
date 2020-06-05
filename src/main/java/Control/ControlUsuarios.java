@@ -49,6 +49,14 @@ public class ControlUsuarios {
     private boolean compararPassword(Long cedula, String contraseña) {
         return contraseña.equals(DAO.getUsuarioDAO().obtener(cedula).getPassword());
     }
+    
+    public boolean verificarEstado(Long cedula){
+        System.out.println(DAO.getUsuarioDAO().obtener(cedula).isEstado());
+        if(DAO.getUsuarioDAO().obtener(cedula).isEstado()){
+            return true;
+        }
+        return false;
+    }
 
     public boolean verificarLogin(Long cedula, String contraseña) {
         return verificarExistenciaCedula(cedula) && compararPassword(cedula, contraseña);
