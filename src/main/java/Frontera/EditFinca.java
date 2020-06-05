@@ -275,7 +275,7 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_agregarLoteActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
-        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),cedula));
+        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),0));
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void AddTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTrabajadorActionPerformed
