@@ -43,6 +43,10 @@ public class FramePrincipal extends javax.swing.JFrame {
     private Ingreso ingreso = new Ingreso();
 
     public FramePrincipal() {
+        /*INICIALIZACION BASE DE DATOS, NO BORRAR!!!*/
+//            NetworkServerControl server = new N
+            
+        /*END WARNIG CODE */
         fondo = new Fondo(ingreso, "../image/318763,xcitefun-cocora-valley-7.jpg");
         this.setContentPane(fondo);
         initComponents();

@@ -299,10 +299,10 @@ public class EditarLote extends javax.swing.JPanel {
                     area = area * 10000;
                 }
                 String fechabonado = fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
-                System.out.println(fechabonado);
+//                System.out.println(fechabonado);
 
                 String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
-                System.out.println("ABONADO" + fechadesyerbado);
+//                System.out.println("ABONADO" + fechadesyerbado);
                 lote = new Lote((long) lotes.size(), area, fechadesyerbado, fechabonado, true);
                 lote.setArbolesVivos(ventanaArboles.getArbolesLote());
                 p.RegistrarArbolesVivos(lote.getArbolesVivos());
@@ -353,7 +353,7 @@ public class EditarLote extends javax.swing.JPanel {
     }
 
     public void loteSelec() {
-        System.out.println("sfdsdfsf" + (this.lotesC.getSelectedIndex() != -1));
+//        System.out.println("sfdsdfsf" + (this.lotesC.getSelectedIndex() != -1));
         if (this.lotesC.getSelectedIndex() != -1) {
             ventanaArboles.setIDlote(this.lotesC.getSelectedIndex());
             loteID.setText(this.lotesC.getSelectedItem().toString());
@@ -367,7 +367,7 @@ public class EditarLote extends javax.swing.JPanel {
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
         JOptionPane.showMessageDialog(this, ventanaArboles);
         this.arboles = ventanaArboles.getArbolesLote();
-        System.out.println(arboles);
+//        System.out.println(arboles);
         for (int i = 0; i < arboles.size(); i++) {
             FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex()).addArbol(arboles.get(i));
         }
