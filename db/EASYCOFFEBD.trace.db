@@ -1,0 +1,302 @@
+2020-06-10 22:19:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "-[*] CREATE TABLE  EASYCOFFEBD.PERSONA (
+  PER_CEDULACIUDADANIA INT NOT NULL,
+  PER_ESTADOPERSONA BOOLEAN NOT NULL DEFAULT TRUE,
+  PER_NOMBRE VARCHAR(20) NOT NULL,
+  PER_APELLIDO VARCHAR(20) NOT NULL,
+  PRIMARY KEY (PER_CEDULACIUDADANIA))"
+Syntax error in SQL statement "-[*] CREATE TABLE  EASYCOFFEBD.PERSONA (
+  PER_CEDULACIUDADANIA INT NOT NULL,
+  PER_ESTADOPERSONA BOOLEAN NOT NULL DEFAULT TRUE,
+  PER_NOMBRE VARCHAR(20) NOT NULL,
+  PER_APELLIDO VARCHAR(20) NOT NULL,
+  PRIMARY KEY (PER_CEDULACIUDADANIA))"; SQL statement:
+- CREATE TABLE  easycoffebd.Persona (
+  per_cedulaCiudadania INT NOT NULL,
+  per_estadoPersona BOOLEAN NOT NULL DEFAULT TRUE,
+  per_Nombre VARCHAR(20) NOT NULL,
+  per_Apellido VARCHAR(20) NOT NULL,
+  PRIMARY KEY (per_cedulaCiudadania)) [42000-200]
+2020-06-10 22:19:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PERSONA" no encontrada
+Table "PERSONA" not found; SQL statement:
+CREATE TABLE  easycoffebd.Usuario (
+  usu_password VARCHAR(45) NOT NULL,
+  Per_cedulaCiudadania INT NOT NULL,
+  PRIMARY KEY (Per_cedulaCiudadania),
+  CONSTRAINT fk_Usuario_Persona
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Persona (per_cedulaCiudadania)
+) [42102-200]
+2020-06-10 22:19:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PERSONA" no encontrada
+Table "PERSONA" not found; SQL statement:
+CREATE TABLE  easycoffebd.Trabajador (
+  Per_cedulaCiudadania INT NOT NULL,
+  tra_Salario DOUBLE NOT NULL,
+  PRIMARY KEY (Per_cedulaCiudadania),
+  CONSTRAINT fk_Trabajador_Persona1
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Persona (per_cedulaCiudadania)
+) [42102-200]
+2020-06-10 22:19:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "TRABAJADOR" no encontrada
+Table "TRABAJADOR" not found; SQL statement:
+CREATE TABLE  easycoffebd.Jornada (
+  jor_id INT NOT NULL AUTO_INCREMENT,
+  jor_arrobasRecogidas FLOAT NOT NULL,
+  jor_fechajornada DATE NOT NULL,
+  jor_horaRegistro VARCHAR(45) NOT NULL,
+  lote_idLote INT NOT NULL,
+  Per_cedulaCiudadania INT NOT NULL,
+  PRIMARY KEY (jor_id, lote_idLote, Per_cedulaCiudadania),
+  CONSTRAINT fk_Jornada_Trabajador1
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Trabajador (Per_cedulaCiudadania),
+  CONSTRAINT fk_Jornada_Lote1
+    FOREIGN KEY (lote_idLote)
+    REFERENCES easycoffebd.Lote (lote_idLote)
+) [42102-200]
+2020-06-10 22:19:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE  easycoffebd.Permisos (
+  perm_id INT NOT NULL AUTO_INCREMENT,
+  Per_cedulaCiudadania INT NOT NULL,
+  lote_idLote INT NOT NULL,
+  PRIMARY KEY (perm_id),
+  CONSTRAINT fk_Permisos_Usuario1
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Usuario (Per_cedulaCiudadania),
+  CONSTRAINT fk_Permisos_Lote1
+    FOREIGN KEY (lote_idLote)
+    REFERENCES easycoffebd.Lote (lote_idLote)
+) [42102-200]
+2020-06-10 22:19:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE  easycoffebd.Respuestas (
+  Per_cedulaCiudadania INT NOT NULL,
+  res_numero1 VARCHAR(45) NOT NULL,
+  res_numero2 VARCHAR(45) NOT NULL,
+  res_numero3 VARCHAR(45) NOT NULL,
+  PRIMARY KEY (Per_cedulaCiudadania),
+  CONSTRAINT fk_Respuestas_Usuario1
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Usuario (Per_cedulaCiudadania)
+) [42102-200]
+2020-06-10 22:19:07 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "FINCA" ya existe
+Table "FINCA" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Finca (
+  fin_idFinca INT NOT NULL AUTO_INCREMENT,
+  fin_nombreFinca VARCHAR(45) NOT NULL,
+  PRIMARY KEY (fin_idFinca)) [42101-200]
+2020-06-10 22:19:07 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "LOTE" ya existe
+Table "LOTE" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Lote (
+  lote_idLote INT NOT NULL AUTO_INCREMENT,
+  lote_fechaDesyerbado DATE NOT NULL,
+  lote_fechaAbonado DATE NOT NULL,
+  lote_areaTotal DOUBLE NOT NULL,
+  lote_carga BOOLEAN NOT NULL DEFAULT FALSE,
+  PRIMARY KEY (lote_idLote)) [42101-200]
+2020-06-10 22:19:07 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ARBOL" ya existe
+Table "ARBOL" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Arbol (
+  arb_id INT NOT NULL AUTO_INCREMENT,
+  arb_tipoArb VARCHAR(45) NOT NULL,
+  lote_idLote INT NOT NULL,
+  arb_estado BOOLEAN NOT NULL,
+  arb_fechasiembra DATE NOT NULL,
+  PRIMARY KEY (arb_id),
+  CONSTRAINT fk_Arbol_Lote1
+    FOREIGN KEY (lote_idLote)
+    REFERENCES easycoffebd.Lote (lote_idLote)
+) [42101-200]
+2020-06-10 22:19:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PERSONA" ya existe
+Table "PERSONA" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Persona (
+  per_cedulaCiudadania INT NOT NULL,
+  per_estadoPersona BOOLEAN NOT NULL DEFAULT TRUE,
+  per_Nombre VARCHAR(20) NOT NULL,
+  per_Apellido VARCHAR(20) NOT NULL,
+  PRIMARY KEY (per_cedulaCiudadania)) [42101-200]
+2020-06-10 22:19:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "FINCA" ya existe
+Table "FINCA" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Finca (
+  fin_idFinca INT NOT NULL AUTO_INCREMENT,
+  fin_nombreFinca VARCHAR(45) NOT NULL,
+  PRIMARY KEY (fin_idFinca)) [42101-200]
+2020-06-10 22:19:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "LOTE" ya existe
+Table "LOTE" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Lote (
+  lote_idLote INT NOT NULL AUTO_INCREMENT,
+  lote_fechaDesyerbado DATE NOT NULL,
+  lote_fechaAbonado DATE NOT NULL,
+  lote_areaTotal DOUBLE NOT NULL,
+  lote_carga BOOLEAN NOT NULL DEFAULT FALSE,
+  PRIMARY KEY (lote_idLote)) [42101-200]
+2020-06-10 22:19:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" ya existe
+Table "USUARIO" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Usuario (
+  usu_password VARCHAR(45) NOT NULL,
+  Per_cedulaCiudadania INT NOT NULL,
+  PRIMARY KEY (Per_cedulaCiudadania),
+  CONSTRAINT fk_Usuario_Persona
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Persona (per_cedulaCiudadania)
+) [42101-200]
+2020-06-10 22:19:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "TRABAJADOR" ya existe
+Table "TRABAJADOR" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Trabajador (
+  Per_cedulaCiudadania INT NOT NULL,
+  tra_Salario DOUBLE NOT NULL,
+  PRIMARY KEY (Per_cedulaCiudadania),
+  CONSTRAINT fk_Trabajador_Persona1
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Persona (per_cedulaCiudadania)
+) [42101-200]
+2020-06-10 22:19:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ARBOL" ya existe
+Table "ARBOL" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Arbol (
+  arb_id INT NOT NULL AUTO_INCREMENT,
+  arb_tipoArb VARCHAR(45) NOT NULL,
+  lote_idLote INT NOT NULL,
+  arb_estado BOOLEAN NOT NULL,
+  arb_fechasiembra DATE NOT NULL,
+  PRIMARY KEY (arb_id),
+  CONSTRAINT fk_Arbol_Lote1
+    FOREIGN KEY (lote_idLote)
+    REFERENCES easycoffebd.Lote (lote_idLote)
+) [42101-200]
+2020-06-10 22:19:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "JORNADA" ya existe
+Table "JORNADA" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Jornada (
+  jor_id INT NOT NULL AUTO_INCREMENT,
+  jor_arrobasRecogidas FLOAT NOT NULL,
+  jor_fechajornada DATE NOT NULL,
+  jor_horaRegistro VARCHAR(45) NOT NULL,
+  lote_idLote INT NOT NULL,
+  Per_cedulaCiudadania INT NOT NULL,
+  PRIMARY KEY (jor_id, lote_idLote, Per_cedulaCiudadania),
+  CONSTRAINT fk_Jornada_Trabajador1
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Trabajador (Per_cedulaCiudadania),
+  CONSTRAINT fk_Jornada_Lote1
+    FOREIGN KEY (lote_idLote)
+    REFERENCES easycoffebd.Lote (lote_idLote)
+) [42101-200]
+2020-06-10 22:19:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PERMISOS" ya existe
+Table "PERMISOS" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Permisos (
+  perm_id INT NOT NULL AUTO_INCREMENT,
+  Per_cedulaCiudadania INT NOT NULL,
+  lote_idLote INT NOT NULL,
+  PRIMARY KEY (perm_id),
+  CONSTRAINT fk_Permisos_Usuario1
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Usuario (Per_cedulaCiudadania),
+  CONSTRAINT fk_Permisos_Lote1
+    FOREIGN KEY (lote_idLote)
+    REFERENCES easycoffebd.Lote (lote_idLote)
+) [42101-200]
+2020-06-10 22:19:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "RESPUESTAS" ya existe
+Table "RESPUESTAS" already exists; SQL statement:
+CREATE TABLE  easycoffebd.Respuestas (
+  Per_cedulaCiudadania INT NOT NULL,
+  res_numero1 VARCHAR(45) NOT NULL,
+  res_numero2 VARCHAR(45) NOT NULL,
+  res_numero3 VARCHAR(45) NOT NULL,
+  PRIMARY KEY (Per_cedulaCiudadania),
+  CONSTRAINT fk_Respuestas_Usuario1
+    FOREIGN KEY (Per_cedulaCiudadania)
+    REFERENCES easycoffebd.Usuario (Per_cedulaCiudadania)
+) [42101-200]
+2020-06-10 22:19:57 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Hp/Documents/NetBeansProjects/EasyCoffee/db/EASYCOFFEBD.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Hp/Documents/NetBeansProjects/EasyCoffee/db/EASYCOFFEBD.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at DAO.DAOManager.<init>(DAOManager.java:28)
+	at Control.InicializarSistema.<init>(InicializarSistema.java:26)
+	at Frontera.FramePrincipal.<clinit>(FramePrincipal.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Hp/Documents/NetBeansProjects/EasyCoffee/db/EASYCOFFEBD.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Hp/Documents/NetBeansProjects/EasyCoffee/db/EASYCOFFEBD.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 27 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Hp/Documents/NetBeansProjects/EasyCoffee/db/EASYCOFFEBD.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 21 more
+2020-06-10 22:20:05 jdbc[5]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:187)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.netbeans.modules.db.explorer.DbDriverManager.getConnection(DbDriverManager.java:131)
+	at org.netbeans.modules.db.explorer.DatabaseConnection.doConnect(DatabaseConnection.java:923)
+	at org.netbeans.modules.db.explorer.DatabaseConnection.access$200(DatabaseConnection.java:103)
+	at org.netbeans.modules.db.explorer.DatabaseConnection$3.run(DatabaseConnection.java:988)
+	at org.openide.util.RequestProcessor$Task.run(RequestProcessor.java:1443)
+	at org.netbeans.modules.openide.util.GlobalLookup.execute(GlobalLookup.java:68)
+	at org.openide.util.lookup.Lookups.executeWith(Lookups.java:303)
+	at org.openide.util.RequestProcessor$Processor.run(RequestProcessor.java:2058)
+
+org.h2.message.DbException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:245)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:186)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.netbeans.modules.db.explorer.DbDriverManager.getConnection(DbDriverManager.java:131)
+	at org.netbeans.modules.db.explorer.DatabaseConnection.doConnect(DatabaseConnection.java:923)
+	at org.netbeans.modules.db.explorer.DatabaseConnection.access$200(DatabaseConnection.java:103)
+	at org.netbeans.modules.db.explorer.DatabaseConnection$3.run(DatabaseConnection.java:988)
+	at org.openide.util.RequestProcessor$Task.run(RequestProcessor.java:1443)
+	at org.netbeans.modules.openide.util.GlobalLookup.execute(GlobalLookup.java:68)
+	at org.openide.util.lookup.Lookups.executeWith(Lookups.java:303)
+	at org.openide.util.RequestProcessor$Processor.run(RequestProcessor.java:2058)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 15 more
