@@ -1,8 +1,11 @@
 package DAO;
 
+import Frontera.FramePrincipal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,7 +29,7 @@ public class DAOManager {
     public DAOManager() {
         try {
             conn = DriverManager.getConnection("jdbc:h2:~/Documents/NetBeansProjects/EasyCoffee/db/EASYCOFFEBD", "admin", "1234");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -94,8 +97,8 @@ public class DAOManager {
         return respuestas;
     }
 
-    public void testConexion() {
-
+    public boolean testConexion() throws SQLException {
+        return conn.isValid(1);
     }
 
     public void cerrarConexion() throws SQLException {
