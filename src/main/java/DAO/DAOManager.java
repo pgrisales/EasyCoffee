@@ -25,7 +25,7 @@ public class DAOManager {
 //    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
     public DAOManager() {
         try {
-            conn = DriverManager.getConnection("jdbc:h2:C:/Users/Camilo Vargas/Documents/NetBeansProjects/EasyCoffee/db", "admin", "1234");
+            conn = DriverManager.getConnection("jdbc:h2:~/easycoffedatabase", "admin", "1234");
         } catch (Exception e) {
             e.printStackTrace();
         }
