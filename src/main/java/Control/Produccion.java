@@ -17,7 +17,7 @@ public class Produccion {
     DAO.DAOManager daoManager;
 
     public Produccion() {
-        this.daoManager = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
+        this.daoManager = new DAOManager();
     }
 
     public boolean RegistrarProduccionBD(float arrobas, int idLote, int cedula) {

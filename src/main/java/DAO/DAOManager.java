@@ -23,15 +23,15 @@ public class DAOManager {
     private PermisosDAO permisos = null;
 
 //    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
-    public DAOManager(String host, String username, String password, String database) {
+    public DAOManager() {
         try {
-            conn = DriverManager.getConnection("jdbc:derby://" + host + "/" + database, username, password);
+            conn = DriverManager.getConnection("jdbc:h2:C:/Users/Camilo Vargas/Documents/NetBeansProjects/EasyCoffee/db", "admin", "1234");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-    public PermisosDAO getPermisosDAO(){
+
+    public PermisosDAO getPermisosDAO() {
         if (permisos == null) {
             permisos = new PermisosDAO(conn);
         }
@@ -86,6 +86,7 @@ public class DAOManager {
         }
         return arboles;
     }
+
     public RespuestasDAO getRespuestasDAO() {
         if (respuestas == null) {
             respuestas = new RespuestasDAO(conn);
@@ -93,7 +94,12 @@ public class DAOManager {
         return respuestas;
     }
 
+    public void testConexion() {
+
+    }
+
     public void cerrarConexion() throws SQLException {
         conn.close();
     }
+
 }

@@ -23,7 +23,7 @@ public class InicializarSistema {
     private ArrayList<Lote> lotes = null;
 
     public InicializarSistema() {
-        this.daoManager = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
+        this.daoManager = new DAOManager();
         this.users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
         for (Usuario u : users) {
             u.setRespuesta(daoManager.getRespuestasDAO().obtener(u.getCedula().intValue()));

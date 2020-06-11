@@ -16,30 +16,30 @@ import javax.swing.DefaultListModel;
  * @author GAR
  */
 public class AsignarLotes extends javax.swing.JPanel {
-    
+
     private UsuarioDAO usuariodao;
     private LoteDAO lotedao;
-    private DAOManager permisos = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
+    private DAOManager permisos = new DAOManager();
     private String error = "";
     static String fondo = "../image/cafe.jpg";
     private String[] answerA = new String[3];
     private ArrayList<Usuario> usuarios = new ArrayList<>();
-    
+
     DefaultListModel modL = new DefaultListModel();
     //DefaultListModel modU = new DefaultListModel();
 
     public AsignarLotes() {
         initComponents();
         usuariosC.removeAllItems();
-        if(FramePrincipal.getSistem().getUsers() != null){
-            for(Usuario u: FramePrincipal.getSistem().getUsers()){
-                usuariosC.addItem(u.getNombre()+" "+u.getApellido());
+        if (FramePrincipal.getSistem().getUsers() != null) {
+            for (Usuario u : FramePrincipal.getSistem().getUsers()) {
+                usuariosC.addItem(u.getNombre() + " " + u.getApellido());
                 usuarios.add(u);
-             } 
+            }
         }
         lotesC.removeAll();
-        if(FramePrincipal.getSistem().getLotes() != null){
-            for(Lote l: FramePrincipal.getSistem().getLotes()){
+        if (FramePrincipal.getSistem().getLotes() != null) {
+            for (Lote l : FramePrincipal.getSistem().getLotes()) {
                 System.out.println(l.getIdLote());
                 modL.addElement(Long.toString(l.getIdLote()));
             }
@@ -49,11 +49,11 @@ public class AsignarLotes extends javax.swing.JPanel {
         System.out.println(usuarios.get(usuariosC.getSelectedIndex()).getCedula());
         //System.out.println(usuariodao.obtener();
     }
-    
-    public void darPermisos(Usuario usuario, int loteId){
+
+    public void darPermisos(Usuario usuario, int loteId) {
         permisos.getPermisosDAO().insertar(usuario, loteId);
         usuario.getIdLotes().add(loteId);
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -124,11 +124,11 @@ public class AsignarLotes extends javax.swing.JPanel {
 
     private void asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarActionPerformed
 
-        for(String s: lotesC.getSelectedValuesList()){
+        for (String s : lotesC.getSelectedValuesList()) {
             darPermisos(usuarios.get(usuariosC.getSelectedIndex()), Integer.valueOf(s));
-            System.out.println("SELECT VALUES OF LOTE "+s);
+            System.out.println("SELECT VALUES OF LOTE " + s);
         }
-        
+
     }//GEN-LAST:event_asignarActionPerformed
 
     private void usuariosCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosCActionPerformed

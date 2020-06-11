@@ -12,8 +12,8 @@ import java.util.*;
 public class UsuarioDAO implements DAO<Usuario, Long> {
 
     final String INSERT = "INSERT INTO EASYCOFFEBD.USUARIO VALUES (?, ?)"; //(PER_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
-    final String UPDATE = "UPDATE EASYCOFFEBD.USUARIO SET USU_PASSWORD = ? WHERE PER_CEDULACIUDADANIA = ?";
-    final String DELETE = "DELETE FROM EASYCOFFEBD.USUARIO WHERE PER_CEDULACIUDADANIA = ?";
+    final String UPDATE = "UPDATE EASYCOFFEBD.USUARIO SET USU_PASSWORD = ? WHERE USUARIO.PER_CEDULACIUDADANIA = ?";
+    final String DELETE = "DELETE FROM EASYCOFFEBD.USUARIO WHERE USUARIO.PER_CEDULACIUDADANIA = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.PERSONA NATURAL JOIN EASYCOFFEBD.USUARIO";
 
     private Connection conn;
@@ -167,7 +167,7 @@ public class UsuarioDAO implements DAO<Usuario, Long> {
         ResultSet rs = null;
         Usuario u = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.PERSONA NATURAL JOIN EASYCOFFEBD.USUARIO WHERE PER_CEDULACIUDADANIA = ?");
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.PERSONA NATURAL JOIN EASYCOFFEBD.USUARIO WHERE USUARIO.PER_CEDULACIUDADANIA = ?");
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {

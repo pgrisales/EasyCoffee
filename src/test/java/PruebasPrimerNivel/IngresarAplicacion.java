@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  */
 public class IngresarAplicacion {
 
-    private static DAO.DAOManager dao = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
+    private static DAO.DAOManager dao = new DAOManager();
     private static int number = 200;
     Control.ControlUsuarios c;
 

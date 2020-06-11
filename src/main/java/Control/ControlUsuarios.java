@@ -14,7 +14,7 @@ public class ControlUsuarios {
     private DAOManager DAO;
 
     public ControlUsuarios() {
-        this.DAO = new DAOManager("localhost:1527", "root", "1234", "easycoffebd");
+        this.DAO = new DAOManager();
     }
 
     public void registrarAdministrador(Administrador admin) throws SQLException {
@@ -49,16 +49,16 @@ public class ControlUsuarios {
     private boolean compararPassword(Long cedula, String contraseña) {
         return contraseña.equals(DAO.getUsuarioDAO().obtener(cedula).getPassword());
     }
-    
-    public boolean verificarEstado(Long cedula){
-        
-        if(DAO.getUsuarioDAO().obtener(cedula).isEstado()){
+
+    public boolean verificarEstado(Long cedula) {
+
+        if (DAO.getUsuarioDAO().obtener(cedula).isEstado()) {
             return true;
         }
         return false;
     }
-    
-    public void setEstadoPersona(Long cedula, boolean est){
+
+    public void setEstadoPersona(Long cedula, boolean est) {
         DAO.getUsuarioDAO().updateEstado(DAO.getUsuarioDAO().obtener(cedula), est);
     }
 
@@ -68,12 +68,12 @@ public class ControlUsuarios {
 
     public boolean inicializarCedula(Long cedula) {
         try {
-            if(DAO.getUsuarioDAO().obtener(cedula) != null){
+            if (DAO.getUsuarioDAO().obtener(cedula) != null) {
                 this.u = DAO.getUsuarioDAO().obtener(cedula);
                 this.u.setRespuesta(DAO.getRespuestasDAO().obtener(cedula.intValue()));
                 //            System.out.println("comparar ced " + this.u);
             }
-            
+
             return true;
         } catch (Exception E) {
             E.printStackTrace();
