@@ -145,6 +145,11 @@ public class EditarLote extends javax.swing.JPanel {
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -301,7 +306,6 @@ public class EditarLote extends javax.swing.JPanel {
                 }
                 String fechabonado = fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
 //                System.out.println(fechabonado);
-
                 String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
 //                System.out.println("ABONADO" + fechadesyerbado);
                 lote = new Lote((long) lotes.size(), area, fechadesyerbado, fechabonado, true);
@@ -317,15 +321,17 @@ public class EditarLote extends javax.swing.JPanel {
         String s=lote.getFechaAbonado();
         String ss[]=s.split("/");
         Calendar c=Calendar.getInstance();
-        c.set(Calendar.DATE, Integer.parseInt(ss[0]));
+        System.out.println(s);
+        System.out.println(ss[2]);
+        c.set(Calendar.DATE, Integer.parseInt(ss[2]));
         c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
-        c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
+        c.set(Calendar.YEAR, Integer.parseInt(ss[0]));
         fechaAbonado.setCalendar(c);
         s=lote.getFechaDesyerbado();
         ss=s.split("/");
-        c.set(Calendar.DATE, Integer.parseInt(ss[0]));
+        c.set(Calendar.DATE, Integer.parseInt(ss[2]));
         c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
-        c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
+        c.set(Calendar.YEAR, Integer.parseInt(ss[0]));
         fechaDesyerbado.setCalendar(c);
     }
     public void setArboles(ArrayList<Arbol> arboles) {
@@ -411,6 +417,10 @@ public class EditarLote extends javax.swing.JPanel {
     private void areaLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaLoteActionPerformed
         setAreaLote();
     }//GEN-LAST:event_areaLoteActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        loteSelec();
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

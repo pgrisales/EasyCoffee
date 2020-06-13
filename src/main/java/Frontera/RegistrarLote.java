@@ -345,7 +345,6 @@ public class RegistrarLote extends javax.swing.JPanel {
             } else {
                 JOptionPane.showMessageDialog(this, "El tamaño del lote no se ha de manera correcta, por favor intentelo de nuevo.");
             }
-
         }
     }//GEN-LAST:event_saveActionPerformed
 
