@@ -839,3 +839,30 @@ The connection was not closed by the application and is garbage collected [90018
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 51 more
+2020-06-13 17:55:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible eliminar "LOTE" debido a que "FK_ARBOL_LOTE1" depende de él.
+Cannot drop "LOTE" because "FK_ARBOL_LOTE1" depends on it; SQL statement:
+drop table "EASYCOFFEBD"."LOTE" [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.netbeans.lib.ddl.impl.AbstractCommand.execute(AbstractCommand.java:222)
+	at org.netbeans.modules.db.explorer.TableExtendedDelete.delete(TableExtendedDelete.java:203)
+	at org.netbeans.modules.db.explorer.DbExtendedDelete.delete(DbExtendedDelete.java:89)
+	at org.netbeans.modules.openide.explorer.ExplorerActionsImpl$DeleteActionPerformer.actionPerformed(ExplorerActionsImpl.java:698)
+	at org.openide.util.actions.ActionInvoker$1.run(ActionInvoker.java:93)
+	at org.openide.util.actions.ActionInvoker$ActionRunnable.actionPerformed(ActionInvoker.java:162)
+	at org.netbeans.core.ModuleActions.invokeAction(ModuleActions.java:109)
+	at org.netbeans.modules.openide.actions.ActionsBridgeImpl.invokeAction(ActionsBridgeImpl.java:60)
+	at org.openide.util.actions.ActionInvoker$ActionRunnable.doRun(ActionInvoker.java:153)
+	at org.openide.util.actions.ActionInvoker$2.run(ActionInvoker.java:110)
+	at org.openide.util.RequestProcessor$Task.run(RequestProcessor.java:1443)
+	at org.netbeans.modules.openide.util.GlobalLookup.execute(GlobalLookup.java:68)
+	at org.openide.util.lookup.Lookups.executeWith(Lookups.java:303)
+	at org.openide.util.RequestProcessor$Processor.run(RequestProcessor.java:2058)
