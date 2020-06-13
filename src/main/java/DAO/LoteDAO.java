@@ -28,8 +28,8 @@ public class LoteDAO implements DAO<Lote, Long> {
 
     private Lote convertir(ResultSet rs) throws SQLException {
 
-        String fDesyerbado = String.valueOf(rs.getDate("LOTE_FECHADESYERBADO"));
-        String fAbonado = String.valueOf(rs.getDate("LOTE_FECHAABONADO"));
+        String fDesyerbado = String.valueOf(rs.getDate("LOTE_FECHADESYERBADO")).replace("-", "/");
+        String fAbonado = String.valueOf(rs.getDate("LOTE_FECHAABONADO")).replace("-", "/");;
         boolean carga = rs.getBoolean("LOTE_CARGA");
         Long idLote = new Long(rs.getInt("LOTE_IDLOTE"));
         double area = rs.getDouble("LOTE_AREATOTAL");
