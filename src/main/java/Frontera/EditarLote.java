@@ -40,7 +40,8 @@ public class EditarLote extends javax.swing.JPanel {
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
         this.jComboBox1.removeAllItems();
-
+        
+//fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
         }
@@ -147,7 +148,7 @@ public class EditarLote extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Ingrese el tamaño del lote");
+        jLabel9.setText("Tamaño del lote");
 
         jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -217,7 +218,7 @@ public class EditarLote extends javax.swing.JPanel {
                                     .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fechaDesyerbado, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                                    .addComponent(fechaDesyerbado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(fechaAbonado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -312,7 +313,21 @@ public class EditarLote extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_saveActionPerformed
-
+    public void setCAlendar(){
+        String s=lote.getFechaAbonado();
+        String ss[]=s.split("/");
+        Calendar c=Calendar.getInstance();
+        c.set(Calendar.DATE, Integer.parseInt(ss[0]));
+        c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
+        c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
+        fechaAbonado.setCalendar(c);
+        s=lote.getFechaDesyerbado();
+        ss=s.split("/");
+        c.set(Calendar.DATE, Integer.parseInt(ss[0]));
+        c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
+        c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
+        fechaDesyerbado.setCalendar(c);
+    }
     public void setArboles(ArrayList<Arbol> arboles) {
         this.arboles = arboles;
     }
@@ -351,7 +366,16 @@ public class EditarLote extends javax.swing.JPanel {
             this.jTable1.setValueAt(numero[i], i, 1);
         }
     }
-
+    public void setAreaLote(){
+        double area=lote.getAreaTotal();
+        if (jComboBox1.getSelectedIndex() == 0) {
+                    area = area / 1000000;
+                }
+                if (jComboBox1.getSelectedIndex() == 2) {
+                    area = area / 10000;
+                }
+        this.areaLote.setText(area+"");
+    }
     public void loteSelec() {
 //        System.out.println("sfdsdfsf" + (this.lotesC.getSelectedIndex() != -1));
         if (this.lotesC.getSelectedIndex() != -1) {
@@ -360,7 +384,9 @@ public class EditarLote extends javax.swing.JPanel {
             lote = FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex());
             arboles = lote.getArbolesVivos();
             numArboles.setText(arboles.size() + "");
+            setAreaLote();
             numeroArboles();
+            setCAlendar();
         }
     }
 
@@ -383,7 +409,7 @@ public class EditarLote extends javax.swing.JPanel {
     }//GEN-LAST:event_lotesCActionPerformed
 
     private void areaLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaLoteActionPerformed
-        // TODO add your handling code here:
+        setAreaLote();
     }//GEN-LAST:event_areaLoteActionPerformed
 
 

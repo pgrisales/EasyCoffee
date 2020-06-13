@@ -32,7 +32,7 @@ public class RegistrarLote extends javax.swing.JPanel {
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
         lote = null;
-        this.lotes = lotes;
+        this.lotes = FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
         this.jComboBox1.removeAllItems();
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
@@ -332,7 +332,7 @@ public class RegistrarLote extends javax.swing.JPanel {
                 System.out.println(fechabonado);
 
                 String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
-                System.out.println("ABONADO" + fechadesyerbado);
+                System.out.println("lotes_tam_" + lotes.size());
 
                 lote = new Lote((long) lotes.size(), area, fechadesyerbado, fechabonado, true);
                 lote.setArbolesVivos(loTe.getArbolesLote());
