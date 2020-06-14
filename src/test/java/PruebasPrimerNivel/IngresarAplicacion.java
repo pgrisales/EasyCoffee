@@ -31,7 +31,7 @@ public class IngresarAplicacion {
         for (int i = 0; i < number; i++) {
             Persona p = new Persona((long) (1000 + i), "Test" + i, "Test" + i, true);
             dao.getPersonaDAO().insertar(p);
-            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true);
+            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true, false);
             dao.getUsuarioDAO().insertar(u);
         }
     }
@@ -39,7 +39,7 @@ public class IngresarAplicacion {
     @AfterClass
     public static void tearDownClass() throws SQLException {
         for (int i = 0; i < number; i++) {
-            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true);
+            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true, false);
             dao.getUsuarioDAO().eliminar(u);
             Persona p = new Persona((long) (1000 + i), "Test" + i, "Test" + i, true);
             dao.getPersonaDAO().eliminar(p);
@@ -61,7 +61,7 @@ public class IngresarAplicacion {
     public void existenciaUsuario() {
         boolean verificados;
         for (int i = 0; i < number; i++) {
-            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true);
+            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true, false);
             boolean existe = c.verificarExistenciaCedula(u.getCedula());
             if (!existe) {
                 assertTrue(false);
@@ -75,7 +75,7 @@ public class IngresarAplicacion {
     public void ingresarAlSistema() {
         boolean autenticados;
         for (int i = 0; i < number; i++) {
-            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true);
+            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true, false);
             boolean acceso = c.verificarLogin(u.getCedula(), u.getPassword());
             if (!acceso) {
                 assertTrue(false);
