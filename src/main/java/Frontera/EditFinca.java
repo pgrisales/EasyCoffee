@@ -1,8 +1,13 @@
 package Frontera;
 
+import WebS.Mapa;
 import com.easycoffee.Lote;
 import java.awt.Color;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -55,6 +60,8 @@ public class EditFinca extends javax.swing.JPanel {
         editAuxB = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
         asignarLoteB = new javax.swing.JButton();
+        jSeparator7 = new javax.swing.JToolBar.Separator();
+        mapB = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         tam = new javax.swing.JLabel();
@@ -172,6 +179,21 @@ public class EditFinca extends javax.swing.JPanel {
             }
         });
         jToolBar1.add(asignarLoteB);
+        jToolBar1.add(jSeparator7);
+
+        mapB.setBackground(new java.awt.Color(102, 0, 0));
+        mapB.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        mapB.setForeground(new java.awt.Color(255, 255, 255));
+        mapB.setText("Map");
+        mapB.setFocusable(false);
+        mapB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mapB.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        mapB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mapBActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(mapB);
 
         jLabel1.setBackground(new java.awt.Color(222, 222, 222));
         jLabel1.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
@@ -303,6 +325,18 @@ public class EditFinca extends javax.swing.JPanel {
         FramePrincipal.cambiarPanel376(new AsignarLotes());
     }//GEN-LAST:event_asignarLoteBActionPerformed
 
+    private void mapBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mapBActionPerformed
+        try {
+            Mapa.iniciar();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(EditFinca.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(EditFinca.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(EditFinca.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_mapBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddTrabajador;
@@ -320,7 +354,9 @@ public class EditFinca extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
+    private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JButton mapB;
     private javax.swing.JLabel name;
     private javax.swing.JLabel tam;
     // End of variables declaration//GEN-END:variables
