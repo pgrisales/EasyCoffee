@@ -203,7 +203,7 @@ public class Ingreso extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
                 }
             }else{
-                JOptionPane.showMessageDialog(null, "EL USUARIO ESTA DESACTIVADO");
+                JOptionPane.showMessageDialog(null, "El usuario está desactivado o no existe!");
             }
         } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "¡Datos inválidos!");
