@@ -2,6 +2,7 @@ package Control;
 
 import DAO.DAOManager;
 import com.easycoffee.*;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
 /**
@@ -20,7 +21,7 @@ public class ControlUsuarios {
     public void registrarAdministrador(Administrador admin) throws SQLException {
         Persona p = new Persona(admin.getCedula(), admin.getNombre(), admin.getApellido(), true);
         DAO.getPersonaDAO().insertar(p);
-        Usuario u = new Usuario(admin.getPassword(), admin.getCedula(), admin.getNombre(), admin.getApellido(), true, admin.getRespuesta()[0], admin.getRespuesta()[0], admin.getRespuesta()[0]);
+        Usuario u = new Usuario(admin.getPassword(), admin.getCedula(), admin.getNombre(), admin.getApellido(), true, admin.getRespuesta()[0], admin.getRespuesta()[0], admin.getRespuesta()[0], true);
         DAO.getUsuarioDAO().insertar(u);
         DAO.getRespuestasDAO().insertar(u);
         DAO.cerrarConexion();
@@ -29,10 +30,14 @@ public class ControlUsuarios {
     public void registrarAuxiliar(Usuario user) throws SQLException {
         Persona p = new Persona(user.getCedula(), user.getNombre(), user.getApellido(), true);
         DAO.getPersonaDAO().insertar(p);
-        Usuario u = new Usuario(user.getPassword(), user.getCedula(), user.getNombre(), user.getApellido(), true, user.getRespuesta()[0], user.getRespuesta()[0], user.getRespuesta()[0]);
+        Usuario u = new Usuario(user.getPassword(), user.getCedula(), user.getNombre(), user.getApellido(), true, user.getRespuesta()[0], user.getRespuesta()[0], user.getRespuesta()[0], false);
+        
         DAO.getUsuarioDAO().insertar(u);
         DAO.getRespuestasDAO().insertar(u);
         DAO.cerrarConexion();
+    }
+    public void registrarFotoUsuario(int id, String ruta) throws FileNotFoundException{
+        DAO.getUsuarioDAO().insertarFoto(new Long(id), ruta);
     }
 
     public void registrarTrabajador(Trabajador trabajador) throws SQLException {

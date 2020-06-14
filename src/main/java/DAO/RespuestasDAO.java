@@ -29,7 +29,7 @@ public class RespuestasDAO {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setInt(1, (int) (long) u.getCedula());
+            stat.setInt(1, u.getCedula().intValue());
             String[] aux = u.getRespuesta();
             stat.setString(2, aux[0]);
             stat.setString(3, aux[1]);

@@ -293,7 +293,7 @@ public class EditFinca extends javax.swing.JPanel {
         agregarLote.setBackground(new Color(152, 51, 0));
         AddTrabajador.setBackground(new Color(102, 0, 0));
         addAux.setBackground(new Color(102, 0, 0));
-        FramePrincipal.cambiarPanel376(new EditarAuxiliar());
+        FramePrincipal.cambiarPanel376(new EditarAuxiliar(cedula));
     }//GEN-LAST:event_editAuxBActionPerformed
 
     private void asignarLoteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarLoteBActionPerformed

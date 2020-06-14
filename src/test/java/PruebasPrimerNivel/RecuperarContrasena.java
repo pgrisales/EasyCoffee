@@ -30,7 +30,7 @@ public class RecuperarContrasena {
         for (int i = 0; i < number; i++) {
             Persona p = new Persona((long) (1000 + i), "Test" + i, "Test" + i, true);
             dao.getPersonaDAO().insertar(p);
-            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true);
+            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true, false);
             String[] res = {"respuesta1", "respuesta2", "respuesta3"};
             u.setRespuesta(res);
             dao.getUsuarioDAO().insertar(u);
@@ -41,7 +41,7 @@ public class RecuperarContrasena {
     @AfterClass
     public static void tearDownClass() throws SQLException {
         for (int i = 0; i < number; i++) {
-            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true);
+            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true, false);
             dao.getRespuestasDAO().eliminar(u);
             dao.getUsuarioDAO().eliminar(u);
             Persona p = new Persona((long) (1000 + i), "Test" + i, "Test" + i, true);
@@ -64,7 +64,7 @@ public class RecuperarContrasena {
     public void RecuperarContraseña() throws SQLException {
         for (int i = 0; i < number; i++) {
             c = new ControlUsuarios();
-            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true);
+            Usuario u = new Usuario("password", (long) (1000 + i), "Test" + i, "Test" + i, true, false);
             String[] res = {"respuesta1", "respuesta2", "respuesta3"};
             c.inicializarCedula(u.getCedula());
             boolean q = c.compararRespuestas(res[0], 0);

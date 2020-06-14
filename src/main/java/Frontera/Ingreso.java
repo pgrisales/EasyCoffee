@@ -178,7 +178,7 @@ public class Ingreso extends javax.swing.JPanel {
                 if (validacion.verificarLogin(cedula, password.getText())) {
                 FramePrincipal.setCedula((int) cedula);
                     if (cedula == FramePrincipal.getSistem().getAdmin().getCedula()) {
-                        System.out.println(FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca());
+                        
                         if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
                             FramePrincipal.menuVisible(true);
                             FramePrincipal.menuPanelPrincipal(false);
@@ -197,7 +197,12 @@ public class Ingreso extends javax.swing.JPanel {
                     } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
                         JOptionPane.showMessageDialog(null, "No existe Finca");
                     } else {
-                        FramePrincipal.cambiarPanel(new RegistrarProduccion((int) cedula));
+                            FramePrincipal.menuVisible(true);
+                            FramePrincipal.menuPanelPrincipal(false);
+                            FramePrincipal.cambiarPanel127(new MenuSeleccionAux((int) cedula));
+                            javax.swing.JPanel panelj = new javax.swing.JPanel();
+                            FramePrincipal.cambiarPanel376(panelj);
+                            FramePrincipal.menuDoublePanel(true);
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");

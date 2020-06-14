@@ -348,7 +348,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
           if (datosCorrectos() == true) {
             JOptionPane.showMessageDialog(null, "Usuario Registrado");
             Usuario a;
-            a = new Usuario(password.getText(), (long) Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true, answerA[0], answerA[1], answerA[2]);
+            a = new Usuario(password.getText(), (long) Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true, answerA[0], answerA[1], answerA[2], false);
             ControlUsuarios b = new ControlUsuarios();
             try {
                 b.registrarAuxiliar(a);

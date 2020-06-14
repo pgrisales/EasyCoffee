@@ -6,16 +6,15 @@ import javax.swing.ImageIcon;
  *
  * @author Camilo Vargas
  */
-public class MenuSeleccion extends javax.swing.JPanel {
+public class MenuSeleccionAux extends javax.swing.JPanel {
 
     static String fondo = "../image/cafe.jpg";
 
     private int cedula;
 
-    public MenuSeleccion(int cedula) {
+    public MenuSeleccionAux(int cedula) {
         initComponents();
         this.cedula = cedula;
-//        usuarios.setIcon(new ImageIcon("../image/Imagen1.png"));
     }
 
     /**
@@ -30,19 +29,17 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
-        usuarios = new javax.swing.JButton();
+        produccion = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jSeparator6 = new javax.swing.JToolBar.Separator();
-        produccion = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
+        verPerfil = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JToolBar.Separator();
-        finanzas = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         jSeparator4 = new javax.swing.JToolBar.Separator();
-        estadisticas = new javax.swing.JButton();
+        modPerfil = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JToolBar.Separator();
         jSeparator8 = new javax.swing.JToolBar.Separator();
-        estadisticas1 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(900, 127));
         setMinimumSize(new java.awt.Dimension(900, 127));
@@ -60,19 +57,6 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jToolBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jToolBar1.setRollover(true);
 
-        usuarios.setBackground(new java.awt.Color(102, 0, 0));
-        usuarios.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
-        usuarios.setForeground(new java.awt.Color(255, 255, 255));
-        usuarios.setText("Gestión Usuarios");
-        usuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuariosActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(usuarios);
-        jToolBar1.add(jSeparator1);
-        jToolBar1.add(jSeparator6);
-
         produccion.setBackground(new java.awt.Color(102, 0, 0));
         produccion.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         produccion.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,48 +67,36 @@ public class MenuSeleccion extends javax.swing.JPanel {
             }
         });
         jToolBar1.add(produccion);
+        jToolBar1.add(jSeparator1);
+        jToolBar1.add(jSeparator6);
         jToolBar1.add(jSeparator2);
-        jToolBar1.add(jSeparator5);
 
-        finanzas.setBackground(new java.awt.Color(102, 0, 0));
-        finanzas.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
-        finanzas.setForeground(new java.awt.Color(255, 255, 255));
-        finanzas.setText("Administracion Contable");
-        finanzas.addActionListener(new java.awt.event.ActionListener() {
+        verPerfil.setBackground(new java.awt.Color(102, 0, 0));
+        verPerfil.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        verPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        verPerfil.setText("Ver Perfil");
+        verPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finanzasActionPerformed(evt);
+                verPerfilActionPerformed(evt);
             }
         });
-        jToolBar1.add(finanzas);
+        jToolBar1.add(verPerfil);
+        jToolBar1.add(jSeparator5);
         jToolBar1.add(jSeparator3);
         jToolBar1.add(jSeparator4);
 
-        estadisticas.setBackground(new java.awt.Color(102, 0, 0));
-        estadisticas.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
-        estadisticas.setForeground(new java.awt.Color(255, 255, 255));
-        estadisticas.setText("Reportes y Estadísticas");
-        estadisticas.addActionListener(new java.awt.event.ActionListener() {
+        modPerfil.setBackground(new java.awt.Color(102, 0, 0));
+        modPerfil.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        modPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        modPerfil.setText("Modificar Perfil");
+        modPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                estadisticasActionPerformed(evt);
+                modPerfilActionPerformed(evt);
             }
         });
-        jToolBar1.add(estadisticas);
+        jToolBar1.add(modPerfil);
         jToolBar1.add(jSeparator7);
         jToolBar1.add(jSeparator8);
-
-        estadisticas1.setBackground(new java.awt.Color(102, 0, 0));
-        estadisticas1.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
-        estadisticas1.setForeground(new java.awt.Color(255, 255, 255));
-        estadisticas1.setText("Gestion Finca");
-        estadisticas1.setFocusable(false);
-        estadisticas1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        estadisticas1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        estadisticas1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                estadisticas1ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(estadisticas1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -156,30 +128,19 @@ public class MenuSeleccion extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
-        FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
-    }//GEN-LAST:event_usuariosActionPerformed
+    private void verPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPerfilActionPerformed
+
+    }//GEN-LAST:event_verPerfilActionPerformed
 
     private void produccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produccionActionPerformed
         FramePrincipal.cambiarPanel376(new MenuProduccion(cedula));
     }//GEN-LAST:event_produccionActionPerformed
 
-    private void finanzasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finanzasActionPerformed
+    private void modPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modPerfilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_finanzasActionPerformed
-
-    private void estadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_estadisticasActionPerformed
-
-    private void estadisticas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticas1ActionPerformed
-        FramePrincipal.cambiarPanel127(new EditFinca(cedula));
-    }//GEN-LAST:event_estadisticas1ActionPerformed
+    }//GEN-LAST:event_modPerfilActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton estadisticas;
-    private javax.swing.JButton estadisticas1;
-    private javax.swing.JButton finanzas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JToolBar.Separator jSeparator1;
@@ -191,7 +152,8 @@ public class MenuSeleccion extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JButton modPerfil;
     private javax.swing.JButton produccion;
-    private javax.swing.JButton usuarios;
+    private javax.swing.JButton verPerfil;
     // End of variables declaration//GEN-END:variables
 }

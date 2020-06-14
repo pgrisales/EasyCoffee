@@ -354,7 +354,7 @@ public class Registro extends javax.swing.JPanel {
         if (datosCorrectos() == true) {
             JOptionPane.showMessageDialog(null, "Usuario Registrado");
             Administrador a;
-            a = new Administrador(password.getText(), (long) Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true, answerA[0], answerA[1], answerA[2]);
+            a = new Administrador(password.getText(), (long) Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true, answerA[0], answerA[1], answerA[2], true);
             ControlUsuarios b = new ControlUsuarios();
             try {
                 b.registrarAdministrador(a);

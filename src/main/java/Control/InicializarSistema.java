@@ -25,15 +25,21 @@ public class InicializarSistema {
     public InicializarSistema() {
         this.daoManager = new DAOManager();
         this.users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
+        int a = 0;
+        int i = 0;
         for (Usuario u : users) {
             u.setRespuesta(daoManager.getRespuestasDAO().obtener(u.getCedula().intValue()));
             if (daoManager.getPermisosDAO().obtenerTodos(u).size() > 0) {
                 u.setIdLotes(daoManager.getPermisosDAO().obtenerTodos(u));
             }
+            if(u.isRol()){
+                i = a;
+            }
+            a++;
         }
         if (!users.isEmpty()) {
-            Usuario u = users.remove(0);
-            this.admin = new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0], u.getRespuesta()[1], u.getRespuesta()[2]);
+            Usuario u = users.remove(i);
+            this.admin = new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0], u.getRespuesta()[1], u.getRespuesta()[2], u.isRol());
             System.gc();
             if (admin != null) {
                 this.admin.setFinca(daoManager.getFincaDAO().obtener(1));
