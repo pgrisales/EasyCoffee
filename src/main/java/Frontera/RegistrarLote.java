@@ -33,12 +33,14 @@ public class RegistrarLote extends javax.swing.JPanel {
         fechaDesyerbado.setCalendar(Calendar.getInstance());
         lote = null;
         this.lotes = FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
+        loteID.setText(this.lotes.size() + "");
+        loTe.setArboles(arboles);
         this.jComboBox1.removeAllItems();
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
         }
-        loteID.setText(lotes.size() + "");
-        loTe.setArboles(arboles);
+        
+
     }
 
     /**
