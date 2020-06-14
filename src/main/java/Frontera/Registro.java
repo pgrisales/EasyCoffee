@@ -369,7 +369,7 @@ public class Registro extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intentelo.");
                     break;
                 }
-                case "NombreApellidoIn": {
+                case "nombreApellidoIn": {
                     JOptionPane.showMessageDialog(null, "Los nombres o apellidos no se han digitado de manera correcta, por favor intentelo de nuevo.");
                     break;
                 }

@@ -336,7 +336,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
                 } else if (Preguntas() == false) {
                     error = "answer";
                     b = false;
-                } else if ((ap.length() < 15 && ap.length() > 3 && nm.length() < 15 && nm.length() > 3) == false) {
+                } else if ((ap.length() < 20 && ap.length() > 3 && nm.length() < 20 && nm.length() > 3) == false) {
                     error = "nombreApellidoIn";
                     b = false;
                 }

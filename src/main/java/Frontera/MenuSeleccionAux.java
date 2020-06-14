@@ -37,7 +37,6 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         jSeparator5 = new javax.swing.JToolBar.Separator();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         jSeparator4 = new javax.swing.JToolBar.Separator();
-        modPerfil = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JToolBar.Separator();
         jSeparator8 = new javax.swing.JToolBar.Separator();
 
@@ -84,17 +83,6 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         jToolBar1.add(jSeparator5);
         jToolBar1.add(jSeparator3);
         jToolBar1.add(jSeparator4);
-
-        modPerfil.setBackground(new java.awt.Color(102, 0, 0));
-        modPerfil.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
-        modPerfil.setForeground(new java.awt.Color(255, 255, 255));
-        modPerfil.setText("Modificar Perfil");
-        modPerfil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modPerfilActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(modPerfil);
         jToolBar1.add(jSeparator7);
         jToolBar1.add(jSeparator8);
 
@@ -129,16 +117,12 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void verPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPerfilActionPerformed
-
+        FramePrincipal.cambiarPanel376(new PerfilUsuario(cedula));
     }//GEN-LAST:event_verPerfilActionPerformed
 
     private void produccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produccionActionPerformed
         FramePrincipal.cambiarPanel376(new MenuProduccion(cedula));
     }//GEN-LAST:event_produccionActionPerformed
-
-    private void modPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modPerfilActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modPerfilActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -152,7 +136,6 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JButton modPerfil;
     private javax.swing.JButton produccion;
     private javax.swing.JButton verPerfil;
     // End of variables declaration//GEN-END:variables

@@ -127,4 +127,8 @@ public class ControlUsuarios {
     public void almacenarFinca(Finca f) {
         this.DAO.getFincaDAO().insertar(f);
     }
+    
+    public Usuario obtenerUser(int cedula) {
+        return DAO.getUsuarioDAO().obtener(new Long(cedula));
+    }
 }
