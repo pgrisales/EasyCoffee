@@ -84,6 +84,7 @@ public class EditarLote extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         lotesC = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
+        RegisArbolM = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(900, 376));
         setMinimumSize(new java.awt.Dimension(900, 376));
@@ -97,19 +98,19 @@ public class EditarLote extends javax.swing.JPanel {
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Típica", "0"},
-                {"Borbón", "0"},
-                {"Maragogipe", "0"},
-                {"Tabi", "0"},
-                {"Caturra", "0"},
-                {"Variedad Colombia", "0"}
+                {"Típica", "0", "0"},
+                {"Borbón", "0", "0"},
+                {"Maragogipe", "0", "0"},
+                {"Tabi", "0", "0"},
+                {"Caturra", "0", "0"},
+                {"Variedad Colombia", "0", "0"}
             },
             new String [] {
-                "Variedad", "Cantidad de Arboles"
+                "Variedad", "Cantidad de Arboles vivos", "Cantidad de Arboles muertos"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false
+                true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -202,6 +203,16 @@ public class EditarLote extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Lotes registrados:");
 
+        RegisArbolM.setBackground(new java.awt.Color(102, 0, 0));
+        RegisArbolM.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        RegisArbolM.setForeground(new java.awt.Color(255, 255, 255));
+        RegisArbolM.setText("Registrar arbol muerto");
+        RegisArbolM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisArbolMActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -211,11 +222,13 @@ public class EditarLote extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addArboles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(496, 496, 496)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(RegisArbolM, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(287, 287, 287)
                         .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,7 +277,9 @@ public class EditarLote extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addArboles, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addArboles, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RegisArbolM, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(106, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -301,12 +316,12 @@ public class EditarLote extends javax.swing.JPanel {
                 if (jComboBox1.getSelectedIndex() == 2) {
                     area = area * 10000;
                 }
+                lote.setAreaTotal(area);
                 String fechabonado = fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
-//                System.out.println(fechabonado);
+                lote.setFechaAbonado(fechabonado);
                 String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
-//                System.out.println("ABONADO" + fechadesyerbado);
+                lote.setFechaDesyerbado(fechadesyerbado);
                 lote = new Lote((long) lotes.size(), area, fechadesyerbado, fechabonado, true);
-                lote.setArbolesVivos(ventanaArboles.getArbolesLote());
                 p.RegistrarArbolesVivos(lote.getArbolesVivos());
             } else {
                 JOptionPane.showMessageDialog(this, "El tamaño del lote no se ha de manera correcta, por favor intentelo de nuevo.");
@@ -337,36 +352,56 @@ public class EditarLote extends javax.swing.JPanel {
 
     public void numeroArboles() {
         int[] numero = new int[6];
+        int[] numeroM = new int[6];
         for (int i = 0; i < this.arboles.size(); i++) {
             switch (this.arboles.get(i).getVariedad()) {
                 case "Típica": {
-                    numero[0]++;
+                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                        numero[0]++;
+                    else
+                        numeroM[0]++;
                     break;
                 }
                 case "Borbón": {
-                    numero[1]++;
+                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                        numero[1]++;
+                    else
+                        numeroM[1]++;
                     break;
                 }
                 case "Maragogipe": {
-                    numero[2]++;
+                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                        numero[2]++;
+                    else
+                        numeroM[2]++;
                     break;
                 }
                 case "Tabi": {
-                    numero[3]++;
+                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                        numero[3]++;
+                    else
+                        numeroM[3]++;
                     break;
                 }
                 case "Caturra": {
-                    numero[4]++;
+                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                        numero[4]++;
+                    else
+                        numeroM[4]++;
                     break;
                 }
                 case "Variedad Colombia": {
-                    numero[5]++;
+                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                        numero[5]++;
+                    else
+                        numeroM[5]++;
                     break;
                 }
             }
         }
         for (int i = 0; i < 6; i++) {
             this.jTable1.setValueAt(numero[i], i, 1);
+            this.jTable1.setValueAt(numeroM[i], i, 2);
         }
     }
     public void setAreaLote(){
@@ -419,8 +454,23 @@ public class EditarLote extends javax.swing.JPanel {
         loteSelec();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void RegisArbolMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisArbolMActionPerformed
+        AgregarArbolesMuertos agregar=new AgregarArbolesMuertos(lote);
+        JOptionPane.showMessageDialog(this, agregar);
+        this.lote=agregar.getLote();
+        int numeroArboles=0;
+        for (int i = 0; i < arboles.size(); i++) {
+            if(lote.getArbolesVivos().get(i).isEstadoArbolVivo()==true)
+                numeroArboles++;
+        }
+        numArboles.setText(numeroArboles + "");
+        numeroArboles();
+        FramePrincipal.cambiarPanel376(this);
+    }//GEN-LAST:event_RegisArbolMActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton RegisArbolM;
     private javax.swing.JButton addArboles;
     private javax.swing.JTextField areaLote;
     private com.toedter.calendar.JDateChooser fechaAbonado;
