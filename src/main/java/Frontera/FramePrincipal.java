@@ -1,11 +1,7 @@
 package Frontera;
 
 import Control.InicializarSistema;
-import WebS.PrecioCafe;
 import java.awt.Color;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -26,14 +22,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private static String panel;
     public static InicializarSistema sistem = new InicializarSistema();
     public static String[] preguntas = {"¿Cuál es el nombre de tu primera mascota?", "¿Cuál es tu comida favorita?", "¿Quíen era el héroe de tu infancia?"};
-
-    public static Fondo getFondo() {
-        return fondo;
-    }
-
-    public static void setFondo(Fondo fondo) {
-        FramePrincipal.fondo = fondo;
-    }
     private static Fondo fondo;
     private Ingreso ingreso = new Ingreso();
 
@@ -88,6 +76,10 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     public static void setSistem(InicializarSistema sistem) {
         FramePrincipal.sistem = sistem;
+    }
+
+    public static void setFondo(Fondo fondo) {
+        FramePrincipal.fondo = fondo;
     }
 
     public static void cambiarPanel(JPanel panel) {

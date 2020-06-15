@@ -38,6 +38,7 @@ public class Produccion {
         return true;
     }
 
+    /*Inicio Metodos Registrar Arboles*/
     public void RegistrarArbolesVivos(Lote lote) {
         for (Arbol a : lote.getArbolesVivos()) {
             daoManager.getArbolDAO().insertar(a);
@@ -47,7 +48,8 @@ public class Produccion {
     public void RegistrarArbolesVivos(ArrayList<Arbol> arboles) {
         for (Arbol a : arboles) {
             daoManager.getArbolDAO().insertar(a);
-        }//No estariamos volviendo a insertar todos de nuevo??? heyy
+        }
     }
-
+    /*Fin Metodos Registrar Arboles*/
+    
 }

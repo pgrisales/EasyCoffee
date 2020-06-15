@@ -4,7 +4,6 @@ import com.easycoffee.Lote;
 import Control.*;
 import com.easycoffee.Trabajador;
 import javax.swing.JOptionPane;
-import javax.swing.colorchooser.AbstractColorChooserPanel;
 
 /**
  *
@@ -263,25 +262,25 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             Produccion p = new Produccion();
             p.RegistrarProduccionBD(arrobas, FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotes.getSelectedIndex() - 1).getIdLote().intValue(),
                     FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().get(trabajadores.getSelectedIndex() - 1).getCedula().intValue());
-            JOptionPane.showMessageDialog(null, "Jornada añadida.");
+            JOptionPane.showMessageDialog(null, "Jornada Añadida");
             ingresados = true;
         }
         if (cedula == FramePrincipal.getSistem().getAdmin().getCedula().intValue()) {
             FramePrincipal.cambiarPanel376(new RegistrarProduccion(cedula));
-        }else{
+        } else {
             FramePrincipal.cambiarPanel(new RegistrarProduccion(cedula));
         }
     }//GEN-LAST:event_aniadirActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        if(cedula == FramePrincipal.getSistem().getAdmin().getCedula().intValue()){
+        if (cedula == FramePrincipal.getSistem().getAdmin().getCedula().intValue()) {
             FramePrincipal.cambiarPanel376(new MenuProduccion(cedula));
-        }else{
+        } else {
             FramePrincipal.cambiarPanel(new Ingreso());
             FramePrincipal.menuPanelPrincipal(true);
             FramePrincipal.menuVisible(false);
         }
-        
+
     }//GEN-LAST:event_volverActionPerformed
 
     private void cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadActionPerformed
@@ -299,7 +298,6 @@ public class RegistrarProduccion extends javax.swing.JPanel {
     private void lotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lotesActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aniadir;

@@ -1,13 +1,10 @@
 package Frontera;
 
-import Control.InicializarSistema;
 import Control.ControlUsuarios;
 import com.easycoffee.Administrador;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.ComboBox;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,13 +18,11 @@ public class Registro extends javax.swing.JPanel {
     private String[] answerA = new String[3];
 
     public Registro() {
-
         initComponents();
         questions.removeAllItems();
         for (int i = 0; i < FramePrincipal.preguntas.length; i++) {
             questions.addItem(FramePrincipal.preguntas[i]);
         }
-
     }
 
     public boolean Preguntas() {
@@ -430,7 +425,6 @@ public class Registro extends javax.swing.JPanel {
     private void questionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_questionsActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField answer;

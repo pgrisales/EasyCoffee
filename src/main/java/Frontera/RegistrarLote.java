@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Frontera;
 
-import Frontera.*;
 import com.easycoffee.Arbol;
 import com.easycoffee.Lote;
-import java.awt.Color;
-import java.awt.LayoutManager;
 import java.util.ArrayList;
 import java.util.Calendar;
-import javax.swing.GroupLayout;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import Control.Produccion;
 
@@ -28,7 +18,7 @@ public class RegistrarLote extends javax.swing.JPanel {
     public RegistrarLote(ArrayList<Lote> lotes) {
         initComponents();
         this.loTe = new AgregarArboles(1);
-        arboles = new ArrayList<Arbol>();
+        arboles = new ArrayList<>();
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
         lote = null;
@@ -39,7 +29,6 @@ public class RegistrarLote extends javax.swing.JPanel {
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
         }
-        
 
     }
 

@@ -1,8 +1,6 @@
 package Frontera;
 
-import com.easycoffee.Lote;
 import Control.*;
-import com.easycoffee.Trabajador;
 import com.easycoffee.Usuario;
 import java.awt.Image;
 import java.io.FileInputStream;
@@ -11,8 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.colorchooser.AbstractColorChooserPanel;
 
 /**
  *
@@ -31,12 +27,11 @@ public class PerfilUsuario extends javax.swing.JPanel {
         cedula.setText(String.valueOf(ced));
         Usuario x = u.obtenerUser(ced);
         this.id = ced;
-        this.Name.setText(x.getNombre()+" "+x.getApellido());
+        this.Name.setText(x.getNombre() + " " + x.getApellido());
         ImageIcon imagen = x.getImagen();
         Foto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(149, 200, Image.SCALE_SMOOTH)));
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,27 +114,26 @@ public class PerfilUsuario extends javax.swing.JPanel {
         String ruta;
         int ap = j.showOpenDialog(this);
         FileInputStream fi = null;
-        if(ap == JFileChooser.APPROVE_OPTION){
+        if (ap == JFileChooser.APPROVE_OPTION) {
             ruta = j.getSelectedFile().getAbsolutePath();
             ImageIcon imagen = new ImageIcon(ruta);
             Foto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(Foto.getWidth(), Foto.getHeight(), Image.SCALE_DEFAULT)));
             ControlUsuarios u = new ControlUsuarios();
             Usuario x = null;
-            for(Usuario user : FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares()){
-                if(user.getCedula().intValue() == id){
+            for (Usuario user : FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares()) {
+                if (user.getCedula().intValue() == id) {
                     user.setImagen(imagen);
                     x = user;
                 }
             }
-           try {
-               u.registrarFotoUsuario(x.getCedula().intValue(), ruta);
-           } catch (FileNotFoundException ex) {
-               Logger.getLogger(EditarAuxiliar.class.getName()).log(Level.SEVERE, null, ex);
-           }
+            try {
+                u.registrarFotoUsuario(x.getCedula().intValue(), ruta);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(EditarAuxiliar.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        
-    }//GEN-LAST:event_actualizarActionPerformed
 
+    }//GEN-LAST:event_actualizarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Foto;

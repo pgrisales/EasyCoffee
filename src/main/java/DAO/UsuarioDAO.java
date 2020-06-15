@@ -1,6 +1,5 @@
 package DAO;
 
-import Frontera.FramePrincipal;
 import com.easycoffee.Persona;
 import com.easycoffee.Usuario;
 import java.awt.image.BufferedImage;

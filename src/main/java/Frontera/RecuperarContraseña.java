@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class RecuperarContraseña extends javax.swing.JPanel {
 
     static String fondo = "../image/cafe.jpg";
-    
+
     public RecuperarContraseña() {
         initComponents();
         questions.removeAllItems();
@@ -143,19 +143,18 @@ public class RecuperarContraseña extends javax.swing.JPanel {
         Control.ControlUsuarios r = new Control.ControlUsuarios();
         try {
             if (r.inicializarCedula((long) Integer.parseInt(cedula.getText())) && r.compararRespuestas(answer.getText(), questions.getSelectedIndex())) {
-            FramePrincipal.cambiarPanel(new CambiarContraseña(Integer.parseInt(cedula.getText())));
-        } else {
-            JOptionPane.showMessageDialog(null, "No ha ingresado la respuesta correcta.");
-        }
+                FramePrincipal.cambiarPanel(new CambiarContraseña(Integer.parseInt(cedula.getText())));
+            } else {
+                JOptionPane.showMessageDialog(null, "La Respuesta Ingresada no es correcta, por favor Verifique e Intente Nuevamente");
+            }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ingrese datos validos");
+            JOptionPane.showMessageDialog(null, "Los Datos Ingresados no son Válidos, por favor Verifique e Intente Nuevamente");
         }
     }//GEN-LAST:event_checkActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         FramePrincipal.cambiarPanel(new Ingreso());
     }//GEN-LAST:event_cancelActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField answer;

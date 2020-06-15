@@ -1,23 +1,23 @@
 package com.easycoffee;
 
-
 import java.util.Calendar;
 
 public class Jornada {
+
     private float arrobasRecogidas;
     private String horaDeRegistro;
     private String fechaJornada;
     private Long loteTrabajado;
     private int idJornada;
     private Long idTrabajador;
-    
-    public Jornada(float arrobasRecogidas,Lote lote,Trabajador tr) {
+
+    public Jornada(float arrobasRecogidas, Lote lote, Trabajador tr) {
         this.arrobasRecogidas = arrobasRecogidas;
-        this.loteTrabajado=lote.getIdLote();
+        this.loteTrabajado = lote.getIdLote();
         this.idTrabajador = tr.getCedula();
-        Calendar horaRegistro= Calendar.getInstance();
-        horaDeRegistro=horaRegistro.get(Calendar.HOUR_OF_DAY)+"/"+horaRegistro.get(Calendar.MINUTE)+"/"+horaRegistro.get(Calendar.SECOND);
-        fechaJornada=horaRegistro.get(Calendar.DATE)+"/"+horaRegistro.get(Calendar.MONTH)+"/"+horaRegistro.get(Calendar.YEAR);
+        Calendar horaRegistro = Calendar.getInstance();
+        horaDeRegistro = horaRegistro.get(Calendar.HOUR_OF_DAY) + "/" + horaRegistro.get(Calendar.MINUTE) + "/" + horaRegistro.get(Calendar.SECOND);
+        fechaJornada = horaRegistro.get(Calendar.DATE) + "/" + horaRegistro.get(Calendar.MONTH) + "/" + horaRegistro.get(Calendar.YEAR);
     }
 
     public Jornada(float arrobasRecogidas, String horaDeRegistro, String fechaJornada, Long loteTrabajado, int idJornada) {
@@ -28,9 +28,6 @@ public class Jornada {
         this.idJornada = idJornada;
     }
 
-    
-
-    
     public float getArrobasRecogidas() {
         return arrobasRecogidas;
     }
@@ -38,7 +35,6 @@ public class Jornada {
     public void setArrobasRecogidas(float arrobasRecogidas) {
         this.arrobasRecogidas = arrobasRecogidas;
     }
-
 
     public String getFechaJornada() {
         return fechaJornada;
@@ -80,6 +76,4 @@ public class Jornada {
         this.idTrabajador = idTrabajador;
     }
 
-    
-   
 }

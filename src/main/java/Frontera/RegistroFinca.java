@@ -1,11 +1,7 @@
 package Frontera;
 
 import Control.ControlUsuarios;
-import com.easycoffee.Lote;
 import java.awt.Color;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -273,7 +269,7 @@ public class RegistroFinca extends javax.swing.JPanel {
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         JOptionPane.showMessageDialog(jMenu1, "Puedes modificar los datos registrados accediendo a editar finca en la barra de tareas.");
         if (name.getText().equals("")) {
-            JOptionPane.showMessageDialog(jMenu1, "Por favor ingresa un Nombre para la Finca.");
+            JOptionPane.showMessageDialog(jMenu1, "Por favor ingresa un Nombre para la Finca");
         } else {
             FramePrincipal.getSistem().getAdmin().getFinca().setNombreFinca(name.getText());
             c.almacenarFinca(FramePrincipal.getSistem().getAdmin().getFinca());
@@ -313,7 +309,7 @@ public class RegistroFinca extends javax.swing.JPanel {
 
     private void terminarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarRegistroActionPerformed
         if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
-            JOptionPane.showMessageDialog(jMenu1, "La Finca NO tiene un Nombre Registrado, por favor ingresa uno.");
+            JOptionPane.showMessageDialog(jMenu1, "La Finca No tiene un Nombre Registrado, por favor Ingresa Uno");
         } else {
             FramePrincipal.cambiarPanel127(new MenuSeleccion(cedula));
             javax.swing.JPanel panelj = new javax.swing.JPanel();
@@ -343,7 +339,6 @@ public class RegistroFinca extends javax.swing.JPanel {
         addAux.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(new AsignarLotes());
     }//GEN-LAST:event_asignarLotesBActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddTrabajador;

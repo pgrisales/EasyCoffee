@@ -12,7 +12,6 @@ public class Trabajador extends Persona {
         this.salario = salario;
     }
 
-
     public void insertarJornada(Jornada jornada) {
         this.jornada.add(jornada);
     }

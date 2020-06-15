@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Frontera;
 
 import Control.ControlUsuarios;
@@ -21,8 +16,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
     private String error = "";
     static String fondo = "../image/cafe.jpg";
     private String[] answerA = new String[3];
-    
-    
+
     public AgregarAuxiliar() {
         initComponents();
         questions.removeAllItems();
@@ -30,6 +24,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
             questions.addItem(FramePrincipal.preguntas[i]);
         }
     }
+
     public boolean Preguntas() {
         boolean b = true;
         for (int i = 0; i < 3; i++) {
@@ -39,7 +34,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
         }
         return b;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -304,7 +299,6 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
 
     public static boolean isNumeric(String s) {
         try {
@@ -345,7 +339,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
         return b;
     }
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
-          if (datosCorrectos() == true) {
+        if (datosCorrectos() == true) {
             JOptionPane.showMessageDialog(null, "Usuario Registrado");
             Usuario a;
             a = new Usuario(password.getText(), (long) Integer.parseInt(cedula.getText()), nombres.getText(), apellidos.getText(), true, answerA[0], answerA[1], answerA[2], false);
@@ -360,23 +354,23 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
         } else {
             switch (error) {
                 case "passwordIn": {
-                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intentelo.");
+                    JOptionPane.showMessageDialog(null, "Las Contraseñas no coinciden, por favor Verifique e Intentelo Nuevamente");
                     break;
                 }
                 case "nombreApellidoIn": {
-                    JOptionPane.showMessageDialog(null, "Los nombres o apellidos no se han digitado de manera correcta, por favor intentelo de nuevo.");
+                    JOptionPane.showMessageDialog(null, "Los Nombres o Apellidos no se han digitado de manera correcta, por favor Verifique e Intentelo Nuevamente");
                     break;
                 }
                 case "cedulaIn": {
-                    JOptionPane.showMessageDialog(null, "La cédula no se ha digitado de manera correcta, por favor intentelo de nuevo.");
+                    JOptionPane.showMessageDialog(null, "La Cédula no se ha digitado de manera correcta, por favor Verifique e Intentelo Nuevamente");
                     break;
                 }
                 case "empty": {
-                    JOptionPane.showMessageDialog(null, "Una de las casillas está vacia, por favor asegurese de rellenar todas las casillas");
+                    JOptionPane.showMessageDialog(null, "Una de las Casillas está Vacia, por favor asegurese de Rellenar todas las Casillas");
                     break;
                 }
                 case "answer": {
-                    JOptionPane.showMessageDialog(null, "Por favor responda todas las preguntas de seguridad");
+                    JOptionPane.showMessageDialog(null, "Por favor Responda todas las Preguntas de Seguridad e Intentelo Nuevamente");
                     break;
                 }
             }
@@ -402,13 +396,12 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
     }//GEN-LAST:event_nombresActionPerformed
 
     private void infActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infActionPerformed
-        JOptionPane.showMessageDialog(null, "El usuario que va a crear a continuación es el que tiene el control del programa. procure no olvidar la contraseña.");
+        JOptionPane.showMessageDialog(null, "ATENCIÓN\n El usuario que va a crear a continuación es el que tiene el control del programa\n Procure no olvidar la contraseña");
     }//GEN-LAST:event_infActionPerformed
 
     private void registration1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registration1ActionPerformed
         this.removeAll();
         FramePrincipal.cambiarPanel376(this);
-       
     }//GEN-LAST:event_registration1ActionPerformed
 
     private void questionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionsActionPerformed
@@ -417,7 +410,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
 
     private void saveAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAnswerActionPerformed
         if (answer.getText().equals(error)) {
-            JOptionPane.showMessageDialog(null, "La casilla de respuesta está vacia, por favor asegurese de rellenarla");
+            JOptionPane.showMessageDialog(null, "La Casilla de Respuesta está Vacia, por favor Verifique e Intentelo Nuevamente");
         } else {
             System.out.println(questions.getSelectedIndex());
             answerA[questions.getSelectedIndex()] = answer.getText();

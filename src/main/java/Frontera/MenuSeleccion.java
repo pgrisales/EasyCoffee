@@ -1,7 +1,5 @@
 package Frontera;
 
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author Camilo Vargas
@@ -15,7 +13,6 @@ public class MenuSeleccion extends javax.swing.JPanel {
     public MenuSeleccion(int cedula) {
         initComponents();
         this.cedula = cedula;
-//        usuarios.setIcon(new ImageIcon("../image/Imagen1.png"));
     }
 
     /**

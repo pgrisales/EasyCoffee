@@ -1,7 +1,5 @@
 package Frontera;
 
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author Camilo Vargas

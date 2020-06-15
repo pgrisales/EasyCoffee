@@ -2,9 +2,6 @@ package Frontera;
 
 import Control.Produccion;
 import com.easycoffee.Arbol;
-import com.easycoffee.Lote;
-import java.awt.Color;
-import java.awt.LayoutManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;

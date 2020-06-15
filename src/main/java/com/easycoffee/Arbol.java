@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.easycoffee;
 
-/**
- *
- * @author Nivektakedown
- */
 public class Arbol {
 
     private int idLote;
@@ -17,7 +8,7 @@ public class Arbol {
     private String fechaDeSembrado;
 
     public Arbol(int idLote, boolean estadoArbol, String variedad, String fechaDeSembrado) {
-  
+
         this.idLote = idLote;
         this.estadoArbol = estadoArbol;
         this.variedad = variedad;
@@ -28,8 +19,6 @@ public class Arbol {
         this.variedad = variedad;
         this.fechaDeSembrado = fechaDeSembrado;
     }
-
-   
 
     public String getVariedad() {
         return variedad;

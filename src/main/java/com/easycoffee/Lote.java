@@ -3,7 +3,7 @@ package com.easycoffee;
 import java.util.ArrayList;
 
 public class Lote {
-    
+
     private Long IdLote;
     private double areaTotal;
     private String fechaDesyerbado;
@@ -18,8 +18,8 @@ public class Lote {
         this.fechaDesyerbado = fechaDesyerbado;
         this.fechaAbonado = fechaAbonado;
         this.carga = carga;
-        this.arbolesMuertos = new ArrayList<Arbol>();
-        this.arbolesVivos = new ArrayList<Arbol>();
+        this.arbolesMuertos = new ArrayList<>();
+        this.arbolesVivos = new ArrayList<>();
     }
 
     public Lote() {
@@ -28,7 +28,7 @@ public class Lote {
     public Long getIdLote() {
         return IdLote;
     }
-    
+
     public double getAreaTotal() {
         return areaTotal;
     }
@@ -52,10 +52,12 @@ public class Lote {
     public void setFechaAbonado(String fechaAbonado) {
         this.fechaAbonado = fechaAbonado;
     }
-    public void matarArbol(int id){
+
+    public void matarArbol(int id) {
         arbolesMuertos.add(arbolesVivos.get(id));
     }
-    public void addArbol(Arbol arbol){
+
+    public void addArbol(Arbol arbol) {
         arbolesVivos.add(arbol);
     }
 
@@ -82,6 +84,5 @@ public class Lote {
     public void setArbolesMuertos(ArrayList<Arbol> arbolesMuertos) {
         this.arbolesMuertos = arbolesMuertos;
     }
-    
-     
+
 }

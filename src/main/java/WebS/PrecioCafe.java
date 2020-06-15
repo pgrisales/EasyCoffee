@@ -62,7 +62,7 @@ public class PrecioCafe {
             doc = Jsoup.connect("https://federaciondecafeteros.org/").get();
             String title = doc.title();
             System.out.println(title);
-            System.out.println("ACTUALIZACION PRECIO DEL CAFE #"+count);
+            System.out.println("ACTUALIZACION PRECIO DEL CAFE #" + count);
             count++;
             //XPath path = new XPath();
 

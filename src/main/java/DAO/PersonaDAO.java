@@ -1,7 +1,6 @@
 package DAO;
 
 import com.easycoffee.Persona;
-import com.easycoffee.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
