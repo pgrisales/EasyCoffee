@@ -2,16 +2,10 @@ package Frontera;
 
 import Control.InicializarSistema;
 import WebS.PrecioCafe;
-import static WebS.PrecioCafe.getInstance;
-import com.easycoffee.Administrador;
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -19,6 +13,7 @@ import javax.swing.JPanel;
  * @author Nivektakedown
  */
 public class FramePrincipal extends javax.swing.JFrame {
+
     private static int cedula;
 
     public static int getCedula() {
@@ -43,10 +38,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private Ingreso ingreso = new Ingreso();
 
     public FramePrincipal() {
-        /*INICIALIZACION BASE DE DATOS, NO BORRAR!!!*/
-//            NetworkServerControl server = new N
-            
-        /*END WARNIG CODE */
         fondo = new Fondo(ingreso, "../image/318763,xcitefun-cocora-valley-7.jpg");
         this.setContentPane(fondo);
         initComponents();
@@ -57,16 +48,20 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel127.setVisible(false);
         jPanel376.setVisible(false);
     }
+
     public static void menuVisible(boolean b) {
         menu.setVisible(b);
     }
+
     public static void menuPanelPrincipal(boolean b) {
         PanelPrincipal.setVisible(b);
     }
+
     public static void menuDoublePanel(boolean b) {
         jPanel127.setVisible(b);
         jPanel376.setVisible(b);
     }
+
     public static void cambiarPanel127(JPanel panel) {
         //fondo = new Fondo(panel, panel.fondo);
         panel.setOpaque(false);
@@ -74,8 +69,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel127.removeAll();
         jPanel127.add(panel);
         jPanel127.setVisible(true);
-        jPanel127.setBackground(new Color(0,0,0,0));
+        jPanel127.setBackground(new Color(0, 0, 0, 0));
     }
+
     public static void cambiarPanel376(JPanel panel) {
         //fondo = new Fondo(panel, panel.fondo);
         panel.setOpaque(false);
@@ -83,8 +79,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel376.removeAll();
         jPanel376.add(panel);
         jPanel376.setVisible(true);
-        jPanel376.setBackground(new Color(0,0,0,0));
+        jPanel376.setBackground(new Color(0, 0, 0, 0));
     }
+
     public static InicializarSistema getSistem() {
         return sistem;
     }
@@ -219,11 +216,12 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         FramePrincipal.menuPanelPrincipal(false);
-        javax.swing.JPanel panelj=new javax.swing.JPanel();
-        if(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca().equals("")==false)
-            FramePrincipal.cambiarPanel127(new EditFinca((int)FramePrincipal.getCedula()));
-        else
-            FramePrincipal.cambiarPanel127(new RegistroFinca((int)FramePrincipal.getCedula()));
+        javax.swing.JPanel panelj = new javax.swing.JPanel();
+        if (FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca().equals("") == false) {
+            FramePrincipal.cambiarPanel127(new EditFinca((int) FramePrincipal.getCedula()));
+        } else {
+            FramePrincipal.cambiarPanel127(new RegistroFinca((int) FramePrincipal.getCedula()));
+        }
         FramePrincipal.cambiarPanel376(panelj);
         FramePrincipal.menuDoublePanel(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -233,14 +231,14 @@ public class FramePrincipal extends javax.swing.JFrame {
         FramePrincipal.cambiarPanel(new Ingreso());
         FramePrincipal.menuPanelPrincipal(true);
         FramePrincipal.menuVisible(false);
-                
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws IOException {
-        PrecioCafe precioCafe = WebS.PrecioCafe.getInstance();
+    public static void main(String args[]) {
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FramePrincipal().setVisible(true);

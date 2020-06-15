@@ -14,7 +14,6 @@ public class Ingreso extends javax.swing.JPanel {
 
     public Ingreso() {
         initComponents();
-//        System.out.println(FramePrincipal.getSistem());
         if (FramePrincipal.getSistem().getAdmin() != null) {
             registration.setVisible(false);
         }
@@ -168,9 +167,6 @@ public class Ingreso extends javax.swing.JPanel {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         ControlUsuarios validacion = new ControlUsuarios();
-        //JOptionPane.showMessageDialog(null, username.getText());
-        //System.out.println(((Object)Long.parseLong(username.getText())).getClass().getSimpleName());
-        //System.out.println(((Object)password.getText()).getClass().getSimpleName());
         long cedula = 0;
         try {
             cedula = Long.parseLong(username.getText());
@@ -195,7 +191,7 @@ public class Ingreso extends javax.swing.JPanel {
                             FramePrincipal.menuDoublePanel(true);
                         }
                     } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
-                        JOptionPane.showMessageDialog(null, "No existe Finca");
+                        JOptionPane.showMessageDialog(null, "No existe Finca Registrada");
                     } else {
                             FramePrincipal.menuVisible(true);
                             FramePrincipal.menuPanelPrincipal(false);

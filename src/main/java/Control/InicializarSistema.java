@@ -1,6 +1,7 @@
 package Control;
 
 import DAO.DAOManager;
+import WebS.PrecioCafe;
 import com.easycoffee.Administrador;
 import com.easycoffee.Arbol;
 import com.easycoffee.Finca;
@@ -8,7 +9,10 @@ import com.easycoffee.Jornada;
 import com.easycoffee.Lote;
 import com.easycoffee.Trabajador;
 import com.easycoffee.Usuario;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,6 +27,18 @@ public class InicializarSistema {
     private ArrayList<Lote> lotes = null;
 
     public InicializarSistema() {
+
+        Thread pcafe = new Thread() {
+            public void run() {
+                try {
+                    PrecioCafe precioCafe = WebS.PrecioCafe.getInstance();
+                } catch (IOException ex) {
+                    Logger.getLogger(InicializarSistema.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
+        pcafe.start();
+
         this.daoManager = new DAOManager();
         this.users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
         int a = 0;
@@ -32,7 +48,7 @@ public class InicializarSistema {
             if (daoManager.getPermisosDAO().obtenerTodos(u).size() > 0) {
                 u.setIdLotes(daoManager.getPermisosDAO().obtenerTodos(u));
             }
-            if(u.isRol()){
+            if (u.isRol()) {
                 i = a;
             }
             a++;
