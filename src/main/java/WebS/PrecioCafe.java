@@ -19,7 +19,6 @@ public class PrecioCafe {
     private static String precioPasillaFinca;           //Precio Arroba Pasilla (Pasilla Cafe no tan puro - Sello Rojo)
     private static String bolsaNY;                      //Precio Centavos de Dolar por cada Libra de Cafe Básico
     private static String tasaCambio;                   //Precio (bolsaNY) en Pesos colombianos 
-    //private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     private static int count = 1;
 

@@ -65,7 +65,7 @@ public class Mapa extends JApplet {
                 }
 
                 JFrame frame = new JFrame("Map");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
                 JApplet applet = new Mapa();
                 applet.init();
@@ -111,6 +111,7 @@ public class Mapa extends JApplet {
         String url = Geo.getMapUrl() + coor + "," + "17z";
         System.out.println(url);
         Button btn = new Button("Ver localizacion");
+        Button cerrarB = new Button("Cerrar");
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -122,6 +123,7 @@ public class Mapa extends JApplet {
         root.getChildren().addAll(webview);
         //StackPane root = new StackPane();
         root.getChildren().add(btn);
+        root.getChildren().add(cerrarB);
         fxContainer.setScene(new Scene(root));
     }
 
