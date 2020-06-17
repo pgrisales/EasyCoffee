@@ -2,13 +2,10 @@ package Frontera;
 
 import DAO.DAOManager;
 import DAO.LoteDAO;
-import DAO.PermisosDAO;
 import DAO.UsuarioDAO;
 import com.easycoffee.Lote;
 import com.easycoffee.Usuario;
 import java.util.ArrayList;
-import java.util.List;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 
 /**
@@ -45,8 +42,8 @@ public class AsignarLotes extends javax.swing.JPanel {
             }
             lotesC.setModel(modL);
         }
-        System.out.println(usuariosC.getSelectedIndex());
-        System.out.println(usuarios.get(usuariosC.getSelectedIndex()).getCedula());
+//        System.out.println(usuariosC.getSelectedIndex());
+//        System.out.println(usuarios.get(usuariosC.getSelectedIndex()).getCedula());
         //System.out.println(usuariodao.obtener();
     }
 
@@ -126,7 +123,7 @@ public class AsignarLotes extends javax.swing.JPanel {
 
         for (String s : lotesC.getSelectedValuesList()) {
             darPermisos(usuarios.get(usuariosC.getSelectedIndex()), Integer.valueOf(s));
-            System.out.println("SELECT VALUES OF LOTE " + s);
+//            System.out.println("SELECT VALUES OF LOTE " + s);
         }
 
     }//GEN-LAST:event_asignarActionPerformed

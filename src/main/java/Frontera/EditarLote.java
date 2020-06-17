@@ -336,8 +336,8 @@ public class EditarLote extends javax.swing.JPanel {
         String s=lote.getFechaAbonado();
         String ss[]=s.split("/");
         Calendar c=Calendar.getInstance();
-        System.out.println(s);
-        System.out.println(ss[2]);
+//        System.out.println(s);
+//        System.out.println(ss[2]);
         c.set(Calendar.DATE, Integer.parseInt(ss[0]));
         c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
         c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
