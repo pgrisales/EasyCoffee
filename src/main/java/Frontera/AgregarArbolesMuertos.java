@@ -15,14 +15,17 @@ import javax.swing.JOptionPane;
 public class AgregarArbolesMuertos extends javax.swing.JPanel {
     private Lote lote;
     private String[] variedad;
+    private int[] arbolesVivos;
     public AgregarArbolesMuertos(Lote lote) {
         this.lote=lote;
         initComponents();
         this.variedad = new String[]{"Típica", "Borbón", "Maragogipe", "Tabi", "Caturra", "Variedad Colombia"};
+        this.arbolesVivos = new int[]{0,0,0,0,0,0};
         variedadC.removeAllItems();
         for (int i = 0; i < this.variedad.length; i++) {
             variedadC.addItem(this.variedad[i]);
         }
+        numeroArboles();
     }
 
     public Lote getLote() {
@@ -61,9 +64,8 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setMaximumSize(new java.awt.Dimension(500, 200));
-        setMinimumSize(new java.awt.Dimension(500, 200));
-        setPreferredSize(new java.awt.Dimension(500, 200));
+        setMaximumSize(null);
+        setMinimumSize(null);
 
         variedadC.setBackground(new java.awt.Color(255, 255, 255));
         variedadC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -131,7 +133,7 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -140,7 +142,7 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
                     .addComponent(variedadC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(numArboles)
                     .addComponent(agregar, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
-                .addGap(34, 34, 34))
+                .addGap(35, 35, 35))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(31, Short.MAX_VALUE)
@@ -150,7 +152,7 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
+                .addContainerGap(166, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(variedadC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -160,12 +162,12 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
                     .addComponent(numArboles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(23, 23, 23))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap(17, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(147, Short.MAX_VALUE)))
+                    .addContainerGap(151, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -174,7 +176,21 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor ingrese cuantos árboles desea agregar");
 
         } else {
-            matarArboles(Integer.parseInt(this.numArboles.getText()));
+            try{
+                if(Integer.parseInt(this.numArboles.getText())>arbolesVivos[this.variedadC.getSelectedIndex()]){
+                    JOptionPane.showMessageDialog(null, "La cantidad de árboles que desea ingresar es mayor a la existente para la variedad seleccionada.");
+                }
+                else{
+                    matarArboles(Integer.parseInt(this.numArboles.getText()));
+                }
+                
+            }
+            catch(NumberFormatException nfe){
+                JOptionPane.showMessageDialog(null, "Por favor ingrese datos numéricos");
+            }
+            
+            
+            
         }
     }//GEN-LAST:event_agregarActionPerformed
     public void numeroArboles() {
@@ -211,6 +227,7 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
         for (int i = 0; i < 6; i++) {
             this.jTable1.setValueAt(numero[i], i, 1);
         }
+        this.arbolesVivos=numero;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
