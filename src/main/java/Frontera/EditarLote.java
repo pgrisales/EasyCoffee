@@ -25,15 +25,6 @@ public class EditarLote extends javax.swing.JPanel {
 
     public EditarLote(ArrayList<Lote> lotes, int idLote) {
         initComponents();
-//        lotesC.addItemListener(new ItemListener() {
-//            @Override
-//            public void itemStateChanged(ItemEvent e) {
-//                Object item = lotesC.getSelectedItem();
-////                System.out.println(item.toString());
-////                int i = Integer.parseInt(item.toString());
-////                areaLote.setText(Double.toString(FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(i).getAreaTotal()));
-//            }
-//        });
 
         p = new Produccion();
         this.ventanaArboles = new AgregarArboles(2);
@@ -55,7 +46,6 @@ public class EditarLote extends javax.swing.JPanel {
         lotesC.setSelectedIndex(idLote);
 //        loteID.setText(lotesC.getSelectedItem().toString
         loteSelec();
-        areaLote.setText(Double.toString(FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(Integer.parseInt(lotesC.getSelectedItem().toString())).getAreaTotal()));
     }
 
     /**
@@ -324,13 +314,11 @@ public class EditarLote extends javax.swing.JPanel {
                 lote.setFechaAbonado(fechabonado);
                 String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
                 lote.setFechaDesyerbado(fechadesyerbado);
-                lote = new Lote((long) lotes.size(), area, fechadesyerbado, fechabonado, true);
-                p.RegistrarArbolesVivos(lote.getArbolesVivos());
             } else {
                 JOptionPane.showMessageDialog(this, "El tamaño del lote no se ha de manera correcta, por favor intentelo de nuevo.");
             }
         }
-
+        FramePrincipal.cambiarPanel127(new EditFinca(1));
     }//GEN-LAST:event_saveActionPerformed
     public void setCAlendar(){
         String s=lote.getFechaAbonado();
@@ -408,14 +396,14 @@ public class EditarLote extends javax.swing.JPanel {
         }
     }
     public void setAreaLote(){
-        double area=lote.getAreaTotal();
-        if (jComboBox1.getSelectedIndex() == 0) {
-                    area = area / 1000000;
-                }
-                if (jComboBox1.getSelectedIndex() == 2) {
-                    area = area / 10000;
-                }
-        this.areaLote.setText(area+"");
+        int area=(int)lote.getAreaTotal();
+            if (jComboBox1.getSelectedIndex() == 0) {
+                area = area / 1000000;
+            }
+            if (jComboBox1.getSelectedIndex() == 2) {
+                area = area / 10000;
+            }
+        this.areaLote.setText(""+area);
     }
     public void loteSelec() {
 //        System.out.println("sfdsdfsf" + (this.lotesC.getSelectedIndex() != -1));
