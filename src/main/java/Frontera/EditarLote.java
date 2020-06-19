@@ -27,7 +27,6 @@ public class EditarLote extends javax.swing.JPanel {
         initComponents();
 
         p = new Produccion();
-        this.ventanaArboles = new AgregarArboles(2);
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
         this.jComboBox1.removeAllItems();
@@ -43,7 +42,7 @@ public class EditarLote extends javax.swing.JPanel {
             lotesC.addItem(i + "");
             tamaño = tamaño + FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
-        lotesC.setSelectedIndex(idLote);
+        lotesC.setSelectedIndex(0);
 //        loteID.setText(lotesC.getSelectedItem().toString
         loteSelec();
     }
@@ -389,6 +388,7 @@ public class EditarLote extends javax.swing.JPanel {
                     break;
                 }
             }
+            numArboles.setText((numero[0]+numero[1]+numero[2]+numero[3]+numero[4]+numero[5]) + "");
         }
         for (int i = 0; i < 6; i++) {
             this.jTable1.setValueAt(numero[i], i, 1);
@@ -408,11 +408,11 @@ public class EditarLote extends javax.swing.JPanel {
     public void loteSelec() {
 //        System.out.println("sfdsdfsf" + (this.lotesC.getSelectedIndex() != -1));
         if (this.lotesC.getSelectedIndex() != -1) {
+            this.ventanaArboles = new AgregarArboles(lotesC.getSelectedIndex());
             ventanaArboles.setIDlote(this.lotesC.getSelectedIndex());
             loteID.setText(this.lotesC.getSelectedItem().toString());
             lote = FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex());
             arboles = lote.getArbolesVivos();
-            numArboles.setText(arboles.size() + "");
             setAreaLote();
             numeroArboles();
             setCAlendar();
@@ -420,6 +420,7 @@ public class EditarLote extends javax.swing.JPanel {
     }
 
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
+        
         JOptionPane.showMessageDialog(this, ventanaArboles);
         this.arboles = ventanaArboles.getArbolesLote();
 //        System.out.println(arboles);
