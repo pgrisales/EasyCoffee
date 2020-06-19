@@ -6,6 +6,7 @@ import Control.*;
 import Frontera.FramePrincipal;
 import Frontera.Ingreso;
 import com.easycoffee.Trabajador;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +24,7 @@ public class RegistrarProduccion extends javax.swing.JPanel {
 
     public RegistrarProduccion(int cedula) {
         initComponents();
+        Calendar c = Calendar.getInstance();
         this.cedula = cedula;
         trabajadores.removeAllItems();
         trabajadores.addItem("-Seleccione el trabajador-");

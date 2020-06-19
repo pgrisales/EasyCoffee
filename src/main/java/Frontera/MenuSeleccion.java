@@ -10,11 +10,11 @@ import java.util.ArrayList;
  * @author Camilo Vargas
  */
 public class MenuSeleccion extends javax.swing.JPanel {
-
+    
     static String fondo = "../image/cafe.jpg";
-
+    
     private int cedula;
-
+    
     public MenuSeleccion(int cedula) {
         initComponents();
         this.cedula = cedula;
@@ -171,7 +171,7 @@ public class MenuSeleccion extends javax.swing.JPanel {
     }//GEN-LAST:event_finanzasActionPerformed
 
     private void estadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticasActionPerformed
-        // TODO add your handling code here:
+        FramePrincipal.cambiarPanel376(new RegistrarAvanceDiario(this.cedula));
     }//GEN-LAST:event_estadisticasActionPerformed
 
     private void estadisticas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticas1ActionPerformed
