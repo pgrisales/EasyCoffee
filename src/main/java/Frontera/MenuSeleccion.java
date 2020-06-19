@@ -2,6 +2,8 @@ package Frontera;
 
 import Frontera.EditFinca;
 import Frontera.FramePrincipal;
+import com.easycoffee.Lote;
+import java.util.ArrayList;
 
 /**
  *
@@ -174,6 +176,7 @@ public class MenuSeleccion extends javax.swing.JPanel {
 
     private void estadisticas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticas1ActionPerformed
         FramePrincipal.cambiarPanel127(new EditFinca(cedula));
+        FramePrincipal.cambiarPanel376(new RegistrarLote(new ArrayList<Lote>()));
     }//GEN-LAST:event_estadisticas1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

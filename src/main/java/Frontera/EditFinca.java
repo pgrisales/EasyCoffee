@@ -70,6 +70,7 @@ public class EditFinca extends javax.swing.JPanel {
         name = new javax.swing.JLabel();
         tam = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        volver = new javax.swing.JToggleButton();
 
         setDoubleBuffered(false);
         setMaximumSize(new java.awt.Dimension(900, 127));
@@ -180,6 +181,16 @@ public class EditFinca extends javax.swing.JPanel {
             }
         });
 
+        volver.setBackground(new java.awt.Color(0, 153, 153));
+        volver.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        volver.setForeground(new java.awt.Color(255, 255, 255));
+        volver.setText("Volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,14 +205,17 @@ public class EditFinca extends javax.swing.JPanel {
                         .addComponent(name)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(changeName))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(tam, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(561, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(changeName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(volver)
+                        .addContainerGap())))
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -213,16 +227,17 @@ public class EditFinca extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addComponent(name))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(changeName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(changeName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE))
                         .addGap(1, 1, 1)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tam)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -274,6 +289,15 @@ public class EditFinca extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_mapBActionPerformed
 
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        FramePrincipal.menuVisible(true);
+        FramePrincipal.menuPanelPrincipal(false);
+        FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
+        javax.swing.JPanel panelj = new javax.swing.JPanel();
+        FramePrincipal.cambiarPanel376(panelj);
+        FramePrincipal.menuDoublePanel(true);
+    }//GEN-LAST:event_volverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarLote;
@@ -293,5 +317,6 @@ public class EditFinca extends javax.swing.JPanel {
     private javax.swing.JButton mapB;
     private javax.swing.JLabel name;
     private javax.swing.JLabel tam;
+    private javax.swing.JToggleButton volver;
     // End of variables declaration//GEN-END:variables
 }

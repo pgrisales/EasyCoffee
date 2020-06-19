@@ -63,6 +63,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     public static void cambiarPanel376(JPanel panel) {
         //fondo = new Fondo(panel, panel.fondo);
         panel.setOpaque(false);
+        
         jPanel376.setVisible(false);
         jPanel376.removeAll();
         jPanel376.add(panel);

@@ -60,7 +60,7 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         produccion.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         produccion.setForeground(new java.awt.Color(255, 255, 255));
         produccion.setText("Producción");
-        produccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        produccion.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         produccion.setMaximumSize(new java.awt.Dimension(150, 27));
         produccion.setMinimumSize(new java.awt.Dimension(150, 27));
         produccion.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +75,7 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         verPerfil.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         verPerfil.setForeground(new java.awt.Color(255, 255, 255));
         verPerfil.setText("Ver Perfil");
-        verPerfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        verPerfil.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         verPerfil.setMaximumSize(new java.awt.Dimension(150, 27));
         verPerfil.setMinimumSize(new java.awt.Dimension(150, 27));
         verPerfil.addActionListener(new java.awt.event.ActionListener() {
