@@ -1,6 +1,7 @@
 package Frontera;
 
 import Control.ControlUsuarios;
+import Frontera.FramePrincipal;
 import com.easycoffee.Usuario;
 import java.sql.SQLException;
 import java.util.logging.Level;

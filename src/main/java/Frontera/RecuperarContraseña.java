@@ -1,5 +1,7 @@
 package Frontera;
 
+import Frontera.FramePrincipal;
+import Frontera.Ingreso;
 import javax.swing.JOptionPane;
 
 /**

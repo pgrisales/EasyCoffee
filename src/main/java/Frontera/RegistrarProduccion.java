@@ -1,7 +1,10 @@
 package Frontera;
 
+import Frontera.MenuProduccion;
 import com.easycoffee.Lote;
 import Control.*;
+import Frontera.FramePrincipal;
+import Frontera.Ingreso;
 import com.easycoffee.Trabajador;
 import javax.swing.JOptionPane;
 

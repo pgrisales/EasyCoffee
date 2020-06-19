@@ -60,7 +60,7 @@ public class RegistroFinca extends javax.swing.JPanel {
         addAux = new javax.swing.JButton();
         AddTrabajador = new javax.swing.JButton();
         editLote = new javax.swing.JButton();
-        asignarLotesB = new javax.swing.JButton();
+        editAux = new javax.swing.JButton();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -128,9 +128,11 @@ public class RegistroFinca extends javax.swing.JPanel {
         agregarLote.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         agregarLote.setForeground(new java.awt.Color(255, 255, 255));
         agregarLote.setText("Agregar lote");
-        agregarLote.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        agregarLote.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         agregarLote.setFocusable(false);
         agregarLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        agregarLote.setMaximumSize(new java.awt.Dimension(150, 27));
+        agregarLote.setMinimumSize(new java.awt.Dimension(140, 27));
         agregarLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         agregarLote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,9 +145,12 @@ public class RegistroFinca extends javax.swing.JPanel {
         addAux.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         addAux.setForeground(new java.awt.Color(255, 255, 255));
         addAux.setText("Agregar auxiliar");
-        addAux.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        addAux.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         addAux.setFocusable(false);
         addAux.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addAux.setMaximumSize(new java.awt.Dimension(150, 27));
+        addAux.setMinimumSize(new java.awt.Dimension(140, 27));
+        addAux.setPreferredSize(new java.awt.Dimension(150, 27));
         addAux.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         addAux.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,9 +163,11 @@ public class RegistroFinca extends javax.swing.JPanel {
         AddTrabajador.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         AddTrabajador.setForeground(new java.awt.Color(255, 255, 255));
         AddTrabajador.setText("Agregar trabajador");
-        AddTrabajador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        AddTrabajador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         AddTrabajador.setFocusable(false);
         AddTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        AddTrabajador.setMaximumSize(new java.awt.Dimension(150, 27));
+        AddTrabajador.setMinimumSize(new java.awt.Dimension(140, 27));
         AddTrabajador.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         AddTrabajador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,9 +180,12 @@ public class RegistroFinca extends javax.swing.JPanel {
         editLote.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         editLote.setForeground(new java.awt.Color(255, 255, 255));
         editLote.setText("Editar lote");
-        editLote.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        editLote.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         editLote.setFocusable(false);
         editLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        editLote.setMaximumSize(new java.awt.Dimension(150, 27));
+        editLote.setMinimumSize(new java.awt.Dimension(140, 27));
+        editLote.setPreferredSize(new java.awt.Dimension(140, 27));
         editLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         editLote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,19 +194,23 @@ public class RegistroFinca extends javax.swing.JPanel {
         });
         jToolBar1.add(editLote);
 
-        asignarLotesB.setBackground(new java.awt.Color(102, 0, 0));
-        asignarLotesB.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
-        asignarLotesB.setForeground(new java.awt.Color(255, 255, 255));
-        asignarLotesB.setText("Asignar lotes");
-        asignarLotesB.setFocusable(false);
-        asignarLotesB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        asignarLotesB.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        asignarLotesB.addActionListener(new java.awt.event.ActionListener() {
+        editAux.setBackground(new java.awt.Color(102, 0, 0));
+        editAux.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        editAux.setForeground(new java.awt.Color(255, 255, 255));
+        editAux.setText("Editar auxiliar");
+        editAux.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        editAux.setFocusable(false);
+        editAux.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        editAux.setMaximumSize(new java.awt.Dimension(150, 27));
+        editAux.setMinimumSize(new java.awt.Dimension(140, 27));
+        editAux.setPreferredSize(new java.awt.Dimension(140, 27));
+        editAux.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        editAux.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                asignarLotesBActionPerformed(evt);
+                editAuxActionPerformed(evt);
             }
         });
-        jToolBar1.add(asignarLotesB);
+        jToolBar1.add(editAux);
 
         jLayeredPane1.setLayer(jToolBar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -284,6 +298,8 @@ public class RegistroFinca extends javax.swing.JPanel {
         agregarLote.setBackground(new Color(152, 51, 0));
         AddTrabajador.setBackground(new Color(102, 0, 0));
         addAux.setBackground(new Color(102, 0, 0));
+        editLote.setBackground(new Color(102, 0, 0));
+        editAux.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(lote);
 
     }//GEN-LAST:event_agregarLoteActionPerformed
@@ -292,6 +308,8 @@ public class RegistroFinca extends javax.swing.JPanel {
         AddTrabajador.setBackground(new Color(152, 51, 0));
         agregarLote.setBackground(new Color(102, 0, 0));
         addAux.setBackground(new Color(102, 0, 0));
+        editAux.setBackground(new Color(102, 0, 0));
+        editLote.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(new RegistrarTrabajador());
 
     }//GEN-LAST:event_AddTrabajadorActionPerformed
@@ -300,10 +318,17 @@ public class RegistroFinca extends javax.swing.JPanel {
         addAux.setBackground(new Color(152, 51, 0));
         AddTrabajador.setBackground(new Color(102, 0, 0));
         agregarLote.setBackground(new Color(102, 0, 0));
+        editAux.setBackground(new Color(102, 0, 0));
+        editLote.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
     }//GEN-LAST:event_addAuxActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
+        addAux.setBackground(new Color(102, 0, 0));
+        AddTrabajador.setBackground(new Color(102, 0, 0));
+        agregarLote.setBackground(new Color(102, 0, 0));
+        editLote.setBackground(new Color(152, 51, 0));
+        editAux.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(), 0));
     }//GEN-LAST:event_editLoteActionPerformed
 
@@ -340,11 +365,19 @@ public class RegistroFinca extends javax.swing.JPanel {
         FramePrincipal.cambiarPanel376(new AsignarLotes());
     }//GEN-LAST:event_asignarLotesBActionPerformed
 
+    private void editAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAuxActionPerformed
+        agregarLote.setBackground(new Color(102, 0, 0));
+        AddTrabajador.setBackground(new Color(102, 0, 0));
+        addAux.setBackground(new Color(102, 0, 0));
+        editAux.setBackground(new Color(152, 51, 0));
+        FramePrincipal.cambiarPanel376(new EditarAuxiliar(cedula));
+    }//GEN-LAST:event_editAuxActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddTrabajador;
     private javax.swing.JButton addAux;
     private javax.swing.JButton agregarLote;
-    private javax.swing.JButton asignarLotesB;
+    private javax.swing.JButton editAux;
     private javax.swing.JButton editLote;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;

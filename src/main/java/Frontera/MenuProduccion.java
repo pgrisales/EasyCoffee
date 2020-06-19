@@ -1,5 +1,7 @@
 package Frontera;
 
+import Frontera.FramePrincipal;
+
 /**
  *
  * @author Camilo Vargas

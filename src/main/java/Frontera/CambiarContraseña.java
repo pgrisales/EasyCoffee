@@ -2,6 +2,8 @@ package Frontera;
 
 import Control.ControlUsuarios;
 import Control.InicializarSistema;
+import Frontera.FramePrincipal;
+import Frontera.Ingreso;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 

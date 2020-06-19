@@ -1,6 +1,7 @@
 package Frontera;
 
 import Control.Produccion;
+import Frontera.FramePrincipal;
 import com.easycoffee.Arbol;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -127,7 +128,7 @@ public class AgregarArboles extends javax.swing.JPanel {
                     .addComponent(fechaSembrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

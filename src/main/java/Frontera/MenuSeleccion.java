@@ -1,5 +1,8 @@
 package Frontera;
 
+import Frontera.EditFinca;
+import Frontera.FramePrincipal;
+
 /**
  *
  * @author Camilo Vargas
@@ -154,7 +157,7 @@ public class MenuSeleccion extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
-        FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
+        FramePrincipal.cambiarPanel376(new MenuUsuarios(cedula));
     }//GEN-LAST:event_usuariosActionPerformed
 
     private void produccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produccionActionPerformed

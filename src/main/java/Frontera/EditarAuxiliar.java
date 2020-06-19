@@ -2,6 +2,7 @@ package Frontera;
 
 import Control.ControlUsuarios;
 import DAO.PersonaDAO;
+import Frontera.FramePrincipal;
 import com.easycoffee.Usuario;
 import java.awt.Color;
 import java.awt.Image;

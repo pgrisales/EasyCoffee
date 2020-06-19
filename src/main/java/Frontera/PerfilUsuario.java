@@ -1,6 +1,7 @@
 package Frontera;
 
 import Control.*;
+import Frontera.FramePrincipal;
 import com.easycoffee.Usuario;
 import java.awt.Image;
 import java.io.FileInputStream;

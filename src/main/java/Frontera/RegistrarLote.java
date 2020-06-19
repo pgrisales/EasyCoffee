@@ -1,11 +1,13 @@
 package Frontera;
 
+import Frontera.AgregarArboles;
 import com.easycoffee.Arbol;
 import com.easycoffee.Lote;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import Control.Produccion;
+import Frontera.FramePrincipal;
 
 public class RegistrarLote extends javax.swing.JPanel {
 

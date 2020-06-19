@@ -1,5 +1,7 @@
 package Frontera;
 
+import Frontera.FramePrincipal;
+
 /**
  *
  * @author Camilo Vargas
@@ -29,9 +31,9 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         jToolBar1 = new javax.swing.JToolBar();
         produccion = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
+        verPerfil = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
         jSeparator2 = new javax.swing.JToolBar.Separator();
-        verPerfil = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JToolBar.Separator();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         jSeparator4 = new javax.swing.JToolBar.Separator();
@@ -58,6 +60,9 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         produccion.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         produccion.setForeground(new java.awt.Color(255, 255, 255));
         produccion.setText("Producción");
+        produccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        produccion.setMaximumSize(new java.awt.Dimension(150, 27));
+        produccion.setMinimumSize(new java.awt.Dimension(150, 27));
         produccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 produccionActionPerformed(evt);
@@ -65,19 +70,22 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         });
         jToolBar1.add(produccion);
         jToolBar1.add(jSeparator1);
-        jToolBar1.add(jSeparator6);
-        jToolBar1.add(jSeparator2);
 
         verPerfil.setBackground(new java.awt.Color(102, 0, 0));
         verPerfil.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         verPerfil.setForeground(new java.awt.Color(255, 255, 255));
         verPerfil.setText("Ver Perfil");
+        verPerfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        verPerfil.setMaximumSize(new java.awt.Dimension(150, 27));
+        verPerfil.setMinimumSize(new java.awt.Dimension(150, 27));
         verPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verPerfilActionPerformed(evt);
             }
         });
         jToolBar1.add(verPerfil);
+        jToolBar1.add(jSeparator6);
+        jToolBar1.add(jSeparator2);
         jToolBar1.add(jSeparator5);
         jToolBar1.add(jSeparator3);
         jToolBar1.add(jSeparator4);
