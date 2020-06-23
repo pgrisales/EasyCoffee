@@ -7046,3 +7046,11 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Cam
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
 	... 21 more
+2020-06-23 13:47:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE EASYCOFFEBD.MEMOPAD MODIFY[*] MEMO_TEXTOMEMOPAD LONGTEXT"; se esperaba "ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE EASYCOFFEBD.MEMOPAD MODIFY[*] MEMO_TEXTOMEMOPAD LONGTEXT"; expected "ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+alter table easycoffebd.memopad modify MEMO_TEXTOMEMOPAD longtext [42001-200]
+2020-06-23 13:48:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE EASYCOFFEBD.MEMOPAD CHANGE[*] MEMO_TEXTOMEMOPAD MEMO_TEXTOMEMOPAD LONGTEXT"; se esperaba "ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE EASYCOFFEBD.MEMOPAD CHANGE[*] MEMO_TEXTOMEMOPAD MEMO_TEXTOMEMOPAD LONGTEXT"; expected "ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+alter table easycoffebd.memopad change MEMO_TEXTOMEMOPAD MEMO_TEXTOMEMOPAD longtext [42001-200]
