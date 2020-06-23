@@ -1,12 +1,11 @@
 package Frontera;
 
-import Frontera.Usuarios.AgregarTrabajador;
 import Frontera.Usuarios.AgregarAuxiliar;
 import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
 import Frontera.Usuarios.AgregarAuxiliar;
-import Frontera.Usuarios.AgregarTrabajador;
 import Frontera.Usuarios.EditarAuxiliar;
+import Frontera.Usuarios.RegistrarTrabajador;
 import java.awt.Color;
 
 /**
@@ -146,7 +145,8 @@ public class MenuUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_addAuxActionPerformed
 
     private void AddTraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTraActionPerformed
-       FramePrincipal.cambiarPanel376(new AgregarTrabajador());
+       FramePrincipal.cambiarPanel376(new RegistrarTrabajador());
+       
     }//GEN-LAST:event_AddTraActionPerformed
 
 

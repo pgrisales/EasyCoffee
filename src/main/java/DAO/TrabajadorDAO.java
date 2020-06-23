@@ -39,8 +39,8 @@ public class TrabajadorDAO implements DAO<Trabajador, Long> {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setDouble(1, a.getSalario());
-            stat.setLong(2, a.getCedula());
+            stat.setLong(1, a.getCedula());
+            stat.setDouble(2, a.getSalario());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
             }
