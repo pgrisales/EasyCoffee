@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class TrabajadorDAO implements DAO<Trabajador, Long> {
 
-    final String INSERT = "INSERT INTO EASYCOFFEBD.TRABAJADOR VALUES (?, ?)"; //(PER_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
-    final String UPDATE = "UPDATE EASYCOFFEBD.TRABAJADOR SET TRA_SALARIO = ? WHERE PER_CEDULACIUDADANIA = ?";
-    final String DELETE = "DELETE FROM EASYCOFFEBD.TRABAJADOR WHERE PER_CEDULACIUDADANIA = ?";
-    final String GETALL = "SELECT * FROM EASYCOFFEBD.PERSONA NATURAL JOIN EASYCOFFEBD.TRABAJADOR";
+    final private String INSERT = "INSERT INTO EASYCOFFEBD.TRABAJADOR VALUES (?, ?)"; //(PER_CEDULACIUDADANIA, FINCA_IDFINCA, LOTE_LOTE_IDLOTE, USU_USERNAME, USU_PASSWORD, USU_ROLUSUARIO, USU_RESPUESTAPREGUNTA)
+    final private String UPDATE = "UPDATE EASYCOFFEBD.TRABAJADOR SET TRA_SALARIO = ? WHERE PER_CEDULACIUDADANIA = ?";
+    final private String DELETE = "DELETE FROM EASYCOFFEBD.TRABAJADOR WHERE PER_CEDULACIUDADANIA = ?";
+    final private String GETALL = "SELECT * FROM EASYCOFFEBD.PERSONA NATURAL JOIN EASYCOFFEBD.TRABAJADOR";
 
     private Connection conn;
 
@@ -143,14 +143,14 @@ public class TrabajadorDAO implements DAO<Trabajador, Long> {
                 try {
                     rs.close();
                 } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
                 }
             }
             if (stat != null) {
                 try {
                     stat.close();
                 } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
                 }
             }
         }
@@ -179,14 +179,14 @@ public class TrabajadorDAO implements DAO<Trabajador, Long> {
                 try {
                     rs.close();
                 } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
                 }
             }
             if (stat != null) {
                 try {
                     stat.close();
                 } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
                 }
             }
         }

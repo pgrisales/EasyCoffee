@@ -1,5 +1,6 @@
 package DAO;
 
+import com.easycoffee.Memo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -21,6 +22,7 @@ public class DAOManager {
     private ArbolDAO arboles = null;
     private RespuestasDAO respuestas = null;
     private PermisosDAO permisos = null;
+    private MemoPadDAO memos = null;
 
 //    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
     public DAOManager() {
@@ -92,6 +94,13 @@ public class DAOManager {
             respuestas = new RespuestasDAO(conn);
         }
         return respuestas;
+    }
+
+    public MemoPadDAO getMemosDAO() {
+        if (memos == null) {
+            memos = new MemoPadDAO(conn);
+        }
+        return memos;
     }
 
     public boolean testConexion() throws SQLException {

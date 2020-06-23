@@ -134,14 +134,14 @@ public class LoteDAO implements DAO<Lote, Long> {
                 try {
                     rs.close();
                 } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
                 }
             }
             if (stat != null) {
                 try {
                     stat.close();
                 } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
                 }
             }
         }
@@ -170,14 +170,14 @@ public class LoteDAO implements DAO<Lote, Long> {
                 try {
                     rs.close();
                 } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
                 }
             }
             if (stat != null) {
                 try {
                     stat.close();
                 } catch (SQLException e) {
-                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
                 }
             }
         }

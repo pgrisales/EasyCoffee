@@ -10,6 +10,7 @@ public class Usuario extends Persona {
     private ArrayList<Integer> idLotes;
     private ImageIcon imagen;
     private boolean Rol;
+    private ArrayList<Memo> memos;
 
     public Usuario(String password, Long cedula, String nombre, String apellido,
             boolean estado, String rta1, String rta2, String rta3, boolean rol) {
@@ -19,8 +20,9 @@ public class Usuario extends Persona {
         this.respuesta[1] = rta2;
         this.respuesta[2] = rta3;
         this.Rol = rol;
-        this.idLotes = new ArrayList<Integer>();
+        this.idLotes = new ArrayList<>();
         this.imagen = null;
+        this.memos = new ArrayList<>();
     }
 
     public Usuario(String password, ImageIcon imagen, Long cedula, String nombre, String apellido, boolean estado, boolean rol) {
@@ -29,6 +31,7 @@ public class Usuario extends Persona {
         this.imagen = imagen;
         this.Rol = rol;
         this.idLotes = new ArrayList<Integer>();
+        this.memos = new ArrayList<>();
     }
 
     public Usuario(String password, Long cedula, String nombre, String apellido, boolean estado, boolean rol) {
@@ -37,6 +40,7 @@ public class Usuario extends Persona {
         this.Rol = rol;
         this.idLotes = new ArrayList<Integer>();
         this.imagen = null;
+        this.memos = new ArrayList<>();
     }
 
     public String getPassword() {
@@ -89,4 +93,15 @@ public class Usuario extends Persona {
         this.imagen = imagen;
     }
 
+    public ArrayList<Memo> getMemos() {
+        return memos;
+    }
+
+    public void setMemos(ArrayList<Memo> memos) {
+        this.memos = memos;
+    }
+
+    public void addMemo(Memo memo) {
+        this.memos.add(memo);
+    }
 }
