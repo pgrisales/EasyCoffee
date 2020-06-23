@@ -82,6 +82,7 @@ public class EditFinca extends javax.swing.JPanel {
         changeName.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         changeName.setForeground(new java.awt.Color(255, 255, 255));
         changeName.setText("Cambiar nombre");
+        changeName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         changeName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeNameActionPerformed(evt);
@@ -185,6 +186,7 @@ public class EditFinca extends javax.swing.JPanel {
         volver.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         volver.setForeground(new java.awt.Color(255, 255, 255));
         volver.setText("Volver");
+        volver.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
@@ -212,9 +214,9 @@ public class EditFinca extends javax.swing.JPanel {
                         .addContainerGap(561, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(changeName)
+                        .addComponent(changeName, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(volver)
+                        .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
@@ -223,14 +225,14 @@ public class EditFinca extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(name))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(changeName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE)
-                            .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE))
-                        .addGap(1, 1, 1)))
+                        .addComponent(volver, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                        .addGap(1, 1, 1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(changeName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(name))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tam)
