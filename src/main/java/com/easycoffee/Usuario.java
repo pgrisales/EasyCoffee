@@ -20,6 +20,7 @@ public class Usuario extends Persona {
         this.respuesta[2] = rta3;
         this.Rol = rol;
         this.idLotes = new ArrayList<Integer>();
+        this.imagen = null;
     }
 
     public Usuario(String password, ImageIcon imagen, Long cedula, String nombre, String apellido, boolean estado, boolean rol) {
@@ -35,6 +36,7 @@ public class Usuario extends Persona {
         this.password = password;
         this.Rol = rol;
         this.idLotes = new ArrayList<Integer>();
+        this.imagen = null;
     }
 
     public String getPassword() {

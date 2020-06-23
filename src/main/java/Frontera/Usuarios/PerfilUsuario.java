@@ -30,8 +30,10 @@ public class PerfilUsuario extends javax.swing.JPanel {
         Usuario x = u.obtenerUser(ced);
         this.id = ced;
         this.Name.setText(x.getNombre() + " " + x.getApellido());
+        if(x.getImagen() != null){
         ImageIcon imagen = x.getImagen();
         Foto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(149, 200, Image.SCALE_SMOOTH)));
+        }
     }
 
     /**
@@ -116,6 +118,7 @@ public class PerfilUsuario extends javax.swing.JPanel {
         String ruta;
         int ap = j.showOpenDialog(this);
         FileInputStream fi = null;
+        Foto.setText("");
         if (ap == JFileChooser.APPROVE_OPTION) {
             ruta = j.getSelectedFile().getAbsolutePath();
             ImageIcon imagen = new ImageIcon(ruta);
