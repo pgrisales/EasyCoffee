@@ -47,6 +47,8 @@ public class InicializarSistema {
             u.setRespuesta(daoManager.getRespuestasDAO().obtener(u.getCedula().intValue()));
             if (daoManager.getPermisosDAO().obtenerTodos(u).size() > 0) {
                 u.setIdLotes(daoManager.getPermisosDAO().obtenerTodos(u));
+            }else{
+                u.setIdLotes(new ArrayList<Integer>());
             }
             if (u.isRol()) {
                 i = a;

@@ -255,11 +255,16 @@ public class EditFinca extends javax.swing.JPanel {
     private void agregarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarLoteActionPerformed
         RegistrarLote lote = new RegistrarLote(new ArrayList<Lote>());
         agregarLote.setBackground(new Color(152, 51, 0));
+        editLote.setBackground(new Color(102, 0, 0));
+        asignarLoteB.setBackground(new Color(102, 0, 0));
         FramePrincipal.cambiarPanel376(lote);
     }//GEN-LAST:event_agregarLoteActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
         FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),0));
+        agregarLote.setBackground(new Color(102, 0, 0));
+        editLote.setBackground(new Color(152, 51, 0));
+        asignarLoteB.setBackground(new Color(102, 0, 0));
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -276,8 +281,9 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void asignarLoteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarLoteBActionPerformed
-        
+        editLote.setBackground(new Color(102, 0, 0));
         agregarLote.setBackground(new Color(102, 0, 0));
+        asignarLoteB.setBackground(new Color(152, 51, 0));
         FramePrincipal.cambiarPanel376(new AsignarLotes());
     }//GEN-LAST:event_asignarLoteBActionPerformed
 
