@@ -16,7 +16,7 @@ import java.util.List;
 public class LoteDAO implements DAO<Lote, Long> {
 
     final String INSERT = "INSERT INTO EASYCOFFEBD.LOTE VALUES (default, ?, ?, ?, ?)";
-    final String UPDATE = "UPDATE EASYCOFFEBD.LOTE SET LOTE_FECHADESYERBADO = ?, LOTE_FECHAABONADO = ?, LOTE_CARGA = ?";
+    final String UPDATE = "UPDATE EASYCOFFEBD.LOTE SET LOTE_FECHADESYERBADO = ?, LOTE_FECHAABONADO = ?, LOTE_CARGA = ? WHERE LOTE_IDLOTE = ?";
     final String DELETE = "DELETE FROM EASYCOFFEBD.LOTE WHERE LOTE_IDLOTE = ?";
     final String GETALL = "SELECT * FROM EASYCOFFEBD.LOTE";
     private Connection conn;
@@ -26,13 +26,13 @@ public class LoteDAO implements DAO<Lote, Long> {
     }
 
     private Lote convertir(ResultSet rs) throws SQLException {
-        String aux[] = new String[3]; 
+        String aux[] = new String[3];
         String fDesyerbado = String.valueOf(rs.getDate("LOTE_FECHADESYERBADO"));
         aux = fDesyerbado.split("-");
-        fDesyerbado = aux[2] + "/" + aux[1] + "/" + aux[0];  
+        fDesyerbado = aux[2] + "/" + aux[1] + "/" + aux[0];
         String fAbonado = String.valueOf(rs.getDate("LOTE_FECHAABONADO"));
         aux = fAbonado.split("-");
-        fAbonado = aux[2] + "/" + aux[1] + "/" + aux[0];  
+        fAbonado = aux[2] + "/" + aux[1] + "/" + aux[0];
         boolean carga = rs.getBoolean("LOTE_CARGA");
         Long idLote = new Long(rs.getInt("LOTE_IDLOTE"));
         double area = rs.getDouble("LOTE_AREATOTAL");
@@ -74,6 +74,7 @@ public class LoteDAO implements DAO<Lote, Long> {
             stat.setDate(1, java.sql.Date.valueOf(a.getFechaDesyerbado()));
             stat.setDate(2, java.sql.Date.valueOf(a.getFechaAbonado()));
             stat.setBoolean(3, a.isCarga());
+            stat.setInt(4, (int) (long) a.getIdLote());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya modificado");
             }
