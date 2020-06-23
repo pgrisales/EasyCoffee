@@ -38,6 +38,12 @@ public class Produccion {
         return true;
     }
 
+    public void registrarMemoPad(String memo) {
+        /**
+         * todo is hereeee
+         */
+    }
+
     /*Inicio Metodos Registrar Arboles*/
     public void RegistrarArbolesVivos(Lote lote) {
         for (Arbol a : lote.getArbolesVivos()) {
@@ -51,5 +57,5 @@ public class Produccion {
         }
     }
     /*Fin Metodos Registrar Arboles*/
-    
+
 }

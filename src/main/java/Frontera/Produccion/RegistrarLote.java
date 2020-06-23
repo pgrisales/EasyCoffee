@@ -324,10 +324,10 @@ public class RegistrarLote extends javax.swing.JPanel {
                     area = area * 10000;
                 }
                 String fechabonado = fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
-                System.out.println(fechabonado);
+//                System.out.println(fechabonado);
 
                 String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
-                System.out.println("lotes_tam_" + lotes.size());
+//                System.out.println("lotes_tam_" + lotes.size());
 
                 lote = new Lote((long) lotes.size(), area, fechadesyerbado, fechabonado, true);
                 lote.setArbolesVivos(loTe.getArbolesLote());

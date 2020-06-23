@@ -1,5 +1,6 @@
 package Frontera.Produccion;
 
+import Control.Produccion;
 import Frontera.FramePrincipal;
 import java.util.Calendar;
 
@@ -146,6 +147,8 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aniadirActionPerformed
+        Produccion p = new Produccion();
+        p.registrarMemoPad(jTextArea1.getText());
     }//GEN-LAST:event_aniadirActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
