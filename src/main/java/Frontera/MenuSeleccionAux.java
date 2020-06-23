@@ -1,6 +1,8 @@
 package Frontera;
 
 import Frontera.FramePrincipal;
+import Frontera.FramePrincipal;
+import Frontera.Usuarios.PerfilUsuario;
 
 /**
  *

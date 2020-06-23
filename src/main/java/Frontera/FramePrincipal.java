@@ -1,5 +1,8 @@
 package Frontera;
 
+import Frontera.Produccion.EditFinca;
+import Frontera.Usuarios.Ingreso;
+import Frontera.Produccion.RegistroFinca;
 import Control.InicializarSistema;
 import java.awt.Color;
 import javax.swing.JPanel;

@@ -1,6 +1,12 @@
 package Frontera;
 
+import Frontera.Usuarios.AgregarTrabajador;
+import Frontera.Usuarios.AgregarAuxiliar;
 import Frontera.FramePrincipal;
+import Frontera.FramePrincipal;
+import Frontera.Usuarios.AgregarAuxiliar;
+import Frontera.Usuarios.AgregarTrabajador;
+import Frontera.Usuarios.EditarAuxiliar;
 import java.awt.Color;
 
 /**

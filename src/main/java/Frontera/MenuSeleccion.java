@@ -1,6 +1,10 @@
 package Frontera;
 
-import Frontera.EditFinca;
+import Frontera.Produccion.RegistrarAvanceDiario;
+import Frontera.Produccion.RegistrarLote;
+import Frontera.Produccion.EditFinca;
+import Frontera.Produccion.EditFinca;
+import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
 import com.easycoffee.Lote;
 import java.util.ArrayList;
