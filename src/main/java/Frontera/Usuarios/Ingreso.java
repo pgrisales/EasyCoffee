@@ -7,6 +7,7 @@ import Frontera.Usuarios.Registro;
 import Control.ControlUsuarios;
 import Frontera.FramePrincipal;
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +22,52 @@ public class Ingreso extends javax.swing.JPanel {
         initComponents();
         if (FramePrincipal.getSistem().getAdmin() != null) {
             registration.setVisible(false);
+        }
+    }
+
+    private void ingresar() {
+        ControlUsuarios validacion = new ControlUsuarios();
+        long cedula = 0;
+        try {
+            cedula = Long.parseLong(username.getText());
+            if (validacion.verificarEstado(cedula)) {
+                if (validacion.verificarLogin(cedula, password.getText())) {
+                    FramePrincipal.setCedula((int) cedula);
+                    if (cedula == FramePrincipal.getSistem().getAdmin().getCedula()) {
+
+                        if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
+                            FramePrincipal.menuVisible(true);
+                            FramePrincipal.menuPanelPrincipal(false);
+                            FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
+                            javax.swing.JPanel panelj = new javax.swing.JPanel();
+                            FramePrincipal.cambiarPanel376(panelj);
+                            FramePrincipal.menuDoublePanel(true);
+                        } else {
+                            FramePrincipal.menuVisible(true);
+                            FramePrincipal.menuPanelPrincipal(false);
+                            FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
+                            javax.swing.JPanel panelj = new javax.swing.JPanel();
+                            FramePrincipal.cambiarPanel376(panelj);
+                            FramePrincipal.menuDoublePanel(true);
+                        }
+                    } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
+                        JOptionPane.showMessageDialog(null, "No existe Finca Registrada");
+                    } else {
+                        FramePrincipal.menuVisible(true);
+                        FramePrincipal.menuPanelPrincipal(false);
+                        FramePrincipal.cambiarPanel127(new MenuSeleccionAux((int) cedula));
+                        javax.swing.JPanel panelj = new javax.swing.JPanel();
+                        FramePrincipal.cambiarPanel376(panelj);
+                        FramePrincipal.menuDoublePanel(true);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "El usuario está desactivado o no existe!");
+            }
+        } catch (HeadlessException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "¡Datos inválidos!");
         }
     }
 
@@ -53,6 +100,25 @@ public class Ingreso extends javax.swing.JPanel {
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
+            }
+        });
+        username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usernameKeyPressed(evt);
+            }
+        });
+
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passwordKeyTyped(evt);
             }
         });
 
@@ -171,49 +237,7 @@ public class Ingreso extends javax.swing.JPanel {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        ControlUsuarios validacion = new ControlUsuarios();
-        long cedula = 0;
-        try {
-            cedula = Long.parseLong(username.getText());
-            if(validacion.verificarEstado(cedula)){
-                if (validacion.verificarLogin(cedula, password.getText())) {
-                FramePrincipal.setCedula((int) cedula);
-                    if (cedula == FramePrincipal.getSistem().getAdmin().getCedula()) {
-                        
-                        if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
-                            FramePrincipal.menuVisible(true);
-                            FramePrincipal.menuPanelPrincipal(false);
-                            FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
-                            javax.swing.JPanel panelj = new javax.swing.JPanel();
-                            FramePrincipal.cambiarPanel376(panelj);
-                            FramePrincipal.menuDoublePanel(true);
-                        } else {
-                            FramePrincipal.menuVisible(true);
-                            FramePrincipal.menuPanelPrincipal(false);
-                            FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
-                            javax.swing.JPanel panelj = new javax.swing.JPanel();
-                            FramePrincipal.cambiarPanel376(panelj);
-                            FramePrincipal.menuDoublePanel(true);
-                        }
-                    } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
-                        JOptionPane.showMessageDialog(null, "No existe Finca Registrada");
-                    } else {
-                            FramePrincipal.menuVisible(true);
-                            FramePrincipal.menuPanelPrincipal(false);
-                            FramePrincipal.cambiarPanel127(new MenuSeleccionAux((int) cedula));
-                            javax.swing.JPanel panelj = new javax.swing.JPanel();
-                            FramePrincipal.cambiarPanel376(panelj);
-                            FramePrincipal.menuDoublePanel(true);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
-                }
-            }else{
-                JOptionPane.showMessageDialog(null, "El usuario está desactivado o no existe!");
-            }
-        } catch (HeadlessException | NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "¡Datos inválidos!");
-        }
+        ingresar();
     }//GEN-LAST:event_loginActionPerformed
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
@@ -232,6 +256,26 @@ public class Ingreso extends javax.swing.JPanel {
             password.setEchoChar('•');
         }
     }//GEN-LAST:event_checkActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyTyped
+
+    }//GEN-LAST:event_passwordKeyTyped
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            ingresar();
+        }
+    }//GEN-LAST:event_passwordKeyPressed
+
+    private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            ingresar();
+        }
+    }//GEN-LAST:event_usernameKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

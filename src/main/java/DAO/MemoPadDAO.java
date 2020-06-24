@@ -28,7 +28,8 @@ public class MemoPadDAO {
 
     private Memo convertir(ResultSet rs) throws SQLException {
 
-        String fechaMemo = rs.getString("MEMO_FECHAMEMOPAD");
+        //String fechaSiembra = String.valueOf(rs.getDate("ARB_FECHASIEMBRA"));
+        String fechaMemo = String.valueOf(rs.getDate("MEMO_FECHAMEMOPAD"));
         int idPersona = rs.getInt("PER_CEDULACIUDADANIA");
         String textoMemo = rs.getString("MEMO_TEXTOMEMOPAD");
 

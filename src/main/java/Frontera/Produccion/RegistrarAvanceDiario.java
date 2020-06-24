@@ -2,7 +2,11 @@ package Frontera.Produccion;
 
 import Control.Produccion;
 import Frontera.FramePrincipal;
+import com.easycoffee.Memo;
+import com.toedter.calendar.JDateChooser;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.lang.String;
 
 /**
  *
@@ -11,14 +15,19 @@ import java.util.Calendar;
 public class RegistrarAvanceDiario extends javax.swing.JPanel {
 
     private int cedula;
+    private ArrayList<Memo> memos;
+    private Produccion p;
 
     /**
      * Creates new form RegistrarAvanceDiario
      */
     public RegistrarAvanceDiario(int cedula) {
+        p = new Produccion();
         initComponents();
         this.cedula = cedula;
         fechaBusqueda.setCalendar(Calendar.getInstance());
+        fechaBusqueda.setDateFormatString("dd/MM/yyyy");
+        memos = p.obtenerMemos(cedula);
     }
 
     /**
@@ -147,8 +156,8 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aniadirActionPerformed
-        Produccion p = new Produccion();
-        p.registrarMemoPad(jTextArea1.getText());
+        String fechaCuadro = fechaBusqueda.getCalendar().get(Calendar.DATE) + "/" + (fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1) + "/" + fechaBusqueda.getCalendar().get(Calendar.YEAR);
+        p.registrarMemoPad(new Memo(cedula, fechaCuadro, jTextArea1.getText()));
     }//GEN-LAST:event_aniadirActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
@@ -157,7 +166,19 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void buscarxFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarxFechaActionPerformed
-        // TODO add your handling code here:
+        String mes;
+        if ((fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1) < 10) {
+            mes = String.valueOf(0) + (fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1);
+        } else {
+            mes = String.valueOf(fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1);
+        }
+        String fechaCuadro = fechaBusqueda.getCalendar().get(Calendar.YEAR) + "-" + mes + "-" + fechaBusqueda.getCalendar().get(Calendar.DATE);
+        for (int i = 0; i < memos.size(); i++) {
+            if (memos.get(i).getFecha().equals(fechaCuadro)) {
+                jTextArea1.setText(memos.get(i).getTexto());
+                return;
+            }
+        }
     }//GEN-LAST:event_buscarxFechaActionPerformed
 
 

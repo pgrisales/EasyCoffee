@@ -5,6 +5,7 @@ import Frontera.FramePrincipal;
 import com.easycoffee.Arbol;
 import com.easycoffee.Jornada;
 import com.easycoffee.Lote;
+import com.easycoffee.Memo;
 import com.easycoffee.Trabajador;
 import java.util.ArrayList;
 
@@ -38,10 +39,20 @@ public class Produccion {
         return true;
     }
 
-    public void registrarMemoPad(String memo) {
-        /**
-         * todo is hereeee
-         */
+    public boolean registrarMemoPad(Memo m) {
+        daoManager.getMemosDAO().insertar(m);
+        return true;
+    }
+
+    /**
+     * Nos sirve para Obtener todos los memos del Usuario que actualmente 
+     * se encuentra en el sistema.
+     * @param idUsuario Id del Usuario que esta trabajando en el sistema
+     * @return ArrayList< Memo > contiene los Memos del usuario en cuestion
+     */
+    public ArrayList<Memo> obtenerMemos(int idUsuario) {
+        ArrayList<Memo> memosxUsuario = (ArrayList<Memo>) daoManager.getMemosDAO().obtener(idUsuario);
+        return memosxUsuario;
     }
 
     /*Inicio Metodos Registrar Arboles*/

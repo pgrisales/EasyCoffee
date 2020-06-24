@@ -7,6 +7,7 @@ import com.easycoffee.Arbol;
 import com.easycoffee.Finca;
 import com.easycoffee.Jornada;
 import com.easycoffee.Lote;
+import com.easycoffee.Memo;
 import com.easycoffee.Trabajador;
 import com.easycoffee.Usuario;
 import java.io.IOException;
@@ -47,7 +48,7 @@ public class InicializarSistema {
             u.setRespuesta(daoManager.getRespuestasDAO().obtener(u.getCedula().intValue()));
             if (daoManager.getPermisosDAO().obtenerTodos(u).size() > 0) {
                 u.setIdLotes(daoManager.getPermisosDAO().obtenerTodos(u));
-            }else{
+            } else {
                 u.setIdLotes(new ArrayList<Integer>());
             }
             if (u.isRol()) {

@@ -31,12 +31,12 @@ public class ControlUsuarios {
         Persona p = new Persona(user.getCedula(), user.getNombre(), user.getApellido(), true);
         DAO.getPersonaDAO().insertar(p);
         Usuario u = new Usuario(user.getPassword(), user.getCedula(), user.getNombre(), user.getApellido(), true, user.getRespuesta()[0], user.getRespuesta()[0], user.getRespuesta()[0], false);
-        
         DAO.getUsuarioDAO().insertar(u);
         DAO.getRespuestasDAO().insertar(u);
         DAO.cerrarConexion();
     }
-    public void registrarFotoUsuario(int id, String ruta) throws FileNotFoundException{
+
+    public void registrarFotoUsuario(int id, String ruta) throws FileNotFoundException {
         DAO.getUsuarioDAO().insertarFoto(new Long(id), ruta);
     }
 
@@ -56,12 +56,12 @@ public class ControlUsuarios {
     }
 
     public boolean verificarEstado(Long cedula) {
-        if(DAO.getUsuarioDAO().obtener(cedula)!= null){
+        if (DAO.getUsuarioDAO().obtener(cedula) != null) {
             if (DAO.getUsuarioDAO().obtener(cedula).isEstado()) {
                 return true;
             }
             return false;
-        }else{
+        } else {
             return false;
         }
     }
@@ -127,7 +127,7 @@ public class ControlUsuarios {
     public void almacenarFinca(Finca f) {
         this.DAO.getFincaDAO().insertar(f);
     }
-    
+
     public Usuario obtenerUser(int cedula) {
         return DAO.getUsuarioDAO().obtener(new Long(cedula));
     }
