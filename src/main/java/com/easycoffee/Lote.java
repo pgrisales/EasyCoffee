@@ -21,7 +21,11 @@ public class Lote {
         this.arbolesMuertos = new ArrayList<>();
         this.arbolesVivos = new ArrayList<>();
     }
-
+    //Óptimo económico: 9.404 - 9.852 plantas/ha
+    public double[] optimoEconomico(){
+        double[] optimo={(this.areaTotal/10000)*9.404,(this.areaTotal/10000)* 9.852};
+        return optimo;
+    }
     public Lote() {
     }
 

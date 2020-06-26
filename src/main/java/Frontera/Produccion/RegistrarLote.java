@@ -310,12 +310,23 @@ public class RegistrarLote extends javax.swing.JPanel {
         numeroArboles();
         FramePrincipal.cambiarPanel376(this);
     }//GEN-LAST:event_addArbolesActionPerformed
-
+    public static boolean isNumeric(String s) {
+        boolean b=true;
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException nfe) {
+           return false;
+        }
+        if(Integer.parseInt(s)<=0){
+            return false;
+        }
+        return true;
+    }
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         if (this.areaLote.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Las casilla de tamaño está vacia, por favor asegurese de rellenarla");
         } else {
-            if (Registro.isNumeric(areaLote.getText())) {
+            if (isNumeric(areaLote.getText())) {
                 int area = Integer.parseInt(areaLote.getText());//swe guarda en metros
                 if (jComboBox1.getSelectedIndex() == 0) {
                     area = area * 1000000;
