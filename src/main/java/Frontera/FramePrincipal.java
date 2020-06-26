@@ -37,14 +37,11 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
         cambiarPanel(ingreso);
-        menu.setVisible(false);
         jPanel127.setVisible(false);
         jPanel376.setVisible(false);
     }
 
-    public static void menuVisible(boolean b) {
-        menu.setVisible(b);
-    }
+
 
     public static void menuPanelPrincipal(boolean b) {
         PanelPrincipal.setVisible(b);
@@ -105,15 +102,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel127 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         PanelPrincipal = new javax.swing.JPanel();
-        menu = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login de Usuario");
@@ -141,45 +129,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         PanelPrincipal.setRequestFocusEnabled(false);
         PanelPrincipal.setLayout(new java.awt.BorderLayout());
 
-        jMenu1.setText("File");
-
-        jMenuItem1.setText("jMenuItem1");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("jMenuItem2");
-        jMenu1.add(jMenuItem2);
-
-        menu.add(jMenu1);
-
-        jMenu2.setText("Edit");
-
-        jMenuItem3.setText("Editar finca");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem3);
-
-        menu.add(jMenu2);
-
-        jMenu3.setText("Produccion");
-        menu.add(jMenu3);
-
-        jMenu4.setText("Perfil");
-
-        jMenuItem5.setText("Cerrar sesión");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem5);
-
-        menu.add(jMenu4);
-
-        setJMenuBar(menu);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,7 +150,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel127, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel376, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -211,26 +160,6 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        FramePrincipal.menuPanelPrincipal(false);
-        javax.swing.JPanel panelj = new javax.swing.JPanel();
-        if (FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca().equals("") == false) {
-            FramePrincipal.cambiarPanel127(new EditFinca((int) FramePrincipal.getCedula()));
-        } else {
-            FramePrincipal.cambiarPanel127(new RegistroFinca((int) FramePrincipal.getCedula()));
-        }
-        FramePrincipal.cambiarPanel376(panelj);
-        FramePrincipal.menuDoublePanel(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        FramePrincipal.menuDoublePanel(false);
-        FramePrincipal.cambiarPanel(new Ingreso());
-        FramePrincipal.menuPanelPrincipal(true);
-        FramePrincipal.menuVisible(false);
-
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,17 +176,8 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel PanelPrincipal;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem5;
     private static javax.swing.JPanel jPanel127;
     private static javax.swing.JPanel jPanel376;
     private javax.swing.JSeparator jSeparator1;
-    private static javax.swing.JMenuBar menu;
     // End of variables declaration//GEN-END:variables
 }

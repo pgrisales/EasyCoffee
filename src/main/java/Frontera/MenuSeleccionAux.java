@@ -2,6 +2,7 @@ package Frontera;
 
 import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
+import Frontera.Usuarios.Ingreso;
 import Frontera.Usuarios.PerfilUsuario;
 
 /**
@@ -41,6 +42,7 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JToolBar.Separator();
         jSeparator7 = new javax.swing.JToolBar.Separator();
         jSeparator8 = new javax.swing.JToolBar.Separator();
+        cerrar = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(900, 127));
         setMinimumSize(new java.awt.Dimension(900, 127));
@@ -94,31 +96,44 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         jToolBar1.add(jSeparator7);
         jToolBar1.add(jSeparator8);
 
+        cerrar.setBackground(new java.awt.Color(102, 0, 0));
+        cerrar.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        cerrar.setForeground(new java.awt.Color(255, 255, 255));
+        cerrar.setText("Cerrar sesión ");
+        cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel2)))
+                .addGap(147, 147, 147)
+                .addComponent(jLabel2)
                 .addContainerGap(359, Short.MAX_VALUE))
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cerrar)
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(3, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("");
@@ -132,7 +147,14 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         FramePrincipal.cambiarPanel376(new MenuProduccion(cedula));
     }//GEN-LAST:event_produccionActionPerformed
 
+    private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
+        FramePrincipal.menuDoublePanel(false);
+        FramePrincipal.cambiarPanel(new Ingreso());
+        FramePrincipal.menuPanelPrincipal(true);
+    }//GEN-LAST:event_cerrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JToolBar.Separator jSeparator1;

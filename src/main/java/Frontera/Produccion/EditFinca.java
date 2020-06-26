@@ -300,7 +300,6 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_mapBActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        FramePrincipal.menuVisible(true);
         FramePrincipal.menuPanelPrincipal(false);
         FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
         javax.swing.JPanel panelj = new javax.swing.JPanel();

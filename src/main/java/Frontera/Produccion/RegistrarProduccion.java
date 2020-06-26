@@ -285,7 +285,6 @@ public class RegistrarProduccion extends javax.swing.JPanel {
         } else {
             FramePrincipal.cambiarPanel(new Ingreso());
             FramePrincipal.menuPanelPrincipal(true);
-            FramePrincipal.menuVisible(false);
         }
 
     }//GEN-LAST:event_volverActionPerformed

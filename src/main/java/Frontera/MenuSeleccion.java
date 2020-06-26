@@ -6,6 +6,7 @@ import Frontera.Produccion.EditFinca;
 import Frontera.Produccion.EditFinca;
 import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
+import Frontera.Usuarios.Ingreso;
 import com.easycoffee.Lote;
 import java.util.ArrayList;
 
@@ -49,6 +50,7 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jSeparator7 = new javax.swing.JToolBar.Separator();
         jSeparator8 = new javax.swing.JToolBar.Separator();
         estadisticas1 = new javax.swing.JButton();
+        cerrar = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(900, 127));
         setMinimumSize(new java.awt.Dimension(900, 127));
@@ -132,31 +134,44 @@ public class MenuSeleccion extends javax.swing.JPanel {
         });
         jToolBar1.add(estadisticas1);
 
+        cerrar.setBackground(new java.awt.Color(102, 0, 0));
+        cerrar.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        cerrar.setForeground(new java.awt.Color(255, 255, 255));
+        cerrar.setText("Cerrar sesión ");
+        cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel2)))
+                .addGap(147, 147, 147)
+                .addComponent(jLabel2)
                 .addContainerGap(359, Short.MAX_VALUE))
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cerrar)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(3, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("");
@@ -183,7 +198,14 @@ public class MenuSeleccion extends javax.swing.JPanel {
         FramePrincipal.cambiarPanel376(new RegistrarLote(new ArrayList<Lote>()));
     }//GEN-LAST:event_estadisticas1ActionPerformed
 
+    private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
+        FramePrincipal.menuDoublePanel(false);
+        FramePrincipal.cambiarPanel(new Ingreso());
+        FramePrincipal.menuPanelPrincipal(true);
+    }//GEN-LAST:event_cerrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cerrar;
     private javax.swing.JButton estadisticas;
     private javax.swing.JButton estadisticas1;
     private javax.swing.JButton finanzas;
