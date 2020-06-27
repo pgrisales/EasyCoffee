@@ -23,7 +23,7 @@ public class Finca {
         this.lotes = null;
         this.nombreFinca = name;
         this.trabajadores = null;
-        this.plagas = null;
+        this.plagas = new ArrayList<Plaga>();
     }
 
     public String getNombreFinca() {

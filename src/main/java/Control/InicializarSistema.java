@@ -8,6 +8,7 @@ import com.easycoffee.Finca;
 import com.easycoffee.Jornada;
 import com.easycoffee.Lote;
 import com.easycoffee.Memo;
+import com.easycoffee.Plaga;
 import com.easycoffee.Trabajador;
 import com.easycoffee.Usuario;
 import java.io.IOException;
@@ -26,8 +27,8 @@ public class InicializarSistema {
     private ArrayList<Usuario> users = null;
     private ArrayList<Trabajador> trabajadores = null;
     private ArrayList<Lote> lotes = null;
-
-    public InicializarSistema() {
+    private ArrayList<Plaga> plagas = null;
+    public InicializarSistema() throws IOException {
 
         Thread pcafe = new Thread() {
             public void run() {
@@ -67,6 +68,10 @@ public class InicializarSistema {
                 }
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
+                    this.plagas = (ArrayList<Plaga>) daoManager.getPlagasDAO().obtenerTodos();
+                    if(this.plagas.size()!=0){
+                        this.admin.getFinca().setPlagas(plagas);
+                    }
                     this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
 
                     //TRABAJADORES Y JORNADAS
