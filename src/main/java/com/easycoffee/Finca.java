@@ -8,12 +8,14 @@ public class Finca {
     private ArrayList<Trabajador> trabajadores = new ArrayList<Trabajador>();
     private ArrayList<Usuario> auxiliares = new ArrayList<Usuario>();
     private ArrayList<Lote> lotes = new ArrayList<Lote>();
+    private ArrayList<Plaga> plagas = new ArrayList<Plaga>();
 
     public Finca() {
         this.auxiliares = new ArrayList<Usuario>();;
         this.lotes = new ArrayList<Lote>();
         this.nombreFinca = "";
-        this.trabajadores = new ArrayList<Trabajador>();;
+        this.trabajadores = new ArrayList<Trabajador>();
+        this.plagas = new ArrayList<Plaga>();
     }
 
     public Finca(String name) {
@@ -21,6 +23,7 @@ public class Finca {
         this.lotes = null;
         this.nombreFinca = name;
         this.trabajadores = null;
+        this.plagas = null;
     }
 
     public String getNombreFinca() {
@@ -63,4 +66,12 @@ public class Finca {
         this.lotes = lotes;
     }
 
+    public ArrayList<Plaga> getPlagas() {
+        return plagas;
+    }
+
+    public void setPlagas(ArrayList<Plaga> plagas) {
+        this.plagas = plagas;
+    }
+    
 }
