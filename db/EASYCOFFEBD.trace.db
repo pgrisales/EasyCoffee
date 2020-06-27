@@ -8705,3 +8705,53 @@ The connection was not closed by the application and is garbage collected [90018
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 51 more
+2020-06-26 21:20:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE  EASYCOFFEBD.PLAGA (
+  PLA_ID INT NOT NULL AUTO_INCREMENT,
+  PLA_NOMBRE VARCHAR(45) NOT NULL,
+  PLA_DESCRIPCION CLOB NULL,
+  PLA_TRATAMIENTO CLOB NULL,
+  PLA_IMG BLOB NULL,
+  PRIMARY KEY (PLA_ID),
+)[*]"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE  EASYCOFFEBD.PLAGA (
+  PLA_ID INT NOT NULL AUTO_INCREMENT,
+  PLA_NOMBRE VARCHAR(45) NOT NULL,
+  PLA_DESCRIPCION CLOB NULL,
+  PLA_TRATAMIENTO CLOB NULL,
+  PLA_IMG BLOB NULL,
+  PRIMARY KEY (PLA_ID),
+)[*]"; expected "identifier"; SQL statement:
+CREATE TABLE  easycoffebd.Plaga (
+  pla_id INT NOT NULL AUTO_INCREMENT,
+  pla_nombre VARCHAR(45) NOT NULL,
+  pla_descripcion CLOB NULL,
+  pla_tratamiento CLOB NULL,
+  pla_img BLOB NULL,
+  PRIMARY KEY (pla_id),
+) [42001-200]
+2020-06-26 21:21:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE  EASYCOFFEBD.PLAGA (
+  PLA_ID INT NOT NULL AUTO_INCREMENT,
+  PLA_NOMBRE VARCHAR(45) NOT NULL,
+  PLA_DESCRIPCION CLOB NULL,
+  PLA_TRATAMIENTO CLOB NULL,
+  PLA_IMG BLOB NULL,
+  PRIMARY KEY (PLA_ID),
+)[*]"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE  EASYCOFFEBD.PLAGA (
+  PLA_ID INT NOT NULL AUTO_INCREMENT,
+  PLA_NOMBRE VARCHAR(45) NOT NULL,
+  PLA_DESCRIPCION CLOB NULL,
+  PLA_TRATAMIENTO CLOB NULL,
+  PLA_IMG BLOB NULL,
+  PRIMARY KEY (PLA_ID),
+)[*]"; expected "identifier"; SQL statement:
+CREATE TABLE  easycoffebd.Plaga (
+  pla_id INT NOT NULL AUTO_INCREMENT,
+  pla_nombre VARCHAR(45) NOT NULL,
+  pla_descripcion CLOB NULL,
+  pla_tratamiento CLOB NULL,
+  pla_img BLOB NULL,
+  PRIMARY KEY (pla_id),
+) [42001-200]
