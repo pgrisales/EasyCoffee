@@ -32,7 +32,7 @@ public class PerfilUsuario extends javax.swing.JPanel {
         this.Name.setText(x.getNombre() + " " + x.getApellido());
         if(x.getImagen() != null){
         ImageIcon imagen = x.getImagen();
-        Foto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(149, 200, Image.SCALE_SMOOTH)));
+        Foto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
         }
     }
 
@@ -122,7 +122,7 @@ public class PerfilUsuario extends javax.swing.JPanel {
         if (ap == JFileChooser.APPROVE_OPTION) {
             ruta = j.getSelectedFile().getAbsolutePath();
             ImageIcon imagen = new ImageIcon(ruta);
-            Foto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(Foto.getWidth(), Foto.getHeight(), Image.SCALE_DEFAULT)));
+            Foto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(Foto.getWidth(), Foto.getHeight(), Image.SCALE_SMOOTH)));
             ControlUsuarios u = new ControlUsuarios();
             Usuario x = null;
             for (Usuario user : FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares()) {

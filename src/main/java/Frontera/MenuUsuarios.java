@@ -5,6 +5,7 @@ import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
 import Frontera.Usuarios.AgregarAuxiliar;
 import Frontera.Usuarios.EditarAuxiliar;
+import Frontera.Usuarios.ListarUsuarios;
 import Frontera.Usuarios.RegistrarTrabajador;
 import java.awt.Color;
 
@@ -138,6 +139,7 @@ public class MenuUsuarios extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jButton2.setBackground(new Color(102, 0, 0));
         jButton3.setBackground(new Color(152, 51, 0));
+        FramePrincipal.cambiarPanel376(new ListarUsuarios(cedula));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void addAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuxActionPerformed

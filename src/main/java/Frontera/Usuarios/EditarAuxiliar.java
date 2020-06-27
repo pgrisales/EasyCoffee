@@ -119,6 +119,8 @@ public class EditarAuxiliar extends javax.swing.JPanel {
         imgUsu.setBackground(new java.awt.Color(0, 0, 0));
         imgUsu.setFont(new java.awt.Font("Sitka Banner", 1, 14)); // NOI18N
         imgUsu.setForeground(new java.awt.Color(255, 255, 255));
+        imgUsu.setPreferredSize(new java.awt.Dimension(200, 200));
+        imgUsu.setVerifyInputWhenFocusTarget(false);
 
         actualizar.setBackground(new java.awt.Color(102, 0, 0));
         actualizar.setFont(new java.awt.Font("Sitka Banner", 1, 14)); // NOI18N
@@ -137,8 +139,8 @@ public class EditarAuxiliar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(imgUsu, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                    .addComponent(imgUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(usuariosC, 0, 143, Short.MAX_VALUE)
@@ -187,12 +189,12 @@ public class EditarAuxiliar extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(usuariosC, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(imgUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(imgUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(activarB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cedulaL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
@@ -200,7 +202,7 @@ public class EditarAuxiliar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nLotesL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,7 +212,7 @@ public class EditarAuxiliar extends javax.swing.JPanel {
             if(FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares().get(usuariosC.getSelectedIndex()).getImagen()!= null){
                 imgUsu.setText("");
                 ImageIcon imagen = FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares().get(usuariosC.getSelectedIndex()).getImagen();
-                imgUsu.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(149, 200, Image.SCALE_SMOOTH)));
+                imgUsu.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
             }else{
                 imgUsu.setIcon(null);
                 imgUsu.setText("NO HAY IMÁGEN");
