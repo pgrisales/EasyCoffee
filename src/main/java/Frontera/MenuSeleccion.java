@@ -8,6 +8,7 @@ import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
 import Frontera.Usuarios.Ingreso;
 import com.easycoffee.Lote;
+import java.awt.Color;
 import java.util.ArrayList;
 
 /**
@@ -49,7 +50,7 @@ public class MenuSeleccion extends javax.swing.JPanel {
         estadisticas = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JToolBar.Separator();
         jSeparator8 = new javax.swing.JToolBar.Separator();
-        estadisticas1 = new javax.swing.JButton();
+        gfinca = new javax.swing.JButton();
         cerrar = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(900, 127));
@@ -120,19 +121,19 @@ public class MenuSeleccion extends javax.swing.JPanel {
         jToolBar1.add(jSeparator7);
         jToolBar1.add(jSeparator8);
 
-        estadisticas1.setBackground(new java.awt.Color(102, 0, 0));
-        estadisticas1.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
-        estadisticas1.setForeground(new java.awt.Color(255, 255, 255));
-        estadisticas1.setText("Gestion Finca");
-        estadisticas1.setFocusable(false);
-        estadisticas1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        estadisticas1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        estadisticas1.addActionListener(new java.awt.event.ActionListener() {
+        gfinca.setBackground(new java.awt.Color(102, 0, 0));
+        gfinca.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        gfinca.setForeground(new java.awt.Color(255, 255, 255));
+        gfinca.setText("Gestion Finca");
+        gfinca.setFocusable(false);
+        gfinca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gfinca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        gfinca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                estadisticas1ActionPerformed(evt);
+                gfincaActionPerformed(evt);
             }
         });
-        jToolBar1.add(estadisticas1);
+        jToolBar1.add(gfinca);
 
         cerrar.setBackground(new java.awt.Color(102, 0, 0));
         cerrar.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
@@ -179,24 +180,48 @@ public class MenuSeleccion extends javax.swing.JPanel {
 
     private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
         FramePrincipal.cambiarPanel376(new MenuUsuarios(cedula));
+        usuarios.setBackground(new Color(152, 51, 0));
+        produccion.setBackground(new Color(102, 0, 0));
+        finanzas.setBackground(new Color(102, 0, 0));
+        estadisticas.setBackground(new Color(102, 0, 0));
+        gfinca.setBackground(new Color(102, 0, 0));
     }//GEN-LAST:event_usuariosActionPerformed
 
     private void produccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produccionActionPerformed
         FramePrincipal.cambiarPanel376(new MenuProduccion(cedula));
+        produccion.setBackground(new Color(152, 51, 0));
+        usuarios.setBackground(new Color(102, 0, 0));
+        finanzas.setBackground(new Color(102, 0, 0));
+        estadisticas.setBackground(new Color(102, 0, 0));
+        gfinca.setBackground(new Color(102, 0, 0));
     }//GEN-LAST:event_produccionActionPerformed
 
     private void finanzasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finanzasActionPerformed
-        // TODO add your handling code here:
+        finanzas.setBackground(new Color(152, 51, 0));
+        produccion.setBackground(new Color(102, 0, 0));
+        usuarios.setBackground(new Color(102, 0, 0));
+        estadisticas.setBackground(new Color(102, 0, 0));
+        gfinca.setBackground(new Color(102, 0, 0));
     }//GEN-LAST:event_finanzasActionPerformed
 
     private void estadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticasActionPerformed
         FramePrincipal.cambiarPanel376(new RegistrarAvanceDiario(this.cedula));
+        estadisticas.setBackground(new Color(152, 51, 0));
+        produccion.setBackground(new Color(102, 0, 0));
+        finanzas.setBackground(new Color(102, 0, 0));
+        usuarios.setBackground(new Color(102, 0, 0));
+        gfinca.setBackground(new Color(102, 0, 0));
     }//GEN-LAST:event_estadisticasActionPerformed
 
-    private void estadisticas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadisticas1ActionPerformed
+    private void gfincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gfincaActionPerformed
         FramePrincipal.cambiarPanel127(new EditFinca(cedula));
         FramePrincipal.cambiarPanel376(new RegistrarLote(new ArrayList<Lote>()));
-    }//GEN-LAST:event_estadisticas1ActionPerformed
+        gfinca.setBackground(new Color(152, 51, 0));
+        produccion.setBackground(new Color(102, 0, 0));
+        finanzas.setBackground(new Color(102, 0, 0));
+        estadisticas.setBackground(new Color(102, 0, 0));
+        usuarios.setBackground(new Color(102, 0, 0));
+    }//GEN-LAST:event_gfincaActionPerformed
 
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
         FramePrincipal.menuDoublePanel(false);
@@ -207,8 +232,8 @@ public class MenuSeleccion extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cerrar;
     private javax.swing.JButton estadisticas;
-    private javax.swing.JButton estadisticas1;
     private javax.swing.JButton finanzas;
+    private javax.swing.JButton gfinca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JToolBar.Separator jSeparator1;

@@ -315,7 +315,7 @@ public class RegistroFinca extends javax.swing.JPanel {
         addAux.setBackground(new Color(102, 0, 0));
         editAux.setBackground(new Color(102, 0, 0));
         editLote.setBackground(new Color(102, 0, 0));
-        FramePrincipal.cambiarPanel376(new RegistrarTrabajador());
+        FramePrincipal.cambiarPanel376(new RegistrarTrabajador(cedula));
 
     }//GEN-LAST:event_AddTrabajadorActionPerformed
 

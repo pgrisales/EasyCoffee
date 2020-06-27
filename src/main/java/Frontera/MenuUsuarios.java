@@ -147,7 +147,7 @@ public class MenuUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_addAuxActionPerformed
 
     private void AddTraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTraActionPerformed
-       FramePrincipal.cambiarPanel376(new RegistrarTrabajador());
+       FramePrincipal.cambiarPanel376(new RegistrarTrabajador(cedula));
        
     }//GEN-LAST:event_AddTraActionPerformed
 

@@ -2,6 +2,8 @@ package Frontera.Usuarios;
 
 import Control.ControlUsuarios;
 import Frontera.FramePrincipal;
+import Frontera.MenuProduccion;
+import Frontera.MenuUsuarios;
 import com.easycoffee.Trabajador;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -16,10 +18,11 @@ import javax.swing.JOptionPane;
 public class RegistrarTrabajador extends javax.swing.JPanel {
 
     private String error = "";
-
-    public RegistrarTrabajador() {
+    private int cedula2;
+    public RegistrarTrabajador(int cedula) {
         initComponents();
         this.setBackground(new Color(0, 0, 0, 10));
+        this.cedula2 = cedula;
     }
 
     /**
@@ -230,7 +233,8 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
 
     private void registration1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registration1ActionPerformed
         this.removeAll();
-        FramePrincipal.cambiarPanel376(this);
+        FramePrincipal.cambiarPanel376(new MenuUsuarios(cedula2));
+        
     }//GEN-LAST:event_registration1ActionPerformed
 
     private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
@@ -245,7 +249,7 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
             }
             FramePrincipal.getSistem().getAdmin().getFinca().getTrabajadores().add(a);
             JOptionPane.showMessageDialog(null, "Trabajador registrado.");
-            FramePrincipal.cambiarPanel376(new RegistrarTrabajador());
+            FramePrincipal.cambiarPanel376(new RegistrarTrabajador(cedula2));
         } else {
             switch (error) {
 
