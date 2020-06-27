@@ -1,5 +1,7 @@
 package Frontera.Administrativo;
 
+import com.easycoffee.VentaCafe;
+
 /**
  *
  * @author Camilo Vargas
@@ -10,11 +12,13 @@ public class RegistrarVenta extends javax.swing.JPanel {
 
     /**
      * Creates new form RegistrarVenta
+     *
      * @param cedula: Cedula del Usuario en Curso
      */
     public RegistrarVenta(int cedula) {
         initComponents();
         this.cedula = cedula;
+        VentaCafe venta = new VentaCafe();
     }
 
     /**

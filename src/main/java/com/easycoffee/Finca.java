@@ -5,17 +5,19 @@ import java.util.ArrayList;
 public class Finca {
 
     private String nombreFinca;
-    private ArrayList<Trabajador> trabajadores = new ArrayList<Trabajador>();
-    private ArrayList<Usuario> auxiliares = new ArrayList<Usuario>();
-    private ArrayList<Lote> lotes = new ArrayList<Lote>();
-    private ArrayList<Plaga> plagas = new ArrayList<Plaga>();
+    private ArrayList<Trabajador> trabajadores;
+    private ArrayList<Usuario> auxiliares;
+    private ArrayList<Lote> lotes;
+    private ArrayList<Plaga> plagas;
+    private ArrayList<VentaCafe> ventasRegistradas;
 
     public Finca() {
-        this.auxiliares = new ArrayList<Usuario>();;
-        this.lotes = new ArrayList<Lote>();
+        this.auxiliares = new ArrayList<>();
+        this.lotes = new ArrayList<>();
         this.nombreFinca = "";
-        this.trabajadores = new ArrayList<Trabajador>();
-        this.plagas = new ArrayList<Plaga>();
+        this.trabajadores = new ArrayList<>();
+        this.plagas = new ArrayList<>();
+        this.ventasRegistradas = new ArrayList<>();
     }
 
     public Finca(String name) {
@@ -24,6 +26,7 @@ public class Finca {
         this.nombreFinca = name;
         this.trabajadores = null;
         this.plagas = new ArrayList<Plaga>();
+        this.ventasRegistradas = new ArrayList<>();
     }
 
     public String getNombreFinca() {
@@ -73,5 +76,17 @@ public class Finca {
     public void setPlagas(ArrayList<Plaga> plagas) {
         this.plagas = plagas;
     }
-    
+
+    public ArrayList<VentaCafe> getVentasRegistradas() {
+        return ventasRegistradas;
+    }
+
+    public void setVentasRegistradas(ArrayList<VentaCafe> ventasRegistradas) {
+        this.ventasRegistradas = ventasRegistradas;
+    }
+
+    public void addVentaRegistro(VentaCafe vc) {
+        this.ventasRegistradas.add(vc);
+    }
+
 }
