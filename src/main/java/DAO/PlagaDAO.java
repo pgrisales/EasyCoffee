@@ -41,8 +41,8 @@ public class PlagaDAO {
         this.conn = conn;
     }
     private Plaga convertir(ResultSet rs) throws SQLException, IOException {
-        String aux[] = new String[3];
-        String nombre = String.valueOf(rs.getString("PLA_NOMBRE"));
+        
+        String nombre = rs.getString("PLA_NOMBRE");
         Clob clob = rs.getClob("PLA_DESCRIPCION");
         Reader r = clob.getCharacterStream();
         StringBuffer bufferDescripcion = new StringBuffer();

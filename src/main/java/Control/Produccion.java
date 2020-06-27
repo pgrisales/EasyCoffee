@@ -6,7 +6,9 @@ import com.easycoffee.Arbol;
 import com.easycoffee.Jornada;
 import com.easycoffee.Lote;
 import com.easycoffee.Memo;
+import com.easycoffee.Plaga;
 import com.easycoffee.Trabajador;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -38,7 +40,10 @@ public class Produccion {
         daoManager.getLoteDAO().insertar(lote);
         return true;
     }
-
+    public boolean RegistrarPlagaBD(Plaga plaga, String Ruta) throws FileNotFoundException {
+        daoManager.getPlagasDAO().insertar(plaga, Ruta);
+        return true;
+    }
     public boolean registrarMemoPad(Memo m) {
         daoManager.getMemosDAO().insertar(m);
         return true;

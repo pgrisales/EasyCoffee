@@ -23,6 +23,7 @@ public class DAOManager {
     private RespuestasDAO respuestas = null;
     private PermisosDAO permisos = null;
     private MemoPadDAO memos = null;
+    private PlagaDAO plagas = null;
 
 //    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
     public DAOManager() {
@@ -38,6 +39,13 @@ public class DAOManager {
             permisos = new PermisosDAO(conn);
         }
         return permisos;
+    }
+    
+    public PlagaDAO getPlagasDAO() {
+        if (plagas == null) {
+            plagas = new PlagaDAO(conn);
+        }
+        return plagas;
     }
 
     public UsuarioDAO getUsuarioDAO() {
