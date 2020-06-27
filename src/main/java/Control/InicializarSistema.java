@@ -28,6 +28,8 @@ public class InicializarSistema {
     private ArrayList<Trabajador> trabajadores = null;
     private ArrayList<Lote> lotes = null;
     private ArrayList<Plaga> plagas = null;
+    private ArrayList<Memo> memosUser = null;
+
     public InicializarSistema() throws IOException {
 
         Thread pcafe = new Thread() {
@@ -50,7 +52,7 @@ public class InicializarSistema {
             if (daoManager.getPermisosDAO().obtenerTodos(u).size() > 0) {
                 u.setIdLotes(daoManager.getPermisosDAO().obtenerTodos(u));
             } else {
-                u.setIdLotes(new ArrayList<Integer>());
+                u.setIdLotes(new ArrayList<>());
             }
             if (u.isRol()) {
                 i = a;
@@ -69,7 +71,7 @@ public class InicializarSistema {
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
                     this.plagas = (ArrayList<Plaga>) daoManager.getPlagasDAO().obtenerTodos();
-                    if(this.plagas.size()!=0){
+                    if (this.plagas.size() != 0) {
                         this.admin.getFinca().setPlagas(plagas);
                     }
                     this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
@@ -100,15 +102,19 @@ public class InicializarSistema {
     public void setAdmin(Administrador admin) {
         this.admin = admin;
     }
-    public Usuario getUser(long cedula){
-        if(admin.getCedula()==cedula)
+
+    public Usuario getUser(long cedula) {
+        if (admin.getCedula() == cedula) {
             return admin;
-        for (int i = 0; i <this.users.size(); i++) {
-            if(cedula==this.users.get(i).getCedula())
+        }
+        for (int i = 0; i < this.users.size(); i++) {
+            if (cedula == this.users.get(i).getCedula()) {
                 return this.users.get(i);
+            }
         }
         return null;
     }
+
     public ArrayList<Usuario> getUsers() {
         return users;
     }

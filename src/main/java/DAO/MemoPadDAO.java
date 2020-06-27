@@ -28,7 +28,6 @@ public class MemoPadDAO {
 
     private Memo convertir(ResultSet rs) throws SQLException {
 
-        //String fechaSiembra = String.valueOf(rs.getDate("ARB_FECHASIEMBRA"));
         String fechaMemo = String.valueOf(rs.getDate("MEMO_FECHAMEMOPAD"));
         int idPersona = rs.getInt("PER_CEDULACIUDADANIA");
         String textoMemo = rs.getString("MEMO_TEXTOMEMOPAD");
@@ -41,7 +40,6 @@ public class MemoPadDAO {
         PreparedStatement stat = null;
         try {
             SimpleDateFormat date1 = new SimpleDateFormat("dd/MM/yyyy");
-            //Date.valueOf(memo.getFecha())
             stat = conn.prepareStatement(INSERT);
             stat.setDate(1, new Date(date1.parse(memo.getFecha()).getTime()));
             stat.setInt(2, memo.getIdPersona());

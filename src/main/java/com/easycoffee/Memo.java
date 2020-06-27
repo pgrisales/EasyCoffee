@@ -11,7 +11,6 @@ public class Memo {
     private String texto;
 
     public Memo(int idPersona, String fecha, String texto) {
-        this.idPersona = idPersona;
         this.fecha = fecha;
         this.texto = texto;
     }

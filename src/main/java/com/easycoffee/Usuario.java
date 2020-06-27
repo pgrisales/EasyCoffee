@@ -4,6 +4,7 @@ import java.util.*;
 import javax.swing.ImageIcon;
 
 public class Usuario extends Persona {
+
     private String password;
     private String[] respuesta = new String[3];
     private ArrayList<Integer> idLotes;
@@ -13,7 +14,7 @@ public class Usuario extends Persona {
     private int[] bloqueo;
 
     public Usuario(String password, Long cedula, String nombre, String apellido,
-        boolean estado, String rta1, String rta2, String rta3, boolean rol) {
+            boolean estado, String rta1, String rta2, String rta3, boolean rol) {
         super(cedula, nombre, apellido, estado);
         this.password = password;
         this.respuesta[0] = rta1;
@@ -23,11 +24,13 @@ public class Usuario extends Persona {
         this.idLotes = new ArrayList<>();
         this.imagen = null;
         this.memos = new ArrayList<>();
-        bloqueo =new int[]{0,0,0};
+        bloqueo = new int[]{0, 0, 0};
     }
+
     public void resetBloqueo() {
-         bloqueo =new int[]{0,0,0};
+        bloqueo = new int[]{0, 0, 0};
     }
+
     public int[] getBloqueo() {
         return bloqueo;
     }
@@ -35,8 +38,6 @@ public class Usuario extends Persona {
     public void setBloqueo(int[] bloqueo) {
         this.bloqueo = bloqueo;
     }
-    
-
 
     public Usuario(String password, ImageIcon imagen, Long cedula, String nombre, String apellido, boolean estado, boolean rol) {
         super(cedula, nombre, apellido, estado);

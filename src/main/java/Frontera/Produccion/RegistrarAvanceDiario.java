@@ -3,7 +3,6 @@ package Frontera.Produccion;
 import Control.Produccion;
 import Frontera.FramePrincipal;
 import com.easycoffee.Memo;
-import com.toedter.calendar.JDateChooser;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.lang.String;
@@ -27,7 +26,6 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
         this.cedula = cedula;
         fechaBusqueda.setCalendar(Calendar.getInstance());
         fechaBusqueda.setDateFormatString("dd/MM/yyyy");
-        memos = p.obtenerMemos(cedula);
         buscarxFecha();
     }
 
