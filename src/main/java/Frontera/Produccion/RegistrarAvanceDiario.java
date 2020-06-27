@@ -28,6 +28,7 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
         fechaBusqueda.setCalendar(Calendar.getInstance());
         fechaBusqueda.setDateFormatString("dd/MM/yyyy");
         memos = p.obtenerMemos(cedula);
+        buscarxFecha();
     }
 
     /**
@@ -165,7 +166,8 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
         System.gc();
     }//GEN-LAST:event_cancelarActionPerformed
 
-    private void buscarxFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarxFechaActionPerformed
+    private void buscarxFecha() {
+        /*Falta Evitar Colisiones por dia en Front End*/
         String mes;
         if ((fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1) < 10) {
             mes = String.valueOf(0) + (fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1);
@@ -179,6 +181,11 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
                 return;
             }
         }
+        jTextArea1.setText("");
+    }
+
+    private void buscarxFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarxFechaActionPerformed
+        buscarxFecha();
     }//GEN-LAST:event_buscarxFechaActionPerformed
 
 

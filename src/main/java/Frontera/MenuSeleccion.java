@@ -197,6 +197,7 @@ public class MenuSeleccion extends javax.swing.JPanel {
     }//GEN-LAST:event_produccionActionPerformed
 
     private void finanzasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finanzasActionPerformed
+        FramePrincipal.cambiarPanel376(new MenuAdministrativo(cedula));
         finanzas.setBackground(new Color(152, 51, 0));
         produccion.setBackground(new Color(102, 0, 0));
         usuarios.setBackground(new Color(102, 0, 0));
