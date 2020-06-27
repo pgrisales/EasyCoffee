@@ -6,8 +6,11 @@ import Frontera.Produccion.RegistroFinca;
 import Frontera.Usuarios.Registro;
 import Control.ControlUsuarios;
 import Frontera.FramePrincipal;
+import com.easycoffee.Usuario;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author Nivektakedown
  */
 public class Ingreso extends javax.swing.JPanel {
-
+    int cont;
     static public String fondo = "../image/cafe.jpg";
 
     public Ingreso() {
@@ -23,45 +26,75 @@ public class Ingreso extends javax.swing.JPanel {
         if (FramePrincipal.getSistem().getAdmin() != null) {
             registration.setVisible(false);
         }
+        cont=0;
     }
 
     private void ingresar() {
+
         ControlUsuarios validacion = new ControlUsuarios();
         long cedula = 0;
         try {
             cedula = Long.parseLong(username.getText());
-            if (validacion.verificarEstado(cedula)) {
-                if (validacion.verificarLogin(cedula, password.getText())) {
-                    FramePrincipal.setCedula((int) cedula);
-                    if (cedula == FramePrincipal.getSistem().getAdmin().getCedula()) {
 
-                        if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
-                            FramePrincipal.menuPanelPrincipal(false);
-                            FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
-                            javax.swing.JPanel panelj = new javax.swing.JPanel();
-                            FramePrincipal.cambiarPanel376(panelj);
-                            FramePrincipal.menuDoublePanel(true);
+            Usuario u=FramePrincipal.getSistem().getUser(cedula);
+            Calendar c=new GregorianCalendar();
+            Calendar uc=new GregorianCalendar();
+            if(u!=null){
+                uc.set(Calendar.HOUR_OF_DAY, u.getBloqueo()[0]);
+                uc.set(Calendar.MINUTE, u.getBloqueo()[1]);
+                uc.set(Calendar.SECOND, u.getBloqueo()[2]);
+            }
+            int[] a=new int[]{c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND)};
+            if(uc.compareTo(c)<=0){
+                if (validacion.verificarEstado(cedula)) {
+                    if (validacion.verificarLogin(cedula, password.getText())) {
+                        FramePrincipal.setCedula((int) cedula);
+                        if (cedula == FramePrincipal.getSistem().getAdmin().getCedula()) {
+
+                            if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
+                                FramePrincipal.menuPanelPrincipal(false);
+                                FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
+                                javax.swing.JPanel panelj = new javax.swing.JPanel();
+                                FramePrincipal.cambiarPanel376(panelj);
+                                FramePrincipal.menuDoublePanel(true);
+                            } else {
+                                FramePrincipal.menuPanelPrincipal(false);
+                                FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
+                                javax.swing.JPanel panelj = new javax.swing.JPanel();
+                                FramePrincipal.cambiarPanel376(panelj);
+                                FramePrincipal.menuDoublePanel(true);
+                            }
+                        } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
+                            JOptionPane.showMessageDialog(null, "No existe Finca Registrada");
                         } else {
                             FramePrincipal.menuPanelPrincipal(false);
-                            FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
+                            FramePrincipal.cambiarPanel127(new MenuSeleccionAux((int) cedula));
                             javax.swing.JPanel panelj = new javax.swing.JPanel();
                             FramePrincipal.cambiarPanel376(panelj);
                             FramePrincipal.menuDoublePanel(true);
                         }
-                    } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
-                        JOptionPane.showMessageDialog(null, "No existe Finca Registrada");
                     } else {
-                        FramePrincipal.menuPanelPrincipal(false);
-                        FramePrincipal.cambiarPanel127(new MenuSeleccionAux((int) cedula));
-                        javax.swing.JPanel panelj = new javax.swing.JPanel();
-                        FramePrincipal.cambiarPanel376(panelj);
-                        FramePrincipal.menuDoublePanel(true);
+                        cont++;
+                        JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
+                        if(cont>=5&&u!=null){
+                            c=new GregorianCalendar();
+                            c.add(Calendar.MINUTE, 5);
+                            a=new int[]{c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND)};
+                            u.setBloqueo(a);
+                            JOptionPane.showMessageDialog(null,"El acceso ha sido bloqueado, intentelo de nuevo a las "+u.getBloqueo()[0]+":"+u.getBloqueo()[1]);
+                            cont=0;
+                        }
+
+
+
+                        
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
+                    JOptionPane.showMessageDialog(null, "El usuario está desactivado o no existe!");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "El usuario está desactivado o no existe!");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "El acceso ha sido bloqueado, intentelo de nuevo a las "+a[0]+":"+a[1]);
             }
         } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "¡Datos inválidos!");

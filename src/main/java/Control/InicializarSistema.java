@@ -95,7 +95,15 @@ public class InicializarSistema {
     public void setAdmin(Administrador admin) {
         this.admin = admin;
     }
-
+    public Usuario getUser(long cedula){
+        if(admin.getCedula()==cedula)
+            return admin;
+        for (int i = 0; i <this.users.size(); i++) {
+            if(cedula==this.users.get(i).getCedula())
+                return this.users.get(i);
+        }
+        return null;
+    }
     public ArrayList<Usuario> getUsers() {
         return users;
     }
