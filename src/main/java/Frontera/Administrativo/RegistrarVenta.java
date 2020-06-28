@@ -54,13 +54,13 @@ public class RegistrarVenta extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Registrar Venta de Café");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel2.setText("Variedad de Café:");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel3.setText("Cantidad Vendida:");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel4.setText("Precio de Venta:");
 
         variedadCafe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -70,7 +70,7 @@ public class RegistrarVenta extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel5.setText("Unidad:");
 
         unidadMedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -85,7 +85,7 @@ public class RegistrarVenta extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel6.setText("Precio de Referencia:");
 
         precioReferencia.setEditable(false);
@@ -160,7 +160,7 @@ public class RegistrarVenta extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(variedadCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 21, Short.MAX_VALUE)
+                    .addComponent(variedadCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(precioReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(39, 39, 39)
@@ -169,7 +169,7 @@ public class RegistrarVenta extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(unidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(precioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
