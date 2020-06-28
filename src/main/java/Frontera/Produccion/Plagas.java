@@ -92,9 +92,9 @@ public class Plagas extends javax.swing.JPanel {
         tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tabla.setEnabled(false);
         tabla.setGridColor(new java.awt.Color(204, 204, 204));
-        tabla.setMaximumSize(new java.awt.Dimension(690, 690));
-        tabla.setMinimumSize(new java.awt.Dimension(0, 0));
-        tabla.setPreferredSize(new java.awt.Dimension(690, 690));
+        tabla.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        tabla.setMinimumSize(new java.awt.Dimension(100, 100));
+        tabla.setRowHeight(100);
         tabla.setRowMargin(3);
         tabla.setSelectionBackground(new java.awt.Color(153, 153, 153));
         tabla.setSelectionForeground(new java.awt.Color(0, 0, 0));
