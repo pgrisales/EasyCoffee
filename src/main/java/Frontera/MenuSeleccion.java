@@ -10,6 +10,7 @@ import Frontera.Usuarios.Ingreso;
 import com.easycoffee.Lote;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -225,9 +226,12 @@ public class MenuSeleccion extends javax.swing.JPanel {
     }//GEN-LAST:event_gfincaActionPerformed
 
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
-        FramePrincipal.menuDoublePanel(false);
-        FramePrincipal.cambiarPanel(new Ingreso());
-        FramePrincipal.menuPanelPrincipal(true);
+       int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+       if(resp == JOptionPane.YES_OPTION){
+            FramePrincipal.menuDoublePanel(false);
+            FramePrincipal.cambiarPanel(new Ingreso());
+            FramePrincipal.menuPanelPrincipal(true);
+       }
     }//GEN-LAST:event_cerrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
