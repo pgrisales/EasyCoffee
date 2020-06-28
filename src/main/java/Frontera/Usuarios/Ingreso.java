@@ -78,7 +78,7 @@ public class Ingreso extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto!");
                         if(cont>=5&&u!=null){
                             c=new GregorianCalendar();
-                            c.add(Calendar.MINUTE, 5);
+                            c.add(Calendar.MINUTE, 10);
                             a=new int[]{c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND)};
                             u.setBloqueo(a);
                             JOptionPane.showMessageDialog(null,"El acceso ha sido bloqueado, intentelo de nuevo a las "+u.getBloqueo()[0]+":"+u.getBloqueo()[1]);
