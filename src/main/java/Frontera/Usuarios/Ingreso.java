@@ -50,7 +50,7 @@ public class Ingreso extends javax.swing.JPanel {
                     if (validacion.verificarLogin(cedula, password.getText())) {
                         FramePrincipal.setCedula((int) cedula);
                         if (cedula == FramePrincipal.getSistem().getAdmin().getCedula()) {
-
+                             cont=0;
                             if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
                                 FramePrincipal.menuPanelPrincipal(false);
                                 FramePrincipal.cambiarPanel127(new RegistroFinca((int) cedula));
@@ -62,7 +62,7 @@ public class Ingreso extends javax.swing.JPanel {
                                 FramePrincipal.cambiarPanel127(new MenuSeleccion((int) cedula));
                                 javax.swing.JPanel panelj = new javax.swing.JPanel();
                                 FramePrincipal.cambiarPanel376(panelj);
-                                FramePrincipal.menuDoublePanel(true);
+                                FramePrincipal.menuDoublePanel(true);                             
                             }
                         } else if (FramePrincipal.sistem.getAdmin().getFinca().getNombreFinca().equals("")) {
                             JOptionPane.showMessageDialog(null, "No existe Finca Registrada");

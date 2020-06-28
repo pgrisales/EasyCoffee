@@ -14,7 +14,7 @@ public class Usuario extends Persona {
     private int[] bloqueo;
 
     public Usuario(String password, Long cedula, String nombre, String apellido,
-            boolean estado, String rta1, String rta2, String rta3, boolean rol) {
+        boolean estado, String rta1, String rta2, String rta3, boolean rol) {
         super(cedula, nombre, apellido, estado);
         this.password = password;
         this.respuesta[0] = rta1;
@@ -46,6 +46,7 @@ public class Usuario extends Persona {
         this.Rol = rol;
         this.idLotes = new ArrayList<Integer>();
         this.memos = new ArrayList<>();
+        bloqueo = new int[]{0, 0, 0};
     }
 
     public Usuario(String password, Long cedula, String nombre, String apellido, boolean estado, boolean rol) {
@@ -55,6 +56,7 @@ public class Usuario extends Persona {
         this.idLotes = new ArrayList<Integer>();
         this.imagen = null;
         this.memos = new ArrayList<>();
+        bloqueo = new int[]{0, 0, 0};
     }
 
     public String getPassword() {
