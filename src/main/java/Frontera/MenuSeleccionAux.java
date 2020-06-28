@@ -4,6 +4,7 @@ import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
 import Frontera.Usuarios.Ingreso;
 import Frontera.Usuarios.PerfilUsuario;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -60,12 +61,15 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         jToolBar1.setBackground(new java.awt.Color(0, 0, 0));
         jToolBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jToolBar1.setRollover(true);
+        jToolBar1.setMaximumSize(new java.awt.Dimension(700, 27));
+        jToolBar1.setMinimumSize(new java.awt.Dimension(685, 27));
+        jToolBar1.setPreferredSize(new java.awt.Dimension(685, 27));
 
         produccion.setBackground(new java.awt.Color(102, 0, 0));
         produccion.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         produccion.setForeground(new java.awt.Color(255, 255, 255));
         produccion.setText("Producción");
-        produccion.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        produccion.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white)));
         produccion.setMaximumSize(new java.awt.Dimension(150, 27));
         produccion.setMinimumSize(new java.awt.Dimension(150, 27));
         produccion.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +84,7 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         verPerfil.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         verPerfil.setForeground(new java.awt.Color(255, 255, 255));
         verPerfil.setText("Ver Perfil");
-        verPerfil.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        verPerfil.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white)));
         verPerfil.setMaximumSize(new java.awt.Dimension(150, 27));
         verPerfil.setMinimumSize(new java.awt.Dimension(150, 27));
         verPerfil.addActionListener(new java.awt.event.ActionListener() {
@@ -142,10 +146,14 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
 
     private void verPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPerfilActionPerformed
         FramePrincipal.cambiarPanel376(new PerfilUsuario(cedula));
+        verPerfil.setBackground(new Color(152, 51, 0));
+        produccion.setBackground(new Color(102, 0, 0));
     }//GEN-LAST:event_verPerfilActionPerformed
 
     private void produccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produccionActionPerformed
         FramePrincipal.cambiarPanel376(new MenuProduccion(cedula));
+        produccion.setBackground(new Color(152, 51, 0));
+        verPerfil.setBackground(new Color(102, 0, 0));
     }//GEN-LAST:event_produccionActionPerformed
 
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed

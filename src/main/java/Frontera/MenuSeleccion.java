@@ -74,6 +74,8 @@ public class MenuSeleccion extends javax.swing.JPanel {
         usuarios.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         usuarios.setForeground(new java.awt.Color(255, 255, 255));
         usuarios.setText("Gestión Usuarios");
+        usuarios.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
+        usuarios.setMaximumSize(new java.awt.Dimension(180, 25));
         usuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usuariosActionPerformed(evt);
@@ -87,6 +89,8 @@ public class MenuSeleccion extends javax.swing.JPanel {
         produccion.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         produccion.setForeground(new java.awt.Color(255, 255, 255));
         produccion.setText("Producción");
+        produccion.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
+        produccion.setMaximumSize(new java.awt.Dimension(180, 25));
         produccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 produccionActionPerformed(evt);
@@ -100,6 +104,8 @@ public class MenuSeleccion extends javax.swing.JPanel {
         finanzas.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         finanzas.setForeground(new java.awt.Color(255, 255, 255));
         finanzas.setText("Administracion Contable");
+        finanzas.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
+        finanzas.setMaximumSize(new java.awt.Dimension(180, 25));
         finanzas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finanzasActionPerformed(evt);
@@ -113,6 +119,8 @@ public class MenuSeleccion extends javax.swing.JPanel {
         estadisticas.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         estadisticas.setForeground(new java.awt.Color(255, 255, 255));
         estadisticas.setText("Reportes y Estadísticas");
+        estadisticas.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
+        estadisticas.setMaximumSize(new java.awt.Dimension(180, 25));
         estadisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 estadisticasActionPerformed(evt);
@@ -126,8 +134,10 @@ public class MenuSeleccion extends javax.swing.JPanel {
         gfinca.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         gfinca.setForeground(new java.awt.Color(255, 255, 255));
         gfinca.setText("Gestion Finca");
+        gfinca.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         gfinca.setFocusable(false);
         gfinca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gfinca.setMaximumSize(new java.awt.Dimension(180, 25));
         gfinca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         gfinca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

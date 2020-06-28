@@ -30,7 +30,7 @@ public class InicializarSistema {
     private ArrayList<Plaga> plagas = null;
     private ArrayList<Memo> memosUser = null;
 
-    public InicializarSistema() throws IOException {
+    public InicializarSistema() {
 
         Thread pcafe = new Thread() {
             public void run() {
@@ -70,7 +70,11 @@ public class InicializarSistema {
                 }
                 if (this.admin.getFinca() != null) {
                     this.admin.getFinca().setAuxiliares(users);
-                    this.plagas = (ArrayList<Plaga>) daoManager.getPlagasDAO().obtenerTodos();
+                    try {
+                        this.plagas = (ArrayList<Plaga>) daoManager.getPlagasDAO().obtenerTodos();
+                    } catch (IOException ex) {
+                        Logger.getLogger(InicializarSistema.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     if (this.plagas.size() != 0) {
                         this.admin.getFinca().setPlagas(plagas);
                     }

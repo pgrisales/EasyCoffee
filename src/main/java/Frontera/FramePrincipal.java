@@ -7,6 +7,7 @@ import Control.InicializarSistema;
 import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -33,6 +34,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     public FramePrincipal() {
         fondo = new Fondo(ingreso, "../image/318763,xcitefun-cocora-valley-7.jpg");
         this.setContentPane(fondo);
+        setIconImage(new ImageIcon(getClass().getResource("../image/LOGO.png")).getImage());
         initComponents();
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);

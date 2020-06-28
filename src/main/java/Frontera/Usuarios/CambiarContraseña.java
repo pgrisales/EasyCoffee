@@ -5,7 +5,10 @@ import Control.InicializarSistema;
 import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
 import Frontera.Usuarios.Ingreso;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**

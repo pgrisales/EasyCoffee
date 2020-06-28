@@ -133,7 +133,8 @@ public class RegistroFinca extends javax.swing.JPanel {
         agregarLote.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         agregarLote.setForeground(new java.awt.Color(255, 255, 255));
         agregarLote.setText("Agregar lote");
-        agregarLote.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        agregarLote.setActionCommand("");
+        agregarLote.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         agregarLote.setFocusable(false);
         agregarLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         agregarLote.setMaximumSize(new java.awt.Dimension(150, 27));
@@ -150,7 +151,8 @@ public class RegistroFinca extends javax.swing.JPanel {
         addAux.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         addAux.setForeground(new java.awt.Color(255, 255, 255));
         addAux.setText("Agregar auxiliar");
-        addAux.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        addAux.setActionCommand("");
+        addAux.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         addAux.setFocusable(false);
         addAux.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         addAux.setMaximumSize(new java.awt.Dimension(150, 27));
@@ -168,7 +170,8 @@ public class RegistroFinca extends javax.swing.JPanel {
         AddTrabajador.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         AddTrabajador.setForeground(new java.awt.Color(255, 255, 255));
         AddTrabajador.setText("Agregar trabajador");
-        AddTrabajador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        AddTrabajador.setActionCommand("");
+        AddTrabajador.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         AddTrabajador.setFocusable(false);
         AddTrabajador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         AddTrabajador.setMaximumSize(new java.awt.Dimension(150, 27));
@@ -185,7 +188,8 @@ public class RegistroFinca extends javax.swing.JPanel {
         editLote.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         editLote.setForeground(new java.awt.Color(255, 255, 255));
         editLote.setText("Editar lote");
-        editLote.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        editLote.setActionCommand("");
+        editLote.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         editLote.setFocusable(false);
         editLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         editLote.setMaximumSize(new java.awt.Dimension(150, 27));
@@ -203,7 +207,8 @@ public class RegistroFinca extends javax.swing.JPanel {
         editAux.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         editAux.setForeground(new java.awt.Color(255, 255, 255));
         editAux.setText("Editar auxiliar");
-        editAux.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        editAux.setActionCommand("");
+        editAux.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         editAux.setFocusable(false);
         editAux.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         editAux.setMaximumSize(new java.awt.Dimension(150, 27));
