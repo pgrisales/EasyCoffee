@@ -101,10 +101,11 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         jToolBar1.add(jSeparator7);
         jToolBar1.add(jSeparator8);
 
-        cerrar.setBackground(new java.awt.Color(102, 0, 0));
+        cerrar.setBackground(new java.awt.Color(0, 153, 153));
         cerrar.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         cerrar.setForeground(new java.awt.Color(255, 255, 255));
         cerrar.setText("Cerrar sesión ");
+        cerrar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cerrarActionPerformed(evt);
@@ -124,14 +125,14 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cerrar)
-                .addGap(50, 50, 50))
+                .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

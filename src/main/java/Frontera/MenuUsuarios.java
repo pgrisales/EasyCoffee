@@ -40,12 +40,12 @@ public class MenuUsuarios extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(900, 376));
         setPreferredSize(new java.awt.Dimension(900, 376));
 
-        jButton2.setBackground(new java.awt.Color(102, 0, 0));
+        jButton2.setBackground(new java.awt.Color(153, 102, 0));
         jButton2.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/userN.png"))); // NOI18N
         jButton2.setText("Editar Usuarios");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton2.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         jButton2.setMaximumSize(new java.awt.Dimension(190, 52));
         jButton2.setMinimumSize(new java.awt.Dimension(180, 52));
         jButton2.setPreferredSize(new java.awt.Dimension(210, 52));
@@ -55,12 +55,12 @@ public class MenuUsuarios extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(102, 0, 0));
+        jButton3.setBackground(new java.awt.Color(153, 102, 0));
         jButton3.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/userC.png"))); // NOI18N
         jButton3.setText("Listar Usuarios");
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         jButton3.setMaximumSize(new java.awt.Dimension(190, 52));
         jButton3.setMinimumSize(new java.awt.Dimension(180, 52));
         jButton3.setPreferredSize(new java.awt.Dimension(210, 52));
@@ -70,12 +70,12 @@ public class MenuUsuarios extends javax.swing.JPanel {
             }
         });
 
-        addAux.setBackground(new java.awt.Color(102, 0, 0));
+        addAux.setBackground(new java.awt.Color(153, 102, 0));
         addAux.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         addAux.setForeground(new java.awt.Color(255, 255, 255));
         addAux.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/AddAux.png"))); // NOI18N
         addAux.setText("Agregar Auxiliar");
-        addAux.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        addAux.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         addAux.setMaximumSize(new java.awt.Dimension(190, 52));
         addAux.setMinimumSize(new java.awt.Dimension(180, 52));
         addAux.setPreferredSize(new java.awt.Dimension(210, 52));
@@ -85,12 +85,12 @@ public class MenuUsuarios extends javax.swing.JPanel {
             }
         });
 
-        AddTra.setBackground(new java.awt.Color(102, 0, 0));
+        AddTra.setBackground(new java.awt.Color(153, 102, 0));
         AddTra.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         AddTra.setForeground(new java.awt.Color(255, 255, 255));
         AddTra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/AddTra.png"))); // NOI18N
         AddTra.setText("Agregar Trabajador");
-        AddTra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        AddTra.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         AddTra.setMaximumSize(new java.awt.Dimension(190, 52));
         AddTra.setMinimumSize(new java.awt.Dimension(190, 52));
         AddTra.setPreferredSize(new java.awt.Dimension(210, 52));
@@ -105,28 +105,28 @@ public class MenuUsuarios extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AddTra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addContainerGap(450, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AddTra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

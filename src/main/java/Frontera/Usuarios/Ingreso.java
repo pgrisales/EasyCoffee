@@ -189,7 +189,7 @@ public class Ingreso extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Cedula");
+        jLabel3.setText("Cédula");
 
         jLabel4.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));

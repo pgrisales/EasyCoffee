@@ -36,12 +36,12 @@ public class MenuAdministrativo extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(900, 376));
         setPreferredSize(new java.awt.Dimension(900, 376));
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 51));
-        jButton1.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(0, 102, 51));
+        jButton1.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/RegistrarProd.png"))); // NOI18N
         jButton1.setText("Registrar Venta");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         jButton1.setMaximumSize(new java.awt.Dimension(232, 300));
         jButton1.setMinimumSize(new java.awt.Dimension(232, 300));
         jButton1.setPreferredSize(new java.awt.Dimension(232, 300));
@@ -51,12 +51,12 @@ public class MenuAdministrativo extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 51, 51));
-        jButton2.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(0, 102, 51));
+        jButton2.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/RegistrarProd.png"))); // NOI18N
-        jButton2.setText("Registrar Adquisición");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton2.setText("Registrar adquisición");
+        jButton2.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         jButton2.setMaximumSize(new java.awt.Dimension(232, 300));
         jButton2.setMinimumSize(new java.awt.Dimension(232, 300));
         jButton2.setPreferredSize(new java.awt.Dimension(232, 300));
@@ -72,19 +72,19 @@ public class MenuAdministrativo extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(417, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(667, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(311, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(228, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
