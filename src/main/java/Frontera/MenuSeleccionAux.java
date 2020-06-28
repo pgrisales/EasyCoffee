@@ -4,6 +4,7 @@ import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
 import Frontera.Usuarios.Ingreso;
 import Frontera.Usuarios.PerfilUsuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -148,9 +149,12 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
     }//GEN-LAST:event_produccionActionPerformed
 
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
+       int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+       if(resp == JOptionPane.YES_OPTION){
         FramePrincipal.menuDoublePanel(false);
         FramePrincipal.cambiarPanel(new Ingreso());
         FramePrincipal.menuPanelPrincipal(true);
+       }
     }//GEN-LAST:event_cerrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
