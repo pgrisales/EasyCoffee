@@ -151,7 +151,7 @@ public class EditarLote extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Tamaño del lote");
 
-        jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sitka Banner", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Lote #");
 
@@ -174,7 +174,7 @@ public class EditarLote extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Árboles en el lote:");
 
@@ -212,7 +212,7 @@ public class EditarLote extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Cantidad de árboles recomendada:");
 
-        numArbolesRec.setFont(new java.awt.Font("Sitka Banner", 0, 24)); // NOI18N
+        numArbolesRec.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         numArbolesRec.setForeground(new java.awt.Color(255, 255, 255));
         numArbolesRec.setText("0");
 
@@ -231,20 +231,16 @@ public class EditarLote extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(addArboles, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RegisArbolM, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(101, 101, 101))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(numArboles)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
+                                .addComponent(addArboles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(96, 96, 96)
+                                .addComponent(RegisArbolM, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(numArboles)))
+                        .addGap(0, 16, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(182, 182, 182)
@@ -256,7 +252,7 @@ public class EditarLote extends javax.swing.JPanel {
                                         .addComponent(jLabel4))
                                     .addGap(6, 6, 6)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(fechaAbonado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(fechaAbonado, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                                         .addComponent(fechaDesyerbado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel2)
@@ -427,7 +423,7 @@ public class EditarLote extends javax.swing.JPanel {
                 area = area / 10000;
             }
         this.areaLote.setText(""+area);
-        this.numArbolesRec.setText("Desde "+(int)lote.optimoEconomico()[0]+" hasta "+(int)lote.optimoEconomico()[1]);
+        this.numArbolesRec.setText("desde "+(int)lote.optimoEconomico()[0]+" hasta "+(int)lote.optimoEconomico()[1]);
     }
     public void loteSelec() {
 //        System.out.println("sfdsdfsf" + (this.lotesC.getSelectedIndex() != -1));

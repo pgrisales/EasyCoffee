@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -66,6 +67,7 @@ public class Plagas extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         buscar = new javax.swing.JToggleButton();
         nombre = new javax.swing.JTextField();
+        recargar = new javax.swing.JToggleButton();
 
         setMaximumSize(new java.awt.Dimension(900, 376));
         setMinimumSize(new java.awt.Dimension(900, 376));
@@ -135,6 +137,16 @@ public class Plagas extends javax.swing.JPanel {
         nombre.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         nombre.setForeground(new java.awt.Color(0, 0, 0));
 
+        recargar.setBackground(new java.awt.Color(102, 0, 0));
+        recargar.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
+        recargar.setForeground(new java.awt.Color(255, 255, 255));
+        recargar.setText("Recargar");
+        recargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recargarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,7 +157,9 @@ public class Plagas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191)
+                .addGap(18, 18, 18)
+                .addComponent(recargar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,7 +188,8 @@ public class Plagas extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
-                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(recargar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(769, 769, 769)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -186,6 +201,7 @@ public class Plagas extends javax.swing.JPanel {
     }//GEN-LAST:event_añadirActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        if(!nombre.getText().equals("")){
         tabla.setDefaultRenderer(Object.class, new ImgTabla());
         String titulos[] = {"Nombre","Foto","Descripción","Tratamiento"};
         DefaultTableModel model = new DefaultTableModel(null,titulos);
@@ -211,8 +227,14 @@ public class Plagas extends javax.swing.JPanel {
         columna.setPreferredWidth(300);
         columna = tabla.getColumn("Tratamiento");
         columna.setPreferredWidth(300);
-        
+        }else{
+            JOptionPane.showMessageDialog(null, "No ingresó el nombre de la plaga.");
+        }
     }//GEN-LAST:event_buscarActionPerformed
+
+    private void recargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargarActionPerformed
+        PropiedadesTabla();
+    }//GEN-LAST:event_recargarActionPerformed
      
    
    
@@ -227,6 +249,7 @@ public class Plagas extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nLotesL;
     private javax.swing.JTextField nombre;
+    private javax.swing.JToggleButton recargar;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
