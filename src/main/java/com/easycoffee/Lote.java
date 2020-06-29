@@ -3,7 +3,7 @@ package com.easycoffee;
 import java.util.ArrayList;
 
 public class Lote {
-
+    private int frecDesyer;
     private Long IdLote;
     private double areaTotal;
     private String fechaDesyerbado;
@@ -20,7 +20,17 @@ public class Lote {
         this.carga = carga;
         this.arbolesMuertos = new ArrayList<>();
         this.arbolesVivos = new ArrayList<>();
+        frecDesyer=60;
     }
+
+    public int getFrecDesyer() {
+        return frecDesyer;
+    }
+
+    public void setFrecDesyer(int frecDesyer) {
+        this.frecDesyer = frecDesyer;
+    }
+    
     //Óptimo económico: 9.404 - 9.852 plantas/ha
     public double[] optimoEconomico(){
         double[] optimo={(this.areaTotal/10000)*9.404,(this.areaTotal/10000)* 9.852};
