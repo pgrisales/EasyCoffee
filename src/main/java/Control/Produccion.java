@@ -40,18 +40,26 @@ public class Produccion {
         daoManager.getLoteDAO().insertar(lote);
         return true;
     }
+
     public boolean RegistrarPlagaBD(Plaga plaga, String Ruta) throws FileNotFoundException {
         daoManager.getPlagasDAO().insertar(plaga, Ruta);
         return true;
     }
+
     public boolean registrarMemoPad(Memo m) {
         daoManager.getMemosDAO().insertar(m);
         return true;
     }
 
+    public boolean actualizarMemoPad(Memo m) {
+        daoManager.getMemosDAO().modificar(m);
+        return true;
+    }
+
     /**
-     * Nos sirve para Obtener todos los memos del Usuario que actualmente 
-     * se encuentra en el sistema.
+     * Nos sirve para Obtener todos los memos del Usuario que actualmente se
+     * encuentra en el sistema.
+     *
      * @param idUsuario Id del Usuario que esta trabajando en el sistema
      * @return ArrayList< Memo > contiene los Memos del usuario en cuestion
      */

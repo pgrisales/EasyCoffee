@@ -17,7 +17,7 @@ import java.util.List;
 public class MemoPadDAO {
 
     final private String INSERT = "INSERT INTO EASYCOFFEBD.MEMOPAD VALUES (?, ?, ?, DEFAULT)"; //(MEMO_FECHAMEMOPAD, PER_CEDULACIUDADANIA, MEMO_TEXTOMEMOPAD)
-    final private String UPDATE = "UPDATE EASYCOFFEBD.MEMOPAD SET MEMO_TEXTOMEMOPAD = ? WHERE MEMO_FECHAMEMOPAD = ? AND PER_CEDULACIUDADANIA = ?";
+    final private String UPDATE = "UPDATE EASYCOFFEBD.MEMOPAD SET MEMO_TEXTOMEMOPAD = ? WHERE MEMO_IDMEMO = ?";
     final private String DELETE = "DELETE FROM EASYCOFFEBD.MEMOPAD WHERE MEMO_FECHAMEMOPAD = ? AND PER_CEDULACIUDADANIA = ?";
     final private String GETALL = "SELECT * FROM EASYCOFFEBD.MEMOPAD";
     private Connection conn;
@@ -31,8 +31,10 @@ public class MemoPadDAO {
         String fechaMemo = String.valueOf(rs.getDate("MEMO_FECHAMEMOPAD"));
         int idPersona = rs.getInt("PER_CEDULACIUDADANIA");
         String textoMemo = rs.getString("MEMO_TEXTOMEMOPAD");
+        int idMemo = rs.getInt("MEMO_IDMEMO");
 
         Memo newMemo = new Memo(idPersona, fechaMemo, textoMemo);
+        newMemo.setIdMemo(idMemo);
         return newMemo;
     }
 
@@ -60,13 +62,13 @@ public class MemoPadDAO {
         }
     }
 
+    //"UPDATE EASYCOFFEBD.MEMOPAD SET MEMO_TEXTOMEMOPAD = ? WHERE MEMO_IDMEMO = ?"
     public void modificar(Memo memo) {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(UPDATE);
             stat.setString(1, memo.getTexto());
-            stat.setString(2, memo.getFecha());
-            stat.setInt(3, memo.getIdPersona());
+            stat.setInt(2, memo.getIdMemo());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya modificado");
             }
@@ -172,6 +174,41 @@ public class MemoPadDAO {
             }
         }
         return memos;
+    }
+
+    public boolean existsxidUnico(int idMemo) {
+        PreparedStatement stat = null;
+        ResultSet rs = null;
+        Memo p = null;
+        try {
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.MEMOPAD WHERE MEMO_IDMEMO = ?");
+            stat.setLong(1, idMemo);
+            rs = stat.executeQuery();
+            if (rs.next()) {
+                p = convertir(rs);
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en SQL2");
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                }
+            }
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al Intentar cerrar la conexion con Derby");
+                }
+            }
+        }
+        return true;
     }
 
 }

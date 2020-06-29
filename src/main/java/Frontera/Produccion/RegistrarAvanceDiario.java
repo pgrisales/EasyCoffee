@@ -6,15 +6,19 @@ import com.easycoffee.Memo;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.lang.String;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Camilo Vargas
  */
 public class RegistrarAvanceDiario extends javax.swing.JPanel {
-
+    
     private int cedula;
+    private int indexArray;
     private ArrayList<Memo> memos;
+    private int idMemoOnScreen;
+    private Memo memoactual;
     private Produccion p;
 
     /**
@@ -26,6 +30,7 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
         this.cedula = cedula;
         fechaBusqueda.setCalendar(Calendar.getInstance());
         fechaBusqueda.setDateFormatString("dd/MM/yyyy");
+        memos = p.obtenerMemos(this.cedula);
         buscarxFecha();
     }
 
@@ -63,7 +68,7 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
         aniadir.setBackground(new java.awt.Color(153, 51, 0));
         aniadir.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         aniadir.setForeground(new java.awt.Color(255, 255, 255));
-        aniadir.setText("Añadir");
+        aniadir.setText("Guardar");
         aniadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aniadirActionPerformed(evt);
@@ -108,7 +113,7 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(0, 535, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(aniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,15 +160,30 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aniadirActionPerformed
+        if (jTextArea1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por Favor Ingrese un espacio de Texto");
+            return;
+        }
         String fechaCuadro = fechaBusqueda.getCalendar().get(Calendar.DATE) + "/" + (fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1) + "/" + fechaBusqueda.getCalendar().get(Calendar.YEAR);
-        p.registrarMemoPad(new Memo(cedula, fechaCuadro, jTextArea1.getText()));
+        if (idMemoOnScreen == -1) { //No encontro ningun memo en ese dia
+            p.registrarMemoPad(new Memo(this.cedula, fechaCuadro, jTextArea1.getText()));
+            memos.add(new Memo(this.cedula, fechaCuadro, jTextArea1.getText()));
+            JOptionPane.showMessageDialog(null, "Registro Añadido");
+            FramePrincipal.cambiarPanel376(new RegistrarAvanceDiario(this.cedula));
+        } else {
+            memoactual.setTexto(jTextArea1.getText());
+            p.actualizarMemoPad(memoactual);
+            memos.set(indexArray, memoactual);
+            JOptionPane.showMessageDialog(null, "Cambios Guardados");
+            FramePrincipal.cambiarPanel376(new RegistrarAvanceDiario(this.cedula));
+        }
     }//GEN-LAST:event_aniadirActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        FramePrincipal.cambiarPanel376(new RegistrarAvanceDiario(cedula));
+        FramePrincipal.cambiarPanel376(new RegistrarAvanceDiario(this.cedula));
         System.gc();
     }//GEN-LAST:event_cancelarActionPerformed
-
+    
     private void buscarxFecha() {
         /*Falta Evitar Colisiones por dia en Front End*/
         String mes;
@@ -173,13 +193,16 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
             mes = String.valueOf(fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1);
         }
         String fechaCuadro = fechaBusqueda.getCalendar().get(Calendar.YEAR) + "-" + mes + "-" + fechaBusqueda.getCalendar().get(Calendar.DATE);
-        for (int i = 0; i < memos.size(); i++) {
-            if (memos.get(i).getFecha().equals(fechaCuadro)) {
-                jTextArea1.setText(memos.get(i).getTexto());
+        for (indexArray = 0; indexArray < memos.size(); indexArray++) {
+            if (memos.get(indexArray).getFecha().equals(fechaCuadro)) {
+                memoactual = memos.get(indexArray);
+                jTextArea1.setText(memos.get(indexArray).getTexto());
+                idMemoOnScreen = memos.get(indexArray).getIdMemo();
                 return;
             }
         }
         jTextArea1.setText("");
+        idMemoOnScreen = -1;
     }
 
     private void buscarxFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarxFechaActionPerformed
