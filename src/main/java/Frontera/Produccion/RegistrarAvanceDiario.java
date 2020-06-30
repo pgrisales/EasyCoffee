@@ -5,7 +5,6 @@ import Frontera.FramePrincipal;
 import com.easycoffee.Memo;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.lang.String;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Camilo Vargas
  */
 public class RegistrarAvanceDiario extends javax.swing.JPanel {
-    
+
     private int cedula;
     private int indexArray;
     private ArrayList<Memo> memos;
@@ -183,16 +182,25 @@ public class RegistrarAvanceDiario extends javax.swing.JPanel {
         FramePrincipal.cambiarPanel376(new RegistrarAvanceDiario(this.cedula));
         System.gc();
     }//GEN-LAST:event_cancelarActionPerformed
-    
+
     private void buscarxFecha() {
-        /*Falta Evitar Colisiones por dia en Front End*/
+        
+        /*Formateado de Fecha Ingresada*/
+        String dia;
         String mes;
         if ((fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1) < 10) {
             mes = String.valueOf(0) + (fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1);
         } else {
             mes = String.valueOf(fechaBusqueda.getCalendar().get(Calendar.MONTH) + 1);
         }
-        String fechaCuadro = fechaBusqueda.getCalendar().get(Calendar.YEAR) + "-" + mes + "-" + fechaBusqueda.getCalendar().get(Calendar.DATE);
+        if ((fechaBusqueda.getCalendar().get(Calendar.DATE)) < 10) {
+            dia = String.valueOf(0) + fechaBusqueda.getCalendar().get(Calendar.DATE);
+        } else {
+            dia = String.valueOf(fechaBusqueda.getCalendar().get(Calendar.DATE));
+        }
+        String fechaCuadro = fechaBusqueda.getCalendar().get(Calendar.YEAR) + "-" + mes + "-" + dia;
+        
+        /*Busqueda en la Estructura de Datos*/
         for (indexArray = 0; indexArray < memos.size(); indexArray++) {
             if (memos.get(indexArray).getFecha().equals(fechaCuadro)) {
                 memoactual = memos.get(indexArray);

@@ -43,59 +43,67 @@ public class InicializarSistema {
         };
         pcafe.start();
 
-        this.daoManager = new DAOManager();
-        this.users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
-        int a = 0;
-        int i = 0;
-        for (Usuario u : users) {
-            u.setRespuesta(daoManager.getRespuestasDAO().obtener(u.getCedula().intValue()));
-            if (daoManager.getPermisosDAO().obtenerTodos(u).size() > 0) {
-                u.setIdLotes(daoManager.getPermisosDAO().obtenerTodos(u));
-            } else {
-                u.setIdLotes(new ArrayList<>());
-            }
-            if (u.isRol()) {
-                i = a;
-            }
-            a++;
-        }
-        if (!users.isEmpty()) {
-            Usuario u = users.remove(i);
-            this.admin = new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0], u.getRespuesta()[1], u.getRespuesta()[2], u.isRol());
-            System.gc();
-            if (admin != null) {
-                this.admin.setFinca(daoManager.getFincaDAO().obtener(1));
-                if (this.admin.getFinca() == null) {
-                    this.admin.setFinca(new Finca());
+        try {
+            this.daoManager = new DAOManager();
+            this.users = (ArrayList<Usuario>) daoManager.getUsuarioDAO().obtenerTodos();
+            int a = 0;
+            int i = 0;
+            for (Usuario u : users) {
+                u.setRespuesta(daoManager.getRespuestasDAO().obtener(u.getCedula().intValue()));
+                if (daoManager.getPermisosDAO().obtenerTodos(u).size() > 0) {
+                    u.setIdLotes(daoManager.getPermisosDAO().obtenerTodos(u));
+                } else {
+                    u.setIdLotes(new ArrayList<>());
                 }
-                if (this.admin.getFinca() != null) {
-                    this.admin.getFinca().setAuxiliares(users);
-                    try {
-                        this.plagas = (ArrayList<Plaga>) daoManager.getPlagasDAO().obtenerTodos();
-                    } catch (IOException ex) {
-                        Logger.getLogger(InicializarSistema.class.getName()).log(Level.SEVERE, null, ex);
+                if (u.isRol()) {
+                    i = a;
+                }
+                a++;
+            }
+            if (!users.isEmpty()) {
+                Usuario u = users.remove(i);
+                this.admin = new Administrador(u.getPassword(), u.getCedula(), u.getNombre(), u.getApellido(), true, u.getRespuesta()[0], u.getRespuesta()[1], u.getRespuesta()[2], u.isRol());
+                System.gc();
+                if (admin != null) {
+                    this.admin.setFinca(daoManager.getFincaDAO().obtener(1));
+                    if (this.admin.getFinca() == null) {
+                        this.admin.setFinca(new Finca());
                     }
-                    if (this.plagas.size() != 0) {
-                        this.admin.getFinca().setPlagas(plagas);
-                    }
-                    this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
+                    if (this.admin.getFinca() != null) {
+                        this.admin.getFinca().setAuxiliares(users);
+                        try {
+                            this.plagas = (ArrayList<Plaga>) daoManager.getPlagasDAO().obtenerTodos();
+                        } catch (IOException ex) {
+                            Logger.getLogger(InicializarSistema.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        if (this.plagas.size() != 0) {
+                            this.admin.getFinca().setPlagas(plagas);
+                        }
+                        this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
 
-                    //TRABAJADORES Y JORNADAS
-                    for (Trabajador t : trabajadores) {
-                        t.setJornada((ArrayList<Jornada>) daoManager.getJornadaDAO().obtenerTodos(t.getCedula()));
-                    }
-                    this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
+                        //TRABAJADORES Y JORNADAS
+                        for (Trabajador t : trabajadores) {
+                            t.setJornada((ArrayList<Jornada>) daoManager.getJornadaDAO().obtenerTodos(t.getCedula()));
+                        }
+                        this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
 
-                    //Asignando de BD los lotes y los trabajadores
-                    this.admin.getFinca().setTrabajadores(trabajadores);
-                    this.admin.getFinca().setLotes(lotes);
-                    for (Lote l : this.admin.getFinca().getLotes()) {
-                        l.setArbolesVivos((ArrayList<Arbol>) daoManager.getArbolDAO().obtenerTodos(l));
-                        if (daoManager.getArbolDAO().obtenerTodos(l).size() > 0) {
+                        //Asignando de BD los lotes y los trabajadores
+                        this.admin.getFinca().setTrabajadores(trabajadores);
+                        this.admin.getFinca().setLotes(lotes);
+                        for (Lote l : this.admin.getFinca().getLotes()) {
+                            l.setArbolesVivos((ArrayList<Arbol>) daoManager.getArbolDAO().obtenerTodos(l));
+                            if (daoManager.getArbolDAO().obtenerTodos(l).size() > 0) {
+                            }
                         }
                     }
                 }
             }
+        } catch (Exception e) {
+            pcafe.stop();
+            System.out.println("-----------------------\n");
+            System.out.println("Error al Intentar inicializar el Sistema\n");
+            System.out.println("-----------------------\n");
+            System.exit(2);
         }
     }
 
