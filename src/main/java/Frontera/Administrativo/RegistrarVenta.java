@@ -60,15 +60,15 @@ public class RegistrarVenta extends javax.swing.JPanel {
         precioVenta.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Variedad de Café:");
 
-        jLabel3.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cantidad Vendida:");
 
-        jLabel4.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Precio de Venta:");
 
@@ -80,7 +80,7 @@ public class RegistrarVenta extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Unidad:");
 
@@ -97,7 +97,7 @@ public class RegistrarVenta extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Precio de Referencia:");
 
@@ -118,7 +118,7 @@ public class RegistrarVenta extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Sitka Banner", 2, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Sitka Banner", 3, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Por favor ingrese los datos de la venta solicitados a continuación, seguido de presionar el botón \"Registrar\"");
 
@@ -139,7 +139,7 @@ public class RegistrarVenta extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(jLabel7)))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
