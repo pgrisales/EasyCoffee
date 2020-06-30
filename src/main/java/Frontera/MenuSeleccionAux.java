@@ -5,6 +5,7 @@ import Frontera.FramePrincipal;
 import Frontera.Usuarios.Ingreso;
 import Frontera.Usuarios.PerfilUsuario;
 import java.awt.Color;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,21 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
     public MenuSeleccionAux(int cedula) {
         initComponents();
         this.cedula = cedula;
+        this.ListaNotificaciones.removeAllItems();
+        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            String s=FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getFechaDesyerbado();
+            String ss[]=s.split("/");
+            Calendar c=Calendar.getInstance();
+            c.set(Calendar.DATE, Integer.parseInt(ss[0]));
+            c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
+            c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
+            c.add(Calendar.DATE, FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getFrecDesyer());
+            if(c.compareTo(Calendar.getInstance())<0){
+                this.ListaNotificaciones.addItem("El lote "+i+" está listo para desyerbarse");
+            }
+        }
+        this.ListaNotificaciones.setVisible(false);
+        FramePrincipal.cambiarPanel127(this);
     }
 
     /**
@@ -45,6 +61,8 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
         jSeparator7 = new javax.swing.JToolBar.Separator();
         jSeparator8 = new javax.swing.JToolBar.Separator();
         cerrar = new javax.swing.JButton();
+        notific = new javax.swing.JButton();
+        ListaNotificaciones = new javax.swing.JComboBox<>();
 
         setMaximumSize(new java.awt.Dimension(900, 127));
         setMinimumSize(new java.awt.Dimension(900, 127));
@@ -112,21 +130,44 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
             }
         });
 
+        notific.setBackground(new java.awt.Color(153, 102, 0));
+        notific.setFont(new java.awt.Font("Sitka Banner", 1, 14)); // NOI18N
+        notific.setForeground(new java.awt.Color(255, 255, 255));
+        notific.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-alarma-50.png"))); // NOI18N
+        notific.setText("Mostrar notificaciones");
+        notific.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
+        notific.setMaximumSize(new java.awt.Dimension(190, 52));
+        notific.setMinimumSize(new java.awt.Dimension(180, 52));
+        notific.setPreferredSize(new java.awt.Dimension(210, 52));
+        notific.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notificActionPerformed(evt);
+            }
+        });
+
+        ListaNotificaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(jLabel2)
-                .addContainerGap(359, Short.MAX_VALUE))
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(jLabel2)))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(notific, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ListaNotificaciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,12 +175,16 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(notific, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(ListaNotificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(3, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("");
@@ -166,7 +211,17 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_cerrarActionPerformed
 
+    private void notificActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificActionPerformed
+        if(this.ListaNotificaciones.isVisible()==true)
+            this.ListaNotificaciones.setVisible(false);
+        else
+            this.ListaNotificaciones.setVisible(true);
+        FramePrincipal.cambiarPanel127(this);
+
+    }//GEN-LAST:event_notificActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ListaNotificaciones;
     private javax.swing.JButton cerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -179,6 +234,7 @@ public class MenuSeleccionAux extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JButton notific;
     private javax.swing.JButton produccion;
     private javax.swing.JButton verPerfil;
     // End of variables declaration//GEN-END:variables
