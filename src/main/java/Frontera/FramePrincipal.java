@@ -43,8 +43,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel376.setVisible(false);
     }
 
-
-
     public static void menuPanelPrincipal(boolean b) {
         PanelPrincipal.setVisible(b);
     }
@@ -170,7 +168,10 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FramePrincipal().setVisible(true);
+                FramePrincipal frame = new FramePrincipal();
+
+                frame.setResizable(false);
+                frame.setVisible(true);
                 PanelPrincipal.setOpaque(false);
             }
         });
