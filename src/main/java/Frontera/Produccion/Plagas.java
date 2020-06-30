@@ -23,6 +23,7 @@ public class Plagas extends javax.swing.JPanel {
     ArrayList<Plaga> plagas= FramePrincipal.getSistem().getAdmin().getFinca().getPlagas();
     
     private void PropiedadesTabla(){
+        tabla.setFont(new java.awt.Font("Sitka Banner", 1, 18));
         tabla.setDefaultRenderer(Object.class, new ImgTabla());
         String titulos[] = {"Nombre de la plaga","Foto","Descripción","Tratamiento"};
         DefaultTableModel model = new DefaultTableModel(null,titulos);
@@ -35,10 +36,12 @@ public class Plagas extends javax.swing.JPanel {
                 plagas.get(i).getDescripcionPlaga(),
                 plagas.get(i).getTratamientoPlaga()
             });
+            
         }
         
         tabla.setRowHeight(100);
         tabla.setModel(model);
+        
         TableColumn columna = tabla.getColumn("Foto");
         columna.setPreferredWidth(100);
         columna = tabla.getColumn("Nombre de la plaga");
@@ -47,12 +50,14 @@ public class Plagas extends javax.swing.JPanel {
         columna.setPreferredWidth(300);
         columna = tabla.getColumn("Tratamiento");
         columna.setPreferredWidth(300);
+        
     }
     
     public Plagas(int cedula) {
         initComponents();
         PropiedadesTabla();
         this.cedula = cedula;
+        tabla.setFont(new java.awt.Font("Sitka Banner", 1, 18));
     }
 
     @SuppressWarnings("unchecked")
@@ -206,7 +211,7 @@ public class Plagas extends javax.swing.JPanel {
         String titulos[] = {"Nombre","Foto","Descripción","Tratamiento"};
         DefaultTableModel model = new DefaultTableModel(null,titulos);
         for(int i=0; i<plagas.size();i++){
-            if(plagas.get(i).getNombrePlaga().equals(nombre.getText())){
+            if(plagas.get(i).getNombrePlaga().toUpperCase().contains(nombre.getText().toUpperCase())){
                 ImageIcon imagen = plagas.get(i).getImagen();
 
                 model.addRow(new Object[]{plagas.get(i).getNombrePlaga(),
