@@ -15,10 +15,10 @@ public class PrecioCafe {
 
     private static PrecioCafe single = null;
     private static Document doc;
-    private static String precioInternoRef;             //Precio de una Carga (1 Carga= 125Kg)
-    private static String precioPasillaFinca;           //Precio Arroba Pasilla (Pasilla Cafe no tan puro - Sello Rojo)
+    private static String precioInternoRef;             //Precio de una Carga (1 Carga= 125Kg)      //Café Pergamino Seco
+    private static String precioPasillaFinca;           //Precio Arroba Pasilla (Pasilla Cafe no tan puro - Sello Rojo) 
     private static String bolsaNY;                      //Precio Centavos de Dolar por cada Libra de Cafe Básico
-    private static String tasaCambio;                   //Precio (bolsaNY) en Pesos colombianos 
+    private static String tasaCambio;                   //Precio Dolar en Pesos colombianos a la Fecha
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     private static int count = 1;
 
@@ -110,4 +110,7 @@ public class PrecioCafe {
         return tasaCambio;
     }
 
+    public boolean isCharged() {
+        return (!bolsaNY.isEmpty() && !precioInternoRef.isEmpty() && !precioPasillaFinca.isEmpty() && !tasaCambio.isEmpty());
+    }
 }

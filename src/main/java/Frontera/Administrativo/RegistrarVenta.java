@@ -2,7 +2,14 @@ package Frontera.Administrativo;
 
 import Frontera.FramePrincipal;
 import Frontera.MenuAdministrativo;
+import WebS.PrecioCafe;
 import com.easycoffee.VentaCafe;
+import java.awt.HeadlessException;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,8 +17,12 @@ import com.easycoffee.VentaCafe;
  */
 public class RegistrarVenta extends javax.swing.JPanel {
 
-    private String[] unidades = {"Kg", "Lb", "Arrobas"};
+    private String[] unidades = {"Kg", "Lb", "Arrobas", "Cargas"};
+    private String[] variedadesCafe = {"Pergamino (Seco)", "Pasilla", "Verde"};
     private int cedula;
+    private VentaCafe venta;
+    private double pergamino;   //Precio de Kg
+    private double pasilla;     //Precio por Kg
 
     /**
      * Creates new form RegistrarVenta
@@ -20,13 +31,27 @@ public class RegistrarVenta extends javax.swing.JPanel {
      */
     public RegistrarVenta(int cedula) {
         initComponents();
+        verifyWebServiceConection();
         this.cedula = cedula;
-        VentaCafe venta = new VentaCafe();
+        this.venta = new VentaCafe();
+
+        try {
+            this.pasilla = Double.parseDouble(PrecioCafe.getInstance().getPrecioPasillaFinca().replace("$", "").replace(".", "")) / 11.339;
+            this.pergamino = Double.parseDouble(PrecioCafe.getInstance().getPrecioInternoRef().replace("$", "").replace(".", "")) / 125;
+        } catch (IOException ex) {
+            Logger.getLogger(RegistrarVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ;
+
         unidadMedida.removeAllItems();
-        unidadMedida.addItem("-");
         for (int i = 0; i < unidades.length; i++) {
             unidadMedida.addItem(unidades[i]);
         }
+        variedadCafe.removeAllItems();
+        for (int i = 0; i < variedadesCafe.length; i++) {
+            variedadCafe.addItem(variedadesCafe[i]);
+        }
+        cambiarPreciosReferencia(pergamino);
     }
 
     /**
@@ -69,7 +94,7 @@ public class RegistrarVenta extends javax.swing.JPanel {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Variedad de Café:");
+        jLabel2.setText("Variedad de Venta:");
 
         jLabel3.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,6 +118,11 @@ public class RegistrarVenta extends javax.swing.JPanel {
 
         unidadMedida.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         unidadMedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        unidadMedida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidadMedidaActionPerformed(evt);
+            }
+        });
 
         registrarVenta.setBackground(new java.awt.Color(153, 51, 0));
         registrarVenta.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
@@ -109,6 +139,10 @@ public class RegistrarVenta extends javax.swing.JPanel {
         jLabel6.setText("Precio de Referencia:");
 
         precioReferencia.setEditable(false);
+        precioReferencia.setBackground(new java.awt.Color(0, 102, 0));
+        precioReferencia.setForeground(new java.awt.Color(255, 255, 255));
+        precioReferencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        precioReferencia.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         precioReferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 precioReferenciaActionPerformed(evt);
@@ -134,40 +168,39 @@ public class RegistrarVenta extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(519, 519, 519)
+                .addComponent(registrarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel7))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(variedadCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cantidadVendida, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(precioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(493, 493, 493)
-                        .addComponent(registrarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1)
+                        .addComponent(jLabel5)
+                        .addGap(26, 26, 26)
+                        .addComponent(unidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel7))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(variedadCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cantidadVendida, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(precioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(26, 26, 26)
-                                .addComponent(precioReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(26, 26, 26)
-                                .addComponent(unidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(69, 69, 69)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .addComponent(jLabel6)
+                        .addGap(26, 26, 26)
+                        .addComponent(precioReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(122, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addContainerGap(535, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +234,18 @@ public class RegistrarVenta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void variedadCafeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_variedadCafeActionPerformed
-        // TODO add your handling code here:
+        switch (variedadCafe.getSelectedIndex()) {
+            case 0:     //Pergamino(seco)
+                cambiarPreciosReferencia(pergamino);
+                break;
+            case 1:     //Pasilla
+                cambiarPreciosReferencia(pasilla);
+                break;
+            case 2:     //Verde
+                JOptionPane.showMessageDialog(null, "Se recomienda la venta de Café Pergamino (Seco)");
+                precioReferencia.setText("No Disponible");
+                break;
+        }
     }//GEN-LAST:event_variedadCafeActionPerformed
 
     private void registrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarVentaActionPerformed
@@ -213,9 +257,52 @@ public class RegistrarVenta extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void precioReferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioReferenciaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_precioReferenciaActionPerformed
 
+    private void unidadMedidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadMedidaActionPerformed
+        DecimalFormat format = new DecimalFormat("$ ###,###,###.##  COP");
+        switch (variedadCafe.getSelectedIndex()) {
+            case 0:     //Pergamino(seco)
+                cambiarPreciosReferencia(pergamino);
+                break;
+            case 1:     //Pasilla
+                cambiarPreciosReferencia(pasilla);
+                break;
+            case 2:     //Verde
+//                JOptionPane.showMessageDialog(null, "Se recomienda la venta de Café Pergamino (Seco)");
+                precioReferencia.setText("No Disponible");
+                break;
+        }
+    }//GEN-LAST:event_unidadMedidaActionPerformed
+
+    private void cambiarPreciosReferencia(double precio) {
+        DecimalFormat format = new DecimalFormat("$ ###,###,###.##  COP");
+        switch (unidadMedida.getSelectedIndex()) {
+            case 0:     //Kilogramos
+                precioReferencia.setText(format.format(precio));
+                break;
+            case 1:     //Libras
+                precioReferencia.setText(format.format(precio / 2.205));
+                break;
+            case 2:     //Arrobas
+                precioReferencia.setText(format.format(precio * 11.339));
+                break;
+            case 3:
+                precioReferencia.setText(format.format(precio * 125));
+                break;
+        }
+    }
+
+    private void verifyWebServiceConection() {
+        try {
+            if (!PrecioCafe.getInstance().isCharged()) {
+                JOptionPane.showMessageDialog(null, "Upps... Error al Intentar Cargar el Precio del Café, por favor verifica tu conexión a Internet e intenta nuevamente");
+            }
+        } catch (NullPointerException | IOException ex) {
+            Logger.getLogger(RegistrarVenta.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Upps... Error al Intentar Cargar el Precio del Café, por favor verifica tu conexión a Internet e intenta nuevamente");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
