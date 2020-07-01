@@ -12,7 +12,7 @@ and open the template in the editor.
 
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WebS.MapController">
    <children>
-      <WebView fx:id="webview" layoutX="-259.0" layoutY="-147.0" maxHeight="1000.0" maxWidth="1377.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="784.0" prefWidth="1297.0" AnchorPane.bottomAnchor="-37.0" AnchorPane.leftAnchor="-259.0" AnchorPane.rightAnchor="-138.0" AnchorPane.topAnchor="-147.0" />
+      <WebView fx:id="webview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-340.0" AnchorPane.rightAnchor="-164.0" AnchorPane.topAnchor="-340.0" />
       <Button fx:id="selectB" layoutX="21.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Selecionar" />
    </children>
 </AnchorPane>

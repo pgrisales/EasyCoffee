@@ -55,10 +55,8 @@ public class FincaShapeController implements Initializable {
     
     @FXML
     private AnchorPane root;
-    
     @FXML
     private Button saveB;
-    
     @FXML
     private Button eraseB;
     @FXML
@@ -138,8 +136,6 @@ public class FincaShapeController implements Initializable {
                 asignarLoteB.setBackground(new java.awt.Color(102, 0, 0));*/
             }
         });
-        //return r;
-        
     }
     
     public void grid(double minX, double minY, double width, double height, Polyline boundsFinca){
@@ -254,17 +250,7 @@ public class FincaShapeController implements Initializable {
         }
         //////////////////////////////END PRUEBA 
         
-        /*Button asdf = new Button("asdfas");
-        asdf.setShape(boundsFinca);
-        asdf.setLayoutX(minX);
-        asdf.setLayoutY(minY);
-        asdf.setPrefSize(width, height);
-        asdf.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println("SE APRETO EL GRAN HPTA BOTON");
-            }
-        });*/
+
         
         //root.getChildren().addAll(boundsFinca);
         root.getChildren().addAll(cells);
