@@ -129,7 +129,7 @@ public class Variedades extends javax.swing.JPanel {
         añadir.setBackground(new java.awt.Color(102, 0, 0));
         añadir.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N
         añadir.setForeground(new java.awt.Color(255, 255, 255));
-        añadir.setText("Añadir plaga");
+        añadir.setText("Añadir variedad");
         añadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 añadirActionPerformed(evt);
@@ -138,7 +138,7 @@ public class Variedades extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Sitka Banner", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nombre de plaga:");
+        jLabel1.setText("Nombre de la variedad:");
 
         buscar.setBackground(new java.awt.Color(102, 0, 0));
         buscar.setFont(new java.awt.Font("Sitka Banner", 0, 14)); // NOI18N

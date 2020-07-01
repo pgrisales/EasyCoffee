@@ -187,7 +187,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="A&#xf1;adir plaga"/>
+        <Property name="text" type="java.lang.String" value="A&#xf1;adir variedad"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a&#xf1;adirActionPerformed"/>
@@ -201,7 +201,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nombre de plaga:"/>
+        <Property name="text" type="java.lang.String" value="Nombre de la variedad:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buscar">
