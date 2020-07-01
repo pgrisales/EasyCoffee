@@ -12,17 +12,15 @@ public class VentaCafe {
     private String variedadCafe;
     private double cantidadVendida;
     private double precioVenta;
-    private double precioReferencia;
 
     public VentaCafe() {
     }
 
-    public VentaCafe(String fechaRegistro, String variedadCafe, double cantidadVendida, double precioVenta, double precioReferencia) {
+    public VentaCafe(String fechaRegistro, String variedadCafe, double cantidadVendida, double precioVenta) {
         this.fechaRegistro = fechaRegistro;
         this.variedadCafe = variedadCafe;
         this.cantidadVendida = cantidadVendida;
         this.precioVenta = precioVenta;
-        this.precioReferencia = precioReferencia;
     }
 
     /**
@@ -34,13 +32,12 @@ public class VentaCafe {
      * @param precioVenta: Precio de Venta acordado y recibido
      * @param precioReferencia: precio de referencia que otorga el sistema
      */
-    public VentaCafe(int idUnicoFactura, String fechaRegistro, String variedadCafe, double cantidadVendida, double precioVenta, double precioReferencia) {
+    public VentaCafe(int idUnicoFactura, String fechaRegistro, String variedadCafe, double cantidadVendida, double precioVenta) {
         this.idUnicoFactura = idUnicoFactura;
         this.fechaRegistro = fechaRegistro;
         this.variedadCafe = variedadCafe;
         this.cantidadVendida = cantidadVendida;
         this.precioVenta = precioVenta;
-        this.precioReferencia = precioReferencia;
     }
 
     /**
@@ -121,22 +118,6 @@ public class VentaCafe {
      */
     public void setPrecioVenta(double precioVenta) {
         this.precioVenta = precioVenta;
-    }
-
-    /**
-     *
-     * @return Precio de referencia que otorga el sistema
-     */
-    public double getPrecioReferencia() {
-        return precioReferencia;
-    }
-
-    /**
-     *
-     * @param precioReferencia: precio de referencia que otorga el sistema
-     */
-    public void setPrecioReferencia(double precioReferencia) {
-        this.precioReferencia = precioReferencia;
     }
 
 }

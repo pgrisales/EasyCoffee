@@ -1,14 +1,11 @@
 package Frontera.Produccion;
 
-import Frontera.Usuarios.Registro;
-import Frontera.Produccion.AgregarArboles;
 import com.easycoffee.Arbol;
 import com.easycoffee.Lote;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import Control.Produccion;
-import Frontera.FramePrincipal;
 import Frontera.FramePrincipal;
 
 public class RegistrarLote extends javax.swing.JPanel {
@@ -311,13 +308,13 @@ public class RegistrarLote extends javax.swing.JPanel {
         FramePrincipal.cambiarPanel376(this);
     }//GEN-LAST:event_addArbolesActionPerformed
     public static boolean isNumeric(String s) {
-        boolean b=true;
+        boolean b = true;
         try {
             Integer.parseInt(s);
         } catch (NumberFormatException nfe) {
-           return false;
+            return false;
         }
-        if(Integer.parseInt(s)<=0){
+        if (Integer.parseInt(s) <= 0) {
             return false;
         }
         return true;

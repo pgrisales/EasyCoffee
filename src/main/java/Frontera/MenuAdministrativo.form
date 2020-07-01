@@ -64,7 +64,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/image/RegistrarProd.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Registrar Venta"/>
+        <Property name="text" type="java.lang.String" value="Registros de Ventas"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
             <CompoundBorder>
@@ -105,7 +105,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/image/RegistrarProd.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Registrar adquisici&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="Registros Insumos"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
             <CompoundBorder>

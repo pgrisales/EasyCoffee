@@ -40,7 +40,7 @@ public class MenuAdministrativo extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/RegistrarProd.png"))); // NOI18N
-        jButton1.setText("Registrar Venta");
+        jButton1.setText("Registros de Ventas");
         jButton1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         jButton1.setMaximumSize(new java.awt.Dimension(232, 300));
         jButton1.setMinimumSize(new java.awt.Dimension(232, 300));
@@ -55,7 +55,7 @@ public class MenuAdministrativo extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/RegistrarProd.png"))); // NOI18N
-        jButton2.setText("Registrar adquisición");
+        jButton2.setText("Registros Insumos");
         jButton2.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         jButton2.setMaximumSize(new java.awt.Dimension(232, 300));
         jButton2.setMinimumSize(new java.awt.Dimension(232, 300));

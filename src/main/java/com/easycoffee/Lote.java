@@ -22,6 +22,7 @@ public class Lote {
         this.carga = carga;
         this.arbolesMuertos = new ArrayList<>();
         this.arbolesVivos = new ArrayList<>();
+        this.insumos = new ArrayList<>();
         frecDesyer = 60;
     }
 
@@ -117,6 +118,18 @@ public class Lote {
 
     public void setArbolesMuertos(ArrayList<Arbol> arbolesMuertos) {
         this.arbolesMuertos = arbolesMuertos;
+    }
+
+    public ArrayList<Insumo> getInsumos() {
+        return insumos;
+    }
+
+    public void setInsumos(ArrayList<Insumo> insumos) {
+        this.insumos = insumos;
+    }
+
+    public void gastarInsumo(Insumo insumo, Double cantidadaGastarEnKg) {
+        this.insumos.remove(insumo);
     }
 
 }

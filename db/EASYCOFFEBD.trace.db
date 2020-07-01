@@ -14443,3 +14443,90 @@ CREATE TABLE `easycoffedb`.`RegistroVenta` (
 	at org.netbeans.modules.openide.util.GlobalLookup.execute(GlobalLookup.java:68)
 	at org.openide.util.lookup.Lookups.executeWith(Lookups.java:303)
 	at org.openide.util.RequestProcessor$Processor.run(RequestProcessor.java:2058)
+2020-06-30 20:30:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : "FK_INSUMO_LOTE1_IDX"
+Unknown data type: "FK_INSUMO_LOTE1_IDX"; SQL statement:
+CREATE TABLE `easycoffebd`.`Insumo` (
+  `idInsumo` INT NOT NULL AUTO_INCREMENT,
+  `Lote_lote_idLote` INT NOT NULL,
+  `nombreInsumo` VARCHAR(45) NULL,
+  `descripcionInsumo` LONGTEXT NULL,
+  `precioCompra` DOUBLE NULL,
+  `cantidadStock` DOUBLE NULL,
+  PRIMARY KEY (`idInsumo`),
+  INDEX `fk_Insumo_Lote1_idx` (`Lote_lote_idLote` ASC) VISIBLE,
+  CONSTRAINT `fk_Insumo_Lote1`
+    FOREIGN KEY (`Lote_lote_idLote`)
+    REFERENCES `easycoffedb`.`Lote` (`lote_idLote`)
+) [50004-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5971)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5697)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8442)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8379)
+	at org.h2.command.Parser.parseCreate(Parser.java:6276)
+	at org.h2.command.Parser.parsePrepared(Parser.java:903)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.netbeans.modules.db.dataview.output.SQLExecutionHelper.executeSQLStatementForExtraction(SQLExecutionHelper.java:856)
+	at org.netbeans.modules.db.dataview.output.SQLExecutionHelper.access$500(SQLExecutionHelper.java:86)
+	at org.netbeans.modules.db.dataview.output.SQLExecutionHelper$1Loader.run(SQLExecutionHelper.java:149)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openide.util.RequestProcessor$Task.run(RequestProcessor.java:1443)
+	at org.netbeans.modules.openide.util.GlobalLookup.execute(GlobalLookup.java:68)
+	at org.openide.util.lookup.Lookups.executeWith(Lookups.java:303)
+	at org.openide.util.RequestProcessor$Processor.run(RequestProcessor.java:2058)
+2020-06-30 20:30:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "EASYCOFFEDB" no encontrado
+Schema "EASYCOFFEDB" not found; SQL statement:
+CREATE TABLE `easycoffebd`.`Insumo` (
+  `idInsumo` INT NOT NULL AUTO_INCREMENT,
+  `Lote_lote_idLote` INT NOT NULL,
+  `nombreInsumo` VARCHAR(45) NULL,
+  `descripcionInsumo` LONGTEXT NULL,
+  `precioCompra` DOUBLE NULL,
+  `cantidadStock` DOUBLE NULL,
+  PRIMARY KEY (`idInsumo`),
+  CONSTRAINT `fk_Insumo_Lote1`
+    FOREIGN KEY (`Lote_lote_idLote`)
+    REFERENCES `easycoffedb`.`Lote` (`lote_idLote`)
+) [90079-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.command.Parser.getSchema(Parser.java:1194)
+	at org.h2.command.Parser.getSchema(Parser.java:1200)
+	at org.h2.command.Parser.parseReferences(Parser.java:8297)
+	at org.h2.command.Parser.parseAlterTableAddConstraintIf(Parser.java:8270)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8433)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8379)
+	at org.h2.command.Parser.parseCreate(Parser.java:6276)
+	at org.h2.command.Parser.parsePrepared(Parser.java:903)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.netbeans.modules.db.dataview.output.SQLExecutionHelper.executeSQLStatementForExtraction(SQLExecutionHelper.java:856)
+	at org.netbeans.modules.db.dataview.output.SQLExecutionHelper.access$500(SQLExecutionHelper.java:86)
+	at org.netbeans.modules.db.dataview.output.SQLExecutionHelper$1Loader.run(SQLExecutionHelper.java:149)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openide.util.RequestProcessor$Task.run(RequestProcessor.java:1443)
+	at org.netbeans.modules.openide.util.GlobalLookup.execute(GlobalLookup.java:68)
+	at org.openide.util.lookup.Lookups.executeWith(Lookups.java:303)
+	at org.openide.util.RequestProcessor$Processor.run(RequestProcessor.java:2058)

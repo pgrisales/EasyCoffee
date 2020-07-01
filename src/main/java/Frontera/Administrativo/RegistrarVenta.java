@@ -86,6 +86,11 @@ public class RegistrarVenta extends javax.swing.JPanel {
         jLabel1.setText("Registrar venta de café");
 
         cantidadVendida.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        cantidadVendida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadVendidaActionPerformed(evt);
+            }
+        });
 
         precioVenta.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
@@ -248,12 +253,22 @@ public class RegistrarVenta extends javax.swing.JPanel {
 
     private void registrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarVentaActionPerformed
         String dia = Integer.toString(Calendar.getInstance().get(Calendar.DATE));
-        String mes = Integer.toString(Calendar.getInstance().get(Calendar.MONTH));
+        String mes = Integer.toString(Calendar.getInstance().get(Calendar.MONTH) + 1);
         String annio = Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
         String fechaHoy = dia + "-" + mes + "-" + annio;
-        FramePrincipal.sistem.getAdmin().getFinca().addVentaRegistro(new VentaCafe(fechaHoy, variedadCafe.getSelectedItem().toString(), Double.valueOf(cantidadVendida.getText()), Double.valueOf(precioVenta.getText()), Double.valueOf(precioReferencia.getText())));
+        if (cantidadVendida.getText().equals("") || precioVenta.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor Completa todos los campos requeridos e intenta nuevamente");
+            return;
+        } else if (!verificarInteger(cantidadVendida.getText()) || !verificarInteger(precioVenta.getText())) {
+            return;
+        }
+
+        FramePrincipal.sistem.getAdmin().getFinca().addVentaRegistro(new VentaCafe(fechaHoy, variedadCafe.getSelectedItem().toString(), Double.valueOf(cantidadVendida.getText()), Double.valueOf(precioVenta.getText())));
         System.out.println(FramePrincipal.sistem.getAdmin().getFinca().getVentasRegistradas().get(0).getFechaRegistro());
         Administrativo a = new Administrativo();
+
+        JOptionPane.showMessageDialog(null, "Registro Añadido con Exito");
+        FramePrincipal.cambiarPanel376(new MenuAdministrativo(cedula));
     }//GEN-LAST:event_registrarVentaActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
@@ -280,6 +295,9 @@ public class RegistrarVenta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_unidadMedidaActionPerformed
 
+    private void cantidadVendidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadVendidaActionPerformed
+    }//GEN-LAST:event_cantidadVendidaActionPerformed
+
     private void cambiarPreciosReferencia(double precio) {
         DecimalFormat format = new DecimalFormat("$ ###,###,###.##  COP");
         switch (unidadMedida.getSelectedIndex()) {
@@ -295,6 +313,16 @@ public class RegistrarVenta extends javax.swing.JPanel {
             case 3:
                 precioReferencia.setText(format.format(precio * 125));
                 break;
+        }
+    }
+
+    private boolean verificarInteger(String verificador) {
+        try {
+            Integer.parseInt(verificador);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Upps... Formato de Ingreso de Datos Incorrecto, verifica e intenta nuevamente");
+            return false;
         }
     }
 

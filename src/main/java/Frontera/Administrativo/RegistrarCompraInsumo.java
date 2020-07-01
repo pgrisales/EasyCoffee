@@ -61,6 +61,11 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
         jLabel1.setText("Registrar compra de insumo");
 
         cantidadVendida.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        cantidadVendida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadVendidaActionPerformed(evt);
+            }
+        });
 
         cancelar.setBackground(new java.awt.Color(102, 0, 0));
         cancelar.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
@@ -212,6 +217,10 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
     private void unidadMedidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadMedidaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_unidadMedidaActionPerformed
+
+    private void cantidadVendidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadVendidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cantidadVendidaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

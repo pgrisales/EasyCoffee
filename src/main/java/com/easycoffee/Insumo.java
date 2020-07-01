@@ -9,7 +9,7 @@ public class Insumo {
     private String nombreInsumo;
     private String descripcionInsumo;
     private double precioCompra;
-    private double cantidadAdquirida;
+    private double cantidadEnStock;     //Cantidad dada en Kilogramos
 
     public Insumo() {
     }
@@ -18,7 +18,7 @@ public class Insumo {
         this.nombreInsumo = nombreInsumo;
         this.descripcionInsumo = descripcionInsumo;
         this.precioCompra = precioCompra;
-        this.cantidadAdquirida = cantidadAdquirida;
+        this.cantidadEnStock = cantidadAdquirida;
     }
 
     public String getNombreInsumo() {
@@ -45,12 +45,12 @@ public class Insumo {
         this.precioCompra = precioCompra;
     }
 
-    public double getCantidadAdquirida() {
-        return cantidadAdquirida;
+    public double getCantidadEnStock() {
+        return cantidadEnStock;
     }
 
-    public void setCantidadAdquirida(double cantidadAdquirida) {
-        this.cantidadAdquirida = cantidadAdquirida;
+    public void setCantidadEnStock(double cantidadEnStock) {
+        this.cantidadEnStock = cantidadEnStock;
     }
 
 }
