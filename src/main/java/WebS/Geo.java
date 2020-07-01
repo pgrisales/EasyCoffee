@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+
+
 /**
  *
  * @author GAR
@@ -19,6 +21,46 @@ public class Geo {
     private static String coordenadas;
     private static File pathInDownloads = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");
 
+    /*public static void geoInit() {
+        
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(!pathInDownloads.exists()){
+                    try {
+                        getGeo();
+                    } catch (URISyntaxException ex) {
+                        Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                notify();
+            }
+        });
+        t1.start();
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("ESPERANDO COORDENADAS");
+                try {
+                    wait();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                    getCoor();
+                } catch (IOException ex) {
+                    Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        t2.start();
+        
+    }*/
+
     public static void getGeo() throws URISyntaxException, IOException {
         File file = new File("src/main/resources/web/getCoor.html");
 
@@ -27,7 +69,10 @@ public class Geo {
         }
     }
 
-    public static String getCoor() throws IOException {
+    public static String getCoor() throws IOException, InterruptedException {
+
+        
+        
         //wmfoijepbrevinsidfjaoeffff.txt
         File file = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));

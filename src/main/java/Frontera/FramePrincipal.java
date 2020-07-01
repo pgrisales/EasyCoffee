@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -93,6 +94,10 @@ public class FramePrincipal extends javax.swing.JFrame {
         PanelPrincipal.add(panel);
         PanelPrincipal.setVisible(true);
     }
+    
+    public static void setToFront(){
+        
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -165,11 +170,12 @@ public class FramePrincipal extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        FramePrincipal frame = new FramePrincipal();
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FramePrincipal frame = new FramePrincipal();
-
+                
                 frame.setResizable(false);
                 frame.setVisible(true);
                 PanelPrincipal.setOpaque(false);

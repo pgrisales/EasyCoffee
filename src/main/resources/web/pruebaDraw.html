@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        canvas {
+            border: 1px solid #444;
+            background-color: sandybrown;
+        }
+    </style>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        function startDragLine(e) {
+            firstClick = [e.pageX, e.pageY];
+            //start the loop
+            intervalLoop = setInterval(function () {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                ctx.beginPath();
+                ctx.moveTo(firstClick[0], firstClick[1]);
+                ctx.lineTo(cursorX, cursorY, 6);
+
+                ctx.strokeStyle = '#000000';
+                ctx.stroke();
+            }, 10);
+        }
+        function stopDragLine() {
+            clearInterval(intervalLoop);
+        }
+        function setD() {
+            var blob = new Blob(["x +  + y"], { type: "text/plain;charset=utf-8" });
+            saveAs(blob, "asdfasdfasdfas3e3333333.txt");
+            //download(cursorX, cursorY);
+        }
+
+        function d() {
+            d();
+        }
+
+
+        function init() {
+           
+            document.onmousemove = function (e) {
+                cursorX = e.pageX;
+                cursorY = e.pageY;
+            };
+            canvas.addEventListener('mousedown', startDragLine, false);
+            canvas.addEventListener('mouseup', stopDragLine, false);
+            
+            
+        }
+
+        var cursorX;
+        var cursorY;
+        var canvas = document.getElementById("canvas"); //canvas, context, other vars etc
+        var ctx = canvas.getContext("2d");
+        var firstClick = [0, 0];
+        var intervalLoop = null;
+        window.onload = init();
+    </script>
+</head>
+
+<body onload="init();">
+    <button onclick="download()">PUTO EL QUE LO LEA </button>
+    <script src="FileSaver.js"></script>
+
+</body>
+
+</html>

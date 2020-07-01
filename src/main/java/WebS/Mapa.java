@@ -4,21 +4,26 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import static org.jsoup.nodes.Document.OutputSettings.Syntax.html;
 
 /**
  *
@@ -28,11 +33,16 @@ public class Mapa extends JApplet {
 
     private static final int JFXPANEL_WIDTH_INT = 900;
     private static final int JFXPANEL_HEIGHT_INT = 600;
-    private static JFXPanel fxContainer;
+    public static JFXPanel fxContainer;
+    private static JFrame frame = new JFrame("Map");
+    static Stage window;
+    
+    
+    public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException{
+        iniciar();
+    }
 
     public static void iniciar() throws URISyntaxException, InterruptedException, IOException {
-
-        Geo.getGeo();
 
         SwingUtilities.invokeLater(new Runnable() {
 
@@ -49,7 +59,7 @@ public class Mapa extends JApplet {
                     Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     }*/
-                    Thread.sleep(10000);
+                    Thread.sleep(3000);
                     synchronized (Geo.getPathInDownloads()) {
                         System.out.println(Geo.getPathInDownloads());
                         Geo.getPathInDownloads().notify();
@@ -64,7 +74,7 @@ public class Mapa extends JApplet {
                 } catch (Exception e) {
                 }
 
-                JFrame frame = new JFrame("Map");
+                
                 //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
                 JApplet applet = new Mapa();
@@ -91,39 +101,39 @@ public class Mapa extends JApplet {
 
             @Override
             public void run() {
-                try {
-                    createScene();
-                } catch (IOException ex) {
-                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (URISyntaxException ex) {
-                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                createScene();
             }
         });
     }
 
-    private void createScene() throws IOException, URISyntaxException {
+    private void createScene() {
 
-        WebView webview = new WebView();
-        VBox root = new VBox();
-        WebEngine engine = webview.getEngine();
-        String coor = Geo.getCoor();
-        String url = Geo.getMapUrl() + coor + "," + "17z";
-        System.out.println(url);
-        Button btn = new Button("Ver localizacion");
-        Button cerrarB = new Button("Cerrar");
+        StackPane root = new StackPane();
+        Button btn = new Button();
+        btn.setText("Ver Mapa");
+
+        root.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("X POSITION:" + event.getSceneX());
+                System.out.println("Y POSITION:" + event.getSceneY());
+            }
+        });
         btn.setOnAction(new EventHandler<ActionEvent>() {
-
             @Override
             public void handle(ActionEvent event) {
-                engine.load(url);
+                try {
+                    Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
+                    Scene viewSc = new Scene(view);
+
+                    fxContainer.setScene(viewSc);
+                } catch (IOException ex) {
+                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
 
-        root.getChildren().addAll(webview);
-        //StackPane root = new StackPane();
         root.getChildren().add(btn);
-        root.getChildren().add(cerrarB);
         fxContainer.setScene(new Scene(root));
     }
 
