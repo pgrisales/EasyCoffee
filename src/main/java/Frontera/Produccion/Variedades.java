@@ -5,6 +5,7 @@ import Frontera.FramePrincipal;
 import com.easycoffee.ImgTabla;
 import com.easycoffee.Plaga;
 import com.easycoffee.Usuario;
+import com.easycoffee.Variedad;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -21,21 +22,23 @@ import javax.swing.table.TableColumn;
 public class Variedades extends javax.swing.JPanel {
 
     private int cedula;
-    ArrayList<Plaga> plagas= FramePrincipal.getSistem().getAdmin().getFinca().getPlagas();
+    ArrayList<Variedad> variedad= FramePrincipal.getSistem().getAdmin().getFinca().getVariedad();
     
     private void PropiedadesTabla(){
         tabla.setFont(new java.awt.Font("Sitka Banner", 1, 18));
         tabla.setDefaultRenderer(Object.class, new ImgTabla());
-        String titulos[] = {"Nombre ","Foto","Descripción","Color", "Producción", "Porte"};
+        String titulos[] = {"Nombre","Foto","Descripción","Color", "Producción", "Porte"};
         DefaultTableModel model = new DefaultTableModel(null,titulos);
-        for(int i=0; i<plagas.size();i++){
+        for(int i=0; i<variedad.size();i++){
             
-            ImageIcon imagen = plagas.get(i).getImagen();
+            ImageIcon imagen = variedad.get(i).getImagen();
             
-            model.addRow(new Object[]{plagas.get(i).getNombrePlaga(),
+            model.addRow(new Object[]{variedad.get(i).getNombrevar(),
                 new JLabel(new ImageIcon(imagen.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH))),
-                plagas.get(i).getDescripcionPlaga(),
-                plagas.get(i).getTratamientoPlaga()
+                variedad.get(i).getDescripcion(),
+                variedad.get(i).getColorHoja(),
+                variedad.get(i).getProduccion(),
+                variedad.get(i).getPorte()
             });
             
         }
@@ -45,13 +48,16 @@ public class Variedades extends javax.swing.JPanel {
         
         TableColumn columna = tabla.getColumn("Foto");
         columna.setPreferredWidth(100);
-        columna = tabla.getColumn("Nombre de la plaga");
+        columna = tabla.getColumn("Nombre");
         columna.setPreferredWidth(90);
         columna = tabla.getColumn("Descripción");
-        columna.setPreferredWidth(300);
-        columna = tabla.getColumn("Tratamiento");
-        columna.setPreferredWidth(300);
-        
+        columna.setPreferredWidth(200);
+        columna = tabla.getColumn("Producción");
+        columna.setPreferredWidth(200);
+        columna = tabla.getColumn("Color");
+        columna.setPreferredWidth(50);
+        columna = tabla.getColumn("Porte");
+        columna.setPreferredWidth(50);
     }
     
     public Variedades(int cedula) {
@@ -208,7 +214,7 @@ public class Variedades extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
-        FramePrincipal.cambiarPanel376(new CrearPlaga(cedula));
+        FramePrincipal.cambiarPanel376(new CrearVariedad(cedula));
     }//GEN-LAST:event_añadirActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
@@ -216,30 +222,37 @@ public class Variedades extends javax.swing.JPanel {
         tabla.setDefaultRenderer(Object.class, new ImgTabla());
         String titulos[] = {"Nombre","Foto","Descripción","Tratamiento"};
         DefaultTableModel model = new DefaultTableModel(null,titulos);
-        for(int i=0; i<plagas.size();i++){
-            if(plagas.get(i).getNombrePlaga().toUpperCase().contains(nombre.getText().toUpperCase())){
-                ImageIcon imagen = plagas.get(i).getImagen();
-
-                model.addRow(new Object[]{plagas.get(i).getNombrePlaga(),
+        for(int i=0; i<variedad.size();i++){
+            if(variedad.get(i).getNombrevar().toUpperCase().contains(nombre.getText().toUpperCase())){
+                 ImageIcon imagen = variedad.get(i).getImagen();
+            
+                model.addRow(new Object[]{variedad.get(i).getNombrevar(),
                     new JLabel(new ImageIcon(imagen.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH))),
-                    plagas.get(i).getDescripcionPlaga(),
-                    plagas.get(i).getTratamientoPlaga()
+                    variedad.get(i).getDescripcion(),
+                    variedad.get(i).getColorHoja(),
+                    variedad.get(i).getProduccion(),
+                    variedad.get(i).getPorte()
                 });
             }
         }
         
         tabla.setRowHeight(100);
         tabla.setModel(model);
+        
         TableColumn columna = tabla.getColumn("Foto");
         columna.setPreferredWidth(100);
         columna = tabla.getColumn("Nombre");
         columna.setPreferredWidth(90);
         columna = tabla.getColumn("Descripción");
-        columna.setPreferredWidth(300);
-        columna = tabla.getColumn("Tratamiento");
-        columna.setPreferredWidth(300);
+        columna.setPreferredWidth(200);
+        columna = tabla.getColumn("Producción");
+        columna.setPreferredWidth(200);
+        columna = tabla.getColumn("Color");
+        columna.setPreferredWidth(50);
+        columna = tabla.getColumn("Porte");
+        columna.setPreferredWidth(50);
         }else{
-            JOptionPane.showMessageDialog(null, "No ingresó el nombre de la plaga.");
+            JOptionPane.showMessageDialog(null, "No ingresó el nombre de la variedad.");
         }
     }//GEN-LAST:event_buscarActionPerformed
 
@@ -249,15 +262,7 @@ public class Variedades extends javax.swing.JPanel {
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
                                            
-     JTable source = (JTable)evt.getSource();
-            int row = source.rowAtPoint( evt.getPoint() );
-            int column = source.columnAtPoint( evt.getPoint() );
-            String s=source.getModel().getValueAt(row, column)+"";
-
-            JOptionPane.showMessageDialog(null, s);
-
-
-
+   
     }//GEN-LAST:event_tablaMouseClicked
      
    

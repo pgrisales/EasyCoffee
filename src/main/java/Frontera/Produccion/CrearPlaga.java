@@ -200,10 +200,11 @@ public class CrearPlaga extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jToggleButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(volver)
-                            .addComponent(jToggleButton2))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jToggleButton1)
+                                .addComponent(jToggleButton2)))
                         .addContainerGap(26, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents

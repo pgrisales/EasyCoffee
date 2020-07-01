@@ -40,6 +40,11 @@ public class Produccion {
         daoManager.getPlagasDAO().insertar(plaga, Ruta);
         return true;
     }
+    
+    public boolean RegistrarVariedadBD(Variedad variedad, String Ruta) throws FileNotFoundException {
+        daoManager.getVariedadDAO().insertar(variedad, Ruta);
+        return true;
+    }
 
     public boolean registrarMemoPad(Memo m) {
         daoManager.getMemosDAO().insertar(m);

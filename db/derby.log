@@ -1,5 +1,5 @@
-Tue Jun 23 14:18:04 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
-Tue Jun 23 14:18:04 COT 2020 Thread[DRDAConnThread_2,5,main] Cleanup action starting
+Wed Jul 01 01:59:47 COT 2020 : Servidor de red Apache Derby: Se ha iniciado 10.14.2.0 - (1828579) y está listo para aceptar las conexiones en el puerto 1527
+Wed Jul 01 01:59:48 COT 2020 Thread[DRDAConnThread_2,5,main] Cleanup action starting
 java.sql.SQLException: No se ha encontrado la base de datos 'LoginApp_JPA'.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -53,7 +53,4 @@ ERROR XJ004: No se ha encontrado la base de datos 'LoginApp_JPA'.
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
 ============= end nested exception, level (1) ===========
 Cleanup action completed
-Tue Jun 23 14:18:04 COT 2020 Thread[DRDAConnThread_2,5,main] (DATABASE = LoginApp_JPA), (DRDAID = {1}), No se ha encontrado la base de datos 'LoginApp_JPA'.
-----------------------------------------------------------------
-Tue Jun 23 14:19:29 COT 2020: cerrando motor de Derby
-----------------------------------------------------------------
+Wed Jul 01 01:59:48 COT 2020 Thread[DRDAConnThread_2,5,main] (DATABASE = LoginApp_JPA), (DRDAID = {1}), No se ha encontrado la base de datos 'LoginApp_JPA'.

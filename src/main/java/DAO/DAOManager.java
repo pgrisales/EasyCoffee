@@ -24,6 +24,7 @@ public class DAOManager {
     private PermisosDAO permisos = null;
     private MemoPadDAO memos = null;
     private PlagaDAO plagas = null;
+    private VariedadDAO variedad = null;
 
 //    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
     public DAOManager() {
@@ -39,6 +40,12 @@ public class DAOManager {
             permisos = new PermisosDAO(conn);
         }
         return permisos;
+    }
+    public VariedadDAO getVariedadDAO() {
+        if (variedad == null) {
+            variedad = new VariedadDAO(conn);
+        }
+        return variedad;
     }
     
     public PlagaDAO getPlagasDAO() {

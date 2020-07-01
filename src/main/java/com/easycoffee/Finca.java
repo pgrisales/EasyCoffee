@@ -9,6 +9,7 @@ public class Finca {
     private ArrayList<Usuario> auxiliares;
     private ArrayList<Lote> lotes;
     private ArrayList<Plaga> plagas;
+    private ArrayList<Variedad> variedad;
     private ArrayList<VentaCafe> ventasRegistradas;
 
     public Finca() {
@@ -17,6 +18,7 @@ public class Finca {
         this.nombreFinca = "";
         this.trabajadores = new ArrayList<>();
         this.plagas = new ArrayList<>();
+        this.variedad = new ArrayList<>();
         this.ventasRegistradas = new ArrayList<>();
     }
 
@@ -26,6 +28,7 @@ public class Finca {
         this.nombreFinca = name;
         this.trabajadores = null;
         this.plagas = new ArrayList<Plaga>();
+        this.variedad = new ArrayList<Variedad>();
         this.ventasRegistradas = new ArrayList<>();
     }
 
@@ -89,4 +92,12 @@ public class Finca {
         this.ventasRegistradas.add(vc);
     }
 
+    public ArrayList<Variedad> getVariedad() {
+        return variedad;
+    }
+
+    public void setVariedad(ArrayList<Variedad> variedad) {
+        this.variedad = variedad;
+    }
+    
 }

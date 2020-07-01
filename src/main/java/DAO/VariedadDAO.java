@@ -75,8 +75,9 @@ public class VariedadDAO {
             Clob Descripcion = new javax.sql.rowset.serial.SerialClob(u.getDescripcion().toCharArray());
             File file = new File(ruta);
             fi = new FileInputStream(file);
-            stat.setBinaryStream(1, fi);
+            
             stat = conn.prepareStatement(INSERT);
+            stat.setBinaryStream(1, fi);
             stat.setClob(2, Descripcion);
             stat.setString(3, u.getColorHoja());
             stat.setString(4, u.getProduccion());

@@ -20,6 +20,7 @@ public class InicializarSistema {
     private ArrayList<Trabajador> trabajadores = null;
     private ArrayList<Lote> lotes = null;
     private ArrayList<Plaga> plagas = null;
+    private ArrayList<Variedad> variedad = null;
     private ArrayList<Memo> memosUser = null;
 
     public InicializarSistema() {
@@ -70,6 +71,14 @@ public class InicializarSistema {
                         }
                         if (this.plagas.size() != 0) {
                             this.admin.getFinca().setPlagas(plagas);
+                        }
+                        try {
+                            this.variedad = (ArrayList<Variedad>) daoManager.getVariedadDAO().obtenerTodos();
+                        } catch (IOException ex) {
+                            Logger.getLogger(InicializarSistema.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        if (this.variedad.size() != 0) {
+                            this.admin.getFinca().setVariedad(variedad);
                         }
                         this.trabajadores = (ArrayList<Trabajador>) daoManager.getTrabajadorDAO().obtenerTodos();
 
