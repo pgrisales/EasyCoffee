@@ -46,24 +46,24 @@ public class MenuSeleccion extends javax.swing.JPanel {
                         Calendar c=Calendar.getInstance();
                         String s=FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getArbolesVivos().get(j).getFechaDeSembrado();
                         String ss[]=s.split("-");
-                        System.out.println(ss.length);
+                        //System.out.println(ss.length);
                         if(ss.length==1){
                             ss=s.split("/");
-                            System.out.println("asdad");
-                            System.out.println(ss[0]+" "+ss[1]+" "+ss[2]);
+                            //System.out.println("asdad");
+                            //System.out.println(ss[0]+" "+ss[1]+" "+ss[2]);
                             c.set(Calendar.DATE, Integer.parseInt(ss[0]));
                             c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
                             c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
                             c.add(Calendar.YEAR, 8);
                         }
                         else{
-                            System.out.println(ss[0]+" "+ss[1]+" "+ss[2]);
+                            //System.out.println(ss[0]+" "+ss[1]+" "+ss[2]);
                             c.set(Calendar.DATE, Integer.parseInt(ss[0]));
                             c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
                             c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
                             c.add(Calendar.YEAR, 8);
                         }
-                        System.out.println("dia"+c.get(Calendar.DATE)+"mes"+c.get(Calendar.MONTH)+"año"+c.get(Calendar.YEAR));
+                        //System.out.println("dia"+c.get(Calendar.DATE)+"mes"+c.get(Calendar.MONTH)+"año"+c.get(Calendar.YEAR));
                         if(c.compareTo(Calendar.getInstance())<0){
                            cont++;
                         }

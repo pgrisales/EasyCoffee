@@ -6,26 +6,31 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import static javafx.scene.layout.BackgroundRepeat.REPEAT;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import static org.jsoup.nodes.Document.OutputSettings.Syntax.html;
 
 /**
  *
@@ -102,6 +107,7 @@ public class Mapa extends JApplet {
         fxContainer = new JFXPanel();
         fxContainer.setPreferredSize(new Dimension(JFXPANEL_WIDTH_INT, JFXPANEL_HEIGHT_INT));
         add(fxContainer, BorderLayout.CENTER);
+        
         // create JavaFX scene
         Platform.runLater(new Runnable() {
 
