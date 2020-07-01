@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -106,6 +107,11 @@ public class Plagas extends javax.swing.JPanel {
         tabla.setSelectionBackground(new java.awt.Color(153, 153, 153));
         tabla.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tabla.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla);
 
         jButton1.setBackground(new java.awt.Color(102, 0, 0));
@@ -240,6 +246,19 @@ public class Plagas extends javax.swing.JPanel {
     private void recargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargarActionPerformed
         PropiedadesTabla();
     }//GEN-LAST:event_recargarActionPerformed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+                                           
+     JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = source.columnAtPoint( evt.getPoint() );
+            String s=source.getModel().getValueAt(row, column)+"";
+
+            JOptionPane.showMessageDialog(null, s);
+
+
+
+    }//GEN-LAST:event_tablaMouseClicked
      
    
    
