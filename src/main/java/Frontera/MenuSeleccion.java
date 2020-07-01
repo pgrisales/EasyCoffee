@@ -39,6 +39,41 @@ public class MenuSeleccion extends javax.swing.JPanel {
                 this.ListaNotificaciones.addItem("El lote "+i+" está listo para desyerbarse");
             }
         }
+        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            int cont=0;
+                if(FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getArbolesVivos().size()!=0){
+                    for (int j = 0; j < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getArbolesVivos().size(); j++) {
+                        Calendar c=Calendar.getInstance();
+                        String s=FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getArbolesVivos().get(j).getFechaDeSembrado();
+                        String ss[]=s.split("-");
+                        System.out.println(ss.length);
+                        if(ss.length==1){
+                            ss=s.split("/");
+                            System.out.println("asdad");
+                            System.out.println(ss[0]+" "+ss[1]+" "+ss[2]);
+                            c.set(Calendar.DATE, Integer.parseInt(ss[0]));
+                            c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
+                            c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
+                            c.add(Calendar.YEAR, 8);
+                        }
+                        else{
+                            System.out.println(ss[0]+" "+ss[1]+" "+ss[2]);
+                            c.set(Calendar.DATE, Integer.parseInt(ss[0]));
+                            c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
+                            c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
+                            c.add(Calendar.YEAR, 8);
+                        }
+                        System.out.println("dia"+c.get(Calendar.DATE)+"mes"+c.get(Calendar.MONTH)+"año"+c.get(Calendar.YEAR));
+                        if(c.compareTo(Calendar.getInstance())<0){
+                           cont++;
+                        }
+                    }
+                    
+                    
+                }
+            if(cont!=0)
+                this.ListaNotificaciones.addItem("El lote "+i+" Tiene "+cont+" árboles listos para renovarse.");
+        }
         this.ListaNotificaciones.setVisible(false);
         FramePrincipal.cambiarPanel127(this);
     }
