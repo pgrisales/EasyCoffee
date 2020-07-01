@@ -17,6 +17,14 @@ public class VentaCafe {
     public VentaCafe() {
     }
 
+    public VentaCafe(String fechaRegistro, String variedadCafe, double cantidadVendida, double precioVenta, double precioReferencia) {
+        this.fechaRegistro = fechaRegistro;
+        this.variedadCafe = variedadCafe;
+        this.cantidadVendida = cantidadVendida;
+        this.precioVenta = precioVenta;
+        this.precioReferencia = precioReferencia;
+    }
+
     /**
      *
      * @param idUnicoFactura: Id Unico del registro de venta

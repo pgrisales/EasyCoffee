@@ -1,12 +1,13 @@
 package Frontera.Administrativo;
 
+import Control.Administrativo;
 import Frontera.FramePrincipal;
 import Frontera.MenuAdministrativo;
 import WebS.PrecioCafe;
 import com.easycoffee.VentaCafe;
-import java.awt.HeadlessException;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -20,7 +21,6 @@ public class RegistrarVenta extends javax.swing.JPanel {
     private String[] unidades = {"Kg", "Lb", "Arrobas", "Cargas"};
     private String[] variedadesCafe = {"Pergamino (Seco)", "Pasilla", "Verde"};
     private int cedula;
-    private VentaCafe venta;
     private double pergamino;   //Precio de Kg
     private double pasilla;     //Precio por Kg
 
@@ -33,7 +33,6 @@ public class RegistrarVenta extends javax.swing.JPanel {
         initComponents();
         verifyWebServiceConection();
         this.cedula = cedula;
-        this.venta = new VentaCafe();
 
         try {
             this.pasilla = Double.parseDouble(PrecioCafe.getInstance().getPrecioPasillaFinca().replace("$", "").replace(".", "")) / 11.339;
@@ -41,7 +40,6 @@ public class RegistrarVenta extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(RegistrarVenta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ;
 
         unidadMedida.removeAllItems();
         for (int i = 0; i < unidades.length; i++) {
@@ -249,6 +247,13 @@ public class RegistrarVenta extends javax.swing.JPanel {
     }//GEN-LAST:event_variedadCafeActionPerformed
 
     private void registrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarVentaActionPerformed
+        String dia = Integer.toString(Calendar.getInstance().get(Calendar.DATE));
+        String mes = Integer.toString(Calendar.getInstance().get(Calendar.MONTH));
+        String annio = Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
+        String fechaHoy = dia + "-" + mes + "-" + annio;
+        FramePrincipal.sistem.getAdmin().getFinca().addVentaRegistro(new VentaCafe(fechaHoy, variedadCafe.getSelectedItem().toString(), Double.valueOf(cantidadVendida.getText()), Double.valueOf(precioVenta.getText()), Double.valueOf(precioReferencia.getText())));
+        System.out.println(FramePrincipal.sistem.getAdmin().getFinca().getVentasRegistradas().get(0).getFechaRegistro());
+        Administrativo a = new Administrativo();
     }//GEN-LAST:event_registrarVentaActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

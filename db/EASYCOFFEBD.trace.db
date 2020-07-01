@@ -14406,3 +14406,40 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Cam
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
 	... 21 more
+2020-06-30 20:11:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "EASYCOFFEDB" no encontrado
+Schema "EASYCOFFEDB" not found; SQL statement:
+CREATE TABLE `easycoffedb`.`RegistroVenta` (
+  `idRegistroVenta` INT NOT NULL AUTO_INCREMENT,
+  `fechaRegistroVenta` DATE NULL,
+  `variedadCafe` VARCHAR(45) NULL,
+  `cantidadVendida` DOUBLE NULL,
+  `precioVenta` DOUBLE NULL,
+  `precioReferencia` DOUBLE NULL,
+  PRIMARY KEY (`idRegistroVenta`)) [90079-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.command.Parser.getSchema(Parser.java:1194)
+	at org.h2.command.Parser.getSchema(Parser.java:1200)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8368)
+	at org.h2.command.Parser.parseCreate(Parser.java:6276)
+	at org.h2.command.Parser.parsePrepared(Parser.java:903)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.netbeans.modules.db.dataview.output.SQLExecutionHelper.executeSQLStatementForExtraction(SQLExecutionHelper.java:856)
+	at org.netbeans.modules.db.dataview.output.SQLExecutionHelper.access$500(SQLExecutionHelper.java:86)
+	at org.netbeans.modules.db.dataview.output.SQLExecutionHelper$1Loader.run(SQLExecutionHelper.java:149)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openide.util.RequestProcessor$Task.run(RequestProcessor.java:1443)
+	at org.netbeans.modules.openide.util.GlobalLookup.execute(GlobalLookup.java:68)
+	at org.openide.util.lookup.Lookups.executeWith(Lookups.java:303)
+	at org.openide.util.RequestProcessor$Processor.run(RequestProcessor.java:2058)

@@ -3,6 +3,7 @@ package com.easycoffee;
 import java.util.ArrayList;
 
 public class Lote {
+
     private int frecDesyer;
     private Long IdLote;
     private double areaTotal;
@@ -11,6 +12,7 @@ public class Lote {
     private boolean carga;
     private ArrayList<Arbol> arbolesVivos;
     private ArrayList<Arbol> arbolesMuertos;
+    private ArrayList<Insumo> insumos;
 
     public Lote(Long IdLote, double areaTotal, String fechaDesyerbado, String fechaAbonado, boolean carga) {
         this.IdLote = IdLote;
@@ -20,7 +22,7 @@ public class Lote {
         this.carga = carga;
         this.arbolesMuertos = new ArrayList<>();
         this.arbolesVivos = new ArrayList<>();
-        frecDesyer=60;
+        frecDesyer = 60;
     }
 
     public int getFrecDesyer() {
@@ -30,28 +32,30 @@ public class Lote {
     public void setFrecDesyer(int frecDesyer) {
         this.frecDesyer = frecDesyer;
     }
-    private int insumo(int[] cantidad){
-        int hec=(int)this.getAreaTotal()/10000;
-         if(this.arbolesVivos.size()<5000*hec){
-             return cantidad[0]*hec;
-         }
-         else if(this.arbolesVivos.size()<7500*hec)  {
-             return cantidad[1]*hec;
-         }
-         else{
-             return cantidad[2]*hec;
-         }
+
+    private int insumo(int[] cantidad) {
+        int hec = (int) this.getAreaTotal() / 10000;
+        if (this.arbolesVivos.size() < 5000 * hec) {
+            return cantidad[0] * hec;
+        } else if (this.arbolesVivos.size() < 7500 * hec) {
+            return cantidad[1] * hec;
+        } else {
+            return cantidad[2] * hec;
+        }
     }
-     public int[] insumos(){
+
+    public int[] insumos() {
         //nitrogeno-potasio-fosforo,magnecio,azufre
-        int[] insum=new int[]{insumo(new int[]{255,285,300}),insumo(new int[]{220,250,260}),insumo(new int[]{50,48,43})};
+        int[] insum = new int[]{insumo(new int[]{255, 285, 300}), insumo(new int[]{220, 250, 260}), insumo(new int[]{50, 48, 43})};
         return insum;
     }
+
     //Óptimo económico: 9.404 - 9.852 plantas/ha
-    public double[] optimoEconomico(){
-        double[] optimo={(this.areaTotal/10000)*9.404,(this.areaTotal/10000)* 9.852};
+    public double[] optimoEconomico() {
+        double[] optimo = {(this.areaTotal / 10000) * 9.404, (this.areaTotal / 10000) * 9.852};
         return optimo;
     }
+
     public Lote() {
     }
 

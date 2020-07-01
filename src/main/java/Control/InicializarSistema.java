@@ -2,15 +2,7 @@ package Control;
 
 import DAO.DAOManager;
 import WebS.PrecioCafe;
-import com.easycoffee.Administrador;
-import com.easycoffee.Arbol;
-import com.easycoffee.Finca;
-import com.easycoffee.Jornada;
-import com.easycoffee.Lote;
-import com.easycoffee.Memo;
-import com.easycoffee.Plaga;
-import com.easycoffee.Trabajador;
-import com.easycoffee.Usuario;
+import com.easycoffee.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
