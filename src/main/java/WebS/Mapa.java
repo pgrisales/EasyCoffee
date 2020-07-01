@@ -2,6 +2,8 @@ package WebS;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -85,6 +87,10 @@ public class Mapa extends JApplet {
                 frame.pack();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
+                frame.addWindowListener(new WindowAdapter(){public void windowClosing(WindowEvent w){
+                    frame.dispose();
+                    }       
+                });
 
                 applet.start();
             }
