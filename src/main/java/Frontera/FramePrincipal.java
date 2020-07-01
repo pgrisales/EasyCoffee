@@ -17,14 +17,6 @@ import javax.swing.JPanel;
 public class FramePrincipal extends javax.swing.JFrame {
 
     private static int cedula;
-
-    public static int getCedula() {
-        return cedula;
-    }
-
-    public static void setCedula(int cedula) {
-        FramePrincipal.cedula = cedula;
-    }
     private static String panel;
     public static InicializarSistema sistem = new InicializarSistema();
     public static String[] preguntas = {"¿Cuál es el nombre de tu primera mascota?", "¿Cuál es tu comida favorita?", "¿Quíen era el héroe de tu infancia?"};
@@ -50,6 +42,14 @@ public class FramePrincipal extends javax.swing.JFrame {
     public static void menuDoublePanel(boolean b) {
         jPanel127.setVisible(b);
         jPanel376.setVisible(b);
+    }
+
+    public static int getCedula() {
+        return cedula;
+    }
+
+    public static void setCedula(int cedula) {
+        FramePrincipal.cedula = cedula;
     }
 
     public static void cambiarPanel127(JPanel panel) {

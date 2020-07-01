@@ -1,7 +1,7 @@
 package Frontera.Administrativo;
 
 import Frontera.FramePrincipal;
-import Frontera.MenuAdministrativo;
+import com.easycoffee.Insumo;
 
 /**
  *
@@ -9,17 +9,17 @@ import Frontera.MenuAdministrativo;
  */
 public class RegistrarCompraInsumo extends javax.swing.JPanel {
 
+    private int idLote;
     private String[] unidades = {"Kg", "Lb", "Arrobas", "Litros", "Mililitros", "Galones", "Onzas"};
-    private int cedula;
 
     /**
      * Creates new form RegistrarCompraInsumo
      *
      * @param cedula: Cedula del Usuario en Curso
      */
-    public RegistrarCompraInsumo(int cedula) {
+    public RegistrarCompraInsumo(int idLote) {
         initComponents();
-        this.cedula = cedula;
+        this.idLote = idLote;
         unidadMedida.removeAllItems();
         unidadMedida.addItem("-");
         for (int i = 0; i < unidades.length; i++) {
@@ -36,34 +36,31 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        cantidadVendida = new javax.swing.JTextField();
+        cantidadComprada = new javax.swing.JTextField();
         cancelar = new javax.swing.JButton();
-        precioVenta = new javax.swing.JTextField();
+        precioCompra = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         unidadMedida = new javax.swing.JComboBox<>();
-        registrarVenta = new javax.swing.JButton();
+        registrarInsumo = new javax.swing.JButton();
         nombreInsumo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(900, 376));
-        setMinimumSize(new java.awt.Dimension(900, 376));
+        setBackground(new java.awt.Color(51, 51, 51));
+        setForeground(new java.awt.Color(51, 51, 51));
+        setMaximumSize(new java.awt.Dimension(550, 300));
+        setMinimumSize(new java.awt.Dimension(550, 300));
+        setPreferredSize(new java.awt.Dimension(550, 300));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Sitka Banner", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Registrar compra de insumo");
-
-        cantidadVendida.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        cantidadVendida.addActionListener(new java.awt.event.ActionListener() {
+        cantidadComprada.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        cantidadComprada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cantidadVendidaActionPerformed(evt);
+                cantidadCompradaActionPerformed(evt);
             }
         });
 
@@ -77,11 +74,11 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
             }
         });
 
-        precioVenta.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        precioCompra.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Sitka Banner", 3, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Por favor ingrese los datos de la compra solicitados a continuación, seguido de presionar el botón \"Registrar\"");
+        jLabel7.setText("Por favor ingrese los datos de la compra solicitados a continuación:");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
@@ -94,7 +91,7 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Precio de Compra:");
+        jLabel4.setText("Precio de Compra Total:");
 
         jLabel5.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -108,13 +105,13 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
             }
         });
 
-        registrarVenta.setBackground(new java.awt.Color(153, 51, 0));
-        registrarVenta.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
-        registrarVenta.setForeground(new java.awt.Color(255, 255, 255));
-        registrarVenta.setText("Registrar");
-        registrarVenta.addActionListener(new java.awt.event.ActionListener() {
+        registrarInsumo.setBackground(new java.awt.Color(153, 51, 0));
+        registrarInsumo.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
+        registrarInsumo.setForeground(new java.awt.Color(255, 255, 255));
+        registrarInsumo.setText("Añadir");
+        registrarInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarVentaActionPerformed(evt);
+                registrarInsumoActionPerformed(evt);
             }
         });
 
@@ -134,99 +131,99 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(493, 493, 493)
-                        .addComponent(registrarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel7))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(precioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cantidadVendida, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nombreInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(31, 31, 31)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel3))
+                                        .addGap(33, 33, 33))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(84, 84, 84)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(unidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(66, 66, 66)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                                    .addComponent(precioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombreInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cantidadComprada, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(unidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(41, 41, 41)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(registrarInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel7)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(nombreInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(cantidadComprada, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(unidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(precioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(nombreInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(cantidadVendida, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(unidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(precioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registrarVenta))
-                .addGap(28, 28, 28))
+                        .addComponent(cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(100, 100, 100))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(registrarInsumo)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        FramePrincipal.cambiarPanel376(new MenuAdministrativo(cedula));
-        System.gc();
+        nombreInsumo.setText("");
+        cantidadComprada.setText("");
+        precioCompra.setText("");
+        jTextArea1.setText("");
+        unidadMedida.setSelectedIndex(0);
     }//GEN-LAST:event_cancelarActionPerformed
 
-    private void registrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarVentaActionPerformed
-
-    }//GEN-LAST:event_registrarVentaActionPerformed
+    private void registrarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarInsumoActionPerformed
+        FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(idLote).addInsumo(new Insumo(nombreInsumo.getText(), jTextArea1.getText(), Double.valueOf(precioCompra.getText()), Double.valueOf(cantidadComprada.getText())));
+    }//GEN-LAST:event_registrarInsumoActionPerformed
 
     private void unidadMedidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadMedidaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_unidadMedidaActionPerformed
 
-    private void cantidadVendidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadVendidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cantidadVendidaActionPerformed
+    private void cantidadCompradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadCompradaActionPerformed
+    }//GEN-LAST:event_cantidadCompradaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
-    private javax.swing.JTextField cantidadVendida;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField cantidadComprada;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -236,8 +233,8 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField nombreInsumo;
-    private javax.swing.JTextField precioVenta;
-    private javax.swing.JButton registrarVenta;
+    private javax.swing.JTextField precioCompra;
+    private javax.swing.JButton registrarInsumo;
     private javax.swing.JComboBox<String> unidadMedida;
     // End of variables declaration//GEN-END:variables
 }

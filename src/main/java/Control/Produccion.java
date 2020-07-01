@@ -2,12 +2,7 @@ package Control;
 
 import DAO.DAOManager;
 import Frontera.FramePrincipal;
-import com.easycoffee.Arbol;
-import com.easycoffee.Jornada;
-import com.easycoffee.Lote;
-import com.easycoffee.Memo;
-import com.easycoffee.Plaga;
-import com.easycoffee.Trabajador;
+import com.easycoffee.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 

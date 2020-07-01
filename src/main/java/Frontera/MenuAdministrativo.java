@@ -93,7 +93,7 @@ public class MenuAdministrativo extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        FramePrincipal.cambiarPanel376(new RegistrarCompraInsumo(cedula));
+        FramePrincipal.cambiarPanel376(new RegistroInsumos(cedula));
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
