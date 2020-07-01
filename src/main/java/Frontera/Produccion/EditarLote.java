@@ -34,7 +34,7 @@ public class EditarLote extends javax.swing.JPanel {
         fechaAbonado.setCalendar(Calendar.getInstance());
         fechaDesyerbado.setCalendar(Calendar.getInstance());
         this.jComboBox1.removeAllItems();
-        
+
 //fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
@@ -357,7 +357,7 @@ public class EditarLote extends javax.swing.JPanel {
         if (this.areaLote.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Las casilla de tamaño está vacia, por favor asegurese de rellenarla");
         } else {
-            if (Registro.isNumeric(areaLote.getText())&&Registro.isNumeric(this.frect.getText())) {
+            if (Registro.isNumeric(areaLote.getText()) && Registro.isNumeric(this.frect.getText())) {
                 int area = Integer.parseInt(areaLote.getText());//swe guarda en metros
                 if (jComboBox1.getSelectedIndex() == 0) {
                     area = area * 1000000;
@@ -366,9 +366,10 @@ public class EditarLote extends javax.swing.JPanel {
                     area = area * 10000;
                 }
                 lote.setAreaTotal(area);
-                int frecDesy=Integer.parseInt(this.frect.getText());
-                if(this.frec.getSelectedIndex()==1)
-                    frecDesy=frecDesy*30;
+                int frecDesy = Integer.parseInt(this.frect.getText());
+                if (this.frec.getSelectedIndex() == 1) {
+                    frecDesy = frecDesy * 30;
+                }
                 lote.setFrecDesyer(frecDesy);
                 String fechabonado = fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
                 lote.setFechaAbonado(fechabonado);
@@ -380,23 +381,24 @@ public class EditarLote extends javax.swing.JPanel {
         }
         FramePrincipal.cambiarPanel127(new EditFinca(1));
     }//GEN-LAST:event_saveActionPerformed
-    public void setCAlendar(){
-        String s=lote.getFechaAbonado();
-        String ss[]=s.split("/");
-        Calendar c=Calendar.getInstance();
+    public void setCAlendar() {
+        String s = lote.getFechaAbonado();
+        String ss[] = s.split("/");
+        Calendar c = Calendar.getInstance();
 //        System.out.println(s);
 //        System.out.println(ss[2]);
         c.set(Calendar.DATE, Integer.parseInt(ss[0]));
         c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
         c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
         fechaAbonado.setCalendar(c);
-        s=lote.getFechaDesyerbado();
-        ss=s.split("/");
+        s = lote.getFechaDesyerbado();
+        ss = s.split("/");
         c.set(Calendar.DATE, Integer.parseInt(ss[0]));
         c.set(Calendar.MONTH, Integer.parseInt(ss[1]));
         c.set(Calendar.YEAR, Integer.parseInt(ss[2]));
         fechaDesyerbado.setCalendar(c);
     }
+
     public void setArboles(ArrayList<Arbol> arboles) {
         this.arboles = arboles;
     }
@@ -407,66 +409,74 @@ public class EditarLote extends javax.swing.JPanel {
         for (int i = 0; i < this.arboles.size(); i++) {
             switch (this.arboles.get(i).getVariedad()) {
                 case "Típica": {
-                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                    if (this.arboles.get(i).isEstadoArbolVivo() == true) {
                         numero[0]++;
-                    else
+                    } else {
                         numeroM[0]++;
+                    }
                     break;
                 }
                 case "Borbón": {
-                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                    if (this.arboles.get(i).isEstadoArbolVivo() == true) {
                         numero[1]++;
-                    else
+                    } else {
                         numeroM[1]++;
+                    }
                     break;
                 }
                 case "Maragogipe": {
-                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                    if (this.arboles.get(i).isEstadoArbolVivo() == true) {
                         numero[2]++;
-                    else
+                    } else {
                         numeroM[2]++;
+                    }
                     break;
                 }
                 case "Tabi": {
-                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                    if (this.arboles.get(i).isEstadoArbolVivo() == true) {
                         numero[3]++;
-                    else
+                    } else {
                         numeroM[3]++;
+                    }
                     break;
                 }
                 case "Caturra": {
-                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                    if (this.arboles.get(i).isEstadoArbolVivo() == true) {
                         numero[4]++;
-                    else
+                    } else {
                         numeroM[4]++;
+                    }
                     break;
                 }
                 case "Variedad Colombia": {
-                    if(this.arboles.get(i).isEstadoArbolVivo()==true)
+                    if (this.arboles.get(i).isEstadoArbolVivo() == true) {
                         numero[5]++;
-                    else
+                    } else {
                         numeroM[5]++;
+                    }
                     break;
                 }
             }
-            numArboles.setText((numero[0]+numero[1]+numero[2]+numero[3]+numero[4]+numero[5]) + "");
+            numArboles.setText((numero[0] + numero[1] + numero[2] + numero[3] + numero[4] + numero[5]) + "");
         }
         for (int i = 0; i < 6; i++) {
             this.jTable1.setValueAt(numero[i], i, 1);
             this.jTable1.setValueAt(numeroM[i], i, 2);
         }
     }
-    public void setAreaLote(){
-        int area=(int)lote.getAreaTotal();
-            if (jComboBox1.getSelectedIndex() == 0) {
-                area = area / 1000000;
-            }
-            if (jComboBox1.getSelectedIndex() == 2) {
-                area = area / 10000;
-            }
-        this.areaLote.setText(""+area);
-        this.numArbolesRec.setText("desde "+(int)lote.optimoEconomico()[0]+" hasta "+(int)lote.optimoEconomico()[1]);
+
+    public void setAreaLote() {
+        int area = (int) lote.getAreaTotal();
+        if (jComboBox1.getSelectedIndex() == 0) {
+            area = area / 1000000;
+        }
+        if (jComboBox1.getSelectedIndex() == 2) {
+            area = area / 10000;
+        }
+        this.areaLote.setText("" + area);
+        this.numArbolesRec.setText("desde " + (int) lote.optimoEconomico()[0] + " hasta " + (int) lote.optimoEconomico()[1]);
     }
+
     public void loteSelec() {
         if (this.lotesC.getSelectedIndex() != -1) {
             this.ventanaArboles = new AgregarArboles(lotesC.getSelectedIndex());
@@ -477,16 +487,16 @@ public class EditarLote extends javax.swing.JPanel {
             setAreaLote();
             numeroArboles();
             setCAlendar();
-            int frecDes=lote.getFrecDesyer();
-            if (this.frec.getSelectedIndex()==1) {
-                frecDes=frecDes/30;
+            int frecDes = lote.getFrecDesyer();
+            if (this.frec.getSelectedIndex() == 1) {
+                frecDes = frecDes / 30;
             }
-            this.frect.setText(frecDes+"");
+            this.frect.setText(frecDes + "");
         }
     }
 
     private void addArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArbolesActionPerformed
-        
+
         JOptionPane.showMessageDialog(this, ventanaArboles);
         this.arboles = ventanaArboles.getArbolesLote();
 //        System.out.println(arboles);
@@ -501,7 +511,6 @@ public class EditarLote extends javax.swing.JPanel {
 
     private void lotesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotesCActionPerformed
         loteSelec();
-
     }//GEN-LAST:event_lotesCActionPerformed
 
     private void areaLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaLoteActionPerformed
@@ -513,13 +522,14 @@ public class EditarLote extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void RegisArbolMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisArbolMActionPerformed
-        AgregarArbolesMuertos agregar=new AgregarArbolesMuertos(lote);
+        AgregarArbolesMuertos agregar = new AgregarArbolesMuertos(lote);
         JOptionPane.showMessageDialog(this, agregar);
-        this.lote=agregar.getLote();
-        int numeroArboles=0;
+        this.lote = agregar.getLote();
+        int numeroArboles = 0;
         for (int i = 0; i < arboles.size(); i++) {
-            if(lote.getArbolesVivos().get(i).isEstadoArbolVivo()==true)
+            if (lote.getArbolesVivos().get(i).isEstadoArbolVivo() == true) {
                 numeroArboles++;
+            }
         }
         numArboles.setText(numeroArboles + "");
         numeroArboles();
@@ -531,7 +541,7 @@ public class EditarLote extends javax.swing.JPanel {
     }//GEN-LAST:event_frectActionPerformed
 
     private void frecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frecActionPerformed
-        loteSelec() ;
+        loteSelec();
     }//GEN-LAST:event_frecActionPerformed
 
 

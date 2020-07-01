@@ -53,4 +53,12 @@ public class Insumo {
         this.cantidadEnStock = cantidadEnStock;
     }
 
+    public void addCantidadStock(double cantidadaAniadir) {
+        this.cantidadEnStock += cantidadaAniadir;
+    }
+
+    public void removeCantidadStock(double cantidadaReducir) {
+        this.cantidadEnStock -= cantidadaReducir;
+    }
+
 }

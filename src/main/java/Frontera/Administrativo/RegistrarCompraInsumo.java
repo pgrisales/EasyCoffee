@@ -2,6 +2,7 @@ package Frontera.Administrativo;
 
 import Frontera.FramePrincipal;
 import com.easycoffee.Insumo;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,7 +11,7 @@ import com.easycoffee.Insumo;
 public class RegistrarCompraInsumo extends javax.swing.JPanel {
 
     private int idLote;
-    private String[] unidades = {"Kg", "Lb", "Arrobas", "Litros", "Mililitros", "Galones", "Onzas"};
+    private String[] unidades = {"Kg", "Lb", "Arrobas"};
 
     /**
      * Creates new form RegistrarCompraInsumo
@@ -21,7 +22,6 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
         initComponents();
         this.idLote = idLote;
         unidadMedida.removeAllItems();
-        unidadMedida.addItem("-");
         for (int i = 0; i < unidades.length; i++) {
             unidadMedida.addItem(unidades[i]);
         }
@@ -211,7 +211,25 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void registrarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarInsumoActionPerformed
-        FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(idLote).addInsumo(new Insumo(nombreInsumo.getText(), jTextArea1.getText(), Double.valueOf(precioCompra.getText()), Double.valueOf(cantidadComprada.getText())));
+        double peso = Double.valueOf(cantidadComprada.getText());
+        switch (unidadMedida.getSelectedIndex()) {
+            case 0:     //Kgs
+                peso = peso * 1;
+                break;
+            case 1:     //Libras
+                peso = peso * 2.205;
+                break;
+            case 2:     //Arrobas
+                peso = peso / 11.339;
+                break;
+        }
+        FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(idLote).addInsumo(new Insumo(nombreInsumo.getText(), jTextArea1.getText(), Double.valueOf(precioCompra.getText()), peso));
+        JOptionPane.showMessageDialog(null, "Compra Añadida");
+        nombreInsumo.setText("");
+        cantidadComprada.setText("");
+        precioCompra.setText("");
+        jTextArea1.setText("");
+        unidadMedida.setSelectedIndex(0);
     }//GEN-LAST:event_registrarInsumoActionPerformed
 
     private void unidadMedidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadMedidaActionPerformed
