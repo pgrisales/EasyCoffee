@@ -26,7 +26,7 @@ public class Plagas extends javax.swing.JPanel {
     private void PropiedadesTabla(){
         tabla.setFont(new java.awt.Font("Sitka Banner", 1, 18));
         tabla.setDefaultRenderer(Object.class, new ImgTabla());
-        String titulos[] = {"Nombre de la plaga","Foto","Descripción","Tratamiento"};
+        String titulos[] = {"Nombre","Foto","Descripción","Tratamiento"};
         DefaultTableModel model = new DefaultTableModel(null,titulos);
         for(int i=0; i<plagas.size();i++){
             
@@ -45,7 +45,7 @@ public class Plagas extends javax.swing.JPanel {
         
         TableColumn columna = tabla.getColumn("Foto");
         columna.setPreferredWidth(100);
-        columna = tabla.getColumn("Nombre de la plaga");
+        columna = tabla.getColumn("Nombre");
         columna.setPreferredWidth(90);
         columna = tabla.getColumn("Descripción");
         columna.setPreferredWidth(300);

@@ -57,7 +57,7 @@ public class MenuProduccion extends javax.swing.JPanel {
         jButton2.setBackground(new java.awt.Color(102, 0, 0));
         jButton2.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/RegistrarProd.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/plaga.png"))); // NOI18N
         jButton2.setText("Consultar plagas");
         jButton2.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         jButton2.setMaximumSize(new java.awt.Dimension(232, 300));
@@ -72,7 +72,7 @@ public class MenuProduccion extends javax.swing.JPanel {
         jButton3.setBackground(new java.awt.Color(102, 0, 0));
         jButton3.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/RegistrarProd.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/insumo.png"))); // NOI18N
         jButton3.setText("Insumos ");
         jButton3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         jButton3.setMaximumSize(new java.awt.Dimension(232, 300));
@@ -87,7 +87,7 @@ public class MenuProduccion extends javax.swing.JPanel {
         jButton4.setBackground(new java.awt.Color(102, 0, 0));
         jButton4.setFont(new java.awt.Font("Sitka Banner", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/RegistrarProd.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/plantas.png"))); // NOI18N
         jButton4.setText("Variedades de plantas ");
         jButton4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white), null));
         jButton4.setMaximumSize(new java.awt.Dimension(232, 300));

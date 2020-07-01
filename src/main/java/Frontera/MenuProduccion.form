@@ -114,7 +114,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/image/RegistrarProd.png"/>
+          <Image iconType="3" name="/image/plaga.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Consultar plagas"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -155,7 +155,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/image/RegistrarProd.png"/>
+          <Image iconType="3" name="/image/insumo.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Insumos "/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -196,7 +196,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/image/RegistrarProd.png"/>
+          <Image iconType="3" name="/image/plantas.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Variedades de plantas "/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

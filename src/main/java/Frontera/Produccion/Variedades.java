@@ -51,9 +51,9 @@ public class Variedades extends javax.swing.JPanel {
         columna = tabla.getColumn("Nombre");
         columna.setPreferredWidth(90);
         columna = tabla.getColumn("Descripción");
-        columna.setPreferredWidth(200);
+        columna.setPreferredWidth(350);
         columna = tabla.getColumn("Producción");
-        columna.setPreferredWidth(200);
+        columna.setPreferredWidth(50);
         columna = tabla.getColumn("Color");
         columna.setPreferredWidth(50);
         columna = tabla.getColumn("Porte");
@@ -220,7 +220,7 @@ public class Variedades extends javax.swing.JPanel {
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         if(!nombre.getText().equals("")){
         tabla.setDefaultRenderer(Object.class, new ImgTabla());
-        String titulos[] = {"Nombre","Foto","Descripción","Tratamiento"};
+        String titulos[] = {"Nombre","Foto","Descripción","Color", "Producción", "Porte"};
         DefaultTableModel model = new DefaultTableModel(null,titulos);
         for(int i=0; i<variedad.size();i++){
             if(variedad.get(i).getNombrevar().toUpperCase().contains(nombre.getText().toUpperCase())){

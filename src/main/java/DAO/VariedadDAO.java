@@ -65,7 +65,7 @@ public class VariedadDAO {
         }
         ImageIcon icono = new ImageIcon(icon);
         
-        Variedad newVariedad = new Variedad(nombre, icono, prod, color, prod, porte);
+        Variedad newVariedad = new Variedad(nombre, icono, bufferDescripcion.toString(), color, prod, porte);
         return newVariedad;
     }
     public void insertar(Variedad u, String ruta) throws FileNotFoundException {
