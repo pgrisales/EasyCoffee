@@ -1,7 +1,10 @@
 package Frontera.Administrativo;
 
+import Control.Administrativo;
 import Frontera.FramePrincipal;
+import Frontera.MenuAdministrativo;
 import com.easycoffee.Insumo;
+import com.easycoffee.Lote;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,6 +16,8 @@ public class RegistroInsumos extends javax.swing.JPanel {
 
     private int cedula;
     private DefaultTableModel modelo;
+    private Administrativo a;
+    private boolean cambios;
 
     /**
      * Creates new form RegistroInsumos
@@ -25,7 +30,9 @@ public class RegistroInsumos extends javax.swing.JPanel {
         for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
             lotesC.addItem("Lote #" + i);
         }
+        a = new Administrativo();
         actualizarTabla();
+        cambios = false;
     }
 
     /**
@@ -49,6 +56,7 @@ public class RegistroInsumos extends javax.swing.JPanel {
         addInsumo1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        save1 = new javax.swing.JButton();
 
         setForeground(new java.awt.Color(51, 51, 51));
         setMaximumSize(new java.awt.Dimension(900, 376));
@@ -149,50 +157,71 @@ public class RegistroInsumos extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Cantidad (Kg):");
 
+        save1.setBackground(new java.awt.Color(153, 153, 255));
+        save1.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        save1.setForeground(new java.awt.Color(255, 255, 255));
+        save1.setText("Volver");
+        save1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(addInsumo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(addInsumo1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(menos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel7)))
+                .addGap(70, 70, 70)
+                .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(addInsumo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(addInsumo1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(menos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lotesC, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(save1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(save1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,7 +248,11 @@ public class RegistroInsumos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addInsumoActionPerformed
+        guardarCambios();
         JOptionPane.showMessageDialog(this, new RegistrarCompraInsumo(lotesC.getSelectedIndex()), "Registrar Compra Insumo", JOptionPane.PLAIN_MESSAGE);
+        for (Lote lote : FramePrincipal.sistem.getAdmin().getFinca().getLotes()) {
+            lote.setInsumos(a.insumosxLote((int) (long) lote.getIdLote()));
+        }
         FramePrincipal.cambiarPanel376(new RegistroInsumos(cedula));
         System.gc();
     }//GEN-LAST:event_addInsumoActionPerformed
@@ -232,7 +265,15 @@ public class RegistroInsumos extends javax.swing.JPanel {
     }//GEN-LAST:event_lotesCActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        //Mandar Datos a la Base de Datos xD
+        if (cambios == false) {
+            FramePrincipal.cambiarPanel376(new MenuAdministrativo(cedula));
+            System.gc();
+            return;
+        }
+        guardarCambios();
+        JOptionPane.showMessageDialog(null, "Cambios Guardados con Exito");
+        FramePrincipal.cambiarPanel376(new MenuAdministrativo(cedula));
+        System.gc();
     }//GEN-LAST:event_saveActionPerformed
 
     private void menosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosActionPerformed
@@ -250,6 +291,7 @@ public class RegistroInsumos extends javax.swing.JPanel {
             }
             FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotesC.getSelectedIndex()).getInsumos().get(jTable1.getSelectedRow()).removeCantidadStock(aux);
             actualizarTabla();
+            cambios = true;
         } else if (jTable1.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Selecciona Una Fila para Reducir Stock");
         } else if (jTextField1.getText().equals("")) {
@@ -272,12 +314,30 @@ public class RegistroInsumos extends javax.swing.JPanel {
             }
             FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotesC.getSelectedIndex()).getInsumos().get(jTable1.getSelectedRow()).addCantidadStock(aux);
             actualizarTabla();
+            cambios = true;
         } else if (jTable1.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Selecciona Una Fila para Aumentar Stock");
         } else if (jTextField1.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Por Favor Ingresa la cantidad a Aumentar de Stock");
         }
     }//GEN-LAST:event_addInsumo1ActionPerformed
+
+    private void save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save1ActionPerformed
+        if (cambios == true) {
+            if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir sin Guardar Cambios?", "Confirmación", 2) == 2) {
+                return;
+            }
+        }
+        FramePrincipal.cambiarPanel376(new MenuAdministrativo(cedula));
+        System.gc();
+    }//GEN-LAST:event_save1ActionPerformed
+
+    private void guardarCambios() {
+        actualizarTabla();
+        for (int i = 0; i < FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotesC.getSelectedIndex()).getInsumos().size(); i++) {
+            a.registrarCambiosInsumo(FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotesC.getSelectedIndex()).getInsumos().get(i));
+        }
+    }
 
     private void limpiarTabla() {
         modelo.setRowCount(0);
@@ -308,6 +368,7 @@ public class RegistroInsumos extends javax.swing.JPanel {
     private static javax.swing.JComboBox<String> lotesC;
     private javax.swing.JButton menos;
     private javax.swing.JButton save;
+    private javax.swing.JButton save1;
     // End of variables declaration//GEN-END:variables
 
 }

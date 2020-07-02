@@ -1,5 +1,6 @@
 package Frontera.Administrativo;
 
+import Control.Administrativo;
 import Frontera.FramePrincipal;
 import com.easycoffee.Insumo;
 import javax.swing.JOptionPane;
@@ -12,6 +13,7 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
 
     private int idLote;
     private String[] unidades = {"Kg", "Lb", "Arrobas"};
+    private Administrativo a;
 
     /**
      * Creates new form RegistrarCompraInsumo
@@ -25,6 +27,7 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
         for (int i = 0; i < unidades.length; i++) {
             unidadMedida.addItem(unidades[i]);
         }
+        a = new Administrativo();
     }
 
     /**
@@ -223,7 +226,11 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
                 peso = peso / 11.339;
                 break;
         }
-        FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(idLote).addInsumo(new Insumo(nombreInsumo.getText(), jTextArea1.getText(), Double.valueOf(precioCompra.getText()), peso));
+        Insumo i = new Insumo(nombreInsumo.getText(), jTextArea1.getText(), Double.valueOf(precioCompra.getText()), peso);
+        i.setIdLote(idLote);
+        FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(idLote).addInsumo(i);
+        a.addInsumo(i);
+        
         JOptionPane.showMessageDialog(null, "Compra Añadida");
         nombreInsumo.setText("");
         cantidadComprada.setText("");

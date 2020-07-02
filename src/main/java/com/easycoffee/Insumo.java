@@ -6,6 +6,8 @@ package com.easycoffee;
  */
 public class Insumo {
 
+    private int idLote;
+    private int idInsumo;
     private String nombreInsumo;
     private String descripcionInsumo;
     private double precioCompra;
@@ -59,6 +61,22 @@ public class Insumo {
 
     public void removeCantidadStock(double cantidadaReducir) {
         this.cantidadEnStock -= cantidadaReducir;
+    }
+
+    public int getIdLote() {
+        return idLote;
+    }
+
+    public void setIdLote(int idLote) {
+        this.idLote = idLote;
+    }
+
+    public int getIdInsumo() {
+        return idInsumo;
+    }
+
+    public void setIdInsumo(int idInsumo) {
+        this.idInsumo = idInsumo;
     }
 
 }

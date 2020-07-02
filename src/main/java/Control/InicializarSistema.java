@@ -96,6 +96,10 @@ public class InicializarSistema {
                             if (daoManager.getArbolDAO().obtenerTodos(l).size() > 0) {
                             }
                         }
+                        Administrativo r = new Administrativo();
+                        for (Lote lote : this.admin.getFinca().getLotes()) {
+                            lote.setInsumos(r.insumosxLote((int) (long) lote.getIdLote()));
+                        }
                     }
                 }
             }

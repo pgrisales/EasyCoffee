@@ -25,6 +25,7 @@ public class DAOManager {
     private MemoPadDAO memos = null;
     private PlagaDAO plagas = null;
     private VariedadDAO variedad = null;
+    private InsumoDAO insumos = null;
 
 //    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
     public DAOManager() {
@@ -41,13 +42,14 @@ public class DAOManager {
         }
         return permisos;
     }
+
     public VariedadDAO getVariedadDAO() {
         if (variedad == null) {
             variedad = new VariedadDAO(conn);
         }
         return variedad;
     }
-    
+
     public PlagaDAO getPlagasDAO() {
         if (plagas == null) {
             plagas = new PlagaDAO(conn);
@@ -116,6 +118,13 @@ public class DAOManager {
             memos = new MemoPadDAO(conn);
         }
         return memos;
+    }
+
+    public InsumoDAO getInsumoDAO() {
+        if (insumos == null) {
+            insumos = new InsumoDAO(conn);
+        }
+        return insumos;
     }
 
     public boolean testConexion() throws SQLException {
