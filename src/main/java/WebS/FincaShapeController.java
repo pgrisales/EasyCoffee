@@ -2,29 +2,21 @@ package WebS;
 
 import Frontera.FramePrincipal;
 import Frontera.Produccion.EditarLote;
-import com.easycoffee.Lote;
-import com.sun.javafx.geom.BoxBounds;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.BoundingBox;
-import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
@@ -34,7 +26,6 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
@@ -106,7 +97,8 @@ public class FincaShapeController implements Initializable {
                 try {
                     view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
                     Scene viewSc = new Scene(view);
-                    Mapa.fxContainer.setScene(viewSc);
+                    //Mapa.fxContainer.setScene(viewSc);
+                    Mapa1.cambiarSc(viewSc);
                 } catch (IOException ex) {
                     Logger.getLogger(FincaShapeController.class.getName()).log(Level.SEVERE, null, ex);
                 }

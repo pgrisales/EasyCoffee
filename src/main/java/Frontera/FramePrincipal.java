@@ -25,6 +25,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private Ingreso ingreso = new Ingreso();
 
     public FramePrincipal() {
+        
         fondo = new Fondo(ingreso, "/image/318763,xcitefun-cocora-valley-7.jpg");
         this.setContentPane(fondo);
         setIconImage(new ImageIcon(getClass().getResource("/image/LOGO.png")).getImage());
@@ -32,9 +33,33 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
         cambiarPanel(ingreso);
+        mapaPanel.setVisible(false);
         jPanel127.setVisible(false);
         jPanel376.setVisible(false);
     }
+    
+    public static void asdf(JPanel pane){
+        //JFXPanel
+        jPanel127.setVisible(false);
+        jPanel376.setVisible(false);
+        jPanel127.removeAll();
+        jPanel376.removeAll();
+        /*jPanel376.setSize(900, 575);
+        jPanel376.add(pane);
+        jPanel376.setVisible(true);*/
+        //mapaPanel.setVisible(false);
+        mapaPanel.removeAll();
+        mapaPanel.setSize(900, 500);
+        mapaPanel.setBackground(new Color(0, 0, 0, 0));
+        mapaPanel.add(pane);
+        mapaPanel.setVisible(true);
+        
+    }
+    
+    public static JPanel mapPanel(){
+        return mapaPanel;
+    }
+
 
     public static void menuPanelPrincipal(boolean b) {
         PanelPrincipal.setVisible(b);
@@ -103,6 +128,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mapaPanel = new javax.swing.JPanel();
         jPanel376 = new javax.swing.JPanel();
         jPanel127 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -110,6 +136,22 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login de Usuario");
+
+        mapaPanel.setAlignmentX(0.0F);
+        mapaPanel.setAlignmentY(0.0F);
+        mapaPanel.setMaximumSize(new java.awt.Dimension(900, 575));
+        mapaPanel.setPreferredSize(new java.awt.Dimension(900, 575));
+
+        javax.swing.GroupLayout mapaPanelLayout = new javax.swing.GroupLayout(mapaPanel);
+        mapaPanel.setLayout(mapaPanelLayout);
+        mapaPanelLayout.setHorizontalGroup(
+            mapaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        mapaPanelLayout.setVerticalGroup(
+            mapaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 575, Short.MAX_VALUE)
+        );
 
         jPanel376.setMaximumSize(new java.awt.Dimension(900, 376));
         jPanel376.setMinimumSize(new java.awt.Dimension(900, 376));
@@ -148,6 +190,11 @@ public class FramePrincipal extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(mapaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,6 +207,11 @@ public class FramePrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(mapaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -188,5 +240,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private static javax.swing.JPanel jPanel127;
     private static javax.swing.JPanel jPanel376;
     private javax.swing.JSeparator jSeparator1;
+    private static javax.swing.JPanel mapaPanel;
     // End of variables declaration//GEN-END:variables
 }

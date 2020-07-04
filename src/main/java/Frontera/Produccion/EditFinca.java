@@ -17,7 +17,10 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -159,7 +162,7 @@ public class EditFinca extends javax.swing.JPanel {
         mapB.setBackground(new java.awt.Color(102, 0, 0));
         mapB.setFont(new java.awt.Font("Sitka Banner", 1, 16)); // NOI18N
         mapB.setForeground(new java.awt.Color(255, 255, 255));
-        mapB.setText("Map");
+        mapB.setText("Ver lotes");
         mapB.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 255), java.awt.Color.white), null));
         mapB.setFocusable(false);
         mapB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -303,6 +306,38 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_asignarLoteBActionPerformed
 
     private void mapBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mapBActionPerformed
+       
+        //WebS.Mapa1.init();
+        Mapa map = new Mapa();
+        JPanel panel = new JPanel();
+        panel.setSize(900, 580);
+        panel.setBackground(new Color(0, 0, 0, 0));
+        panel.add(WebS.Mapa1.fx());
+        FramePrincipal.asdf(panel);
+        
+        /*Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                
+            }
+        });*/
+        
+        /*SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                
+            }
+        });
+        //FramePrincipal.asdf(WebS.Mapa1.fx());
+        
+        /*Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                //FramePrincipal.cambiarPanel376(WebS.Mapa1.fxContainer);
+                
+            }
+       });
+        /*
         try {
             Mapa.iniciar();
         } catch (URISyntaxException ex) {
@@ -311,7 +346,7 @@ public class EditFinca extends javax.swing.JPanel {
             Logger.getLogger(EditFinca.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(EditFinca.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_mapBActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed

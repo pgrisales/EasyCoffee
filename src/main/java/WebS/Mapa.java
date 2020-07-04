@@ -1,5 +1,7 @@
 package WebS;
 
+import static WebS.Mapa1.fxContainer;
+import static WebS.Mapa1.init;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
@@ -16,15 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import static javafx.scene.layout.BackgroundRepeat.REPEAT;
-import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javax.swing.JApplet;
@@ -36,106 +30,58 @@ import javax.swing.UIManager;
  *
  * @author GAR
  */
-public class Mapa extends JApplet {
+public class Mapa {
 
     private static final int JFXPANEL_WIDTH_INT = 900;
-    private static final int JFXPANEL_HEIGHT_INT = 600;
+    private static final int JFXPANEL_HEIGHT_INT = 575;
     public static JFXPanel fxContainer;
     private static JFrame frame = new JFrame("Map");
     static Stage window;
-    
-    
-    public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException{
-        iniciar();
+
+    public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
+
     }
 
-    public static void iniciar() throws URISyntaxException, InterruptedException, IOException {
 
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-
-                try {
-                    /*while(Geo.getPathInDownloads() == null){
-                    try {
-                    Thread.sleep(4000);
-                    Geo.getCoordenadas().notify();
-                    System.out.println("YA SE CREARON LAS HPTAS COORDENADAS!!!!!!!");
-                    } catch (InterruptedException ex) {
-                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    }*/
-                    Thread.sleep(3000);
-                    synchronized (Geo.getPathInDownloads()) {
-                        System.out.println(Geo.getPathInDownloads());
-                        Geo.getPathInDownloads().notify();
-                        System.out.println("COORDENADAS CREADAS");
-                    }
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                try {
-                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-                } catch (Exception e) {
-                }
-
-                
-                //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-                JApplet applet = new Mapa();
-                applet.init();
-
-                frame.setContentPane(applet.getContentPane());
-
-                frame.pack();
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
-                frame.addWindowListener(new WindowAdapter(){public void windowClosing(WindowEvent w){
-                    frame.dispose();
-                    }       
-                });
-
-                applet.start();
-            }
-        });
-    }
-
-    @Override
     public void init() {
         fxContainer = new JFXPanel();
         fxContainer.setPreferredSize(new Dimension(JFXPANEL_WIDTH_INT, JFXPANEL_HEIGHT_INT));
-        add(fxContainer, BorderLayout.CENTER);
-        
+        //add(fxContainer, BorderLayout.CENTER);
+
         // create JavaFX scene
         Platform.runLater(new Runnable() {
 
             @Override
             public void run() {
-                createScene();
+                try {
+                    cambiarSc(createScene());
+                } catch (IOException ex) {
+                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
+    
+    public JFXPanel fx(){
+        init();
+        return fxContainer;
+    }
+    
+    private void cambiarSc(Scene scene) {
+        fxContainer.setScene(scene);
+    }
 
-    private void createScene() {
+    private Scene createScene() throws IOException {
 
-        StackPane root = new StackPane();
+        /*StackPane root = new StackPane();
         Button btn = new Button();
         btn.setText("Ver Mapa");
-
-        root.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println("X POSITION:" + event.getSceneX());
-                System.out.println("Y POSITION:" + event.getSceneY());
-            }
-        });
+        System.out.println(getClass().getResource("../image/318763,xcitefun-cocora-valley-7.jpg").getFile());
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
+                    Parent view = FXMLLoader.load(getClass().getResource("../fxml/MenuMap.fxml"));//Map
                     Scene viewSc = new Scene(view);
 
                     fxContainer.setScene(viewSc);
@@ -143,10 +89,12 @@ public class Mapa extends JApplet {
                     Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        });
+        });*/
 
-        root.getChildren().add(btn);
-        fxContainer.setScene(new Scene(root));
+        //oot.getChildren().add(btn);
+        Parent view = FXMLLoader.load(getClass().getResource("../fxml/MenuMap.fxml"));//Map
+        Scene viewSc = new Scene(view);
+        return viewSc;
     }
 
 }

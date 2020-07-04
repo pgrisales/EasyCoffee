@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -21,8 +23,8 @@ public class Geo {
     private static String coordenadas;
     private static File pathInDownloads = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");
 
-    /*public static void geoInit() {
-        
+    public static void geoInit() {
+        /*
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -58,8 +60,8 @@ public class Geo {
             }
         });
         t2.start();
-        
-    }*/
+     */   
+    }
 
     public static void getGeo() throws URISyntaxException, IOException {
         File file = new File("src/main/resources/web/getCoor.html");
