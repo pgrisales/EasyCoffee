@@ -25,9 +25,9 @@ public class FramePrincipal extends javax.swing.JFrame {
     private Ingreso ingreso = new Ingreso();
 
     public FramePrincipal() {
-        fondo = new Fondo(ingreso, "../image/318763,xcitefun-cocora-valley-7.jpg");
+        fondo = new Fondo(ingreso, "/image/318763,xcitefun-cocora-valley-7.jpg");
         this.setContentPane(fondo);
-        setIconImage(new ImageIcon(getClass().getResource("../image/LOGO.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/image/LOGO.png")).getImage());
         initComponents();
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
