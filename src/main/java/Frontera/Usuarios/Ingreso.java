@@ -94,7 +94,7 @@ public class Ingreso extends javax.swing.JPanel {
                 }
             }
             else{
-                JOptionPane.showMessageDialog(null, "El acceso ha sido bloqueado, intentelo de nuevo a las "+a[0]+":"+a[1]);
+                JOptionPane.showMessageDialog(null, "El acceso ha sido bloqueado, intentelo de nuevo a las "+u.getBloqueo()[0]+":"+u.getBloqueo()[1]);
             }
         } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "¡Datos inválidos!");
