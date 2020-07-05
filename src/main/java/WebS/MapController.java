@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -32,6 +33,8 @@ public class MapController implements Initializable {
     private Button selectB;
     @FXML
     private AnchorPane root;
+    @FXML
+    private Button volverB;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -40,6 +43,7 @@ public class MapController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 selectB.setOpacity(0);
+                volverB.setOpacity(0);
                 Robot robot;
                 try {
                     WritableImage imagen = root.snapshot(new SnapshotParameters(), null);
@@ -54,6 +58,18 @@ public class MapController implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }
+        });
+        
+        volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    Mapa1.cambiarSc(Mapa1.createScene());
+                } catch (IOException ex) {
+                    Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                    
             }
         });
 
