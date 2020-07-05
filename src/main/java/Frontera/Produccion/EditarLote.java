@@ -46,7 +46,9 @@ public class EditarLote extends javax.swing.JPanel {
             lotesC.addItem(i + "");
             tamaño = tamaño + FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
-        lotesC.setSelectedIndex(0);
+        
+        //lotesC.setSelectedIndex(0);
+        lotesC.setSelectedIndex(idLote);
         this.frec.removeAllItems();
         this.frec.addItem("días");
         this.frec.addItem("meses");
