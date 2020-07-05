@@ -38,6 +38,7 @@ import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeLineCap;
 import javafx.scene.shape.StrokeLineJoin;
 import javafx.scene.shape.StrokeType;
+import javax.swing.JOptionPane;
 
 /**
  * @author GAR
@@ -124,13 +125,35 @@ public class FincaShapeController implements Initializable {
         r.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
-                FramePrincipal.mapPanel().setVisible(false);
+                //FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
+                //FramePrincipal.mapPanel().setVisible(false);
+                System.out.println(lote);
+                verLote(lote);
+                
                 /*    agregarLote.setBackground(new java.awt.Color(102, 0, 0));
                 editLote.setBackground(new java.awt.Color(152, 51, 0));
                 asignarLoteB.setBackground(new java.awt.Color(102, 0, 0));*/
             }
         });
+    }
+    
+    public void verLote(int lote){
+        JOptionPane.showConfirmDialog(null, new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
+        //FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
+        
+        /*
+        
+        JOptionPane.showMessageDialog(this, ventanaArboles);
+        this.arboles = ventanaArboles.getArbolesLote();
+//        System.out.println(arboles);
+        for (int i = 0; i < arboles.size(); i++) {
+            FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex()).addArbol(arboles.get(i));
+        }
+        this.lotes = FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
+        numArboles.setText(arboles.size() + "");
+        numeroArboles();
+        FramePrincipal.cambiarPanel376(this);
+        */
     }
     
     public void grid(double minX, double minY, double width, double height, Polyline boundsFinca){

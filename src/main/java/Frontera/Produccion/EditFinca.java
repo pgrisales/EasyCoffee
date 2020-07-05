@@ -49,8 +49,23 @@ public class EditFinca extends javax.swing.JPanel {
             tam.setText((long)tamaño/10000+"");
     }
     
-    public static void verLote(java.awt.event.ActionEvent event){
+    public void verLote(java.awt.event.ActionEvent event, int lote){
+        JOptionPane.showConfirmDialog(this, new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
+        //FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
         
+        /*
+        
+        JOptionPane.showMessageDialog(this, ventanaArboles);
+        this.arboles = ventanaArboles.getArbolesLote();
+//        System.out.println(arboles);
+        for (int i = 0; i < arboles.size(); i++) {
+            FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex()).addArbol(arboles.get(i));
+        }
+        this.lotes = FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
+        numArboles.setText(arboles.size() + "");
+        numeroArboles();
+        FramePrincipal.cambiarPanel376(this);
+        */
     }
 
     /**
