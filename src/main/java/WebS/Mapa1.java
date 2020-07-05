@@ -1,11 +1,17 @@
 package WebS;
 
+import Frontera.FramePrincipal;
+import Frontera.MenuSeleccion;
+import Frontera.Produccion.EditFinca;
+import Frontera.Produccion.RegistrarLote;
+import com.easycoffee.Lote;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
@@ -17,11 +23,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -59,7 +68,11 @@ public class Mapa1 {
 
             @Override
             public void run() {
-                cambiarSc(createScene());
+                try {
+                    cambiarSc(createScene());
+                } catch (IOException ex) {
+                    Logger.getLogger(Mapa1.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
@@ -75,15 +88,18 @@ public class Mapa1 {
         fxContainer.setScene(scene);
     }
 
-    public static Scene createScene() {
+    public static Scene createScene() throws IOException {
 
-        StackPane root = new StackPane();
-        Button btn = new Button();
-        btn.setText("Ver Mapa");
-        //root.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-background-radius: 1;");
-
-        btn.setStyle("-fx-background-color: rgba(102, 0, 0, 100");
-        btn.setTextFill(Color.WHITE);
+        AnchorPane root = new AnchorPane();
+        Button crearVistaB = new Button("Crear vista");
+        Button volverB = new Button("Volver");
+        volverB.relocate(326, 256);
+        crearVistaB.relocate(467, 256);
+        volverB.setPrefSize(90, 25);
+        crearVistaB.setPrefSize(90, 25);
+        
+        crearVistaB.setStyle("-fx-background-color: rgba(102, 0, 0, 100");
+        crearVistaB.setTextFill(Color.WHITE);
         //Image fondo;
         try {
             File file = new File(Mapa1.class.getResource("../image/Pedrosky.png").getFile());
@@ -95,7 +111,7 @@ public class Mapa1 {
             Logger.getLogger(MenuMap.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+        crearVistaB.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
@@ -109,8 +125,23 @@ public class Mapa1 {
                 }
             }
         });
+        
+        volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                FramePrincipal.cambiarPanel127(new EditFinca(MenuSeleccion.getCedula()));
+                FramePrincipal.cambiarPanel376(new RegistrarLote(new ArrayList<Lote>()));
+                //FramePrincipal.mapPanel().removeAll();
+                FramePrincipal.mapPanel().setVisible(false);
+
+            }
+        });
+        
+        /*Parent view = FXMLLoader.load(Mapa1.class.getResource("../fxml/MenuMap.fxml"));//Map
+        Scene viewSc = new Scene(view);*/
         root.setVisible(true);
-        root.getChildren().add(btn);
+        root.getChildren().add(volverB);
+        root.getChildren().add(crearVistaB);
         return new Scene(root);
     }
 

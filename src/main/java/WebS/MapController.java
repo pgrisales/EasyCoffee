@@ -79,7 +79,6 @@ public class MapController implements Initializable {
             }
 
             if (Geo.getPathInDownloads().exists()) {
-                System.out.println("asdfasdfasdfasdfasd");
                 String coord = "";
                 try {
                     coord = Geo.getCoor();

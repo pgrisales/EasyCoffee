@@ -96,10 +96,14 @@ public class MenuMap implements Initializable {
         volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //Parent view = FXMLLoader.load(getClass().getResource("../fxml/MenuMap.fxml")); //Map
-                //Scene viewSc = new Scene(view);
-                //root.setVisible(false);
-                fxContainer.setScene(Mapa1.createScene());
+                try {
+                    //Parent view = FXMLLoader.load(getClass().getResource("../fxml/MenuMap.fxml")); //Map
+                    //Scene viewSc = new Scene(view);
+                    //root.setVisible(false);
+                    fxContainer.setScene(Mapa1.createScene());
+                } catch (IOException ex) {
+                    Logger.getLogger(MenuMap.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 //Mapa1.stopT();
                 FramePrincipal.cambiarPanel127(new EditFinca(MenuSeleccion.getCedula()));
                 FramePrincipal.cambiarPanel376(new RegistrarLote(new ArrayList<Lote>()));
@@ -123,7 +127,7 @@ public class MenuMap implements Initializable {
             }
         });
 
-        File file = new File(getClass().getResource("../image/coffee-1576552_960_720.jpg").getFile());
+        File file = new File(getClass().getResource("../image/Pedrosky.png").getFile());
 
         Image fondo;
         try {
