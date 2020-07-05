@@ -1,14 +1,10 @@
 package WebS;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
@@ -20,7 +16,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -28,10 +23,8 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javax.swing.JApplet;
+
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 
 /**
  *
@@ -86,8 +79,8 @@ public class Mapa1 {
         Button btn = new Button();
         btn.setText("Ver Mapa");
         //root.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-background-radius: 1;");
-        
 
+        btn.setStyle("-fx-background-color: rgba(102, 0, 0, 100;");
         //Image fondo;
         try {
             File file = new File(Mapa1.class.getResource("../image/Pedrosky.png").getFile());

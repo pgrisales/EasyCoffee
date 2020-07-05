@@ -78,6 +78,9 @@ public class FincaShapeController implements Initializable {
         Background background = new Background(img); 
         root.setBackground(background);
         
+        saveB.setStyle("-fx-background-color: rgba(102, 0, 0, 100);");
+        volverB.setStyle("-fx-background-color: rgba(102, 0, 0, 100);");
+        eraseB.setStyle("-fx-background-color: rgba(102, 0, 0, 100);");
         root.setOnMouseClicked(e ->{
             drawline(clicks, e);
         });
@@ -121,8 +124,8 @@ public class FincaShapeController implements Initializable {
         r.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),0));
-                
+                FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
+                FramePrincipal.mapPanel().setVisible(false);
                 /*    agregarLote.setBackground(new java.awt.Color(102, 0, 0));
                 editLote.setBackground(new java.awt.Color(152, 51, 0));
                 asignarLoteB.setBackground(new java.awt.Color(102, 0, 0));*/
