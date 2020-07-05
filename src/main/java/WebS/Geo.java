@@ -23,57 +23,19 @@ public class Geo {
     private static String coordenadas;
     private static File pathInDownloads = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");
 
-    public static void geoInit() {
-        /*
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(!pathInDownloads.exists()){
-                    try {
-                        getGeo();
-                    } catch (URISyntaxException ex) {
-                        Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                notify();
-            }
-        });
-        t1.start();
-        Thread t2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("ESPERANDO COORDENADAS");
-                try {
-                    wait();
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                try {
-                    getCoor();
-                } catch (IOException ex) {
-                    Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Geo.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-        t2.start();
-     */   
-    }
 
     public static void getGeo() throws URISyntaxException, IOException {
-        File file = new File("src/main/resources/web/getCoor.html");
+        if(!pathInDownloads.exists()){
+            File file = new File("src/main/resources/web/getCoor.html");
 
-        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-            Desktop.getDesktop().browse(file.toURI());
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(file.toURI());
+            }
         }
+        
     }
 
-    public static String getCoor() throws IOException, InterruptedException {
-
-        
+    public static String getCoor() throws IOException, InterruptedException, URISyntaxException {
         
         //wmfoijepbrevinsidfjaoeffff.txt
         File file = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");

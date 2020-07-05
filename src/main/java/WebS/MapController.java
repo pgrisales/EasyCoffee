@@ -2,6 +2,7 @@ package WebS;
 
 import java.awt.Robot;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -34,29 +35,7 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        try {
-                    /*while(Geo.getPathInDownloads() == null){
-                    try {
-                    Thread.sleep(4000);
-                    Geo.getCoordenadas().notify();
-                    System.out.println("YA SE CREARON LAS HPTAS COORDENADAS!!!!!!!");
-                    } catch (InterruptedException ex) {
-                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    }*/
-                    Thread.sleep(10000);
-                    synchronized(Geo.getPathInDownloads()){
-                        System.out.println(Geo.getPathInDownloads());
-                        Geo.getPathInDownloads().notify();
-                        System.out.println("YA SE CREARON LAS HPTAS COORDENADAS!!!!!!!");
-                    }
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
-                }
-        
-        
-        
+
         selectB.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -67,11 +46,11 @@ public class MapController implements Initializable {
                     //webview.autosize();
                     FincaShapeController.image = imagen;
                     //webview.autosize();
-                    System.out.println("La imagen existe "+FincaShapeController.image);
-                    Parent view = FXMLLoader.load(getClass().getResource("../fxml/FincaShape.fxml")); 
+                    System.out.println("La imagen existe " + FincaShapeController.image);
+                    Parent view = FXMLLoader.load(getClass().getResource("../fxml/FincaShape.fxml"));
                     Scene viewSc = new Scene(view);
                     Mapa1.cambiarSc(viewSc);
-                   // Mapa.fxContainer.setScene(viewSc);
+                    // Mapa.fxContainer.setScene(viewSc);
                 } catch (IOException ex) {
                     Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -80,15 +59,45 @@ public class MapController implements Initializable {
 
         WebEngine engine = webview.getEngine();
         String coor = "";
-        try {
-            coor = Geo.getCoor();
-            String data = Geo.getMapUrl() + coor + "," + "17z";
-            System.out.println(data);
-            engine.load(data);
-        } catch (IOException ex) {
-            Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+
+        int a = 1;
+        int b = 1;
+        while (a == 1) {
+
+            if (!Geo.getPathInDownloads().exists()) {
+                while (b == 1) {
+                    try {
+                        Geo.getGeo();
+                    } catch (IOException ex) {
+                        Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (URISyntaxException ex) {
+                        Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    b++;
+                }
+
+            }
+
+            if (Geo.getPathInDownloads().exists()) {
+                System.out.println("asdfasdfasdfasdfasd");
+                String coord = "";
+                try {
+                    coord = Geo.getCoor();
+                    String data = Geo.getMapUrl() + coord + "," + "17z";
+                    System.out.println(data);
+                    engine.load(data);
+                } catch (IOException ex) {
+                    Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (URISyntaxException ex) {
+                    Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                System.out.println(coord);
+                a = 22;
+                System.out.println(a);
+                break;
+            }
         }
 
     }

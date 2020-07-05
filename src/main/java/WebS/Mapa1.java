@@ -82,7 +82,7 @@ public class Mapa1 {
         btn.setText("Ver Mapa");
         //root.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-background-radius: 1;");
 
-        btn.setStyle("-fx-background-color: rgba(102, 0, 0, 100;");
+        btn.setStyle("-fx-background-color: rgba(102, 0, 0, 100");
         btn.setTextFill(Color.WHITE);
         //Image fondo;
         try {

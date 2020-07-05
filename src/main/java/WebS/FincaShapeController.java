@@ -39,6 +39,7 @@ import javafx.scene.shape.StrokeLineCap;
 import javafx.scene.shape.StrokeLineJoin;
 import javafx.scene.shape.StrokeType;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  * @author GAR
@@ -129,15 +130,14 @@ public class FincaShapeController implements Initializable {
                 //FramePrincipal.mapPanel().setVisible(false);
                 System.out.println(lote);
                 verLote(lote);
-                
-                /*    agregarLote.setBackground(new java.awt.Color(102, 0, 0));
-                editLote.setBackground(new java.awt.Color(152, 51, 0));
-                asignarLoteB.setBackground(new java.awt.Color(102, 0, 0));*/
             }
         });
     }
     
     public void verLote(int lote){
+        UIManager UI=new UIManager();
+        UI.put("OptionPane.background", new Color(0.8, 0.7, 0.2 ,1));
+        UI.put("Panel.background", Color.RED);
         JOptionPane.showConfirmDialog(null, new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
         //FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
         
@@ -225,7 +225,7 @@ public class FincaShapeController implements Initializable {
         }
         
         
-        ///////////////////////////////PRUEBA
+        ///////////////////////////////
         ArrayList piezas = new ArrayList<Double>();
         int sumA = 0;
         for(int i = 0; i < lotes.size(); i++){
@@ -248,16 +248,7 @@ public class FincaShapeController implements Initializable {
              for(int j = 0; j < nShapes; j++){
                  
                  defColor(i,cells.get((int) idx.get(asdf)));
-                 
-                 //System.out.println((i*1)+j+" i: "+i+" j: "+j);
-                 /*cells.get((int) idx.get(((i*lotes.size())+j))).setFill(Color.DARKGOLDENROD);
-                 //cells.get((int) idx.get(asdf)).setFill(Color.DARKGOLDENROD);
-                 cells.get((int) idx.get(asdf)).setOnMouseClicked(new EventHandler<MouseEvent>() {
-                     @Override
-                     public void handle(MouseEvent event) {
-                         System.out.println("Lote: ID -> FUNCION????????!!!");
-                     }
-                 });*/
+
                  asdf++;
              }
              
@@ -270,7 +261,7 @@ public class FincaShapeController implements Initializable {
                  asdf++;
                  
              }
-        //////////////////////////////END PRUEBA 
+        //////////////////////////////
         
 
         
@@ -281,9 +272,12 @@ public class FincaShapeController implements Initializable {
         //getLotesShape();
         
     }
-    
-    public void residuo(){
-        
+    //terminar el EVENT AL RESIDUO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void residuo(int a, int b, Color c, ArrayList<Rectangle> cells){
+        while(a < b){
+            cells.get(a).setFill(initColor);
+            a++;
+        }
     }
     
     public void drawLotesB(){
@@ -318,16 +312,12 @@ public class FincaShapeController implements Initializable {
              if(areaLote < 0){
                  areaLote *= -1;
              }
-             //System.out.println("AREALOTE "+areaLote);
-             //System.out.println("NCELLS "+fincaCells.size());
              double sLote = (((areaLote/1000)*100)/(sumA/1000));
              double nShapes = (sLote*fincaCells.size())/100;
-             //System.out.println("SIZE % SAREALOTE "+sLote);
-             //System.out.println("SIZE % TAREALOTE "+nShapes);
+
              Shape shapeB = Shape.union((Rectangle)fincaCells.get(0), (Rectangle)fincaCells.get(1));
              for(int j = 1; j < nShapes; j++){
                  shapeB = Shape.union(shapeB, (Rectangle)fincaCells.get(j));
-                 //shapeB.setFill(Color.DARKGREY);
                  shapeB.boundsInLocalProperty();
                  
              }
