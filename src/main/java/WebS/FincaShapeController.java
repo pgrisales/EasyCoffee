@@ -69,9 +69,7 @@ public class FincaShapeController implements Initializable {
     private ArrayList cShape = new ArrayList<Double>();
     private ArrayList lotes = FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
     private ArrayList fincaCells = new ArrayList<Rectangle>();
-    Group finca = new Group();
     Polyline bFinca = new Polyline();
-    private static ArrayList lotesB = new ArrayList<Shape>();
     private static int idLote = 0;
     private static Color initColor = Color.color(Math.random(), Math.random(), Math.random(), 0.6);
     @FXML
@@ -97,8 +95,9 @@ public class FincaShapeController implements Initializable {
             saveB.setVisible(false);
             fillFinca();
             shape.clear();
-                cShape.clear();
-                fincaCells.clear();
+            cShape.clear();
+            fincaCells.clear();
+            idLote = 0;
 
         });
 
@@ -108,6 +107,7 @@ public class FincaShapeController implements Initializable {
                 shape.clear();
                 cShape.clear();
                 fincaCells.clear();
+                idLote = 0;
                 canvasP.getChildren().clear();
                 canvasP.setOnMouseClicked(e -> {
                     drawline(clicks, e);
@@ -183,7 +183,7 @@ public class FincaShapeController implements Initializable {
             grid.getRowConstraints().add(rowConst);
         }
 
-        boundsFinca.setFill(Color.TRANSPARENT);
+        boundsFinca.setFill(Color.BLACK);
         /*grid.setOpacity(1);
         grid.setShape(boundsFinca);
         grid.setVisible(true);
@@ -274,19 +274,6 @@ public class FincaShapeController implements Initializable {
             a++;
         }
     }
-
-    public void drawLotesB() {
-        //lotesB = getLotesShape();
-        double minX, minY, width, height;
-        for (int i = 0; i < lotesB.size(); i++) {
-            Shape temp = (Shape) lotesB.get(i);
-            minX = temp.getBoundsInLocal().getMinY();
-            minY = temp.getBoundsInLocal().getMinY();
-            width = temp.getBoundsInLocal().getWidth();
-            height = temp.getBoundsInLocal().getHeight();
-
-        }
-    }
     
     public void fillFinca() {
         double minX = bFinca.getBoundsInLocal().getMinX();
@@ -331,21 +318,23 @@ public class FincaShapeController implements Initializable {
     public void addBounds() {
         Line line1 = new Line();
         Line line2 = new Line();
+        Polyline pol = new Polyline();
         int size = shape.size();
         for (int i = 0; i < size; i += 4) {
             line1 = new Line((double) shape.get(i % size), (double) shape.get((i + 1) % size), (double) shape.get((i + 2) % size), (double) shape.get((i + 3) % size));
             line2 = new Line((double) shape.get((i + 2) % size), (double) shape.get((i + 3) % size), (double) shape.get((i + 4) % size), (double) shape.get((i + 5) % size));
 
-            bFinca.getPoints().add((double) shape.get(i % size));
-            bFinca.getPoints().add((double) shape.get((i + 1) % size));
-            bFinca.getPoints().add((double) shape.get((i + 2) % size));
-            bFinca.getPoints().add((double) shape.get((i + 3) % size));
+            pol.getPoints().add((double) shape.get(i % size));
+            pol.getPoints().add((double) shape.get((i + 1) % size));
+            pol.getPoints().add((double) shape.get((i + 2) % size));
+            pol.getPoints().add((double) shape.get((i + 3) % size));
 
-            bFinca.getPoints().add((double) shape.get((i + 2) % size));
-            bFinca.getPoints().add((double) shape.get((i + 3) % size));
-            bFinca.getPoints().add((double) shape.get((i + 4) % size));
-            bFinca.getPoints().add((double) shape.get((i + 5) % size));
-
+            pol.getPoints().add((double) shape.get((i + 2) % size));
+            pol.getPoints().add((double) shape.get((i + 3) % size));
+            pol.getPoints().add((double) shape.get((i + 4) % size));
+            pol.getPoints().add((double) shape.get((i + 5) % size));
+            
+            bFinca = pol;
             //finca.getChildren().add(line1);
             //finca.getChildren().add(line2);
         }
