@@ -48,6 +48,10 @@ public class EditFinca extends javax.swing.JPanel {
         if(this.jComboBox1.getSelectedIndex()==2)
             tam.setText((long)tamaño/10000+"");
     }
+    
+    public static void verLote(java.awt.event.ActionEvent event){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

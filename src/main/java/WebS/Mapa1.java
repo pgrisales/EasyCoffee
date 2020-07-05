@@ -1,6 +1,7 @@
 package WebS;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,6 +23,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import javax.swing.JFrame;
@@ -81,6 +83,7 @@ public class Mapa1 {
         //root.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-background-radius: 1;");
 
         btn.setStyle("-fx-background-color: rgba(102, 0, 0, 100;");
+        btn.setTextFill(Color.WHITE);
         //Image fondo;
         try {
             File file = new File(Mapa1.class.getResource("../image/Pedrosky.png").getFile());

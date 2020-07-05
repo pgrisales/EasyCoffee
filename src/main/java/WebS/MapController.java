@@ -35,6 +35,26 @@ public class MapController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        try {
+                    /*while(Geo.getPathInDownloads() == null){
+                    try {
+                    Thread.sleep(4000);
+                    Geo.getCoordenadas().notify();
+                    System.out.println("YA SE CREARON LAS HPTAS COORDENADAS!!!!!!!");
+                    } catch (InterruptedException ex) {
+                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    }*/
+                    Thread.sleep(10000);
+                    synchronized(Geo.getPathInDownloads()){
+                        System.out.println(Geo.getPathInDownloads());
+                        Geo.getPathInDownloads().notify();
+                        System.out.println("YA SE CREARON LAS HPTAS COORDENADAS!!!!!!!");
+                    }
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
         
         
         selectB.setOnAction(new EventHandler<ActionEvent>() {
