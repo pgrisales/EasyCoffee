@@ -30,13 +30,20 @@ public class ListarUsuarios extends javax.swing.JPanel {
             }else{
                 estado = "Inactivo";
             }
-            ImageIcon imagen = users.get(i).getImagen();
-            
-            model.addRow(new Object[]{users.get(i).getCedula(),
+            if(users.get(i).getImagen()!= null){
+                ImageIcon imagen = users.get(i).getImagen();
+                model.addRow(new Object[]{users.get(i).getCedula(),
                 new JLabel(new ImageIcon(imagen.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH))),
                 users.get(i).getNombre(),
                 users.get(i).getApellido(),
                 estado});
+            }else{
+                model.addRow(new Object[]{users.get(i).getCedula(),
+                "Sin foto",
+                users.get(i).getNombre(),
+                users.get(i).getApellido(),
+                estado});
+            }
         }
         
         tabla.setRowHeight(100);

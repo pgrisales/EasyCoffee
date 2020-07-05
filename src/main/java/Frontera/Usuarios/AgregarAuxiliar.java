@@ -352,7 +352,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
                 Logger.getLogger(AgregarAuxiliar.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            FramePrincipal.cambiarPanel376(this);
+            FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
         } else {
             switch (error) {
                 case "passwordIn": {
