@@ -70,7 +70,7 @@ public class FincaShapeController implements Initializable {
     Polyline bFinca = new Polyline();
     private static ArrayList lotesB = new ArrayList<Shape>();
     private static int idLote = 0;
-    private static Color initColor = Color.AQUA;
+    private static Color initColor = Color.color(Math.random(), Math.random(), Math.random(), 0.3);
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -116,7 +116,7 @@ public class FincaShapeController implements Initializable {
     public void defColor(int lote, Rectangle r){
         //System.out.println("ID: "+idLote+" lote: "+lote);
         if(idLote != lote){
-            initColor = Color.color(Math.random(), Math.random(), Math.random());
+            initColor = Color.color(Math.random(), Math.random(), Math.random(), 0.3);
             System.out.println(Math.random());
             idLote++;
             System.out.println(FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(lote).getAreaTotal());
@@ -203,9 +203,7 @@ public class FincaShapeController implements Initializable {
        
         for(int i = 0; i < nCols; i++){
             for(int j = 0; j < nRows; j++){
-                cells.add(new Rectangle(minX+(sX*j), minY+(sY*i), sX, sY));
-                //cells.get(j+(i*nCols)).setStroke(Color.ORANGERED);
-                cells.get(j+(i*nCols)).setFill(Color.AQUAMARINE);
+                cells.add(new Rectangle(minX+(sX*j), minY+(sY*i), sX, sY));;
                 cells.get(j+(i*nCols)).setStrokeLineJoin(StrokeLineJoin.ROUND);
                 cells.get(j+(i*nCols)).setStrokeLineCap(StrokeLineCap.ROUND);
                 cells.get(j+(i*nCols)).setStroke(Color.TRANSPARENT);
@@ -216,13 +214,13 @@ public class FincaShapeController implements Initializable {
                     cells.get(j+(i*nCols)).setVisible(false);
                 }
                 idx.add((i*nCols)+j);
-                cells.get(j+(i*nCols)).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                /*cells.get(j+(i*nCols)).setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
                         //Se pierden algunos
                     }
                 });
-                
+                */
             }    
         }
         
@@ -237,10 +235,7 @@ public class FincaShapeController implements Initializable {
                 sumA +=(int)FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
             }
         }
-        
-        /*for(int i = 0; i < idx.size(); i++){
-            System.out.println("ARREGLO DE INDICES: "+idx.get(i));
-        }*/System.out.println("TAMAÑO INDICES: " + idx.size());
+
         int asdf = 0;
         for(int i = 0; i < lotes.size(); i++){
              int areaLote = (int)FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
@@ -265,7 +260,16 @@ public class FincaShapeController implements Initializable {
                  });*/
                  asdf++;
              }
+             
         }
+        
+        //ystem.out.println("asdf: "+asdf);
+          //   System.out.println("idx: "+idx.size());
+             while(asdf < idx.size()){
+                 cells.get(asdf).setFill(initColor);
+                 asdf++;
+                 
+             }
         //////////////////////////////END PRUEBA 
         
 
@@ -275,6 +279,10 @@ public class FincaShapeController implements Initializable {
         //lotesB = getLotesShape();
         //root.getChildren().addAll(asdf);
         //getLotesShape();
+        
+    }
+    
+    public void residuo(){
         
     }
     
@@ -292,10 +300,10 @@ public class FincaShapeController implements Initializable {
         }
     }
     
-    public /*ArrayList<Shape>*/void getLotesShape(){
+    public void getLotesShape(){
         ArrayList temp = new ArrayList<Shape>();
-        System.out.println("SIZE LOTES "+lotes.size());
-        System.out.println("SIZE cellsfinca "+fincaCells.size());
+        //System.out.println("SIZE LOTES "+lotes.size());
+        //System.out.println("SIZE cellsfinca "+fincaCells.size());
         int sumA = 0;
         for(int i = 0; i < lotes.size(); i++){
             if((int)FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal() < 0){
@@ -310,16 +318,16 @@ public class FincaShapeController implements Initializable {
              if(areaLote < 0){
                  areaLote *= -1;
              }
-             System.out.println("AREALOTE "+areaLote);
-             System.out.println("NCELLS "+fincaCells.size());
+             //System.out.println("AREALOTE "+areaLote);
+             //System.out.println("NCELLS "+fincaCells.size());
              double sLote = (((areaLote/1000)*100)/(sumA/1000));
              double nShapes = (sLote*fincaCells.size())/100;
-             System.out.println("SIZE % SAREALOTE "+sLote);
-             System.out.println("SIZE % TAREALOTE "+nShapes);
+             //System.out.println("SIZE % SAREALOTE "+sLote);
+             //System.out.println("SIZE % TAREALOTE "+nShapes);
              Shape shapeB = Shape.union((Rectangle)fincaCells.get(0), (Rectangle)fincaCells.get(1));
              for(int j = 1; j < nShapes; j++){
                  shapeB = Shape.union(shapeB, (Rectangle)fincaCells.get(j));
-                 shapeB.setFill(Color.DARKGREY);
+                 //shapeB.setFill(Color.DARKGREY);
                  shapeB.boundsInLocalProperty();
                  
              }
