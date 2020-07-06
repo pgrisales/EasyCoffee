@@ -21,10 +21,18 @@ public class Geo {
     private static String uLat;
     private static String uLon;
     private static String coordenadas;
-    private static File pathInDownloads = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");
+    private static File pathInDownloads = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");//
 
 
     public static void getGeo() throws URISyntaxException, IOException {
+        System.out.println(pathInDownloads.exists());
+        File f = new File("../");
+        File f1 = new File("../../");
+        File f2 = new File("../../../");
+        
+        System.out.println(f.getPath());
+        System.out.println(f1.getPath());
+        System.out.println(f2.getPath());
         if(!pathInDownloads.exists()){
             //File file = new File("src/main/resources/web/getCoor.html");
             File file = new File(Geo.class.getResource("../web/getCoor.html").getFile());//

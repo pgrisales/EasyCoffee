@@ -98,17 +98,16 @@ public class Mapa1 {
         //crearVistaB.setStyle("-fx-background-color: rgba(102, 0, 0, 100");
         crearVistaB.setTextFill(Color.WHITE);
         //Image fondo;
-        System.out.println("ASDFASDPOFJASDOPFKJADSOPIFJAOSDIJIOPJIP");
-        System.out.println(Mapa1.class.getResource("../image/Pedrosky.png").getFile().toString());
-       /*try {
-            File file = new File(Mapa1.class.getResource("../image/Pedrosky.png").getFile());
+        //System.out.println(Mapa1.class.getResource("Pedrosky.png").getFile().toString());
+       try {
+            File file = new File(Mapa1.class.getResource("/image/Pedrosky.png").getFile());
             Image fondo = new   Image(new FileInputStream(file));
             BackgroundImage img = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
             Background background = new Background(img);
             root.setBackground(background);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MenuMap.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
         
         crearVistaB.setOnAction(new EventHandler<ActionEvent>() {
             @Override

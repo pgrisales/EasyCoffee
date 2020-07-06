@@ -78,6 +78,7 @@ public class MapController implements Initializable {
 
         int a = 1;
         int b = 1;
+        System.out.println(Geo.getPathInDownloads().toPath());
         while (a == 1) {
 
             if (!Geo.getPathInDownloads().exists()) {

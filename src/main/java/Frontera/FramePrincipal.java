@@ -44,10 +44,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel376.setVisible(false);
         jPanel127.removeAll();
         jPanel376.removeAll();
-        /*jPanel376.setSize(900, 575);
-        jPanel376.add(pane);
-        jPanel376.setVisible(true);*/
-        //mapaPanel.setVisible(false);
         mapaPanel.removeAll();
         mapaPanel.setSize(900, 500);
         mapaPanel.setBackground(new Color(0, 0, 0, 0));

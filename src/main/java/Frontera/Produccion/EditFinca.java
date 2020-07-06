@@ -2,25 +2,12 @@ package Frontera.Produccion;
 
 import Frontera.MenuSeleccion;
 import Frontera.FramePrincipal;
-import Frontera.Usuarios.EditarAuxiliar;
-import Frontera.Produccion.RegistrarLote;
-import Frontera.Produccion.AsignarLotes;
-import Frontera.Usuarios.RegistrarTrabajador;
-import Frontera.Usuarios.AgregarAuxiliar;
-import Frontera.Produccion.EditarLote;
-import Frontera.FramePrincipal;
 import WebS.Mapa;
 import com.easycoffee.Lote;
 import java.awt.Color;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 /**
  *
