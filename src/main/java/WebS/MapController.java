@@ -21,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.FileChooser;
 
 /**
  * @author GAR
@@ -74,6 +75,10 @@ public class MapController implements Initializable {
 
         WebEngine engine = webview.getEngine();
         String coor = "";
+        
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        fileChooser.showOpenDialog(null);
 
         int a = 1;
         int b = 1;
