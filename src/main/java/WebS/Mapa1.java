@@ -31,6 +31,7 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javax.swing.ImageIcon;
 
 import javax.swing.JFrame;
 
@@ -54,7 +55,7 @@ public class Mapa1 {
     public static void stopT(){
         Platform.exit();
     }
-
+    
     public static void init() {
         fxContainer = new JFXPanel();
         fxContainer.setPreferredSize(new Dimension(JFXPANEL_WIDTH_INT, JFXPANEL_HEIGHT_INT));
@@ -99,15 +100,10 @@ public class Mapa1 {
         crearVistaB.setTextFill(Color.WHITE);
         //Image fondo;
         //System.out.println(Mapa1.class.getResource("Pedrosky.png").getFile().toString());
-       try {
-            File file = new File(Mapa1.class.getResource("/image/Pedrosky.png").getFile());
-            Image fondo = new   Image(new FileInputStream(file));
-            BackgroundImage img = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+            BackgroundImage img = new BackgroundImage(new Image("/image/Pedrosky.png",true), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
             Background background = new Background(img);
             root.setBackground(background);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(MenuMap.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
         
         crearVistaB.setOnAction(new EventHandler<ActionEvent>() {
             @Override

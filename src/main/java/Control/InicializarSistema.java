@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.Node;
 
 /**
  *
  * @author Diego Lopez Avila <dlopezav at unal.edu.co>
  */
 public class InicializarSistema {
-
     private Administrador admin = null;
     private DAO.DAOManager daoManager;
     private ArrayList<Usuario> users = null;
