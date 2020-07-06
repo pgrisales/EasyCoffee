@@ -2,7 +2,6 @@ package Frontera.Produccion;
 
 import Frontera.MenuSeleccion;
 import Frontera.FramePrincipal;
-import WebS.Mapa;
 import com.easycoffee.Lote;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -34,25 +33,6 @@ public class EditFinca extends javax.swing.JPanel {
             tam.setText((long)tamaño+"");
         if(this.jComboBox1.getSelectedIndex()==2)
             tam.setText((long)tamaño/10000+"");
-    }
-    
-    public void verLote(java.awt.event.ActionEvent event, int lote){
-        JOptionPane.showConfirmDialog(this, new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
-        //FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
-        
-        /*
-        
-        JOptionPane.showMessageDialog(this, ventanaArboles);
-        this.arboles = ventanaArboles.getArbolesLote();
-//        System.out.println(arboles);
-        for (int i = 0; i < arboles.size(); i++) {
-            FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex()).addArbol(arboles.get(i));
-        }
-        this.lotes = FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
-        numArboles.setText(arboles.size() + "");
-        numeroArboles();
-        FramePrincipal.cambiarPanel376(this);
-        */
     }
 
     /**
@@ -313,8 +293,6 @@ public class EditFinca extends javax.swing.JPanel {
 
     private void mapBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mapBActionPerformed
        
-        //WebS.Mapa1.init();
-        Mapa map = new Mapa();
         JPanel panel = new JPanel();
         panel.setSize(900, 580);
         panel.setBackground(new Color(0, 0, 0, 0));

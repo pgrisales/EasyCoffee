@@ -117,9 +117,10 @@ public class FincaShapeController implements Initializable {
         volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Parent view;
+                
                 try {
-                    view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
+                    //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
+                    Parent view = FXMLLoader.load(getClass().getResource("fxml/Map.fxml"));
                     Scene viewSc = new Scene(view);
                     //Mapa.fxContainer.setScene(viewSc);
                     Mapa1.cambiarSc(viewSc);

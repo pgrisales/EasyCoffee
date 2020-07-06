@@ -25,14 +25,9 @@ public class Geo {
 
 
     public static void getGeo() throws URISyntaxException, IOException {
-        System.out.println(pathInDownloads.exists());
-        File f = new File("../");
-        File f1 = new File("../../");
-        File f2 = new File("../../../");
-        
-        System.out.println(f.getPath());
-        System.out.println(f1.getPath());
-        System.out.println(f2.getPath());
+        //File f = new File(getClass().getResource("").getFile());
+        //System.out.println("DEFAULT PATH GEO "+Geo.class.getResource("").getFile().toString());
+        //System.out.println("PATH EN GEO "+Geo.class.getResource("").getFile().toString());
         if(!pathInDownloads.exists()){
             //File file = new File("src/main/resources/web/getCoor.html");
             File file = new File(Geo.class.getResource("../web/getCoor.html").getFile());//
@@ -44,7 +39,8 @@ public class Geo {
     }
 
     public static String getCoor() throws IOException, InterruptedException, URISyntaxException {
-        
+        //System.out.println("DEFAULT PATH GEO "+Geo.class.getResource("").getFile().toString());
+        //System.out.println("PATH EN GEO "+Geo.class.getResource("").getFile().toString());
         //wmfoijepbrevinsidfjaoeffff.txt
         File file = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));

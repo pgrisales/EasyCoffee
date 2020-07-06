@@ -47,11 +47,10 @@ public class MapController implements Initializable {
                 Robot robot;
                 try {
                     WritableImage imagen = root.snapshot(new SnapshotParameters(), null);
-                    //webview.autosize();
                     FincaShapeController.image = imagen;
-                    //webview.autosize();
                     System.out.println("La imagen existe " + FincaShapeController.image);
-                    Parent view = FXMLLoader.load(getClass().getResource("../fxml/FincaShape.fxml"));
+                    //Parent view = FXMLLoader.load(getClass().getResource("/fxml/FincaShape.fxml"));
+                    Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FincaShape.fxml"));
                     Scene viewSc = new Scene(view);
                     Mapa1.cambiarSc(viewSc);
                     // Mapa.fxContainer.setScene(viewSc);
@@ -78,8 +77,8 @@ public class MapController implements Initializable {
 
         int a = 1;
         int b = 1;
-        System.out.println(Geo.getPathInDownloads().toPath());
-        while (a == 1) {
+        //System.out.println("ASDFASDLFKJALSÑDKFJ "+getClass().getResource(""));
+        /*while (a == 1) {
 
             if (!Geo.getPathInDownloads().exists()) {
                 while (b == 1) {
@@ -114,7 +113,7 @@ public class MapController implements Initializable {
                 System.out.println(a);
                 break;
             }
-        }
+        }*/
 
     }
 

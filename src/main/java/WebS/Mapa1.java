@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,16 +47,15 @@ public class Mapa1 {
     public static JFXPanel fxContainer;
     private static JFrame frame = new JFrame("Map");
     static Stage window;
-    
 
     public static void main(String[] args) {
-       
+
     }
-    
-    public static void stopT(){
+
+    public static void stopT() {
         Platform.exit();
     }
-    
+
     public static void init() {
         fxContainer = new JFXPanel();
         fxContainer.setPreferredSize(new Dimension(JFXPANEL_WIDTH_INT, JFXPANEL_HEIGHT_INT));
@@ -73,15 +73,16 @@ public class Mapa1 {
                 }
             }
         });
-        
+
         System.out.println("SE INICIO EL PANEL");
     }
-    public static JFXPanel fx(){
+
+    public static JFXPanel fx() {
         init();
-        
+
         return fxContainer;
     }
-    
+
     public static void cambiarSc(Scene scene) {
         fxContainer.setScene(scene);
     }
@@ -95,21 +96,44 @@ public class Mapa1 {
         crearVistaB.relocate(467, 256);
         volverB.setPrefSize(90, 25);
         crearVistaB.setPrefSize(90, 25);
-        
+
         //crearVistaB.setStyle("-fx-background-color: rgba(102, 0, 0, 100");
         crearVistaB.setTextFill(Color.WHITE);
         //Image fondo;
         //System.out.println(Mapa1.class.getResource("Pedrosky.png").getFile().toString());
-            BackgroundImage img = new BackgroundImage(new Image("/image/Pedrosky.png",true), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
-            Background background = new Background(img);
-            root.setBackground(background);
-       
+        BackgroundImage img = new BackgroundImage(new Image("/image/Pedrosky.png", true), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+        Background background = new Background(img);
+        root.setBackground(background);
+        
+        
         
         crearVistaB.setOnAction(new EventHandler<ActionEvent>() {
+            
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));//Map
+                    //System.out.println(getClass().getResource(""));
+                    //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));//Map
+                    
+                    //URL u = new URL(getClass().getResource("../fxml/Map.fxml").toString());
+                    
+                    //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));//Map
+                    
+                    //Parent view = FXMLLoader.load(u);//Map
+                    
+                    //System.out.println(url);
+                    //Parent view = FXMLLoader.load(url);
+                    
+                    //URL url = new URL("../fxml/Map.fxml");
+                    //System.out.println(url);
+                    System.out.println("SIN LOAD "+getClass().getResource(""));
+                    System.out.println("CON LOAD "+getClass().getClassLoader().getResource(""));
+                    
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Map.fxml"));
+                    //loader.setController(new MapController());
+                    Parent view =loader.load();
+                    
+                    //Scene viewSc = new Scene(view);**/
                     Scene viewSc = new Scene(view);
                     
                     cambiarSc(viewSc);
@@ -119,7 +143,7 @@ public class Mapa1 {
                 }
             }
         });
-        
+
         volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -130,7 +154,7 @@ public class Mapa1 {
 
             }
         });
-        
+
         /*Parent view = FXMLLoader.load(Mapa1.class.getResource("../fxml/MenuMap.fxml"));//Map
         Scene viewSc = new Scene(view);*/
         root.setVisible(true);

@@ -5,8 +5,10 @@ import Frontera.Usuarios.Ingreso;
 import Frontera.Produccion.RegistroFinca;
 import Control.InicializarSistema;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -29,6 +31,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         fondo = new Fondo(ingreso, "/image/318763,xcitefun-cocora-valley-7.jpg");
         this.setContentPane(fondo);
         setIconImage(new ImageIcon(getClass().getResource("/image/LOGO.png")).getImage());
+        System.getProperty("user.dir");
         initComponents();
         this.setTitle("Easy Coffee");
         this.setLocationRelativeTo(null);
@@ -36,6 +39,12 @@ public class FramePrincipal extends javax.swing.JFrame {
         mapaPanel.setVisible(false);
         jPanel127.setVisible(false);
         jPanel376.setVisible(false);
+        
+        Image fondo = new ImageIcon(getClass().getResource("/image/Pedrosky.png")).getImage();
+    }
+    
+    public static File getPcFile(String s){
+        return new File(FramePrincipal.class.getResource(s).getFile());
     }
     
     public static void asdf(JPanel pane){
