@@ -46,6 +46,9 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
         } else if (!isNumeric(salario.getText()) || !isNumeric(cedula.getText())) {
             error = "notnumeric";
             b = false;
+        }else if (Integer.parseInt(salario.getText())<0) {
+            error = "notmay";
+            b = false;
         }
         return b;
     }
@@ -220,7 +223,7 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void infActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infActionPerformed
-        JOptionPane.showMessageDialog(null, "El usuario que va a crear a continuación es el que tiene el control del programa. procure no olvidar la contraseña.");
+        JOptionPane.showMessageDialog(null, "El trabajador que va a crear le servirá para registrarle jornadas.");
     }//GEN-LAST:event_infActionPerformed
 
     private void apellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidosActionPerformed
@@ -254,7 +257,7 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
             switch (error) {
 
                 case "nombreApellidoIn": {
-                    JOptionPane.showMessageDialog(null, "Ha ingresado mal el nombre o el apellido.");
+                    JOptionPane.showMessageDialog(null, "Ha ingresado mal el nombre o el apellido. Longitud mayor a 3 y menor a 15.");
                     break;
                 }
                 case "empty": {
@@ -265,7 +268,10 @@ public class RegistrarTrabajador extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "El salario o la cédula se ha ingresado mal y no es numerica.");
                     break;
                 }
-
+                case "notmay": {
+                    JOptionPane.showMessageDialog(null, "El salario debe ser positivo");
+                     break;
+                }
             }
         }
     }//GEN-LAST:event_registrationActionPerformed
