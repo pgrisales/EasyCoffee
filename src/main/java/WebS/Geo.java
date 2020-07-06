@@ -26,8 +26,8 @@ public class Geo {
 
     public static void getGeo() throws URISyntaxException, IOException {
         if(!pathInDownloads.exists()){
-            File file = new File("src/main/resources/web/getCoor.html");
-
+            //File file = new File("src/main/resources/web/getCoor.html");
+            File file = new File(Geo.class.getResource("../web/getCoor.html").getFile());//
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                 Desktop.getDesktop().browse(file.toURI());
             }
