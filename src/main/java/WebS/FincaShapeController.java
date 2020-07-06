@@ -120,7 +120,7 @@ public class FincaShapeController implements Initializable {
                 
                 try {
                     //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
-                    Parent view = FXMLLoader.load(getClass().getResource("fxml/Map.fxml"));
+                    Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Map.fxml"));
                     Scene viewSc = new Scene(view);
                     //Mapa.fxContainer.setScene(viewSc);
                     Mapa1.cambiarSc(viewSc);
