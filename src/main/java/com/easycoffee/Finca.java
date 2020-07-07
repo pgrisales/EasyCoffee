@@ -12,19 +12,10 @@ public class Finca {
     private ArrayList<Variedad> variedad;
     private ArrayList<VentaCafe> ventasRegistradas;
 
-    public Finca() {
-        this.auxiliares = new ArrayList<>();
-        this.lotes = new ArrayList<>();
-        this.nombreFinca = "";
-        this.trabajadores = new ArrayList<>();
-        this.plagas = new ArrayList<>();
-        this.variedad = new ArrayList<>();
-        this.ventasRegistradas = new ArrayList<>();
-    }
 
     public Finca(String name) {
-        this.auxiliares = null;
-        this.lotes = null;
+        this.auxiliares = new ArrayList<Usuario>();
+        this.lotes = new ArrayList<Lote>();
         this.nombreFinca = name;
         this.trabajadores = null;
         this.plagas = new ArrayList<Plaga>();

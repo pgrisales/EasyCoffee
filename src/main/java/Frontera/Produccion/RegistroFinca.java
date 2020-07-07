@@ -354,17 +354,21 @@ public class RegistroFinca extends javax.swing.JPanel {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         double tamaño = 0;
-        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
-            tamaño = tamaño + FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
-        }
-        if (this.jComboBox1.getSelectedIndex() == 0) {
-            tam.setText((long) tamaño / 1000000 + "");
-        }
-        if (this.jComboBox1.getSelectedIndex() == 1) {
-            tam.setText((long) tamaño + "");
-        }
-        if (this.jComboBox1.getSelectedIndex() == 2) {
-            tam.setText((long) tamaño / 10000 + "");
+        if(FramePrincipal.getSistem().getAdmin().getFinca().getLotes() != null){
+            for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+                tamaño = tamaño + FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
+            }
+            if (this.jComboBox1.getSelectedIndex() == 0) {
+                tam.setText((long) tamaño / 1000000 + "");
+            }
+            if (this.jComboBox1.getSelectedIndex() == 1) {
+                tam.setText((long) tamaño + "");
+            }
+            if (this.jComboBox1.getSelectedIndex() == 2) {
+                tam.setText((long) tamaño / 10000 + "");
+            }
+        }else{
+            tam.setText("No hay tamaño");
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 

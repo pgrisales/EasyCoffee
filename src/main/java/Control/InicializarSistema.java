@@ -60,7 +60,7 @@ public class InicializarSistema {
                 if (admin != null) {
                     this.admin.setFinca(daoManager.getFincaDAO().obtener(1));
                     if (this.admin.getFinca() == null) {
-                        this.admin.setFinca(new Finca());
+                        this.admin.setFinca(new Finca(""));
                     }
                     if (this.admin.getFinca() != null) {
                         this.admin.getFinca().setAuxiliares(users);
