@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.stage.FileChooser;
 
 
 
@@ -21,14 +22,11 @@ public class Geo {
     private static String uLat;
     private static String uLon;
     private static String coordenadas;
-    private static File pathInDownloads = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");//
+    private static File coordenadasFile = new File("scoordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
 
 
     public static void getGeo() throws URISyntaxException, IOException {
-        //File f = new File(getClass().getResource("").getFile());
-        //System.out.println("DEFAULT PATH GEO "+Geo.class.getResource("").getFile().toString());
-        //System.out.println("PATH EN GEO "+Geo.class.getResource("").getFile().toString());
-        if(!pathInDownloads.exists()){
+        if(!coordenadasFile.exists()){
             //File file = new File("src/main/resources/web/getCoor.html");
             File file = new File(Geo.class.getResource("../web/getCoor.html").getFile());//
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
@@ -37,13 +35,20 @@ public class Geo {
         }
         
     }
+    
+    public static void getCoorFile(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        //coordenadasFile = fileChooser.showOpenDialog(null);
+        File temp = fileChooser.showOpenDialog(null);
+        //temp.renameTo(new File(Geo.class.getResource("scoordenadasFincaEasyCoffee.txt").toString()));
+        temp.renameTo(new File("scoordenadasFincaEasyCoffee.txt"));
+        System.out.println(coordenadasFile.exists());
+    }
 
     public static String getCoor() throws IOException, InterruptedException, URISyntaxException {
-        //System.out.println("DEFAULT PATH GEO "+Geo.class.getResource("").getFile().toString());
-        //System.out.println("PATH EN GEO "+Geo.class.getResource("").getFile().toString());
-        //wmfoijepbrevinsidfjaoeffff.txt
-        File file = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");
-        BufferedReader br = new BufferedReader(new FileReader(file));
+        //File file = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");
+        BufferedReader br = new BufferedReader(new FileReader(coordenadasFile));
 
         String it = "";
         while ((it = br.readLine()) != null) {
@@ -74,8 +79,8 @@ public class Geo {
         return coordenadas;
     }
 
-    public static File getPathInDownloads() {
-        return pathInDownloads;
+    public static File getCoordenadasFile() {
+        return coordenadasFile;
     }
 
 }

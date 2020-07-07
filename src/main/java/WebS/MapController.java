@@ -1,6 +1,7 @@
 package WebS;
 
 import java.awt.Robot;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -76,30 +77,30 @@ public class MapController implements Initializable {
         WebEngine engine = webview.getEngine();
         String coor = "";
         
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        fileChooser.showOpenDialog(null);
+        
 
         int a = 1;
         int b = 1;
-        //System.out.println("ASDFASDLFKJALSÑDKFJ "+getClass().getResource(""));
-        /*while (a == 1) {
+        if(!Geo.getCoordenadasFile().exists()){
+            try {
+                Geo.getGeo();
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        while (a == 1) {
 
-            if (!Geo.getPathInDownloads().exists()) {
+            if (!Geo.getCoordenadasFile().exists()) {
                 while (b == 1) {
-                    try {
-                        Geo.getGeo();
-                    } catch (IOException ex) {
-                        Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (URISyntaxException ex) {
-                        Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    Geo.getCoorFile();
                     b++;
                 }
 
             }
 
-            if (Geo.getPathInDownloads().exists()) {
+            if (Geo.getCoordenadasFile().exists()) {
                 String coord = "";
                 try {
                     coord = Geo.getCoor();
@@ -118,7 +119,7 @@ public class MapController implements Initializable {
                 System.out.println(a);
                 break;
             }
-        }*/
+        }
 
     }
 
