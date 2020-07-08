@@ -81,6 +81,7 @@ public class MapController implements Initializable {
 
         int a = 1;
         int b = 1;
+        
         if(!Geo.getCoordenadasFile().exists()){
             try {
                 Geo.getGeo();

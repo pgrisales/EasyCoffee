@@ -127,7 +127,7 @@ public class Mapa1 {
                     //URL url = new URL("../fxml/Map.fxml");
                     //System.out.println(url);
                     System.out.println("SIN LOAD "+getClass().getResource(""));
-                    System.out.println("CON LOAD "+getClass().getClassLoader().getResource(""));
+                    System.out.println("CON LOAD "+getClass().getClassLoader().getResource("").toString());
                     
                     FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Map.fxml"));
                     //loader.setController(new MapController());

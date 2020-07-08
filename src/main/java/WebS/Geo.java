@@ -22,7 +22,7 @@ public class Geo {
     private static String uLat;
     private static String uLon;
     private static String coordenadas;
-    private static File coordenadasFile = new File("scoordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
+    private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("").getPath().toString()+"web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
 
 
     public static void getGeo() throws URISyntaxException, IOException {
@@ -31,7 +31,7 @@ public class Geo {
             File file = new File(Geo.class.getResource("../web/getCoor.html").getFile());//
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                 Desktop.getDesktop().browse(file.toURI());
-            }
+            }//getClass().getClassLoader().getResource("coordenadasFincaEasyCoffee.txt")
         }
         
     }
@@ -42,12 +42,15 @@ public class Geo {
         //coordenadasFile = fileChooser.showOpenDialog(null);
         File temp = fileChooser.showOpenDialog(null);
         //temp.renameTo(new File(Geo.class.getResource("scoordenadasFincaEasyCoffee.txt").toString()));
-        temp.renameTo(new File("scoordenadasFincaEasyCoffee.txt"));
+        //temp.renameTo(new File("coordenadasFincaEasyCoffee.txt"));
+        //Geo.class.getClassLoader().getResource("coordenadasFincaEasyCoffee.txt").toString()
+        System.out.println("hpta puta"+Geo.class.getClassLoader().getResource("").getPath().toString());
+        System.out.println(Geo.class.getClassLoader().getResource("").getPath().toString()+"coordenadasFincaEasyCoffee.txt");
+        temp.renameTo(new File(Geo.class.getClassLoader().getResource("").getPath().toString()+"web/coordenadasFincaEasyCoffee.txt"));
         System.out.println(coordenadasFile.exists());
     }
 
     public static String getCoor() throws IOException, InterruptedException, URISyntaxException {
-        //File file = new File("../../../Downloads/wmfoijepbrevinsidfjaoeffff.txt");
         BufferedReader br = new BufferedReader(new FileReader(coordenadasFile));
 
         String it = "";
