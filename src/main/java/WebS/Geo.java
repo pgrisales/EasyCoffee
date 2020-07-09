@@ -39,6 +39,12 @@ public class Geo {
     public static void getCoorFile(){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
+            fileChooser.setInitialDirectory(
+                new File(System.getProperty("user.home"))
+            );                 
+            fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("TXT", "*.txt")
+            );
         //coordenadasFile = fileChooser.showOpenDialog(null);
         File temp = fileChooser.showOpenDialog(null);
         //temp.renameTo(new File(Geo.class.getResource("scoordenadasFincaEasyCoffee.txt").toString()));
