@@ -13,9 +13,19 @@ public class VentaCafe {
     private double cantidadVendida;
     private double precioVenta;
 
+    /**
+     *
+     */
     public VentaCafe() {
     }
 
+    /**
+     *
+     * @param fechaRegistro
+     * @param variedadCafe
+     * @param cantidadVendida
+     * @param precioVenta
+     */
     public VentaCafe(String fechaRegistro, String variedadCafe, double cantidadVendida, double precioVenta) {
         this.fechaRegistro = fechaRegistro;
         this.variedadCafe = variedadCafe;
@@ -30,7 +40,6 @@ public class VentaCafe {
      * @param variedadCafe: Tipo de Cafe vendido
      * @param cantidadVendida: cantidad de Cafe vendida
      * @param precioVenta: Precio de Venta acordado y recibido
-     * @param precioReferencia: precio de referencia que otorga el sistema
      */
     public VentaCafe(int idUnicoFactura, String fechaRegistro, String variedadCafe, double cantidadVendida, double precioVenta) {
         this.idUnicoFactura = idUnicoFactura;

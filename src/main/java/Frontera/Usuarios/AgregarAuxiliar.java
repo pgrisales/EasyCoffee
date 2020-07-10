@@ -351,7 +351,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(AgregarAuxiliar.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            FramePrincipal.getSistem().getUsers().add(a);
             FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
         } else {
             switch (error) {

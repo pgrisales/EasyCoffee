@@ -21,6 +21,10 @@ import javax.swing.table.TableCellRenderer;
 public class ImgTabla extends JTextArea implements TableCellRenderer{
     private static final long serialVersionUID = 1L;
     private int altura;
+
+    /**
+     *
+     */
     public ImgTabla() {
         setLineWrap(true);
         setWrapStyleWord(true);

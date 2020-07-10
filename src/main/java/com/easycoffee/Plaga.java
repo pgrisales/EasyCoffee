@@ -18,6 +18,13 @@ public class Plaga {
     private String descripcionPlaga;
     private String tratamientoPlaga;
 
+    /**
+     *
+     * @param nombrePlaga
+     * @param imagen
+     * @param descripcionPlaga
+     * @param tratamientoPlaga
+     */
     public Plaga(String nombrePlaga, ImageIcon imagen, String descripcionPlaga, String tratamientoPlaga) {
         this.nombrePlaga = nombrePlaga;
         this.imagen = imagen;
@@ -25,34 +32,66 @@ public class Plaga {
         this.tratamientoPlaga = tratamientoPlaga;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombrePlaga() {
         return nombrePlaga;
     }
 
+    /**
+     *
+     * @param nombrePlaga
+     */
     public void setNombrePlaga(String nombrePlaga) {
         this.nombrePlaga = nombrePlaga;
     }
 
+    /**
+     *
+     * @return
+     */
     public ImageIcon getImagen() {
         return imagen;
     }
 
+    /**
+     *
+     * @param imagen
+     */
     public void setImagen(ImageIcon imagen) {
         this.imagen = imagen;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescripcionPlaga() {
         return descripcionPlaga;
     }
 
+    /**
+     *
+     * @param descripcionPlaga
+     */
     public void setDescripcionPlaga(String descripcionPlaga) {
         this.descripcionPlaga = descripcionPlaga;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTratamientoPlaga() {
         return tratamientoPlaga;
     }
 
+    /**
+     *
+     * @param tratamientoPlaga
+     */
     public void setTratamientoPlaga(String tratamientoPlaga) {
         this.tratamientoPlaga = tratamientoPlaga;
     }
