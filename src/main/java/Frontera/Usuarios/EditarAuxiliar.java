@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -235,6 +236,8 @@ public class EditarAuxiliar extends javax.swing.JPanel {
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF", "jpg", "gif","png");
+        j.setFileFilter(filter);
         String ruta;
         int ap = j.showOpenDialog(this);
         FileInputStream fi = null;
