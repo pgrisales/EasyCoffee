@@ -116,7 +116,8 @@ public class PerfilUsuario extends javax.swing.JPanel {
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF", "jpg", "gif","png");
+        j.setDialogTitle("Buscar imágen");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG", "jpg");
         j.setFileFilter(filter);
         String ruta;
         int ap = j.showOpenDialog(this);

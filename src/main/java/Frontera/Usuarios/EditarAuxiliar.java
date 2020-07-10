@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,6 +40,7 @@ public class EditarAuxiliar extends javax.swing.JPanel {
              }
         }
         this.cedula = cedula;
+        
         //updateUsuarios(usuarios);
     }
 
@@ -235,15 +237,17 @@ public class EditarAuxiliar extends javax.swing.JPanel {
     }//GEN-LAST:event_activarBActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-       JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF", "jpg", "gif","png");
+        JFileChooser j = new JFileChooser();
+        j.setDialogTitle("Buscar imágen");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG", "jpg");
         j.setFileFilter(filter);
-        String ruta;
+        String ruta = "";
         int ap = j.showOpenDialog(this);
         FileInputStream fi = null;
-        imgUsu.setText("");
         if(ap == JFileChooser.APPROVE_OPTION){
             ruta = j.getSelectedFile().getAbsolutePath();
+            
+            imgUsu.setText(null);
             ImageIcon imagen = new ImageIcon(ruta);
             imgUsu.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(imgUsu.getWidth(), imgUsu.getHeight(), Image.SCALE_SMOOTH)));
             ControlUsuarios u = new ControlUsuarios();
@@ -252,6 +256,7 @@ public class EditarAuxiliar extends javax.swing.JPanel {
                u.registrarFotoUsuario(FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares().get(usuariosC.getSelectedIndex()).getCedula().intValue(), ruta);
            } catch (FileNotFoundException ex) {
                Logger.getLogger(EditarAuxiliar.class.getName()).log(Level.SEVERE, null, ex);
+               ex.printStackTrace();
            }
         }
         

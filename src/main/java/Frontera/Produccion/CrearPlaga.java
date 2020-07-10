@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -234,8 +235,10 @@ public class CrearPlaga extends javax.swing.JPanel {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        JFileChooser j = new JFileChooser();
-        
+         JFileChooser j = new JFileChooser();
+        j.setDialogTitle("Buscar imágen");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG", "jpg");
+        j.setFileFilter(filter);
         int ap = j.showOpenDialog(this);
         FileInputStream fi = null;
         if (ap == JFileChooser.APPROVE_OPTION) {
