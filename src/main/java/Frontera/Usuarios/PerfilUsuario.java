@@ -121,7 +121,6 @@ public class PerfilUsuario extends javax.swing.JPanel {
         String ruta;
         int ap = j.showOpenDialog(this);
         FileInputStream fi = null;
-        Foto.setText("");
         if (ap == JFileChooser.APPROVE_OPTION) {
             ruta = j.getSelectedFile().getAbsolutePath();
             ImageIcon imagen = new ImageIcon(ruta);

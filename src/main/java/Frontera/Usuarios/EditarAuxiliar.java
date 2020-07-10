@@ -241,10 +241,11 @@ public class EditarAuxiliar extends javax.swing.JPanel {
         String ruta;
         int ap = j.showOpenDialog(this);
         FileInputStream fi = null;
+        imgUsu.setText("");
         if(ap == JFileChooser.APPROVE_OPTION){
             ruta = j.getSelectedFile().getAbsolutePath();
             ImageIcon imagen = new ImageIcon(ruta);
-            imgUsu.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(imgUsu.getWidth(), imgUsu.getHeight(), Image.SCALE_DEFAULT)));
+            imgUsu.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(imgUsu.getWidth(), imgUsu.getHeight(), Image.SCALE_SMOOTH)));
             ControlUsuarios u = new ControlUsuarios();
             FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares().get(usuariosC.getSelectedIndex()).setImagen(imagen);
            try {
