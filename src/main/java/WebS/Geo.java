@@ -33,8 +33,13 @@ public class Geo {
             //File file = new File(Geo.class.getClassLoader().getResource("")+"web/getCoor.html");
 
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                URI u = new URI(Geo.class.getClassLoader().getResource("web/getCoor.html").toString());
-                Desktop.getDesktop().browse(u);
+                //URI u = new URI(Geo.class.getClassLoader().getResource("we    b/getCoor.html").toString());
+                File temp = new File(Geo.class.getClassLoader().getResource("web/getCoor.html").toString());
+                temp.createTempFile("getCoor", ".html");
+                //File temp1 = File.createTempFile(null, ".html", temp);
+                //temp1.deleteOnExit();
+                Desktop.getDesktop().browse(temp.toURI());
+                //Desktop.getDesktop().browse(u);
                 //Desktop.getDesktop().browse(new File(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath().toString()).toURI());
             }//getClass().getClassLoader().getResource("coordenadasFincaEasyCoffee.txt")
         }

@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html>
 
-<body>
-    <p>Click para ver coordenadass.</p>
+<style>
+    .container {
+        height: 200px;
+        position: relative;
+        border: 3px solid green;
+    }
 
-    <button onclick="getLocation()">VER COORDENASDS</button>
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<body>
+    <p style="text-align:center">
+        </pstyle>Click para ver coordenadass.</p>
+
+    <div class="container">
+        <div class="center">
+            <button onclick="getLocation()"> VER COORDENASDS</button>
+        </div>
+    </div>
+
 
     <p id="coor"></p>
-    
+
     <script src="FileSaver.js"></script>
 
     <script>
