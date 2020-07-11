@@ -112,28 +112,18 @@ public class Mapa1 {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    //System.out.println(getClass().getResource(""));
-                    //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));//Map
                     
-                    //URL u = new URL(getClass().getResource("../fxml/Map.fxml").toString());
-                    
-                    //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));//Map
-                    
-                    //Parent view = FXMLLoader.load(u);//Map
-                    
-                    //System.out.println(url);
-                    //Parent view = FXMLLoader.load(url);
-                    
-                    //URL url = new URL("../fxml/Map.fxml");
-                    //System.out.println(url);
+                    System.out.println("LOAD y estatic "+Mapa1.class.getClassLoader().getResource(""));
                     System.out.println("SIN LOAD "+getClass().getResource(""));
-                    System.out.println("CON LOAD "+getClass().getClassLoader().getResource("").toString());
-                    
-                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Map.fxml"));
-                    //loader.setController(new MapController());
-                    Parent view =loader.load();
+
+                    //FXMLLoader loader = new FXMLLoader(Mapa1.class.getClassLoader().getResource("fxml/Map.fxml"));
+                   // Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Map.fxml"));
+                    //Parent view =loader.load();
                     
                     //Scene viewSc = new Scene(view);**/
+                    
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Map.fxml"));
+                    Parent view =loader.load();
                     Scene viewSc = new Scene(view);
                     
                     cambiarSc(viewSc);
