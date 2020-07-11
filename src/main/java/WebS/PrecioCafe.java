@@ -24,29 +24,6 @@ public class PrecioCafe {
 
     private PrecioCafe() throws IOException {
         update();
-        /*System.out.println(doc.select("ul.lista > li[tabindex=1] > span").first().text() + precioInternoRef);
-        System.out.println(doc.select("ul.lista > li[tabindex=4] > span").first().text() + precioPasillaFinca);
-        System.out.println(doc.select("ul.lista > li[tabindex=2] > span").first().text() + bolsaNY);
-        System.out.println(doc.select("ul.lista > li[tabindex=3] > span").first().text() + tasaCambio);
-        
-        
-        /*Element content = doc.getElementById("1");
-        Elements links = doc.getElementsByTag("strong");
-        //Elements links = doc.getElementsByClass("Precio interno de referencia:");
-        System.out.println(links);*/
-
-        //html/body/header/div/div/div/div/div[2]/div/div[1]/ul/li[3]/strong
-        //"html>body>header>div>div>div>div>div[2]>div>div[1]>ul>li[3]>strong"
-        /*Element content = doc.getElementById("div.col-12 lista-container"); 
-        //Elements content = doc.getElementsByClass("span");
-        //Elements links = doc.select("div.col-12 lista-container");
-        //Elements links = content.getElementsByTag("s");
-        Elements links = doc.getElementsByClass("a");
-
-        for(Element link: links){
-            //System.out.println(link.attr("strong"));
-            System.out.println(link.text());
-        }*/
     }
 
     public static PrecioCafe getInstance() throws IOException {
@@ -63,7 +40,6 @@ public class PrecioCafe {
             System.out.println(title);
             System.out.println("ACTUALIZACION PRECIO DEL CAFE #" + count);
             count++;
-            //XPath path = new XPath();
 
             precioInternoRef = doc.select("ul.lista > li[tabindex=1] > strong").first().text();
             precioPasillaFinca = doc.select("ul.lista > li[tabindex=4] > strong").first().text();

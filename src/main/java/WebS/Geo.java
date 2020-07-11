@@ -21,7 +21,7 @@ public class Geo {
     private static String uLat;
     private static String uLon;
     private static String coordenadas;
-    private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
+    private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("").getPath().toString()+"web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
 
     public static void getGeo() throws URISyntaxException, IOException {
         System.out.println("hpta puta");
@@ -62,7 +62,7 @@ public class Geo {
         //Geo.class.getClassLoader().getResource("coordenadasFincaEasyCoffee.txt").toString()
         System.out.println("hpta " + Geo.class.getClassLoader().getResource(""));
         System.out.println(Geo.class.getClassLoader().getResource("") + "coordenadasFincaEasyCoffee.txt");
-        temp.renameTo(new File(Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt"));
+        temp.renameTo(new File(Geo.class.getClassLoader().getResource("").getPath().toString()+"web/coordenadasFincaEasyCoffee.txt"));
         System.out.println(coordenadasFile.exists());
     }
 

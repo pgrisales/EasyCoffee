@@ -57,7 +57,6 @@ public class Mapa1 {
     public static void init() {
         fxContainer = new JFXPanel();
         fxContainer.setPreferredSize(new Dimension(JFXPANEL_WIDTH_INT, JFXPANEL_HEIGHT_INT));
-        //add(fxContainer, BorderLayout.CENTER);
 
         // create JavaFX scene
         Platform.runLater(new Runnable() {
@@ -95,14 +94,11 @@ public class Mapa1 {
         volverB.setPrefSize(90, 25);
         crearVistaB.setPrefSize(90, 25);
 
-        crearVistaB.setTextFill(Color.WHITE);
-        volverB.setTextFill(Color.WHITE);
-
        // crearVistaB.setStyle("-fx-font-size: 2em;");
         //volverB.setStyle("-fx-font-size: 2em;");//-fx-font-size:8;-fx-font: 16 Sitka Banner;
         
-        crearVistaB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
-        volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
+        crearVistaB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
+        volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
         
         BackgroundImage img = new BackgroundImage(new Image("/image/Pedrosky.png", true), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         Background background = new Background(img);
@@ -130,7 +126,6 @@ public class Mapa1 {
                     Scene viewSc = new Scene(view);
                     
                     cambiarSc(viewSc);
-                    //fxContainer.setScene(viewSc);
                 } catch (IOException ex) {
                     Logger.getLogger(Mapa1.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -142,7 +137,6 @@ public class Mapa1 {
             public void handle(MouseEvent event) {
                 FramePrincipal.cambiarPanel127(new EditFinca(MenuSeleccion.getCedula()));
                 FramePrincipal.cambiarPanel376(new RegistrarLote(new ArrayList<Lote>()));
-                //FramePrincipal.mapPanel().removeAll();
                 FramePrincipal.mapPanel().setVisible(false);
 
             }

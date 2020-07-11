@@ -41,8 +41,8 @@ public class MapController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        selectB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
-        volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
+        selectB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
+        volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
 
         selectB.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -84,7 +84,7 @@ public class MapController implements Initializable {
 
         int a = 1;
         int b = 1;
-        
+        /*
         if(!Geo.getCoordenadasFile().exists()){
             try {
                 Geo.getGeo();
@@ -94,7 +94,7 @@ public class MapController implements Initializable {
                 Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
+*/
 
         while (a == 1) {
 
