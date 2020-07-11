@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +31,6 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javax.swing.ImageIcon;
 
 import javax.swing.JFrame;
 
@@ -97,10 +95,15 @@ public class Mapa1 {
         volverB.setPrefSize(90, 25);
         crearVistaB.setPrefSize(90, 25);
 
-        //crearVistaB.setStyle("-fx-background-color: rgba(102, 0, 0, 100");
         crearVistaB.setTextFill(Color.WHITE);
-        //Image fondo;
-        //System.out.println(Mapa1.class.getResource("Pedrosky.png").getFile().toString());
+        volverB.setTextFill(Color.WHITE);
+
+       // crearVistaB.setStyle("-fx-font-size: 2em;");
+        //volverB.setStyle("-fx-font-size: 2em;");//-fx-font-size:8;-fx-font: 16 Sitka Banner;
+        
+        crearVistaB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
+        volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
+        
         BackgroundImage img = new BackgroundImage(new Image("/image/Pedrosky.png", true), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         Background background = new Background(img);
         root.setBackground(background);
