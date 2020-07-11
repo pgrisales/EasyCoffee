@@ -148,8 +148,6 @@ public class Mapa1 {
             }
         });
 
-        /*Parent view = FXMLLoader.load(Mapa1.class.getResource("../fxml/MenuMap.fxml"));//Map
-        Scene viewSc = new Scene(view);*/
         root.setVisible(true);
         root.getChildren().add(volverB);
         root.getChildren().add(crearVistaB);

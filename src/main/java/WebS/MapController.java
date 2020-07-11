@@ -40,6 +40,9 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        selectB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
+        volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
 
         selectB.setOnAction(new EventHandler<ActionEvent>() {
             @Override

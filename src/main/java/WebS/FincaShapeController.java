@@ -79,9 +79,10 @@ public class FincaShapeController implements Initializable {
         Background background = new Background(img);
         root.setBackground(background);
 
-        /*saveB.setStyle("-fx-background-color: rgba(102, 0, 0, 100);");
-        volverB.setStyle("-fx-background-color: rgba(102, 0, 0, 100);");
-        eraseB.setStyle("-fx-background-color: rgba(102, 0, 0, 100);");*/
+        saveB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
+        volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
+        eraseB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0)");
+        
         canvasP.setOnMouseClicked(e -> {
             drawline(clicks, e);
         });
