@@ -47,10 +47,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         Image fondo = new ImageIcon(getClass().getResource("/image/Pedrosky.png")).getImage();
     }
     
-    public static File getPcFile(String s){
-        return new File(FramePrincipal.class.getResource(s).getFile());
-    }
-    
     public static void asdf(JPanel pane){
         //JFXPanel
         jPanel127.setVisible(false);

@@ -1,5 +1,6 @@
 package WebS;
 
+import Frontera.FramePrincipal;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.File;
@@ -33,12 +34,13 @@ public class Geo {
 
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                 //URI u = new URI(Geo.class.getClassLoader().getResource("we    b/getCoor.html").toString());
-                File temp = new File(Geo.class.getClassLoader().getResource("web/getCoor.html").toString());
+                //File temp = new File(Geo.class.getClassLoader().getResource("web/getCoor.html").toString());
+                /*File temp = FramePrincipal.getSistem().getWebFiles("getCoor.html");
                 temp.createTempFile("getCoor", ".html");
                 //File temp1 = File.createTempFile(null, ".html", temp);
                 //temp1.deleteOnExit();
                 Desktop.getDesktop().browse(temp.toURI());
-                //Desktop.getDesktop().browse(u);
+                //Desktop.getDesktop().browse(u);*/
                 //Desktop.getDesktop().browse(new File(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath().toString()).toURI());
             }//getClass().getClassLoader().getResource("coordenadasFincaEasyCoffee.txt")
         }

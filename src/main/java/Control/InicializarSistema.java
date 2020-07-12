@@ -110,7 +110,10 @@ public class InicializarSistema {
             System.out.println("-----------------------\n");
             System.exit(2);
         }
-        System.out.println("WebFiles "+this.daoManager.getWebFilesDAO().obtener("FileSaver.js"));
+    }
+    
+    public String getWebFiles(String s){
+        return daoManager.getWebFilesDAO().obtener(s);
     }
 
     public Administrador getAdmin() {
@@ -144,5 +147,7 @@ public class InicializarSistema {
     public ArrayList<Lote> getLotes() {
         return lotes;
     }
+    
+    
 
 }
