@@ -87,7 +87,8 @@ public class InicializarSistema {
                             t.setJornada((ArrayList<Jornada>) daoManager.getJornadaDAO().obtenerTodos(t.getCedula()));
                         }
                         this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
-
+                        this.admin.getFinca().setCoordenadas(daoManager.getFincaDAO().obtenerCoordenadas());
+                        this.admin.getFinca().setShape(daoManager.getFincaDAO().obtenerShape());
                         //Asignando de BD los lotes y los trabajadores
                         this.admin.getFinca().setTrabajadores(trabajadores);
                         this.admin.getFinca().setLotes(lotes);
