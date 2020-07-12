@@ -32,7 +32,7 @@ public class FincaDAO implements DAO<Finca, Integer> {
     public void insertar(Finca f) {
         PreparedStatement stat = null;
         try {
-            stat = conn.prepareStatement(INSERT);
+            stat = conn.prepareStatement("INSERT INTO EASYCOFFEBD.FINCA VALUES (DEFAULT,,?,DEFAULT)");
             stat.setString(1, f.getNombreFinca());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
@@ -48,6 +48,79 @@ public class FincaDAO implements DAO<Finca, Integer> {
                 }
             }
         }
+    }
+
+    public String obtenerCoordenadas() {  //Obtener todos los memos del sistema
+        PreparedStatement stat = null;
+        ResultSet rs = null;
+        String name = null;
+        try {
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.FINCA");
+            rs = stat.executeQuery();
+            String nombre = "";
+            if (rs.next()) {
+                nombre = rs.getString("COORDENADAS_FINCA");
+            } else {
+                System.out.println("no encontrado");
+            }
+            name=rs.getString(2);           
+            
+        } catch (SQLException e) {
+            System.out.println("Error en SQL");
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
+                }
+            }
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
+                }
+            }
+        }
+        return name;
+    }
+    public String obtenerShape() {  //Obtener todos los memos del sistema
+        PreparedStatement stat = null;
+        ResultSet rs = null;
+        String name = null;
+        try {
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.FINCA");
+            rs = stat.executeQuery();
+            String nombre = "";
+            if (rs.next()) {
+                nombre = rs.getString("SHAPE_FINCA");
+            } else {
+                System.out.println("no encontrado");
+            }
+            name=rs.getString(2);           
+            
+        } catch (SQLException e) {
+            System.out.println("Error en SQL");
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
+                }
+            }
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al Intentar cerrar la conexion con H2DB");
+                }
+            }
+        }
+        return name;
     }
 
     @Override
@@ -72,7 +145,49 @@ public class FincaDAO implements DAO<Finca, Integer> {
             }
         }
     }
+    public void modificarCoordenadas(String coor) {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement("UPDATE EASYCOFFEBD.FINCA SET COORDENADAS_FINCA = ? WHERE FIN_IDFINCA = ?");
+            stat.setString(1, coor);
+            stat.setInt(2, 1);
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya modificado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ef) {
+                    ef.printStackTrace();
+                }
+            }
+        }
+    }
 
+    public void modificarShape(String shap) {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement("UPDATE EASYCOFFEBD.FINCA SET SHAPE_FINCA = ? WHERE FIN_IDFINCA = ?");
+            stat.setString(1, shap);
+            stat.setInt(2, 1);
+            if (stat.executeUpdate() == 0) {
+                System.out.println("Puede que no se haya modificado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ef) {
+                    ef.printStackTrace();
+                }
+            }
+        }
+    }
     @Override
     public void eliminar(Finca f) {
         PreparedStatement stat = null;
@@ -94,6 +209,7 @@ public class FincaDAO implements DAO<Finca, Integer> {
             }
         }
     }
+    
 
     @Override
     public List<Finca> obtenerTodos() {

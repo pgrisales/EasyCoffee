@@ -15,12 +15,15 @@ public class Finca {
     private ArrayList<Plaga> plagas;
     private ArrayList<Variedad> variedad;
     private ArrayList<VentaCafe> ventasRegistradas;
+    private String coordenadas;
+    private String shape;
 
     /**
      *
      * @param name
      */
     public Finca(String name) {
+        
         this.auxiliares = new ArrayList<Usuario>();
         this.lotes = new ArrayList<Lote>();
         this.nombreFinca = name;
@@ -28,6 +31,8 @@ public class Finca {
         this.plagas = new ArrayList<Plaga>();
         this.variedad = new ArrayList<Variedad>();
         this.ventasRegistradas = new ArrayList<>();
+        this.coordenadas=null;
+        this.shape=null;
     }
 
     /**
@@ -44,6 +49,22 @@ public class Finca {
      */
     public void setNombreFinca(String nombreFinca) {
         this.nombreFinca = nombreFinca;
+    }
+
+    public String getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setCoordenadas(String coordenadas) {
+        this.coordenadas = coordenadas;
+    }
+
+    public String getShape() {
+        return shape;
+    }
+
+    public void setShape(String shape) {
+        this.shape = shape;
     }
 
     /**
