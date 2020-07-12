@@ -72,6 +72,7 @@ public class Mapa1 {
         });
 
         System.out.println("SE INICIO EL PANEL");
+        
     }
 
     public static JFXPanel fx() {

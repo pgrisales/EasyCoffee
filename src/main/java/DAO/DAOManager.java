@@ -26,6 +26,7 @@ public class DAOManager {
     private PlagaDAO plagas = null;
     private VariedadDAO variedad = null;
     private InsumoDAO insumos = null;
+    private WebFilesDAO WebFiles=null;
 
 //    database :  "jdbc:derby://localhost:1527/easycoffebd" Username: "root" Password: "admin"
     public DAOManager() {
@@ -41,6 +42,12 @@ public class DAOManager {
             permisos = new PermisosDAO(conn);
         }
         return permisos;
+    }
+    public WebFilesDAO getWebFilesDAO() {
+        if (WebFiles == null) {
+            WebFiles = new WebFilesDAO(conn);
+        }
+        return WebFiles;
     }
 
     public VariedadDAO getVariedadDAO() {

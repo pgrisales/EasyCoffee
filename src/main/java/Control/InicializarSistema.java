@@ -110,6 +110,7 @@ public class InicializarSistema {
             System.out.println("-----------------------\n");
             System.exit(2);
         }
+        System.out.println("WebFiles "+this.daoManager.getWebFilesDAO().obtener("FileSaver.js"));
     }
 
     public Administrador getAdmin() {
