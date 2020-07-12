@@ -352,6 +352,7 @@ public class AgregarAuxiliar extends javax.swing.JPanel {
                 Logger.getLogger(AgregarAuxiliar.class.getName()).log(Level.SEVERE, null, ex);
             }
             FramePrincipal.getSistem().getUsers().add(a);
+            FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares().add(a);
             FramePrincipal.cambiarPanel376(new AgregarAuxiliar());
         } else {
             switch (error) {

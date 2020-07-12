@@ -29,12 +29,17 @@ public class WebFileDao {
         ResultSet rs = null;
         String file = null;
         try {
-            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.WEBFILES WHERE WEBFILES.WEBFILE_NAME = '?'");
-            stat.setString(1, fileName);
+            
+            stat = conn.prepareStatement("SELECT * FROM EASYCOFFEBD.WEBFILES WHERE WEBFILES.WEBFILE_NAME = '"+fileName+"'");
             rs = stat.executeQuery();
-            System.out.println(stat);
-            System.out.println(rs);
-            file = rs.getString("WEBFILE_NAME");
+            String nombre = "";
+            if (rs.next()) {
+                nombre = rs.getString("WEBFILE_NAME");
+                System.out.println(nombre);
+            } else {
+                System.out.println("no encontrado");
+            }
+            
             
         } catch (SQLException e) {
             System.out.println("Error en SQL");
