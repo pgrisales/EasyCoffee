@@ -38,6 +38,7 @@ import javafx.scene.shape.StrokeLineJoin;
 import javafx.scene.shape.StrokeType;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 /**
  * @author GAR
@@ -143,8 +144,6 @@ public class FincaShapeController implements Initializable {
         r.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),lote));
-                //FramePrincipal.mapPanel().setVisible(false);
                 System.out.println(lote);
                 verLote(lote);
             }
@@ -153,9 +152,9 @@ public class FincaShapeController implements Initializable {
 
     public void verLote(int lote) {
         UIManager UI = new UIManager();
-        UI.put("OptionPane.background", new Color(0.8, 0.7, 0.2, 1));
-        UI.put("Panel.background", Color.RED);
-        JOptionPane.showConfirmDialog(null, new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(), lote));
+        UI.put("OptionPane.background", new ColorUIResource(51,0,0));//java.awt.Color.GRAY
+        UI.put("Panel.background", new ColorUIResource(51,0,0));
+        JOptionPane.showMessageDialog(null, new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(), lote));
 
     }
 
@@ -253,8 +252,6 @@ public class FincaShapeController implements Initializable {
 
         }
 
-        //ystem.out.println("asdf: "+asdf);
-        //   System.out.println("idx: "+idx.size());
         while (asdf < idx.size()) {
             cells.get(asdf).setFill(initColor);
             asdf++;

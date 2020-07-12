@@ -24,7 +24,6 @@ public class Geo {
     private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("").getPath().toString()+"web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
 
     public static void getGeo() throws URISyntaxException, IOException {
-        System.out.println("hpta puta");
         System.out.println("getgeo: coord " + Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt");
         System.out.println("getgeo: asdf " + Geo.class.getClassLoader().getResource("") + "web/getCoor.html");
         System.out.println("getgeo: ASDFASDF " + new File(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath()).toURI());
