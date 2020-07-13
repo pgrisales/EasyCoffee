@@ -118,7 +118,14 @@ public class InicializarSistema {
     public String getWebFiles(String s){
         return daoManager.getWebFilesDAO().obtener(s);
     }
-
+    public void setCoordenadas(String coordenadas) {
+        daoManager.getFincaDAO().modificarCoordenadas(coordenadas);
+        
+    }
+    public void setShape(String Shape) {
+        daoManager.getFincaDAO().modificarShape(Shape);
+        
+    }
     public Administrador getAdmin() {
         return admin;
     }
