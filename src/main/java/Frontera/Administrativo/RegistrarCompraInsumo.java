@@ -214,7 +214,8 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void registrarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarInsumoActionPerformed
-        double peso = Double.valueOf(cantidadComprada.getText());
+        try {
+            double peso = Double.valueOf(cantidadComprada.getText());
         switch (unidadMedida.getSelectedIndex()) {
             case 0:     //Kgs
                 peso = peso * 1;
@@ -230,6 +231,10 @@ public class RegistrarCompraInsumo extends javax.swing.JPanel {
         i.setIdLote(idLote);
         FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(idLote).addInsumo(i);
         a.addInsumo(i);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ingresar numero!");
+        }
+        
         
         JOptionPane.showMessageDialog(null, "Compra Añadida");
         nombreInsumo.setText("");

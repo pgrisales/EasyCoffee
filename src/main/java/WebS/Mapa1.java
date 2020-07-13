@@ -88,12 +88,12 @@ public class Mapa1 {
     public static Scene createScene() throws IOException {
 
         AnchorPane root = new AnchorPane();
-        Button crearVistaB = new Button("Crear vista");
+        Button crearVistaB = new Button("Descargar Coordenadas");
         Button volverB = new Button("Volver");
         volverB.relocate(326, 256);
         crearVistaB.relocate(467, 256);
-        volverB.setPrefSize(90, 25);
-        crearVistaB.setPrefSize(90, 25);
+        volverB.setPrefSize(110, 25);
+        crearVistaB.setPrefSize(110, 25);
 
        // crearVistaB.setStyle("-fx-font-size: 2em;");
         //volverB.setStyle("-fx-font-size: 2em;");//-fx-font-size:8;-fx-font: 16 Sitka Banner;
@@ -105,10 +105,10 @@ public class Mapa1 {
         Background background = new Background(img);
         root.setBackground(background);
         
-        
+       
         
         crearVistaB.setOnAction(new EventHandler<ActionEvent>() {
-            
+            Button crearVistaB = new Button("Crear vista");
             @Override
             public void handle(ActionEvent event) {
                 try {

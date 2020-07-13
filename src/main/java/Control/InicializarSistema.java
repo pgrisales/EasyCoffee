@@ -1,6 +1,7 @@
 package Control;
 
 import DAO.DAOManager;
+import Frontera.FramePrincipal;
 import WebS.PrecioCafe;
 import com.easycoffee.*;
 import java.io.IOException;
@@ -131,7 +132,7 @@ public class InicializarSistema {
             return admin;
         }
         for (int i = 0; i < this.users.size(); i++) {
-            if (cedula == this.users.get(i).getCedula()) {
+            if (cedula == FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares().get(i).getCedula()) {
                 return this.users.get(i);
             }
         }

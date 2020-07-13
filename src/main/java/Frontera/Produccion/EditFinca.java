@@ -13,26 +13,31 @@ import javax.swing.JPanel;
  * @author Nivektakedown
  */
 public class EditFinca extends javax.swing.JPanel {
+
     private String[] unidades = {"km^2", "m^2", "hec"};
     private int cedula;
+
     public EditFinca(int cedula) {
         initComponents();
-        this.cedula=cedula;
+        this.cedula = cedula;
         name.setText(FramePrincipal.getSistem().getAdmin().getFinca().getNombreFinca());
-        double tamaño=0;
-        for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
-            tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
+        double tamaño = 0;
+        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            tamaño = tamaño + FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
         this.jComboBox1.removeAllItems();
         for (int i = 0; i < unidades.length; i++) {
             jComboBox1.addItem(unidades[i]);
         }
-        if(this.jComboBox1.getSelectedIndex()==0)
-            tam.setText((long)tamaño/1000000+"");
-        if(this.jComboBox1.getSelectedIndex()==1)
-            tam.setText((long)tamaño+"");
-        if(this.jComboBox1.getSelectedIndex()==2)
-            tam.setText((long)tamaño/10000+"");
+        if (this.jComboBox1.getSelectedIndex() == 0) {
+            tam.setText((long) tamaño / 1000000 + "");
+        }
+        if (this.jComboBox1.getSelectedIndex() == 1) {
+            tam.setText((long) tamaño + "");
+        }
+        if (this.jComboBox1.getSelectedIndex() == 2) {
+            tam.setText((long) tamaño / 10000 + "");
+        }
     }
 
     /**
@@ -265,23 +270,32 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_agregarLoteActionPerformed
 
     private void editLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoteActionPerformed
-        FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(),0));
-        agregarLote.setBackground(new Color(102, 0, 0));
-        editLote.setBackground(new Color(152, 51, 0));
-        asignarLoteB.setBackground(new Color(102, 0, 0));
+
+        if (FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size() != 0) {
+            FramePrincipal.cambiarPanel376(new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(), 0));
+            agregarLote.setBackground(new Color(102, 0, 0));
+            editLote.setBackground(new Color(152, 51, 0));
+            asignarLoteB.setBackground(new Color(102, 0, 0));
+        }else{
+            JOptionPane.showMessageDialog(null, "No se han creado lotes");
+        }
+
     }//GEN-LAST:event_editLoteActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        double tamaño=0;
-        for (int i = 0; i <FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
-            tamaño=tamaño+FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
+        double tamaño = 0;
+        for (int i = 0; i < FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size(); i++) {
+            tamaño = tamaño + FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(i).getAreaTotal();
         }
-        if(this.jComboBox1.getSelectedIndex()==0)
-            tam.setText((long)tamaño/1000000+"");
-        if(this.jComboBox1.getSelectedIndex()==1)
-            tam.setText((long)tamaño+"");
-        if(this.jComboBox1.getSelectedIndex()==2)
-            tam.setText((long)tamaño/10000+"");
+        if (this.jComboBox1.getSelectedIndex() == 0) {
+            tam.setText((long) tamaño / 1000000 + "");
+        }
+        if (this.jComboBox1.getSelectedIndex() == 1) {
+            tam.setText((long) tamaño + "");
+        }
+        if (this.jComboBox1.getSelectedIndex() == 2) {
+            tam.setText((long) tamaño / 10000 + "");
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void asignarLoteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarLoteBActionPerformed
@@ -292,21 +306,20 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_asignarLoteBActionPerformed
 
     private void mapBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mapBActionPerformed
-       
+
         JPanel panel = new JPanel();
         panel.setSize(900, 580);
         panel.setBackground(new Color(0, 0, 0, 0));
         panel.add(WebS.Mapa1.fx());
         FramePrincipal.asdf(panel);
-        
+
         /*Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 
             }
         });*/
-        
-        /*SwingUtilities.invokeLater(new Runnable() {
+ /*SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 

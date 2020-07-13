@@ -1,5 +1,6 @@
 package WebS;
 
+import Frontera.FramePrincipal;
 import java.awt.Robot;
 import java.io.File;
 import java.io.IOException;
@@ -80,7 +81,7 @@ public class MapController implements Initializable {
         WebEngine engine = webview.getEngine();
         String coor = "";
         
-        
+        System.out.println(FramePrincipal.getSistem().getAdmin().getFinca().getCoordenadas());
 
         int a = 1;
         int b = 1;

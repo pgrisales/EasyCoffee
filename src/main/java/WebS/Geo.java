@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Scanner;
 import javafx.stage.FileChooser;
 
 /**
@@ -68,15 +69,19 @@ public class Geo {
         //temp.renameTo(new File("coordenadasFincaEasyCoffee.txt"));
         //Geo.class.getClassLoader().getResource("coordenadasFincaEasyCoffee.txt").toString()
         System.out.println("hpta " + Geo.class.getClassLoader().getResource(""));
-        System.out.println(Geo.class.getClassLoader().getResource("") + "coordenadasFincaEasyCoffee.txt");
         String coordenadas = "";
-        FileReader f = new FileReader(temp);
+        /*FileReader f = new FileReader(temp);
         BufferedReader b = new BufferedReader(f);
         while ((coordenadas = b.readLine()) != null) {
-            coordenadas += coordenadas;
+            coordenadas = coordenadas;
         }
-        b.close();
-
+        b.close();*/
+        Scanner myReader = new Scanner(temp);
+      while (myReader.hasNextLine()) {
+        coordenadas = myReader.nextLine();
+      }
+      myReader.close();
+        System.out.println("HPTA PUTA :"+coordenadas);
         
         FramePrincipal.getSistem().getAdmin().getFinca().setCoordenadas(coordenadas);
 

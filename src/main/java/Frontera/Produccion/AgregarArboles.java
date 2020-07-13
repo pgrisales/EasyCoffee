@@ -138,11 +138,15 @@ public class AgregarArboles extends javax.swing.JPanel {
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         if (numArboles.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese cuantos árboles desea agregar");
-
+            
         } else {
+            
             if (Registro.isNumeric(numArboles.getText()) == false) {
-                JOptionPane.showMessageDialog(null, "El número de árboles no se ha digitado de manera correcta, por favor intentelo de nuevo.");
-            } else {
+                JOptionPane.showMessageDialog(this, "El número de árboles no se ha digitado de manera correcta, por favor intentelo de nuevo.");
+            }else if(Integer.parseInt(numArboles.getText()) < 1){
+                 JOptionPane.showMessageDialog(this, "El número de árboles no se ha digitado de manera correcta, por favor intentelo de nuevo.");
+            }else {
+                
                 if (IDlote == -1) {
                     IDlote = FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size();
                 }
@@ -151,6 +155,7 @@ public class AgregarArboles extends javax.swing.JPanel {
                 for (int i = 0; i < Integer.parseInt(numArboles.getText()); i++) {
                     arbolesLote.add(new Arbol(IDlote, true, this.variedad[this.variedadC.getSelectedIndex()], fechas));
                 }
+                numArboles.setText("");
             }
         }
     }//GEN-LAST:event_agregarActionPerformed

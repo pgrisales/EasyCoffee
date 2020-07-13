@@ -501,9 +501,9 @@ public class EditarLote extends javax.swing.JPanel {
 
         JOptionPane.showMessageDialog(this, ventanaArboles);
         this.arboles = ventanaArboles.getArbolesLote();
-//        System.out.println(arboles);
         for (int i = 0; i < arboles.size(); i++) {
             FramePrincipal.getSistem().getAdmin().getFinca().getLotes().get(this.lotesC.getSelectedIndex()).addArbol(arboles.get(i));
+            
         }
         this.lotes = FramePrincipal.getSistem().getAdmin().getFinca().getLotes();
         numArboles.setText(arboles.size() + "");

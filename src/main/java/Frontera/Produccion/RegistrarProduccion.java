@@ -49,19 +49,27 @@ public class RegistrarProduccion extends javax.swing.JPanel {
 
     private boolean validarDatos() {
         boolean b = true;
-        if (trabajadores.getSelectedItem().toString().equals("-Seleccione el trabajador-")) {
-            error = "1";
-            b = false;
-        } else if (lotes.getSelectedItem().toString().equals("-Seleccione el lote-")) {
-            error = "2";
-            b = false;
-        } else if (unidad.getSelectedItem().toString().equals("-")) {
-            error = "3";
-            b = false;
-        } else if (cantidad.getText().equals("")) {
-            error = "4";
-            b = false;
+        try {
+            if (trabajadores.getSelectedItem().toString().equals("-Seleccione el trabajador-")) {
+                error = "1";
+                b = false;
+            } else if (lotes.getSelectedItem().toString().equals("-Seleccione el lote-")) {
+                error = "2";
+                b = false;
+            } else if (unidad.getSelectedItem().toString().equals("-")) {
+                error = "3";
+                b = false;
+            } else if (cantidad.getText().equals("")) {
+                error = "4";
+                b = false;
+            } else if (Integer.parseInt(cantidad.getText()) < 1) {
+                error = "5";
+                b = false;
+            }
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese datos numéricos");
         }
+
         return b;
     }
 
@@ -248,10 +256,16 @@ public class RegistrarProduccion extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "No ha ingresado la cantidad.");
                     break;
                 }
+                case "5": {
+                    JOptionPane.showMessageDialog(null, "Ingrese una cantidad positiva!.");
+                    break;
+                }
             }
         } else {
             float arrobas = 0;
-            switch (unidad.getSelectedItem().toString()) {
+            
+            try {
+                switch (unidad.getSelectedItem().toString()) {
 
                 case "Kg": {
                     arrobas = (float) (Float.parseFloat(cantidad.getText()) / 11.339);
@@ -268,9 +282,13 @@ public class RegistrarProduccion extends javax.swing.JPanel {
             }
             Produccion p = new Produccion();
             p.RegistrarProduccionBD(arrobas, FramePrincipal.sistem.getAdmin().getFinca().getLotes().get(lotes.getSelectedIndex() - 1).getIdLote().intValue(),
-                    FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().get(trabajadores.getSelectedIndex() - 1).getCedula().intValue());
+            FramePrincipal.sistem.getAdmin().getFinca().getTrabajadores().get(trabajadores.getSelectedIndex() - 1).getCedula().intValue());
             JOptionPane.showMessageDialog(null, "Jornada Añadida");
             ingresados = true;
+            } catch (NumberFormatException nfe) {
+        }
+            
+
         }
         if (cedula == FramePrincipal.getSistem().getAdmin().getCedula().intValue()) {
             FramePrincipal.cambiarPanel376(new RegistrarProduccion(cedula));

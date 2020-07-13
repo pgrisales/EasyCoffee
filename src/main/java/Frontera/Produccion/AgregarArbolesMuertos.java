@@ -79,16 +79,21 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("¿Cuántos árboles desea agregar?");
+        jLabel2.setText("¿Cuántos árboles desea eliminar?");
 
         numArboles.setBackground(new java.awt.Color(255, 255, 255));
         numArboles.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         numArboles.setForeground(new java.awt.Color(0, 0, 0));
+        numArboles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numArbolesActionPerformed(evt);
+            }
+        });
 
         agregar.setBackground(new java.awt.Color(102, 0, 0));
         agregar.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
         agregar.setForeground(new java.awt.Color(255, 255, 255));
-        agregar.setText("Agregar");
+        agregar.setText("Eliminar");
         agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarActionPerformed(evt);
@@ -173,14 +178,19 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         if (numArboles.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese cuantos árboles desea agregar");
+            numArboles.setText("");
 
-        } else {
+        }else if(Integer.parseInt(numArboles.getText()) < 1){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese cuantos árboles desea agregar");
+            numArboles.setText("");
+        }else {
             try{
                 if(Integer.parseInt(this.numArboles.getText())>arbolesVivos[this.variedadC.getSelectedIndex()]){
                     JOptionPane.showMessageDialog(null, "La cantidad de árboles que desea ingresar es mayor a la existente para la variedad seleccionada.");
                 }
                 else{
                     matarArboles(Integer.parseInt(this.numArboles.getText()));
+                    numArboles.setText("");
                 }
                 
             }
@@ -192,6 +202,10 @@ public class AgregarArbolesMuertos extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_agregarActionPerformed
+
+    private void numArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numArbolesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numArbolesActionPerformed
     public void numeroArboles() {
         int[] numero = new int[6];
         for (int i = 0; i < this.lote.getArbolesVivos().size(); i++) {
