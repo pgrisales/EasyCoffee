@@ -32,13 +32,8 @@ public class Geo {
         System.out.println("getgeo: ASDFASDF " + new File(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath()).toURI());
         
         if (!coordenadasFile.exists()) {
-        
-            //File file = new File(Geo.class.getClassLoader().getResource("").getFile()+"/web/getCoor.html");//
-            //File file = new File(Geo.class.getClassLoader().getResource("")+"web/getCoor.html");
 
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                //URI u = new URI(Geo.class.getClassLoader().getResource("we    b/getCoor.html").toString());
-                //File temp = new File(Geo.class.getClassLoader().getResource("web/ge.tCoor.html").toString());
                 File saveCoor = null;
                 saveCoor = saveCoor.createTempFile("FileSaver", ".js");
                 BufferedWriter writer = new BufferedWriter(new FileWriter(saveCoor));
@@ -51,20 +46,12 @@ public class Geo {
                 getCoorFile.deleteOnExit();
                 BufferedWriter writer1= new BufferedWriter(new FileWriter(getCoorFile));
                 String s = FramePrincipal.getSistem().getWebFiles("getCoor.html");
-                
-                s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\""+saveCoor.getName()+"\"></script>");
-                System.out.println(s);
+                s = s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\""+saveCoor.getName()+"\"></script>");
                 
                 writer1.write(s);
-                writer1.close();
-                
-                
-                //File temp1 = File.createTempFile(null, ".html", temp);
-                //temp1.deleteOnExit();
+
                 Desktop.getDesktop().browse(getCoorFile.toURI());
-                //Desktop.getDesktop().browse(u);*/
-                //Desktop.getDesktop().browse(new File(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath().toString()).toURI());
-            }//getClass().getClassLoader().getResource("coordenadasFincaEasyCoffee.txt")
+            }
         }
 
     }
