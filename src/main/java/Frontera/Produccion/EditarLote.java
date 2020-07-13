@@ -359,24 +359,28 @@ public class EditarLote extends javax.swing.JPanel {
         if (this.areaLote.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Las casilla de tamaño está vacia, por favor asegurese de rellenarla");
         } else {
-            if (Registro.isNumeric(areaLote.getText()) && Registro.isNumeric(this.frect.getText())) {
-                int area = Integer.parseInt(areaLote.getText());//swe guarda en metros
-                if (jComboBox1.getSelectedIndex() == 0) {
-                    area = area * 1000000;
+                int area = Integer.parseInt(areaLote.getText());
+                if (area>=0) {
+                    if (Registro.isNumeric(areaLote.getText()) && Registro.isNumeric(this.frect.getText())) {//swe guarda en metros
+                    if (jComboBox1.getSelectedIndex() == 0) {
+                        area = area * 1000000;
+                    }
+                    if (jComboBox1.getSelectedIndex() == 2) {
+                        area = area * 10000;
+                    }
+                    lote.setAreaTotal(area);
+                    int frecDesy = Integer.parseInt(this.frect.getText());
+                    if (this.frec.getSelectedIndex() == 1) {
+                        frecDesy = frecDesy * 30;
+                    }
+                    lote.setFrecDesyer(frecDesy);
+                    String fechabonado = fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
+                    lote.setFechaAbonado(fechabonado);
+                    String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
+                    lote.setFechaDesyerbado(fechadesyerbado);
+                } else {
+                    JOptionPane.showMessageDialog(this, "El tamaño del lote o la frecuencia de desyerbado no se ha de manera correcta, por favor intentelo de nuevo.");
                 }
-                if (jComboBox1.getSelectedIndex() == 2) {
-                    area = area * 10000;
-                }
-                lote.setAreaTotal(area);
-                int frecDesy = Integer.parseInt(this.frect.getText());
-                if (this.frec.getSelectedIndex() == 1) {
-                    frecDesy = frecDesy * 30;
-                }
-                lote.setFrecDesyer(frecDesy);
-                String fechabonado = fechaAbonado.getCalendar().get(Calendar.DATE) + "/" + fechaAbonado.getCalendar().get(Calendar.MONTH) + "/" + fechaAbonado.getCalendar().get(Calendar.YEAR);
-                lote.setFechaAbonado(fechabonado);
-                String fechadesyerbado = fechaDesyerbado.getCalendar().get(Calendar.DATE) + "/" + fechaDesyerbado.getCalendar().get(Calendar.MONTH) + "/" + fechaDesyerbado.getCalendar().get(Calendar.YEAR);
-                lote.setFechaDesyerbado(fechadesyerbado);
             } else {
                 JOptionPane.showMessageDialog(this, "El tamaño del lote o la frecuencia de desyerbado no se ha de manera correcta, por favor intentelo de nuevo.");
             }

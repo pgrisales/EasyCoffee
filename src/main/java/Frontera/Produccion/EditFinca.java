@@ -299,10 +299,15 @@ public class EditFinca extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void asignarLoteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarLoteBActionPerformed
+        if (FramePrincipal.getSistem().getAdmin().getFinca().getLotes().size() != 0&&FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares().size() != 0) {
         editLote.setBackground(new Color(102, 0, 0));
         agregarLote.setBackground(new Color(102, 0, 0));
         asignarLoteB.setBackground(new Color(152, 51, 0));
         FramePrincipal.cambiarPanel376(new AsignarLotes());
+        }
+        else{
+             JOptionPane.showMessageDialog(null, "No se han creado lotes o no existen usarios auxiliares.");
+        }
     }//GEN-LAST:event_asignarLoteBActionPerformed
 
     private void mapBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mapBActionPerformed

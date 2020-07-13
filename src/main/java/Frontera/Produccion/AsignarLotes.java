@@ -29,15 +29,15 @@ public class AsignarLotes extends javax.swing.JPanel {
     public AsignarLotes() {
         initComponents();
         usuariosC.removeAllItems();
-        if (FramePrincipal.getSistem().getUsers() != null) {
-            for (Usuario u : FramePrincipal.getSistem().getUsers()) {
+        if (FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares() != null) {
+            for (Usuario u : FramePrincipal.getSistem().getAdmin().getFinca().getAuxiliares()) {
                 usuariosC.addItem(u.getNombre() + " " + u.getApellido());
                 usuarios.add(u);
             }
         }
         lotesC.removeAll();
-        if (FramePrincipal.getSistem().getLotes() != null) {
-            for (Lote l : FramePrincipal.getSistem().getLotes()) {
+        if (FramePrincipal.getSistem().getAdmin().getFinca().getLotes() != null) {
+            for (Lote l : FramePrincipal.getSistem().getAdmin().getFinca().getLotes()) {
                 System.out.println(l.getIdLote());
                 modL.addElement(Long.toString(l.getIdLote()));
             }
