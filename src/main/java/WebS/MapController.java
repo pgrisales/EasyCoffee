@@ -86,31 +86,9 @@ public class MapController implements Initializable {
         int a = 1;
         int b = 1;
         
-        
-        if(Geo.getCoordenadas() == null){
-            try {
-                Geo.getGeo();
-            } catch (IOException ex) {
-                Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
 
         
         while (a == 1) {
-
-            if (Geo.getCoordenadas() == null) {
-                while (b == 1) {
-                    try {
-                        Geo.getCoorFile();
-                    } catch (IOException ex) {
-                        Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    b++;
-                }
-
-            }
 
             if (Geo.getCoordenadas() != null) {
                 String coord = "";
