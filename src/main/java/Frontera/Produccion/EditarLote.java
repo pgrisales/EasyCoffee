@@ -386,6 +386,7 @@ public class EditarLote extends javax.swing.JPanel {
             }
         }
         FramePrincipal.cambiarPanel127(new EditFinca(1));
+        
     }//GEN-LAST:event_saveActionPerformed
     public void setCAlendar() {
         String s = lote.getFechaAbonado();
