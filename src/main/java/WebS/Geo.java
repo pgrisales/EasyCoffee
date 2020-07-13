@@ -1,17 +1,17 @@
 package WebS;
 
+
 import Frontera.FramePrincipal;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.stage.FileChooser;
 
 /**
@@ -26,32 +26,36 @@ public class Geo {
     private static String coordenadas;
     private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("").getPath().toString() + "web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
 
-    public static void getGeo() throws URISyntaxException, IOException {
-        /*
-        System.out.println("getgeo: coord " + Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt");
-        System.out.println("getgeo: asdf " + Geo.class.getClassLoader().getResource("") + "web/getCoor.html");
-        System.out.println("getgeo: ASDFASDF " + new File(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath()).toURI());
-        */
+    public static void getGeo() throws IOException, URISyntaxException {
+        
         if (!coordenadasFile.exists()) {
 
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                File saveCoor = null;
+                /*File saveCoor = null;
                 saveCoor = saveCoor.createTempFile("FileSaver", ".js");
-                BufferedWriter writer = new BufferedWriter(new FileWriter(saveCoor));
-                writer.write(FramePrincipal.getSistem().getWebFiles("FileSaver.js"));
+                //BufferedWriter writer = new BufferedWriter(new FileWriter(saveCoor, true));
+                //writer.write(FramePrincipal.getSistem().getWebFiles("FileSaver.js"));
                 
-                writer.close();
+                //writer.close();
                 
                 File getCoorFile = null;
                 getCoorFile = getCoorFile.createTempFile("getCoor", ".html");
                 getCoorFile.deleteOnExit();
-                BufferedWriter writer1= new BufferedWriter(new FileWriter(getCoorFile));
-                String s = FramePrincipal.getSistem().getWebFiles("getCoor.html");
-                s = s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\""+saveCoor.getName()+"\"></script>");
+                System.out.println(getCoorFile.exists());
+                 //BufferedWriter writer1= new BufferedWriter(new FileWriter(getCoorFile, true));
+                //String s = FramePrincipal.getSistem().getWebFiles("getCoor.html");
+                //s = s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\""+saveCoor.getName()+"\"></script>");
                 
-                writer1.write(s);
-                writer1.close();
-                Desktop.getDesktop().browse(getCoorFile.toURI());
+                //writer1.write(s);
+                //writer1.close();
+               // System.out.println(s);
+                System.out.println(getCoorFile.toURI());*/
+                
+                
+                
+                
+                URI u = new URI(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath().toString());
+                Desktop.getDesktop().browse(u);
             }
         }
 

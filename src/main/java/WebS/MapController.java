@@ -88,14 +88,12 @@ public class MapController implements Initializable {
         if(!Geo.getCoordenadasFile().exists()){
             try {
                 Geo.getGeo();
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
                 Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
-        
+        /*
         while (a == 1) {
 
             if (!Geo.getCoordenadasFile().exists()) {
@@ -125,7 +123,7 @@ public class MapController implements Initializable {
                 System.out.println(a);
                 break;
             }
-        }
+        }*/
     }
 
 }
