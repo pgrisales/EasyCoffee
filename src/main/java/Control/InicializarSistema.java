@@ -88,6 +88,7 @@ public class InicializarSistema {
                         }
                         this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
                         this.admin.getFinca().setCoordenadas(daoManager.getFincaDAO().obtenerCoordenadas());
+                        System.out.println("coor "+this.admin.getFinca().getCoordenadas());
                         this.admin.getFinca().setShape(daoManager.getFincaDAO().obtenerShape());
                         //Asignando de BD los lotes y los trabajadores
                         this.admin.getFinca().setTrabajadores(trabajadores);

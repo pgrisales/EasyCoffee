@@ -32,7 +32,7 @@ public class FincaDAO implements DAO<Finca, Integer> {
     public void insertar(Finca f) {
         PreparedStatement stat = null;
         try {
-            stat = conn.prepareStatement("INSERT INTO EASYCOFFEBD.FINCA VALUES (DEFAULT,,?,DEFAULT)");
+            stat = conn.prepareStatement(INSERT);
             stat.setString(1, f.getNombreFinca());
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya guardado");
@@ -59,11 +59,12 @@ public class FincaDAO implements DAO<Finca, Integer> {
             rs = stat.executeQuery();
             String nombre = "";
             if (rs.next()) {
-                nombre = rs.getString("COORDENADAS_FINCA");
+                name = rs.getString("COORDENADAS_FINCA");
+                System.out.println("coor "+nombre);
             } else {
                 System.out.println("no encontrado");
             }
-            name=rs.getString(2);           
+            //name=rs.getString(2);           
             
         } catch (SQLException e) {
             System.out.println("Error en SQL");
@@ -95,11 +96,11 @@ public class FincaDAO implements DAO<Finca, Integer> {
             rs = stat.executeQuery();
             String nombre = "";
             if (rs.next()) {
-                nombre = rs.getString("SHAPE_FINCA");
+                name = rs.getString("SHAPE_FINCA");
             } else {
                 System.out.println("no encontrado");
             }
-            name=rs.getString(2);           
+            //name=rs.getString(2);           
             
         } catch (SQLException e) {
             System.out.println("Error en SQL");
