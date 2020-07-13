@@ -27,10 +27,11 @@ public class Geo {
     private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("").getPath().toString() + "web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
 
     public static void getGeo() throws URISyntaxException, IOException {
+        /*
         System.out.println("getgeo: coord " + Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt");
         System.out.println("getgeo: asdf " + Geo.class.getClassLoader().getResource("") + "web/getCoor.html");
         System.out.println("getgeo: ASDFASDF " + new File(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath()).toURI());
-        
+        */
         if (!coordenadasFile.exists()) {
 
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
@@ -49,7 +50,7 @@ public class Geo {
                 s = s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\""+saveCoor.getName()+"\"></script>");
                 
                 writer1.write(s);
-
+                writer1.close();
                 Desktop.getDesktop().browse(getCoorFile.toURI());
             }
         }

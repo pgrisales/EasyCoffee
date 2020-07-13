@@ -95,7 +95,7 @@ public class MapController implements Initializable {
             }
         }
 
-
+        
         while (a == 1) {
 
             if (!Geo.getCoordenadasFile().exists()) {
