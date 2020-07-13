@@ -123,6 +123,7 @@ public class Mapa1 {
                         }
                         state++;
                     } else {
+                        Button crearVistaB = new Button("Seleccionar coordenadas");
                         try {
                             Geo.getCoorFile();
                         } catch (IOException ex) {
@@ -132,7 +133,6 @@ public class Mapa1 {
 
                 } else {
                     Button crearVistaB = new Button("Crear vista");
-
                     try {
 
                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Map.fxml"));

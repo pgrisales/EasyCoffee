@@ -146,12 +146,11 @@ public class FincaDAO implements DAO<Finca, Integer> {
             }
         }
     }
-    public void modificarCoordenadas(String coor) {
+public void modificarCoordenadas(String coor) {
         PreparedStatement stat = null;
         try {
-            stat = conn.prepareStatement("UPDATE EASYCOFFEBD.FINCA SET COORDENADAS_FINCA = ? WHERE FIN_IDFINCA = ?");
+            stat = conn.prepareStatement("UPDATE EASYCOFFEBD.FINCA SET COORDENADAS_FINCA = ?");
             stat.setString(1, coor);
-            stat.setInt(2, 1);
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya modificado");
             }
@@ -168,12 +167,13 @@ public class FincaDAO implements DAO<Finca, Integer> {
         }
     }
 
+
     public void modificarShape(String shap) {
         PreparedStatement stat = null;
         try {
-            stat = conn.prepareStatement("UPDATE EASYCOFFEBD.FINCA SET SHAPE_FINCA = ? WHERE FIN_IDFINCA = ?");
+            stat = conn.prepareStatement("UPDATE EASYCOFFEBD.FINCA SET SHAPE_FINCA = ? ");
             stat.setString(1, shap);
-            stat.setInt(2, 1);
+
             if (stat.executeUpdate() == 0) {
                 System.out.println("Puede que no se haya modificado");
             }

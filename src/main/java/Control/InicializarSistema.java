@@ -25,7 +25,7 @@ public class InicializarSistema {
     private ArrayList<Memo> memosUser = null;
 
     public InicializarSistema() {
-
+        
         Thread pcafe = new Thread() {
             public void run() {
                 try {
@@ -88,12 +88,16 @@ public class InicializarSistema {
                             t.setJornada((ArrayList<Jornada>) daoManager.getJornadaDAO().obtenerTodos(t.getCedula()));
                         }
                         this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
+                        System.out.println("ASDFASDF"+daoManager.getFincaDAO().obtenerShape() );
                         if(daoManager.getFincaDAO().obtenerShape()!=null)
                             this.admin.getFinca().setShape(daoManager.getFincaDAO().obtenerShape());
                         //Asignando de BD los lotes y los trabajadores
+                        System.out.println("ASDFASDF "+daoManager.getFincaDAO().obtenerCoordenadas());
                         if(daoManager.getFincaDAO().obtenerCoordenadas()!=null)
                             this.admin.getFinca().setCoordenadas(daoManager.getFincaDAO().obtenerCoordenadas());
-                        this.admin.getFinca().setTrabajadores(trabajadores);
+                        
+                        System.out.println("ASDFASDFASDFFGSDFGADFG");
+                        this.admin.getFinca()   .setTrabajadores(trabajadores);
                         this.admin.getFinca().setLotes(lotes);
                         for (Lote l : this.admin.getFinca().getLotes()) {
                             l.setArbolesVivos((ArrayList<Arbol>) daoManager.getArbolDAO().obtenerTodos(l));

@@ -41,7 +41,7 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         selectB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
         volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
 
@@ -65,7 +65,7 @@ public class MapController implements Initializable {
                 }
             }
         });
-        
+
         volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -74,33 +74,22 @@ public class MapController implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                    
+
             }
         });
 
         WebEngine engine = webview.getEngine();
         String coor = "";
-        
+
         System.out.println(FramePrincipal.getSistem().getAdmin().getFinca().getCoordenadas());
 
-        int a = 1;
-        int b = 1;
-        
-
-        
-        while (a == 1) {
-
-            if (Geo.getCoordenadas() != null) {
-                String coord = "";
-                coord = Geo.getCoordenadas();
-                String data = Geo.getMapUrl() + coord + "," + "17z";
-                System.out.println(data);
-                engine.load(data);
-                System.out.println(coord);
-                a = 22;
-                System.out.println(a);
-                break;
-            }
+        if (Geo.getCoordenadas() != null) {
+            String coord = "";
+            coord = Geo.getCoordenadas();
+            String data = Geo.getMapUrl() + coord + "," + "17z";
+            System.out.println(data);
+            engine.load(data);
+            System.out.println(coord);
         }
     }
 

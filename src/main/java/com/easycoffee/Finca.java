@@ -58,18 +58,11 @@ public class Finca {
 
     public void setCoordenadas(String coordenadas) {
         this.coordenadas = coordenadas;
-        FramePrincipal.getSistem().setCoordenadas(coordenadas);
-    }
-    public void setCoordenadasD(String coordenadas) {
-        FramePrincipal.getSistem().setCoordenadas(coordenadas);
     }
     public String getShape() {
         return shape;
         
     }
-     public void setShapeD(String shape){
-         FramePrincipal.getSistem().setShape(shape);
-     }
     public void setShape(String shape) {
         this.shape = shape;
     }

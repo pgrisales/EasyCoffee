@@ -65,17 +65,8 @@ public class Geo {
                 new FileChooser.ExtensionFilter("TXT", "*.txt")
         );
         File temp = fileChooser.showOpenDialog(null);
-        //temp.renameTo(new File(Geo.class.getResource("scoordenadasFincaEasyCoffee.txt").toString()));
-        //temp.renameTo(new File("coordenadasFincaEasyCoffee.txt"));
-        //Geo.class.getClassLoader().getResource("coordenadasFincaEasyCoffee.txt").toString()
         System.out.println("hpta " + Geo.class.getClassLoader().getResource(""));
         String coordenadas = "";
-        /*FileReader f = new FileReader(temp);
-        BufferedReader b = new BufferedReader(f);
-        while ((coordenadas = b.readLine()) != null) {
-            coordenadas = coordenadas;
-        }
-        b.close();*/
         Scanner myReader = new Scanner(temp);
       while (myReader.hasNextLine()) {
         coordenadas = myReader.nextLine();
@@ -84,24 +75,9 @@ public class Geo {
         System.out.println("HPTA PUTA :"+coordenadas);
         
         FramePrincipal.getSistem().getAdmin().getFinca().setCoordenadas(coordenadas);
-
+        FramePrincipal.getSistem().setCoordenadas(coordenadas);
     }
-/*
-    public static String getCoor() throws IOException, InterruptedException, URISyntaxException {
-        BufferedReader br = new BufferedReader(new FileReader(coordenadasFile));
 
-        String it = "";
-        while ((it = br.readLine()) != null) {
-            String[] coor = it.split(",");
-            uLat = coor[0];
-            uLon = coor[1];
-            coordenadas = uLat + "," + uLon;
-        }
-
-        System.out.println("lat: " + uLat);
-        System.out.println("lon: " + uLon);
-        return coordenadas;
-    }*/
 
     public static String getMapUrl() {
         return mapUrl;
