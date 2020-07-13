@@ -5,7 +5,6 @@ import Frontera.FramePrincipal;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -24,38 +23,35 @@ public class Geo {
     private static String uLat;
     private static String uLon;
     private static String coordenadas;
-    private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("").getPath().toString() + "web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
+    private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
 
     public static void getGeo() throws IOException, URISyntaxException {
         
         if (!coordenadasFile.exists()) {
 
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                /*File saveCoor = null;
+                File saveCoor = null;
                 saveCoor = saveCoor.createTempFile("FileSaver", ".js");
-                //BufferedWriter writer = new BufferedWriter(new FileWriter(saveCoor, true));
-                //writer.write(FramePrincipal.getSistem().getWebFiles("FileSaver.js"));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(saveCoor, true));
+                writer.write(FramePrincipal.getSistem().getWebFiles("FileSaver.js"));
                 
-                //writer.close();
+                writer.close();
                 
                 File getCoorFile = null;
                 getCoorFile = getCoorFile.createTempFile("getCoor", ".html");
                 getCoorFile.deleteOnExit();
                 System.out.println(getCoorFile.exists());
-                 //BufferedWriter writer1= new BufferedWriter(new FileWriter(getCoorFile, true));
-                //String s = FramePrincipal.getSistem().getWebFiles("getCoor.html");
-                //s = s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\""+saveCoor.getName()+"\"></script>");
+                BufferedWriter writer1= new BufferedWriter(new FileWriter(getCoorFile, true));
+                String s = FramePrincipal.getSistem().getWebFiles("getCoor.html");
+                s = s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\""+saveCoor.getName()+"\"></script>");
                 
-                //writer1.write(s);
-                //writer1.close();
-               // System.out.println(s);
-                System.out.println(getCoorFile.toURI());*/
+                writer1.write(s);
+                writer1.close();
+                System.out.println(s);
+                System.out.println(getCoorFile.toURI());
+                Desktop.getDesktop().browse(getCoorFile.toURI());
                 
                 
-                
-                
-                URI u = new URI(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath().toString());
-                Desktop.getDesktop().browse(u);
             }
         }
 
@@ -77,7 +73,7 @@ public class Geo {
         //Geo.class.getClassLoader().getResource("coordenadasFincaEasyCoffee.txt").toString()
         System.out.println("hpta " + Geo.class.getClassLoader().getResource(""));
         System.out.println(Geo.class.getClassLoader().getResource("") + "coordenadasFincaEasyCoffee.txt");
-        temp.renameTo(new File(Geo.class.getClassLoader().getResource("").getPath().toString() + "web/coordenadasFincaEasyCoffee.txt"));
+        temp.renameTo(new File(Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt"));
         System.out.println(coordenadasFile.exists());
     }
 

@@ -85,15 +85,18 @@ public class MapController implements Initializable {
         int a = 1;
         int b = 1;
         
+        
         if(!Geo.getCoordenadasFile().exists()){
             try {
                 Geo.getGeo();
             } catch (IOException ex) {
                 Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
-        /*
+        
         while (a == 1) {
 
             if (!Geo.getCoordenadasFile().exists()) {
@@ -123,7 +126,7 @@ public class MapController implements Initializable {
                 System.out.println(a);
                 break;
             }
-        }*/
+        }
     }
 
 }
