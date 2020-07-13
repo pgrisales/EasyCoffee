@@ -85,6 +85,8 @@ public class FincaShapeController implements Initializable {
         eraseB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
 
         if (FramePrincipal.getSistem().getAdmin().getFinca().getShape() != null) {
+
+            System.out.println("CARGANDO VISTA AEREA ..............");
             saveB.setVisible(false);
             eraseB.setText("Editar");
 
@@ -119,60 +121,90 @@ public class FincaShapeController implements Initializable {
                 }
             });
 
-        }
+            eraseB.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    shape.clear();
+                    cShape.clear();
+                    fincaCells.clear();
+                    idLote = 0;
+                    canvasP.getChildren().clear();
+                    FramePrincipal.getSistem().getAdmin().getFinca().setShape(null);
+                    FramePrincipal.getSistem().setShape(null);
+                    canvasP.setOnMouseClicked(e -> {
+                        drawline(clicks, e);
+                    });
+                    saveB.setVisible(true);
+                    saveB.setOnMouseClicked(e -> {
+                        previewShape(shape);
+                        canvasP.setOnMouseClicked(null);
+                        saveB.setVisible(false);
+                        fillFinca();
+                        shape.clear();
+                        cShape.clear();
+                        fincaCells.clear();
+                        idLote = 0;
 
-        canvasP.setOnMouseClicked(e -> {
-            drawline(clicks, e);
-        });
-
-        saveB.setOnMouseClicked(e -> {
-            previewShape(shape);
-            canvasP.setOnMouseClicked(null);
-            saveB.setVisible(false);
-            fillFinca();
-            shape.clear();
-            cShape.clear();
-            fincaCells.clear();
-            idLote = 0;
-
-        });
-
-        eraseB.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                shape.clear();
-                cShape.clear();
-                fincaCells.clear();
-                idLote = 0;
-                canvasP.getChildren().clear();
-                canvasP.setOnMouseClicked(e -> {
-                    drawline(clicks, e);
-                });
-                saveB.setVisible(true);
-            }
-        });
-
-        volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-                shape.clear();
-                cShape.clear();
-                fincaCells.clear();
-                idLote = 0;
-                canvasP.getChildren().clear();
-                try {
-                    //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
-                    Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Map.fxml"));
-                    Scene viewSc = new Scene(view);
-                    //Mapa.fxContainer.setScene(viewSc);
-                    Mapa1.cambiarSc(viewSc);
-                } catch (IOException ex) {
-                    Logger.getLogger(FincaShapeController.class.getName()).log(Level.SEVERE, null, ex);
+                    });
                 }
+            });
 
-            }
-        });
+        } else {//////////NO SHAPE IN DB !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            canvasP.setOnMouseClicked(e -> {
+                drawline(clicks, e);
+            });
+
+            saveB.setOnMouseClicked(e -> {
+                previewShape(shape);
+                canvasP.setOnMouseClicked(null);
+                saveB.setVisible(false);
+                fillFinca();
+                shape.clear();
+                cShape.clear();
+                fincaCells.clear();
+                idLote = 0;
+
+            });
+
+            eraseB.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    shape.clear();
+                    cShape.clear();
+                    fincaCells.clear();
+                    idLote = 0;
+                    canvasP.getChildren().clear();
+                    FramePrincipal.getSistem().getAdmin().getFinca().setShape(null);
+                    FramePrincipal.getSistem().setShape(null);
+                    canvasP.setOnMouseClicked(e -> {
+                        drawline(clicks, e);
+                    });
+                    saveB.setVisible(true);
+                }
+            });
+
+            volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+                    shape.clear();
+                    cShape.clear();
+                    fincaCells.clear();
+                    idLote = 0;
+                    canvasP.getChildren().clear();
+                    try {
+                        //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
+                        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Map.fxml"));
+                        Scene viewSc = new Scene(view);
+                        //Mapa.fxContainer.setScene(viewSc);
+                        Mapa1.cambiarSc(viewSc);
+                    } catch (IOException ex) {
+                        Logger.getLogger(FincaShapeController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+            });
+        }
 
     }
 
