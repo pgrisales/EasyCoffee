@@ -83,7 +83,44 @@ public class FincaShapeController implements Initializable {
         saveB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
         volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
         eraseB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
-        
+
+        if (FramePrincipal.getSistem().getAdmin().getFinca().getShape() != null) {
+            saveB.setVisible(false);
+            eraseB.setText("Editar");
+
+            String s = FramePrincipal.getSistem().getAdmin().getFinca().getShape();
+            String[] b = s.split(",");
+            Polyline temp = new Polyline();
+            for (int i = 0; i < b.length; i++) {
+                temp.getPoints().add(Double.valueOf(b[i]));
+            }
+            bFinca = temp;
+            drawline2(b);
+            fillFinca();
+
+            volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    shape.clear();
+                    cShape.clear();
+                    fincaCells.clear();
+                    idLote = 0;
+                    canvasP.getChildren().clear();
+                    try {
+                        //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
+                        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Map.fxml"));
+                        Scene viewSc = new Scene(view);
+                        //Mapa.fxContainer.setScene(viewSc);
+                        Mapa1.cambiarSc(viewSc);
+                    } catch (IOException ex) {
+                        Logger.getLogger(FincaShapeController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+            });
+
+        }
+
         canvasP.setOnMouseClicked(e -> {
             drawline(clicks, e);
         });
@@ -112,14 +149,18 @@ public class FincaShapeController implements Initializable {
                     drawline(clicks, e);
                 });
                 saveB.setVisible(true);
-                //canvasP.setVisible(false);
             }
         });
 
         volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
             @Override
             public void handle(MouseEvent event) {
-                
+                shape.clear();
+                cShape.clear();
+                fincaCells.clear();
+                idLote = 0;
+                canvasP.getChildren().clear();
                 try {
                     //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
                     Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Map.fxml"));
@@ -152,8 +193,8 @@ public class FincaShapeController implements Initializable {
 
     public void verLote(int lote) {
         UIManager UI = new UIManager();
-        UI.put("OptionPane.background", new ColorUIResource(51,0,0));//java.awt.Color.GRAY
-        UI.put("Panel.background", new ColorUIResource(51,0,0));
+        UI.put("OptionPane.background", new ColorUIResource(51, 0, 0));//java.awt.Color.GRAY
+        UI.put("Panel.background", new ColorUIResource(51, 0, 0));
         JOptionPane.showMessageDialog(null, new EditarLote(FramePrincipal.getSistem().getAdmin().getFinca().getLotes(), lote));
 
     }
@@ -182,23 +223,9 @@ public class FincaShapeController implements Initializable {
         }
 
         boundsFinca.setFill(Color.BLACK);
-        /*grid.setOpacity(1);
-        grid.setShape(boundsFinca);
-        grid.setVisible(true);
-        grid.setGridLinesVisible(true);
-        for (int i = 0; i < nCols; i++) {
-            ColumnConstraints column = new ColumnConstraints(100/nCols);
-            grid.getColumnConstraints().add(column);
-        }
-        
-        for(int j = 0; j < nRows; j++){
-            RowConstraints row = new RowConstraints(100/nRows);
-            grid.getRowConstraints().add(row);
-        }*/
         Button b = new Button();
 
         ArrayList idx = new ArrayList<Integer>();
-        //ArrayList indJ = new ArrayList<Integer>();
 
         for (int i = 0; i < nCols; i++) {
             for (int j = 0; j < nRows; j++) {
@@ -242,11 +269,8 @@ public class FincaShapeController implements Initializable {
             }
             double sLote = (((areaLote / 1000) * 100) / (sumA / 1000));
             double nShapes = (sLote * cells.size()) / 100;
-            //piezas.add(nShapes);
             for (int j = 0; j < nShapes; j++) {
-
                 defColor(i, cells.get((int) idx.get(asdf)));
-
                 asdf++;
             }
 
@@ -270,7 +294,7 @@ public class FincaShapeController implements Initializable {
             a++;
         }
     }
-    
+
     public void fillFinca() {
         double minX = bFinca.getBoundsInLocal().getMinX();
         double minY = bFinca.getBoundsInLocal().getMinY();
@@ -316,6 +340,9 @@ public class FincaShapeController implements Initializable {
         Line line2 = new Line();
         Polyline pol = new Polyline();
         int size = shape.size();
+
+        String polybd = "";
+
         for (int i = 0; i < size; i += 4) {
             line1 = new Line((double) shape.get(i % size), (double) shape.get((i + 1) % size), (double) shape.get((i + 2) % size), (double) shape.get((i + 3) % size));
             line2 = new Line((double) shape.get((i + 2) % size), (double) shape.get((i + 3) % size), (double) shape.get((i + 4) % size), (double) shape.get((i + 5) % size));
@@ -329,10 +356,40 @@ public class FincaShapeController implements Initializable {
             pol.getPoints().add((double) shape.get((i + 3) % size));
             pol.getPoints().add((double) shape.get((i + 4) % size));
             pol.getPoints().add((double) shape.get((i + 5) % size));
-            
+
+            //LO AÑADE polydb A DB
+            polybd += String.valueOf((double) shape.get(i % size)) + ",";
+            polybd += String.valueOf((double) shape.get((i + 1) % size) + ",");
+            polybd += String.valueOf((double) shape.get((i + 2) % size) + ",");
+            polybd += String.valueOf((double) shape.get((i + 3) % size) + ",");
+
+            polybd += String.valueOf((double) shape.get((i + 2) % size) + ",");
+            polybd += String.valueOf((double) shape.get((i + 3) % size) + ",");
+            polybd += String.valueOf((double) shape.get((i + 4) % size) + ",");
+            polybd += String.valueOf((double) shape.get((i + 5) % size) + ",");
+
             bFinca = pol;
             //finca.getChildren().add(line1);
             //finca.getChildren().add(line2);
+
+        }
+        System.out.println(polybd);
+        FramePrincipal.getSistem().getAdmin().getFinca().setShape(polybd);
+        FramePrincipal.getSistem().setShape(polybd);
+    }
+
+    public void drawline2(String[] s) {
+        Line line;
+        for (int i = 0; i < s.length; i += 2) {
+            line = new Line(Double.valueOf(s[i % s.length]), Double.valueOf(s[(i + 1) % s.length]), Double.valueOf(s[(i + 2) % s.length]), Double.valueOf(s[(i + 3) % s.length]));
+            line.setStrokeWidth(5);
+            line.setStrokeType(StrokeType.CENTERED);
+            line.setStrokeLineCap(StrokeLineCap.BUTT);
+            line.setStroke(Color.RED.brighter());
+            Circle circ = new Circle(Double.valueOf(s[(i + 2) % s.length]), Double.valueOf(s[(i + 3) % s.length]), 4);
+            circ.setStroke(Color.RED.brighter());
+            canvasP.getChildren().add(new Group(line));
+            canvasP.getChildren().add(new Group(circ));
         }
     }
 
@@ -356,8 +413,8 @@ public class FincaShapeController implements Initializable {
             yEnd = event.getSceneY();
             shape.add(xEnd);
             shape.add(yEnd);
-            System.out.println("xEnd: " + xEnd);
-            System.out.println("yEnd: " + yEnd);
+            //System.out.println("xEnd: " + xEnd);
+            //System.out.println("yEnd: " + yEnd);
             line = new Line(xStart, yStart, xEnd, yEnd);
             line.setStrokeWidth(5);
             line.setStrokeType(StrokeType.CENTERED);

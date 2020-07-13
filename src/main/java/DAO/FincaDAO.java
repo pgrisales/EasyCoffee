@@ -171,7 +171,7 @@ public void modificarCoordenadas(String coor) {
     public void modificarShape(String shap) {
         PreparedStatement stat = null;
         try {
-            stat = conn.prepareStatement("UPDATE EASYCOFFEBD.FINCA SET SHAPE_FINCA = ? ");
+            stat = conn.prepareStatement("UPDATE EASYCOFFEBD.FINCA SET SHAPE_FINCA = ?");
             stat.setString(1, shap);
 
             if (stat.executeUpdate() == 0) {

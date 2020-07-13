@@ -88,7 +88,8 @@ public class Mapa1 {
     }
 
     public static Scene createScene() throws IOException {
-
+        //FramePrincipal.getSistem().getAdmin().getFinca().
+                
         AnchorPane root = new AnchorPane();
         Button crearVistaB = new Button("Descargar Coordenadas");
         Button volverB = new Button("Volver");
@@ -122,8 +123,9 @@ public class Mapa1 {
                             Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         state++;
+                        crearVistaB.setText("Seleccionar coordenadas");
                     } else {
-                        Button crearVistaB = new Button("Seleccionar coordenadas");
+                        crearVistaB.setText("Crear vista");
                         try {
                             Geo.getCoorFile();
                         } catch (IOException ex) {
@@ -132,9 +134,9 @@ public class Mapa1 {
                     }
 
                 } else {
-                    Button crearVistaB = new Button("Crear vista");
+                    
                     try {
-
+                        crearVistaB.setText("Crear vista");
                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/Map.fxml"));
                         Parent view = loader.load();
                         Scene viewSc = new Scene(view);

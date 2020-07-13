@@ -80,17 +80,19 @@ public class MapController implements Initializable {
 
         WebEngine engine = webview.getEngine();
         String coor = "";
-
-        System.out.println(FramePrincipal.getSistem().getAdmin().getFinca().getCoordenadas());
-
-        if (Geo.getCoordenadas() != null) {
+        coor = FramePrincipal.getSistem().getAdmin().getFinca().getCoordenadas();
+        String data = Geo.getMapUrl() + coor + "," + "17z";
+        System.out.println(data);
+        System.out.println(data);
+        engine.load(data);
+        /*if (Geo.getCoordenadas() != null) {
             String coord = "";
             coord = Geo.getCoordenadas();
             String data = Geo.getMapUrl() + coord + "," + "17z";
             System.out.println(data);
             engine.load(data);
             System.out.println(coord);
-        }
+        }*/
     }
 
 }
