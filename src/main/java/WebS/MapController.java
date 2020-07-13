@@ -84,7 +84,7 @@ public class MapController implements Initializable {
 
         int a = 1;
         int b = 1;
-        /*
+        
         if(!Geo.getCoordenadasFile().exists()){
             try {
                 Geo.getGeo();
@@ -94,7 +94,7 @@ public class MapController implements Initializable {
                 Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-*/
+
 
         while (a == 1) {
 

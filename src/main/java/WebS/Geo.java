@@ -3,8 +3,10 @@ package WebS;
 import Frontera.FramePrincipal;
 import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -22,24 +24,44 @@ public class Geo {
     private static String uLat;
     private static String uLon;
     private static String coordenadas;
-    private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("").getPath().toString()+"web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
+    private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("").getPath().toString() + "web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
 
     public static void getGeo() throws URISyntaxException, IOException {
         System.out.println("getgeo: coord " + Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt");
         System.out.println("getgeo: asdf " + Geo.class.getClassLoader().getResource("") + "web/getCoor.html");
         System.out.println("getgeo: ASDFASDF " + new File(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath()).toURI());
+        
         if (!coordenadasFile.exists()) {
+        
             //File file = new File(Geo.class.getClassLoader().getResource("").getFile()+"/web/getCoor.html");//
             //File file = new File(Geo.class.getClassLoader().getResource("")+"web/getCoor.html");
 
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                 //URI u = new URI(Geo.class.getClassLoader().getResource("we    b/getCoor.html").toString());
-                //File temp = new File(Geo.class.getClassLoader().getResource("web/getCoor.html").toString());
-                /*File temp = FramePrincipal.getSistem().getWebFiles("getCoor.html");
-                temp.createTempFile("getCoor", ".html");
+                //File temp = new File(Geo.class.getClassLoader().getResource("web/ge.tCoor.html").toString());
+                File saveCoor = null;
+                saveCoor = saveCoor.createTempFile("FileSaver", ".js");
+                BufferedWriter writer = new BufferedWriter(new FileWriter(saveCoor));
+                writer.write(FramePrincipal.getSistem().getWebFiles("FileSaver.js"));
+                
+                writer.close();
+                
+                File getCoorFile = null;
+                getCoorFile = getCoorFile.createTempFile("getCoor", ".html");
+                getCoorFile.deleteOnExit();
+                BufferedWriter writer1= new BufferedWriter(new FileWriter(getCoorFile));
+                String s = FramePrincipal.getSistem().getWebFiles("getCoor.html");
+                
+                s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\""+saveCoor.getName()+"\"></script>");
+                System.out.println(s);
+                
+                writer1.write(s);
+                writer1.close();
+                
+                
                 //File temp1 = File.createTempFile(null, ".html", temp);
                 //temp1.deleteOnExit();
-                Desktop.getDesktop().browse(temp.toURI());
+                Desktop.getDesktop().browse(getCoorFile.toURI());
                 //Desktop.getDesktop().browse(u);*/
                 //Desktop.getDesktop().browse(new File(Geo.class.getClassLoader().getResource("web/getCoor.html").getPath().toString()).toURI());
             }//getClass().getClassLoader().getResource("coordenadasFincaEasyCoffee.txt")
@@ -63,7 +85,7 @@ public class Geo {
         //Geo.class.getClassLoader().getResource("coordenadasFincaEasyCoffee.txt").toString()
         System.out.println("hpta " + Geo.class.getClassLoader().getResource(""));
         System.out.println(Geo.class.getClassLoader().getResource("") + "coordenadasFincaEasyCoffee.txt");
-        temp.renameTo(new File(Geo.class.getClassLoader().getResource("").getPath().toString()+"web/coordenadasFincaEasyCoffee.txt"));
+        temp.renameTo(new File(Geo.class.getClassLoader().getResource("").getPath().toString() + "web/coordenadasFincaEasyCoffee.txt"));
         System.out.println(coordenadasFile.exists());
     }
 
