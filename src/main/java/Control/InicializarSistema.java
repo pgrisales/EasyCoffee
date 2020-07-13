@@ -88,10 +88,11 @@ public class InicializarSistema {
                             t.setJornada((ArrayList<Jornada>) daoManager.getJornadaDAO().obtenerTodos(t.getCedula()));
                         }
                         this.lotes = (ArrayList<Lote>) daoManager.getLoteDAO().obtenerTodos();
-                        this.admin.getFinca().setCoordenadas(daoManager.getFincaDAO().obtenerCoordenadas());
-                        System.out.println("coor "+this.admin.getFinca().getCoordenadas());
-                        this.admin.getFinca().setShape(daoManager.getFincaDAO().obtenerShape());
+                        if(daoManager.getFincaDAO().obtenerShape()!=null)
+                            this.admin.getFinca().setShape(daoManager.getFincaDAO().obtenerShape());
                         //Asignando de BD los lotes y los trabajadores
+                        if(daoManager.getFincaDAO().obtenerCoordenadas()!=null)
+                            this.admin.getFinca().setCoordenadas(daoManager.getFincaDAO().obtenerCoordenadas());
                         this.admin.getFinca().setTrabajadores(trabajadores);
                         this.admin.getFinca().setLotes(lotes);
                         for (Lote l : this.admin.getFinca().getLotes()) {
@@ -108,6 +109,7 @@ public class InicializarSistema {
             }
         } catch (Exception e) {
             pcafe.stop();
+            System.out.println(e);
             System.out.println("-----------------------\n");
             System.out.println("Error al Intentar inicializar el Sistema\n");
             System.out.println("-----------------------\n");
