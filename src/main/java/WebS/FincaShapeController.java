@@ -86,7 +86,7 @@ public class FincaShapeController implements Initializable {
 
         if (FramePrincipal.getSistem().getAdmin().getFinca().getShape() != null) {
 
-            System.out.println("CARGANDO VISTA AEREA ..............");
+            System.out.println("CARGANDO VISTA AEREA ........");
             saveB.setVisible(false);
             eraseB.setText("Editar");
 
@@ -96,10 +96,11 @@ public class FincaShapeController implements Initializable {
             for (int i = 0; i < b.length; i++) {
                 temp.getPoints().add(Double.valueOf(b[i]));
             }
+            System.out.println("HPTA PUTA");
             bFinca = temp;
             drawline2(b);
             fillFinca();
-
+            System.out.println("HPTA PUTAx2");
             volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
@@ -109,13 +110,9 @@ public class FincaShapeController implements Initializable {
                     idLote = 0;
                     canvasP.getChildren().clear();
                     try {
-                        //Parent view = FXMLLoader.load(getClass().getResource("../fxml/Map.fxml"));
-                        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Map.fxml"));
-                        Scene viewSc = new Scene(view);
-                        //Mapa.fxContainer.setScene(viewSc);
-                        Mapa1.cambiarSc(viewSc);
+                        Mapa1.cambiarSc(Mapa1.createScene());
                     } catch (IOException ex) {
-                        Logger.getLogger(FincaShapeController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
                 }
@@ -163,6 +160,23 @@ public class FincaShapeController implements Initializable {
                 cShape.clear();
                 fincaCells.clear();
                 idLote = 0;
+
+                volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        shape.clear();
+                        cShape.clear();
+                        fincaCells.clear();
+                        idLote = 0;
+                        canvasP.getChildren().clear();
+                        try {
+                            Mapa1.cambiarSc(Mapa1.createScene());
+                        } catch (IOException ex) {
+                            Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    }
+                });
 
             });
 

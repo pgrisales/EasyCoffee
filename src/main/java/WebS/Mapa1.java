@@ -91,12 +91,17 @@ public class Mapa1 {
         //FramePrincipal.getSistem().getAdmin().getFinca().
                 
         AnchorPane root = new AnchorPane();
+        
+        
         Button crearVistaB = new Button("Descargar Coordenadas");
         Button volverB = new Button("Volver");
         volverB.relocate(290, 256);
         crearVistaB.relocate(467, 256);
         volverB.setPrefSize(150, 25);
         crearVistaB.setPrefSize(150, 25);
+        if(FramePrincipal.getSistem().getAdmin().getFinca().getShape() != null){
+            crearVistaB.setText("Ver Finca");
+        }
 
         // crearVistaB.setStyle("-fx-font-size: 2em;");
         //volverB.setStyle("-fx-font-size: 2em;");//-fx-font-size:8;-fx-font: 16 Sitka Banner;

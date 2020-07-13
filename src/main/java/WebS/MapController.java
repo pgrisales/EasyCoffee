@@ -46,46 +46,45 @@ public class MapController implements Initializable {
         volverB.setStyle("-fx-border-color: rgb(255, 255, 255); -fx-border-width: 2px; -fx-font-weight: bold; -fx-background-color: rgb(102, 0, 0); -fx-text-fill: rgb(255, 255, 255)");
 
         selectB.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                selectB.setOpacity(0);
-                volverB.setOpacity(0);
-                Robot robot;
-                try {
-                    WritableImage imagen = root.snapshot(new SnapshotParameters(), null);
-                    FincaShapeController.image = imagen;
-                    System.out.println("La imagen existe " + FincaShapeController.image);
-                    //Parent view = FXMLLoader.load(getClass().getResource("/fxml/FincaShape.fxml"));
-                    Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FincaShape.fxml"));
-                    Scene viewSc = new Scene(view);
-                    Mapa1.cambiarSc(viewSc);
-                    // Mapa.fxContainer.setScene(viewSc);
-                } catch (IOException ex) {
-                    Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                @Override
+                public void handle(ActionEvent event) {
+                    selectB.setOpacity(0);
+                    volverB.setOpacity(0);
+                    Robot robot;
+                    try {
+                        WritableImage imagen = root.snapshot(new SnapshotParameters(), null);
+                        FincaShapeController.image = imagen;
+                        System.out.println("La imagen existe " + FincaShapeController.image);
+                        Parent view = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FincaShape.fxml"));
+                        Scene viewSc = new Scene(view);
+                        Mapa1.cambiarSc(viewSc);
+                        // Mapa.fxContainer.setScene(viewSc);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            }
-        });
+            });
 
-        volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    Mapa1.cambiarSc(Mapa1.createScene());
-                } catch (IOException ex) {
-                    Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+            volverB.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    try {
+                        Mapa1.cambiarSc(Mapa1.createScene());
+                    } catch (IOException ex) {
+                        Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                 }
+            });
 
-            }
-        });
-
-        WebEngine engine = webview.getEngine();
-        String coor = "";
-        coor = FramePrincipal.getSistem().getAdmin().getFinca().getCoordenadas();
-        String data = Geo.getMapUrl() + coor + "," + "17z";
-        System.out.println(data);
-        System.out.println(data);
-        engine.load(data);
-        /*if (Geo.getCoordenadas() != null) {
+            WebEngine engine = webview.getEngine();
+            String coor = "";
+            coor = FramePrincipal.getSistem().getAdmin().getFinca().getCoordenadas();
+            String data = Geo.getMapUrl() + coor + "," + "17z";
+            System.out.println(data);
+            System.out.println(data);
+            engine.load(data);
+            /*if (Geo.getCoordenadas() != null) {
             String coord = "";
             coord = Geo.getCoordenadas();
             String data = Geo.getMapUrl() + coord + "," + "17z";
