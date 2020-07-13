@@ -86,7 +86,7 @@ public class MapController implements Initializable {
         int b = 1;
         
         
-        if(!Geo.getCoordenadasFile().exists()){
+        if(Geo.getCoordenadas() == null){
             try {
                 Geo.getGeo();
             } catch (IOException ex) {
@@ -99,28 +99,24 @@ public class MapController implements Initializable {
         
         while (a == 1) {
 
-            if (!Geo.getCoordenadasFile().exists()) {
+            if (Geo.getCoordenadas() == null) {
                 while (b == 1) {
-                    Geo.getCoorFile();
+                    try {
+                        Geo.getCoorFile();
+                    } catch (IOException ex) {
+                        Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     b++;
                 }
 
             }
 
-            if (Geo.getCoordenadasFile().exists()) {
+            if (Geo.getCoordenadas() != null) {
                 String coord = "";
-                try {
-                    coord = Geo.getCoor();
-                    String data = Geo.getMapUrl() + coord + "," + "17z";
-                    System.out.println(data);
-                    engine.load(data);
-                } catch (IOException ex) {
-                    Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (URISyntaxException ex) {
-                    Logger.getLogger(MapController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                coord = Geo.getCoordenadas();
+                String data = Geo.getMapUrl() + coord + "," + "17z";
+                System.out.println(data);
+                engine.load(data);
                 System.out.println(coord);
                 a = 22;
                 System.out.println(a);

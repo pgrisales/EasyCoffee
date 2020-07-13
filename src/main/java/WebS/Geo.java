@@ -1,6 +1,5 @@
 package WebS;
 
-
 import Frontera.FramePrincipal;
 import java.awt.Desktop;
 import java.io.BufferedReader;
@@ -22,42 +21,40 @@ public class Geo {
     private static String mapUrl = "https://zoom.earth/#view=";
     private static String uLat;
     private static String uLon;
-    private static String coordenadas;
-    private static File coordenadasFile = new File(Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt");//"../web/coordenadasFincaEasyCoffee.txt"
+    private static String coordenadas = FramePrincipal.getSistem().getAdmin().getFinca().getCoordenadas();
 
     public static void getGeo() throws IOException, URISyntaxException {
-        
-        if (!coordenadasFile.exists()) {
+
+        if (coordenadas == null) {
 
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                 File saveCoor = null;
                 saveCoor = saveCoor.createTempFile("FileSaver", ".js");
                 BufferedWriter writer = new BufferedWriter(new FileWriter(saveCoor, true));
                 writer.write(FramePrincipal.getSistem().getWebFiles("FileSaver.js"));
-                
+
                 writer.close();
-                
+
                 File getCoorFile = null;
                 getCoorFile = getCoorFile.createTempFile("getCoor", ".html");
                 getCoorFile.deleteOnExit();
                 System.out.println(getCoorFile.exists());
-                BufferedWriter writer1= new BufferedWriter(new FileWriter(getCoorFile, true));
+                BufferedWriter writer1 = new BufferedWriter(new FileWriter(getCoorFile, true));
                 String s = FramePrincipal.getSistem().getWebFiles("getCoor.html");
-                s = s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\""+saveCoor.getName()+"\"></script>");
-                
+                s = s.replaceAll("<script src=\"FileSaver.js\"></script>", "<script src=\"" + saveCoor.getName() + "\"></script>");
+
                 writer1.write(s);
                 writer1.close();
                 System.out.println(s);
                 System.out.println(getCoorFile.toURI());
                 Desktop.getDesktop().browse(getCoorFile.toURI());
-                
-                
+
             }
         }
 
     }
 
-    public static void getCoorFile() {
+    public static void getCoorFile() throws IOException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         fileChooser.setInitialDirectory(
@@ -66,17 +63,25 @@ public class Geo {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("TXT", "*.txt")
         );
-        //coordenadasFile = fileChooser.showOpenDialog(null);
         File temp = fileChooser.showOpenDialog(null);
         //temp.renameTo(new File(Geo.class.getResource("scoordenadasFincaEasyCoffee.txt").toString()));
         //temp.renameTo(new File("coordenadasFincaEasyCoffee.txt"));
         //Geo.class.getClassLoader().getResource("coordenadasFincaEasyCoffee.txt").toString()
         System.out.println("hpta " + Geo.class.getClassLoader().getResource(""));
         System.out.println(Geo.class.getClassLoader().getResource("") + "coordenadasFincaEasyCoffee.txt");
-        temp.renameTo(new File(Geo.class.getClassLoader().getResource("") + "web/coordenadasFincaEasyCoffee.txt"));
-        System.out.println(coordenadasFile.exists());
-    }
+        String coordenadas = "";
+        FileReader f = new FileReader(temp);
+        BufferedReader b = new BufferedReader(f);
+        while ((coordenadas = b.readLine()) != null) {
+            coordenadas += coordenadas;
+        }
+        b.close();
 
+        
+        FramePrincipal.getSistem().getAdmin().getFinca().setCoordenadas(coordenadas);
+
+    }
+/*
     public static String getCoor() throws IOException, InterruptedException, URISyntaxException {
         BufferedReader br = new BufferedReader(new FileReader(coordenadasFile));
 
@@ -91,7 +96,7 @@ public class Geo {
         System.out.println("lat: " + uLat);
         System.out.println("lon: " + uLon);
         return coordenadas;
-    }
+    }*/
 
     public static String getMapUrl() {
         return mapUrl;
@@ -109,8 +114,5 @@ public class Geo {
         return coordenadas;
     }
 
-    public static File getCoordenadasFile() {
-        return coordenadasFile;
-    }
 
 }
